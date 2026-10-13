@@ -47,7 +47,7 @@ function growthFromTape(entries) {
 
 const FLOOR_MKT_USD = 350_000_000;
 const FLOOR_MARGIN = 10;
-const TRACKED = [498, 853, 964];
+const TRACKED = [498, 853, 964, 496];
 
 const game = await j("/api/public/v1/game");
 const forex = await j("/api/public/v1/forex");
@@ -57,6 +57,10 @@ const countryCcy = {};
 for (const c of forex.currencies || []) countryCcy[c.countryId] = c.currencyCode;
 const toUSD = (v, ccy) =>
   v == null || !rates[ccy] || !rates["USD"] ? null : (v / rates[ccy]) * rates["USD"];
+// financials (revenue/income/costs) are gross per game day (24 turns) in ANCHOR
+// units (verified: 729,147,095 anchor displayed in-game as $687M).
+// balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units.
+const anchorToUSD = (v) => (v == null || !rates["USD"] ? null : v * rates["USD"]);
 const perUsd = (ccy) => (rates[ccy] && rates["USD"] ? rates[ccy] / rates["USD"] : null);
 
 function corpRow(c, tape) {
@@ -81,8 +85,8 @@ function corpRow(c, tape) {
     revenue: rev,
     operatingIncome: inc,
     marketCap: mkt,
-    revenueUsd: toUSD(rev, ccy),
-    operatingIncomeUsd: toUSD(inc, ccy),
+    revenueUsd: anchorToUSD(rev),
+    operatingIncomeUsd: anchorToUSD(inc),
     marketCapUsd: mktUsd,
     marginPct: mg == null ? null : Math.round(mg * 100) / 100,
     sharePrice: c.shareStructure?.sharePrice ?? null,
@@ -118,7 +122,7 @@ const out = {
   },
   thresholds: { marketCapFloorUsd: FLOOR_MKT_USD, marginFloorPct: FLOOR_MARGIN },
   methodology:
-    "Corp figures are reported in home-country currency; money fields are converted to USD via live forex (local-per-anchor rates, value/rate*USD_rate). marginPct = operatingIncome / totalRevenue * 100. growth = share-tape last vs first post-split price (anchor units), requires >=2 turn window. Threshold checks run on USD market cap.",
+    "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = share-tape last vs first post-split price (anchor units), requires >=2 turn window. Threshold checks run on USD market cap.",
   corporations,
   contact: {
     discord: larry.characters?.[0]?.discordUsername ?? "hyawii2.0",

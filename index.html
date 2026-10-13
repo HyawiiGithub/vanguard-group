@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3" />
+<link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -87,11 +87,12 @@
         </div>
         <div class="terminal-body">
           <div class="t-row t-head"><span>CORP</span><span>MKT CAP</span><span>REV</span><span>GRW</span></div>
-          <div class="t-row"><span class="t-name"><b class="v-dot"></b> VANGUARD</span><span data-live="alliance:marketCap" title="Alliance combined, USD">$15.32B</span><span data-live="alliance:revenue" title="Alliance combined, USD">$723.70M</span><span class="up" data-live="alliance:growth" title="BlackRock share-tape t145→t167">+41.5%</span></div>
-          <div class="t-row"><span class="t-name"><b class="b-dot"></b> BLACKROCK INC.</span><span data-live="blackrock:marketCap" title="¥978,375,200,000 ≈ $7.11B">$7.11B</span><span data-live="blackrock:revenue" title="¥729,147,095 ≈ $5.30M">$5.30M</span><span class="up" data-live="blackrock:growth" title="Share-tape t145→t167">+41.5%</span></div>
-          <div class="t-row"><span class="t-name"><b class="j-dot"></b> JOHN DEERE</span><span data-live="deere:marketCap" title="$188,029,382">$188.03M</span><span data-live="deere:revenue" title="$35,246,127">$35.25M</span><span data-live="deere:growth" title="Newly listed — insufficient tape">n/a</span></div>
-          <div class="t-row"><span class="t-name"><b class="vl-dot"></b> VERMONT LOG.</span><span data-live="vermont:marketCap" title="$8,023,100,000">$8.02B</span><span data-live="vermont:revenue" title="$683,156,242">$683.16M</span><span data-live="vermont:growth" title="Newly listed — insufficient tape">n/a</span></div>
-          <div class="t-note" id="snapNote">Verified 2026-10-13 · Turn 167 (May, Week 4, 1993) · figures in USD, converted at live forex (¥137.58/$) · margin = income ÷ revenue · growth from share tape · <a href="data/live.json">raw snapshot</a></div>
+          <div class="t-row"><span class="t-name"><b class="v-dot"></b> VANGUARD</span><span data-live="alliance:marketCap" title="Alliance combined, USD">$15.60B</span><span data-live="alliance:revenue" title="Alliance combined, USD">$1.40B</span><span class="up" data-live="alliance:growth" title="BlackRock share-tape t145→t167">+41.5%</span></div>
+          <div class="t-row"><span class="t-name"><b class="b-dot"></b> BLACKROCK INC.</span><span data-live="blackrock:marketCap" title="¥972,137,100,000 ≈ $7.07B">$7.07B</span><span data-live="blackrock:revenue" title="₳729,147,095 per game day ≈ $687.05M">$687.05M</span><span class="up" data-live="blackrock:growth" title="Share-tape t145→t167">+41.5%</span></div>
+          <div class="t-row"><span class="t-name"><b class="j-dot"></b> JOHN DEERE</span><span data-live="deere:marketCap" title="$188,029,382">$188.03M</span><span data-live="deere:revenue" title="₳35,246,127 per game day ≈ $33.21M">$33.21M</span><span data-live="deere:growth" title="Newly listed — insufficient tape">n/a</span></div>
+          <div class="t-row"><span class="t-name"><b class="vl-dot"></b> VERMONT LOG.</span><span data-live="vermont:marketCap" title="$8,023,100,000">$8.02B</span><span data-live="vermont:revenue" title="₳683,156,242 per game day ≈ $643.71M">$643.71M</span><span data-live="vermont:growth" title="Newly listed — insufficient tape">n/a</span></div>
+          <div class="t-row"><span class="t-name"><b class="pf-dot"></b> PFIZER</span><span data-live="pfizer:marketCap" title="$322,795,215">$322.80M</span><span data-live="pfizer:revenue" title="₳35,861,183 per game day ≈ $33.79M">$33.79M</span><span class="up" data-live="pfizer:growth" title="Share-tape t139→t167">+132.7%</span></div>
+          <div class="t-note" id="snapNote">Verified 2026-10-13 · Turn 167 (May, Week 4, 1993) · figures in USD (¥137.58/$, revenue gross per game day) · margin = income ÷ revenue · growth from share tape · <a href="data/live.json">raw snapshot</a></div>
           <div class="t-req">
             <div>ENTRY FLOOR <strong>$350,000,000</strong></div>
             <div class="bar"><div class="bar-fill" style="width:100%"></div></div>
@@ -111,7 +112,7 @@
       <span>VANGUARD GROUP ▲ COORDINATION PROTOCOL ACTIVE</span><span>◆</span>
       <span>ENTRY FLOOR: $350M MKT CAP</span><span>◆</span>
       <span>MIN MARGIN: 10–15%</span><span>◆</span>
-      <span>MEMBERS: BLACKROCK INCORPORATED • JOHN DEERE • VERMONT LOGISTICS</span><span>◆</span>
+      <span>MEMBERS: BLACKROCK INCORPORATED • JOHN DEERE • VERMONT LOGISTICS • PFIZER</span><span>◆</span>
       <span>LIVE STATS: <em class="wip-inline" id="tickerLive">VERIFIED 2026-10-13</em></span><span>◆</span>
       <span>APPLY: DISCORD hyawii2.0 / IN-GAME: LARRY FINK</span><span>◆</span>
     </div>
@@ -218,20 +219,20 @@
         <h3>Vanguard Group</h3>
         <p class="m-desc">Central coordinator. Sets negotiation floors, runs joint strategy, and enforces margin discipline across the alliance.</p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="alliance:revenue" title="Alliance combined, USD">$723.70M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="alliance:marketCap" title="Alliance combined, USD">$15.32B</strong></div>
+          <div><small>REVENUE</small><strong data-live="alliance:revenue" title="Alliance combined, USD">$1.40B</strong></div>
+          <div><small>MKT CAP</small><strong data-live="alliance:marketCap" title="Alliance combined, USD">$15.60B</strong></div>
           <div><small>GROWTH</small><strong data-live="alliance:growth" data-growth="long" title="BlackRock share-tape t145→t167">+41.52% (t145→t167)</strong></div>
         </div>
-        <p class="t-note">Alliance combined figures, USD (BlackRock + John Deere + Vermont Logistics).</p>
+        <p class="t-note">Alliance combined figures, USD (BlackRock + John Deere + Vermont Logistics + Pfizer).</p>
       </article>
       <article class="member reveal">
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo blackrock">BLACKROCK<span>INCORPORATED</span></div>
         <h3>BlackRock Incorporated</h3>
-        <p class="m-desc">Capital & holdings powerhouse. Anchors group liquidity and long-horizon investment coordination. <span id="blackrockNote">Passes T-1 + T-2 ($7.11B cap, 33.92% margin).</span></p>
+        <p class="m-desc">Capital & holdings powerhouse. Anchors group liquidity and long-horizon investment coordination. <span id="blackrockNote">Passes T-1 + T-2 ($7.07B cap, 33.92% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="blackrock:revenue" title="¥729,147,095 ≈ $5.30M">$5.30M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="blackrock:marketCap" title="¥978,375,200,000 ≈ $7.11B">$7.11B</strong></div>
+          <div><small>REVENUE</small><strong data-live="blackrock:revenue" title="₳729,147,095 per game day ≈ $687.05M">$687.05M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="blackrock:marketCap" title="¥972,137,100,000 ≈ $7.07B">$7.07B</strong></div>
           <div><small>GROWTH</small><strong data-live="blackrock:growth" data-growth="long" title="Share-tape t145→t167">+41.52% (t145→t167)</strong></div>
         </div>
         <div class="m-stats">
@@ -246,7 +247,7 @@
         <h3>John Deere</h3>
         <p class="m-desc">Industrial backbone. Heavy production, supply-chain weight, and resilient margin performance. <span id="deereNote">Currently at $188.03M — below the $350M floor, flagged pending recovery. Margin 29.59% holds.</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="deere:revenue" title="$35,246,127">$35.25M</strong></div>
+          <div><small>REVENUE</small><strong data-live="deere:revenue" title="₳35,246,127 per game day ≈ $33.21M">$33.21M</strong></div>
           <div><small>MKT CAP</small><strong data-live="deere:marketCap" title="$188,029,382">$188.03M</strong></div>
           <div><small>GROWTH</small><strong data-live="deere:growth" title="Newly listed — insufficient tape">n/a</strong></div>
         </div>
@@ -262,7 +263,7 @@
         <h3>Vermont Logistics</h3>
         <p class="m-desc">US heavy-haul logistics network across 70 sectors. Highest margin in the alliance. <span id="vermontNote">Passes T-1 + T-2 ($8.02B cap, 53.68% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="vermont:revenue" title="$683,156,242">$683.16M</strong></div>
+          <div><small>REVENUE</small><strong data-live="vermont:revenue" title="₳683,156,242 per game day ≈ $643.71M">$643.71M</strong></div>
           <div><small>MKT CAP</small><strong data-live="vermont:marketCap" title="$8,023,100,000">$8.02B</strong></div>
           <div><small>GROWTH</small><strong data-live="vermont:growth" title="Newly listed — insufficient tape">n/a</strong></div>
         </div>
@@ -272,8 +273,24 @@
           <div><small>CEO</small><strong>Malik Rahman</strong></div>
         </div>
       </article>
+      <article class="member reveal">
+        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
+        <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp" alt="Pfizer logo" loading="lazy" onerror="this.outerHTML='PFIZER'" /></div>
+        <h3>Pfizer</h3>
+        <p class="m-desc">US energy holding across 9 sectors. Strong margin, triple-digit tape growth. <span id="pfizerNote">At $322.80M — just under the $350M floor, flagged pending recovery. Margin 50.80% holds.</span></p>
+        <div class="m-stats">
+          <div><small>REVENUE</small><strong data-live="pfizer:revenue" title="₳35,861,183 per game day ≈ $33.79M">$33.79M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="pfizer:marketCap" title="$322,795,215">$322.80M</strong></div>
+          <div><small>GROWTH</small><strong data-live="pfizer:growth" data-growth="long" title="Share-tape t139→t167">+132.74% (t139→t167)</strong></div>
+        </div>
+        <div class="m-stats">
+          <div><small>MARGIN</small><strong data-live="pfizer:margin">50.80%</strong></div>
+          <div><small>RATING</small><strong data-live="pfizer:rating">AAA</strong></div>
+          <div><small>CEO</small><strong>Ronald Reagan</strong></div>
+        </div>
+      </article>
     </div>
-    <div class="wip-banner" id="dataBanner">⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> ($7.11B · 33.92% · +41.52%) · John Deere <strong>BELOW FLOOR</strong> ($188.03M · 29.59%) · Vermont Logistics <strong>PASS</strong> ($8.02B · 53.68%) · snapshot <a href="data/live.json">data/live.json</a> · turn 167</div>
+    <div class="wip-banner" id="dataBanner">⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> ($7.07B · 33.92% · +41.52%) · John Deere <strong>BELOW FLOOR</strong> ($188.03M · 29.59%) · Vermont Logistics <strong>PASS</strong> ($8.02B · 53.68%) · Pfizer <strong>BELOW FLOOR</strong> ($322.80M · 50.80% · +132.74%) · snapshot <a href="data/live.json">data/live.json</a> · turn 167</div>
   </div>
 </section>
 
@@ -360,13 +377,13 @@
     </div>
     <div>
       <strong>Members</strong>
-      <p>Vanguard Group<br>BlackRock Incorporated<br>John Deere<br>Vermont Logistics</p>
+      <p>Vanguard Group<br>BlackRock Incorporated<br>John Deere<br>Vermont Logistics<br>Pfizer</p>
     </div>
   </div>
   <div class="foot-base">© <span id="year"></span> Vanguard Group (AHD Chapter) • Entry floor $350M • Margin 10–15% • Coordination mandatory</div>
 </footer>
 </main>
 
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>

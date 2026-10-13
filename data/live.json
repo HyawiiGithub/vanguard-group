@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T15:35:43.112Z",
+  "updatedAt": "2026-10-13T15:45:48.803Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -12,7 +12,7 @@
     "marketCapFloorUsd": 350000000,
     "marginFloorPct": 10
   },
-  "methodology": "Corp figures are reported in home-country currency; money fields are converted to USD via live forex (local-per-anchor rates, value/rate*USD_rate). marginPct = operatingIncome / totalRevenue * 100. growth = share-tape last vs first post-split price (anchor units), requires >=2 turn window. Threshold checks run on USD market cap.",
+  "methodology": "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = share-tape last vs first post-split price (anchor units), requires >=2 turn window. Threshold checks run on USD market cap.",
   "corporations": [
     {
       "id": 498,
@@ -27,12 +27,12 @@
       "ceo": "Larry Fink",
       "revenue": 729147095,
       "operatingIncome": 247316784,
-      "marketCap": 978375200000,
-      "revenueUsd": 5299747.82348667,
-      "operatingIncomeUsd": 1797602.4271422527,
-      "marketCapUsd": 7111242535.709938,
+      "marketCap": 972137100000,
+      "revenueUsd": 687049954.8445071,
+      "operatingIncomeUsd": 233038006.2468585,
+      "marketCapUsd": 7065901400.670934,
       "marginPct": 33.92,
-      "sharePrice": 8894.32,
+      "sharePrice": 8837.61,
       "totalShares": 110000000,
       "creditRating": "AAA",
       "sectorCount": 70,
@@ -63,8 +63,8 @@
       "revenue": 35246127,
       "operatingIncome": 10427908,
       "marketCap": 188029382,
-      "revenueUsd": 35246127,
-      "operatingIncomeUsd": 10427908,
+      "revenueUsd": 33211199.948336575,
+      "operatingIncomeUsd": 9825855.125326496,
       "marketCapUsd": 188029382,
       "marginPct": 29.59,
       "sharePrice": 63.93,
@@ -91,8 +91,8 @@
       "revenue": 683156242,
       "operatingIncome": 366708393,
       "marketCap": 8023100000,
-      "revenueUsd": 683156242,
-      "operatingIncomeUsd": 366708393,
+      "revenueUsd": 643714373.1853491,
+      "operatingIncomeUsd": 345536568.1073608,
       "marketCapUsd": 8023100000,
       "marginPct": 53.68,
       "sharePrice": 802.31,
@@ -102,6 +102,41 @@
       "growth": null,
       "checks": {
         "marketCapPass": true,
+        "marginPass": true
+      }
+    },
+    {
+      "id": 496,
+      "name": "Pfizer",
+      "type": "energy",
+      "countryId": "US",
+      "currency": "USD",
+      "fxPerUsd": 1,
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/496",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp",
+      "brandColor": "#d946ef",
+      "ceo": "Ronald Reagan",
+      "revenue": 35861183,
+      "operatingIncome": 18219256,
+      "marketCap": 322795215,
+      "revenueUsd": 33790745.83136151,
+      "operatingIncomeUsd": 17167371.437035646,
+      "marketCapUsd": 322795215,
+      "marginPct": 50.8,
+      "sharePrice": 2.45,
+      "totalShares": 131753149,
+      "creditRating": "AAA",
+      "sectorCount": 9,
+      "growth": {
+        "pct": 132.74,
+        "fromTurn": 139,
+        "toTurn": 167,
+        "fromPrice": 1.123081622450316,
+        "toPrice": 2.613807580675743,
+        "trades": 27
+      },
+      "checks": {
+        "marketCapPass": false,
         "marginPass": true
       }
     }

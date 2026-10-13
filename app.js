@@ -66,7 +66,7 @@ function fmtGrowth(g, short){
 let SNAP = null;
 function corpByKey(key){
   if (!SNAP || !SNAP.corporations) return null;
-  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : key === 'vermont' ? 964 : null;
+  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : key === 'vermont' ? 964 : key === 'pfizer' ? 496 : null;
   return SNAP.corporations.find(c => c.id === id || (id === null && c.name.toLowerCase().includes(key))) || null;
 }
 function localSym(c){ return c.currency === 'JPY' ? '¥' : c.currency === 'GBP' ? '£' : '$'; }
@@ -145,12 +145,20 @@ async function loadLive(){
   }
   const vn = $('#vermontNote');
   if (vn && v) vn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(v.marketCapUsd) + ' cap, ' + v.marginPct.toFixed(2) + '% margin).';
+  const p = corpByKey('pfizer');
+  const pn = $('#pfizerNote');
+  if (pn && p) {
+    pn.textContent = p.checks && p.checks.marketCapPass
+      ? 'Meets the $350M floor (' + fmtCompact(p.marketCapUsd) + ' cap, ' + p.marginPct.toFixed(2) + '% margin).'
+      : 'At ' + fmtCompact(p.marketCapUsd) + ' just under the $350M floor, flagged pending recovery. Margin ' + p.marginPct.toFixed(2) + '% holds.';
+  }
   const banner = $('#dataBanner');
   if (banner && b && d) {
     banner.innerHTML = '⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> (' + esc(fmtCompact(b.marketCapUsd)) + ' · ' + b.marginPct.toFixed(2) + '% · ' + esc(fmtGrowth(b.growth, false)) + ')' +
       ' · John Deere <strong>' + (d.checks && d.checks.marketCapPass ? 'PASS' : 'BELOW FLOOR') + '</strong>' +
       ' (' + esc(fmtCompact(d.marketCapUsd)) + ' · ' + d.marginPct.toFixed(2) + '%)' +
       (v ? ' · Vermont Logistics <strong>PASS</strong> (' + esc(fmtCompact(v.marketCapUsd)) + ' · ' + v.marginPct.toFixed(2) + '%)' : '') +
+      (p ? ' · Pfizer <strong>' + (p.checks && p.checks.marketCapPass ? 'PASS' : 'BELOW FLOOR') + '</strong> (' + esc(fmtCompact(p.marketCapUsd)) + ' · ' + p.marginPct.toFixed(2) + '%' + (p.growth ? ' · ' + esc(fmtGrowth(p.growth, true)) : '') + ')' : '') +
       ' · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
   }
 }
@@ -238,7 +246,7 @@ I am writing on behalf of ${corp} to request entry negotiations for the Vanguard
 — Activity: Daily-active leadership, responsive comms
 — Commitment: Willing to coordinate pricing, supply, votes and crisis response with the group and its members.
 
-Current members noted: BlackRock Incorporated, John Deere, Vermont Logistics.
+Current members noted: BlackRock Incorporated, John Deere, Vermont Logistics, Pfizer.
 
 Please advise on verification steps and negotiation time.
 
