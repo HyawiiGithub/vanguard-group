@@ -66,14 +66,17 @@ function fmtGrowth(g, short){
 let SNAP = null;
 function corpByKey(key){
   if (!SNAP || !SNAP.corporations) return null;
-  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : null;
-  return SNAP.corporations.find(c => c.id === id || c.name.toLowerCase().includes(key)) || null;
+  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : key === 'vermont' ? 964 : null;
+  return SNAP.corporations.find(c => c.id === id || (id === null && c.name.toLowerCase().includes(key))) || null;
 }
+function localSym(c){ return c.currency === 'JPY' ? '¥' : c.currency === 'GBP' ? '£' : '$'; }
+function fmtLocal(n, c){ return localSym(c) + Math.round(n).toLocaleString('en-US'); }
+function fmtUSD(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
 function liveText(key, field, long){
   if (key === 'alliance' && SNAP && SNAP.corporations) {
     const sum = (f) => SNAP.corporations.reduce((a, c) => a + (c[f] || 0), 0);
-    if (field === 'marketCap') return fmtCompact(sum('marketCap'));
-    if (field === 'revenue') return fmtCompact(sum('revenue'));
+    if (field === 'marketCap') return fmtCompact(sum('marketCapUsd'));
+    if (field === 'revenue') return fmtCompact(sum('revenueUsd'));
     if (field === 'growth') {
       const b = SNAP.corporations.find(c => c.id === 498);
       return b && b.growth ? fmtGrowth(b.growth, !long) : 'n/a';
@@ -82,8 +85,8 @@ function liveText(key, field, long){
   }
   const c = corpByKey(key);
   if (!c) return null;
-  if (field === 'marketCap') return c.marketCap != null ? fmtCompact(c.marketCap) : null;
-  if (field === 'revenue') return c.revenue != null ? fmtCompact(c.revenue) : null;
+  if (field === 'marketCap') return c.marketCapUsd != null ? fmtCompact(c.marketCapUsd) : null;
+  if (field === 'revenue') return c.revenueUsd != null ? fmtCompact(c.revenueUsd) : null;
   if (field === 'margin') return c.marginPct != null ? c.marginPct.toFixed(2) + '%' : null;
   if (field === 'rating') return c.creditRating || null;
   if (field === 'growth') return c.growth ? fmtGrowth(c.growth, !long) : 'n/a';
@@ -105,12 +108,14 @@ async function loadLive(){
   const dateStr = upd.toISOString().slice(0, 10);
 
   const stamp = $('#liveStamp');
-  if (stamp) stamp.textContent = 'LIVE • TURN ' + s.game.currentTurn;
+  if (stamp) stamp.textContent = 'LIVE • TURN ' + s.game.currentTurn + ' • USD';
   const tick = $('#tickerLive');
   if (tick) tick.textContent = 'VERIFIED ' + dateStr;
+  const jpy = (s.corporations.find(c => c.currency === 'JPY') || {}).fxPerUsd;
   const note = $('#snapNote');
   if (note) note.innerHTML = 'Verified ' + esc(dateStr) + ' · Turn ' + s.game.currentTurn +
-    ' (' + esc(s.game.gameDateLabel) + ') · margin = income ÷ revenue · growth from share tape · <a href="data/live.json">raw snapshot</a>';
+    ' (' + esc(s.game.gameDateLabel) + ') · figures in USD' + (jpy ? ', converted at live forex (¥' + jpy + '/$)' : '') +
+    ' · margin = income ÷ revenue · growth from share tape · <a href="data/live.json">raw snapshot</a>';
 
   document.querySelectorAll('[data-live]').forEach(el => {
     const parts = (el.getAttribute('data-live') || '').split(':');
@@ -122,25 +127,31 @@ async function loadLive(){
     if (parts[1] === 'growth' && v !== 'n/a') el.classList.add('up');
     const c = corpByKey(parts[0]);
     if (c) {
-      if (parts[1] === 'marketCap') el.title = '$' + Math.round(c.marketCap).toLocaleString('en-US');
-      if (parts[1] === 'revenue') el.title = '$' + Math.round(c.revenue).toLocaleString('en-US');
+      if (parts[1] === 'marketCap' && c.marketCap != null)
+        el.title = c.currency === 'USD' ? fmtUSD(c.marketCapUsd) : fmtLocal(c.marketCap, c) + ' ≈ ' + fmtUSD(c.marketCapUsd);
+      if (parts[1] === 'revenue' && c.revenue != null)
+        el.title = c.currency === 'USD' ? fmtUSD(c.revenueUsd) : fmtLocal(c.revenue, c) + ' ≈ ' + fmtUSD(c.revenueUsd);
     }
   });
 
-  const b = corpByKey('blackrock'), d = corpByKey('deere');
+  const b = corpByKey('blackrock'), d = corpByKey('deere'), v = corpByKey('vermont');
   const bn = $('#blackrockNote');
-  if (bn && b) bn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(b.marketCap) + ' cap, ' + b.marginPct.toFixed(2) + '% margin).';
+  if (bn && b) bn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(b.marketCapUsd) + ' cap, ' + b.marginPct.toFixed(2) + '% margin).';
   const dn = $('#deereNote');
   if (dn && d) {
     dn.textContent = d.checks && d.checks.marketCapPass
-      ? 'Meets the $350M floor (' + fmtCompact(d.marketCap) + ' cap, ' + d.marginPct.toFixed(2) + '% margin).'
-      : 'Currently at ' + fmtCompact(d.marketCap) + ' — below the $350M floor, flagged pending recovery. Margin ' + d.marginPct.toFixed(2) + '% holds.';
+      ? 'Meets the $350M floor (' + fmtCompact(d.marketCapUsd) + ' cap, ' + d.marginPct.toFixed(2) + '% margin).'
+      : 'Currently at ' + fmtCompact(d.marketCapUsd) + ' — below the $350M floor, flagged pending recovery. Margin ' + d.marginPct.toFixed(2) + '% holds.';
   }
+  const vn = $('#vermontNote');
+  if (vn && v) vn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(v.marketCapUsd) + ' cap, ' + v.marginPct.toFixed(2) + '% margin).';
   const banner = $('#dataBanner');
   if (banner && b && d) {
-    banner.innerHTML = '⚙ LIVE DATA — BlackRock <strong>PASS</strong> (' + esc(fmtCompact(b.marketCap)) + ' · ' + b.marginPct.toFixed(2) + '% · ' + esc(fmtGrowth(b.growth, false)) + ')' +
+    banner.innerHTML = '⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> (' + esc(fmtCompact(b.marketCapUsd)) + ' · ' + b.marginPct.toFixed(2) + '% · ' + esc(fmtGrowth(b.growth, false)) + ')' +
       ' · John Deere <strong>' + (d.checks && d.checks.marketCapPass ? 'PASS' : 'BELOW FLOOR') + '</strong>' +
-      ' (' + esc(fmtCompact(d.marketCap)) + ' · ' + d.marginPct.toFixed(2) + '%) · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
+      ' (' + esc(fmtCompact(d.marketCapUsd)) + ' · ' + d.marginPct.toFixed(2) + '%)' +
+      (v ? ' · Vermont Logistics <strong>PASS</strong> (' + esc(fmtCompact(v.marketCapUsd)) + ' · ' + v.marginPct.toFixed(2) + '%)' : '') +
+      ' · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
   }
 }
 
@@ -182,7 +193,7 @@ on('#checkBtn', 'click', () => {
   }
 });
 
-// Pull figures from the verified snapshot by corp ID (members tracked: 498, 853)
+// Pull figures from the verified snapshot by corp ID (members tracked: 498, 853, 964)
 on('#lookupBtn', 'click', () => {
   const idEl = $('#cId');
   if (!idEl) return;
@@ -196,13 +207,14 @@ on('#lookupBtn', 'click', () => {
     return;
   }
   if ($('#cName')) $('#cName').value = c.name;
-  if ($('#cCap')) $('#cCap').value = c.marketCap != null ? (c.marketCap / 1e6).toFixed(2) : '';
+  if ($('#cCap')) $('#cCap').value = c.marketCapUsd != null ? (c.marketCapUsd / 1e6).toFixed(2) : '';
   if ($('#cMargin')) $('#cMargin').value = c.marginPct != null ? c.marginPct.toFixed(2) : '';
   setVerdict(c.checks.marketCapPass && c.checks.marginPass,
-    c.name + ' — pulled from API snapshot',
-    'Revenue ' + esc(fmtCompact(c.revenue)) + ' · income ' + esc(fmtCompact(c.operatingIncome)) +
+    c.name + ' — pulled from API snapshot (USD)',
+    'Revenue ' + esc(fmtCompact(c.revenueUsd)) + ' · income ' + esc(fmtCompact(c.operatingIncomeUsd)) +
+    (c.currency !== 'USD' ? ' · local ' + esc(fmtLocal(c.revenue, c)) + ' / ' + esc(fmtLocal(c.marketCap, c)) : '') +
     ' · margin ' + (c.marginPct != null ? c.marginPct.toFixed(2) + '%' : 'n/a') +
-    ' · cap ' + esc(fmtCompact(c.marketCap)) +
+    ' · cap ' + esc(fmtCompact(c.marketCapUsd)) +
     (c.growth ? ' · growth ' + esc(fmtGrowth(c.growth, false)) : ' · growth n/a') +
     ' · <a href="' + escapeHtml(c.corpUrl) + '">open corp page</a>. Now tick the activity boxes and press Evaluate.', false);
 });
@@ -226,7 +238,7 @@ I am writing on behalf of ${corp} to request entry negotiations for the Vanguard
 — Activity: Daily-active leadership, responsive comms
 — Commitment: Willing to coordinate pricing, supply, votes and crisis response with the group and its members.
 
-Current members noted: BlackRock Incorporated, John Deere.
+Current members noted: BlackRock Incorporated, John Deere, Vermont Logistics.
 
 Please advise on verification steps and negotiation time.
 

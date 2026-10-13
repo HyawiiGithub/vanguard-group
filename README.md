@@ -5,7 +5,8 @@ Corporate alliance operating in [A House Divided](https://ahousedividedgame.com)
 - **T-1:** $350,000,000 market-cap floor (hard)
 - **T-2:** 10% minimum margin, 15% preferred (`operatingIncome / revenue`)
 - **T-3:** Active daily + written commitment to coordinate with the group and all members
-- **Members:** BlackRock Incorporated (#498, CEO Larry Fink), John Deere (#853)
+- **Members:** BlackRock Incorporated (#498, CEO Larry Fink), John Deere (#853), Vermont Logistics (#964, CEO Malik Rahman)
+- **Figures:** USD-normalized via live forex (JP corps report in ¥); raw + converted values in `data/live.json`
 - **Apply:** Discord DM `hyawii2.0` · in-game mail `Larry Fink`
 
 ## Live data

@@ -20,21 +20,21 @@ const num = (n) => (typeof n === "number" && isFinite(n) ? n : null);
 const marginPct = (f) =>
   f && num(f.totalRevenue) ? (num(f.operatingIncome) / f.totalRevenue) * 100 : null;
 
-// growth from share tape: earliest post-split price vs latest price
+// growth from share tape: earliest post-split price vs latest price.
+// Requires a real window (span >= 2 turns), else null (e.g. founding transfers).
 function growthFromTape(entries) {
   if (!entries?.length) return null;
-  // exclude splits/issuance/reverse_split with price 0
   const trades = entries
     .filter((e) => num(e.pricePerShareAnchor) && e.pricePerShareAnchor > 0)
     .sort((a, b) => a.turn - b.turn || new Date(a.createdAt) - new Date(b.createdAt));
   if (trades.length < 2) return null;
-  // drop pre-split outliers: if a stock_split exists, only use trades after last split
   const lastSplitTurn = entries
     .filter((e) => e.kind === "stock_split" || e.kind === "reverse_split")
     .reduce((m, e) => Math.max(m, e.turn), -1);
   const post = trades.filter((t) => t.turn > lastSplitTurn);
   if (post.length < 2) return null;
   const first = post[0], last = post[post.length - 1];
+  if (last.turn - first.turn < 2) return null;
   return {
     pct: ((last.pricePerShareAnchor - first.pricePerShareAnchor) / first.pricePerShareAnchor) * 100,
     fromTurn: first.turn,
@@ -45,64 +45,81 @@ function growthFromTape(entries) {
   };
 }
 
-const FLOOR_MKT = 350_000_000;
+const FLOOR_MKT_USD = 350_000_000;
 const FLOOR_MARGIN = 10;
+const TRACKED = [498, 853, 964];
 
 const game = await j("/api/public/v1/game");
-const blackrock = await j("/api/public/v1/corporation?id=498");
-const deere = await j("/api/public/v1/corporation?id=853");
-const larry = await j("/api/public/v1/character?name=" + encodeURIComponent("Larry Fink"));
-const tapeB = await j("/api/public/v1/corporation/shares/history?id=498&pageSize=50");
-const tapeJ = await j("/api/public/v1/corporation/shares/history?id=853&pageSize=50");
+const forex = await j("/api/public/v1/forex");
+const rates = {};
+for (const c of forex.currencies || []) rates[c.currencyCode] = c.rate;
+const countryCcy = {};
+for (const c of forex.currencies || []) countryCcy[c.countryId] = c.currencyCode;
+const toUSD = (v, ccy) =>
+  v == null || !rates[ccy] || !rates["USD"] ? null : (v / rates[ccy]) * rates["USD"];
+const perUsd = (ccy) => (rates[ccy] && rates["USD"] ? rates[ccy] / rates["USD"] : null);
 
 function corpRow(c, tape) {
-  const mkt = num(c.balanceSheet?.marketCapitalization);
+  const ccy = countryCcy[c.countryId] || "USD";
   const rev = num(c.financials?.totalRevenue);
   const inc = num(c.financials?.operatingIncome);
+  const mkt = num(c.balanceSheet?.marketCapitalization);
   const mg = marginPct(c.financials);
   const g = growthFromTape(tape.entries);
+  const mktUsd = toUSD(mkt, ccy);
   return {
     id: c.sequentialId,
     name: c.name,
     type: c.type,
     countryId: c.countryId,
+    currency: ccy,
+    fxPerUsd: perUsd(ccy) == null ? null : Math.round(perUsd(ccy) * 100) / 100,
     corpUrl: c.corpUrl,
     logoUrl: c.logoUrl,
     brandColor: c.brandColor,
     ceo: c.ceo?.name ?? null,
     revenue: rev,
     operatingIncome: inc,
-    marginPct: mg == null ? null : Math.round(mg * 100) / 100,
     marketCap: mkt,
-    sharePrice: num(c.shareStructure?.totalShares) ? num(c.shareStructure && c.shareStructure.sharePrice) ?? null : null,
-    sharePriceRaw: c.shareStructure?.sharePrice ?? null,
+    revenueUsd: toUSD(rev, ccy),
+    operatingIncomeUsd: toUSD(inc, ccy),
+    marketCapUsd: mktUsd,
+    marginPct: mg == null ? null : Math.round(mg * 100) / 100,
+    sharePrice: c.shareStructure?.sharePrice ?? null,
     totalShares: c.shareStructure?.totalShares ?? null,
     creditRating: c.creditRating?.rating ?? null,
     sectorCount: Array.isArray(c.sectors) ? c.sectors.length : null,
     growth: g ? { ...g, pct: Math.round(g.pct * 100) / 100 } : null,
     checks: {
-      marketCapPass: mkt == null ? null : mkt >= FLOOR_MKT,
+      marketCapPass: mktUsd == null ? null : mktUsd >= FLOOR_MKT_USD,
       marginPass: mg == null ? null : mg >= FLOOR_MARGIN,
     },
   };
 }
 
+const corporations = [];
+for (const id of TRACKED) {
+  const c = await j(`/api/public/v1/corporation?id=${id}`);
+  const tape = await j(`/api/public/v1/corporation/shares/history?id=${id}&pageSize=50`);
+  corporations.push(corpRow(c, tape));
+}
+
+const larry = await j("/api/public/v1/character?name=" + encodeURIComponent("Larry Fink"));
+
 const out = {
   updatedAt: new Date().toISOString(),
   source: "ahousedividedgame.com /api/public/v1",
+  displayCurrency: "USD",
   game: {
     currentTurn: game.currentTurn,
     gameDateLabel: game.gameDateLabel,
     status: game.status,
     nextTurnAt: game.nextTurnAt,
   },
-  thresholds: { marketCapFloor: FLOOR_MKT, marginFloorPct: FLOOR_MARGIN },
+  thresholds: { marketCapFloorUsd: FLOOR_MKT_USD, marginFloorPct: FLOOR_MARGIN },
   methodology:
-    "marginPct = operatingIncome / totalRevenue * 100 from /corporation. marketCap from balanceSheet.marketCapitalization. growth = share-tape last vs first post-split pricePerShareAnchor (all trades, anchor units). Tape is paged (50 most recent); growth window noted in fromTurn/toTurn.",
-  corporations: [
-    corpRow(blackrock, tapeB),
-    corpRow(deere, tapeJ),
-  ],
+    "Corp figures are reported in home-country currency; money fields are converted to USD via live forex (local-per-anchor rates, value/rate*USD_rate). marginPct = operatingIncome / totalRevenue * 100. growth = share-tape last vs first post-split price (anchor units), requires >=2 turn window. Threshold checks run on USD market cap.",
+  corporations,
   contact: {
     discord: larry.characters?.[0]?.discordUsername ?? "hyawii2.0",
     character: "Larry Fink",
@@ -114,4 +131,8 @@ const out = {
 await mkdir("data", { recursive: true });
 await writeFile("data/live.json", JSON.stringify(out, null, 2) + "\n");
 console.log("Wrote data/live.json");
-console.log(JSON.stringify(out, null, 2));
+for (const c of corporations) {
+  console.log(
+    `${c.name} (#${c.id}, ${c.currency}): mkt=${c.marketCap} -> $${Math.round(c.marketCapUsd).toLocaleString()} | rev=${c.revenue} -> $${Math.round(c.revenueUsd).toLocaleString()} | margin=${c.marginPct}% | growth=${c.growth ? c.growth.pct + "%" : "n/a"} | pass=${c.checks.marketCapPass && c.checks.marginPass}`
+  );
+}

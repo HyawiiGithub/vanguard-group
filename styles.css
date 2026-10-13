@@ -60,8 +60,8 @@ main,header.topbar,footer{position:relative;z-index:1}
 .t-row:nth-child(even){background:rgba(255,255,255,.03)}
 .t-head{color:var(--muted);font-size:.68rem;letter-spacing:1px;font-weight:800}
 .t-name{font-weight:700;display:flex;align-items:center;gap:8px}
-.v-dot,.b-dot,.j-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
-.v-dot{background:#ff4d67}.b-dot{background:#60a5fa}.j-dot{background:var(--green)}
+.v-dot,.b-dot,.j-dot,.vl-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.v-dot{background:#ff4d67}.b-dot{background:#60a5fa}.j-dot{background:var(--green)}.vl-dot{background:var(--amber)}
 .wip{background:rgba(245,158,11,.14);color:#fbbf24;border:1px solid rgba(245,158,11,.35);padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:800;letter-spacing:1px;animation:wipPulse 2s infinite;display:inline-block}
 @keyframes wipPulse{50%{opacity:.55}}
 .wip-inline{background:rgba(245,158,11,.18);color:#fcd34d;border:1px solid rgba(245,158,11,.4);padding:1px 8px;border-radius:999px;font-size:.75em;font-weight:800}
@@ -115,6 +115,8 @@ main,header.topbar,footer{position:relative;z-index:1}
 .m-logo.deere{flex-direction:column;color:#1a5d1a;font-weight:900;font-size:1.25rem;line-height:1}
 .m-logo.deere span:last-child{font-size:.6rem;letter-spacing:3px;color:#333}
 .deere-mark{font-size:1.6rem}
+.m-logo.vermont{flex-direction:column;color:#0c6b3c;font-weight:900;font-size:1.2rem;line-height:1}
+.m-logo.vermont span{font-size:.6rem;letter-spacing:3px;color:#333}
 .m-desc{min-height:72px}
 .m-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
 .m-stats div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
