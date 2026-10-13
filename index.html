@@ -3,150 +3,352 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Vanguard Group — Notice of Entry Negotiations | A House Divided</title>
-<meta name="description" content="Vanguard Group corporate alliance in A House Divided. Entry floor: $350M market cap, 10% margin, active coordination. Live verified register." />
+<title>Vanguard Group — Corporate Alliance | A House Divided</title>
+<meta name="description" content="Vanguard Group is the premier corporate coordination alliance in A House Divided. $350M+ market cap. 10-15% margin. Active coordination. Members: BlackRock Incorporated, John Deere." />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
 
-<div class="page">
-
-  <header class="masthead">
-    <div class="mast-left">
-      <img class="vg-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Vanguard_The_Vanguard_Group_Logo.svg/512px-Vanguard_The_Vanguard_Group_Logo.svg.png" alt="Vanguard" onerror="this.remove()" />
-      <div>
-        <div class="mast-name">VANGUARD GROUP</div>
-        <div class="mast-sub">Corporate alliance &middot; A House Divided</div>
-      </div>
-    </div>
-    <div class="mast-right">
-      <div>MEMORANDUM 001</div>
-      <div>ENTRY NEGOTIATIONS</div>
-    </div>
-  </header>
-  <div class="rule-double"></div>
-
-  <p class="dateline" id="dateline">Loading snapshot&hellip;</p>
-
-  <h1>Notice of entry negotiations</h1>
-  <p class="standfirst">
-    The Vanguard Group coordinates pricing, supply and strategy among its member
-    corporations in <a href="https://ahousedividedgame.com">A House Divided</a>.
-    Negotiations for entry are open to corporations that meet the thresholds below.
-    Figures in &sect;2 are pulled from the game API and re-checked hourly.
-  </p>
-
-  <h2>&sect;1 &mdash; Thresholds</h2>
-  <table class="ledger">
-    <thead><tr><th>No.</th><th>Requirement</th><th class="num">Floor</th><th>Notes</th></tr></thead>
-    <tbody>
-      <tr><td>T-1</td><td>Market capitalisation</td><td class="num">$350,000,000</td><td>Hard floor at time of application. Snapshot required.</td></tr>
-      <tr><td>T-2</td><td>Net operating margin</td><td class="num">10% (15% preferred)</td><td>Sustained, not one cycle. margin = operating income &divide; revenue.</td></tr>
-      <tr><td>T-3</td><td>Active &amp; willing to coordinate</td><td class="num">&mdash;</td><td>Daily-active leadership. Written commitment to coordinate with the group and all members.</td></tr>
-    </tbody>
-  </table>
-  <p class="note">Failure on any one of T-1&ndash;T-3 closes the file. No exceptions, no probation.</p>
-
-  <h2>&sect;2 &mdash; Register of members <span class="tag" id="snapTag">VERIFYING&hellip;</span></h2>
-  <p class="note" id="snapLine">Fetching verified figures&hellip;</p>
-  <div class="table-scroll">
-  <table class="ledger" id="register">
-    <thead><tr>
-      <th>Corporation</th><th>CEO</th>
-      <th class="num">Revenue</th><th class="num">Op. income</th>
-      <th class="num">Margin</th><th class="num">Market cap</th>
-      <th class="num">Growth (tape)</th><th>Verdict</th>
-    </tr></thead>
-    <tbody id="registerBody">
-      <tr><td colspan="8">Loading&hellip;</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <p class="note">
-    Growth = share-tape last vs first post-split price (anchor units), window shown per row.
-    John Deere currently sits below the T-1 floor; its file is marked accordingly &mdash;
-    the register reports what the API returns, not what flatters us.
-    Full snapshot: <a href="data/live.json">data/live.json</a>.
-  </p>
-
-  <h2>&sect;3 &mdash; Check your own corporation</h2>
-  <p class="note">
-    Enter your figures as they stand in-game. This is a self-check against T-1/T-2;
-    final verification is run by the group through the game API before any negotiation.
-    Attach screenshots of your corporation page to your application.
-  </p>
-  <form class="checker" id="checker" onsubmit="return false;">
-    <div class="frow">
-      <label>Corporation name<input id="cName" autocomplete="off" placeholder="e.g. Acme Steel Co." /></label>
-      <label>Corp sequential ID <span class="hint">(number in your corp URL)</span><input id="cId" inputmode="numeric" autocomplete="off" placeholder="e.g. 498" /></label>
-    </div>
-    <div class="frow">
-      <label>Market cap<input id="cCap" inputmode="decimal" autocomplete="off" placeholder="e.g. 420000000" /></label>
-      <label>Revenue<input id="cRev" inputmode="decimal" autocomplete="off" placeholder="e.g. 80000000" /></label>
-      <label>Operating income<input id="cInc" inputmode="decimal" autocomplete="off" placeholder="e.g. 12000000" /></label>
-    </div>
-    <div class="frow checks">
-      <label class="chk"><input type="checkbox" id="cActive" /> Active daily, responsive comms</label>
-      <label class="chk"><input type="checkbox" id="cCoord" /> Willing to coordinate with the group and all members</label>
-    </div>
-    <div class="frow">
-      <button type="button" id="checkBtn">Evaluate</button>
-      <button type="button" id="lookupBtn" class="secondary" title="Look up corp ID in the local snapshot">Look up ID in snapshot</button>
-    </div>
-    <div class="verdict" id="verdict" aria-live="polite">
-      <strong id="verdictTitle">No evaluation yet.</strong>
-      <p id="verdictBody">Fill in the fields above and press Evaluate.</p>
-    </div>
-  </form>
-
-  <h2>&sect;4 &mdash; File an application</h2>
-  <p class="note">Two channels. Include corp name, corp ID, market cap, margin, and the coordination statement, or the message is discarded.</p>
-  <div class="channels">
-    <div class="channel">
-      <h3>Channel A &mdash; Discord</h3>
-      <p>Direct message <code id="discordTag">hyawii2.0</code>
-      <button type="button" class="mini" data-copy="hyawii2.0">Copy</button></p>
-    </div>
-    <div class="channel">
-      <h3>Channel B &mdash; In-game mail</h3>
-      <p>On <a href="https://ahousedividedgame.com">ahousedividedgame.com</a>, mail
-      <code>Larry Fink</code>
-      <button type="button" class="mini" data-copy="Larry Fink">Copy</button></p>
-    </div>
-  </div>
-  <h3>Dossier template</h3>
-  <form class="checker" onsubmit="return false;">
-    <div class="frow">
-      <label>Corporation<input id="mCorp" autocomplete="off" placeholder="Acme Steel Co." /></label>
-      <label>Corp ID<input id="mId" autocomplete="off" placeholder="112" /></label>
-    </div>
-    <div class="frow">
-      <label>Market cap<input id="mCap" autocomplete="off" placeholder="420000000" /></label>
-      <label>Margin %<input id="mMargin" autocomplete="off" placeholder="13" /></label>
-    </div>
-    <div class="frow"><button type="button" id="genMail">Generate dossier</button>
-    <button type="button" class="secondary" id="copyMail">Copy dossier</button></div>
-    <textarea id="mailOut" rows="10" readonly placeholder="Dossier text will appear here."></textarea>
-  </form>
-
-  <h2>&sect;5 &mdash; Method &amp; source</h2>
-  <ul class="method">
-    <li>Endpoints: <code>GET /api/public/v1/corporation?id=</code>, <code>/corporation/shares/history</code>, <code>/game</code>, <code>/character?name=</code>. Base: <code>https://ahousedividedgame.com</code>.</li>
-    <li>Auth: personal <code>X-API-Key</code>. The key lives in a server secret / local environment only &mdash; it is not shipped in this site. The hourly refresh job injects it at build time.</li>
-    <li>Margin and verdicts are computed, not self-reported. See <a href="tools/fetch-ahd.mjs">tools/fetch-ahd.mjs</a>.</li>
-    <li>Refresh: hourly via GitHub Actions (<code>.github/workflows/refresh-ahd.yml</code>), committed as <code>data/live.json</code>.</li>
-  </ul>
-
-  <div class="rule-double"></div>
-  <footer>
-    <p>Fan-run alliance page for <a href="https://ahousedividedgame.com">ahousedividedgame.com</a>. Game corporations and characters are in-game entities.
-    Contact: Discord <code>hyawii2.0</code> &middot; in-game <code>Larry Fink</code> (CEO, BlackRock Incorporated).</p>
-    <p>&copy; <span id="year"></span> Vanguard Group (AHD chapter). T-1 $350M &middot; T-2 10&ndash;15% &middot; T-3 coordination mandatory.</p>
-  </footer>
-
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="pulse-dot"></span>
+  <span>Corporate Alliance operating in <a href="https://ahousedividedgame.com" target="_blank" rel="noopener">ahousedividedgame.com</a> — Negotiations now open for qualified corporations</span>
 </div>
 
-<script src="app.js"></script>
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">
+        <!-- Official-style Vanguard ship mark -->
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="44" height="44" rx="9" fill="#C4122E"/>
+          <path d="M10 30.5 24 10l14 20.5-4.2.4L24 16.8l-9.8 14.1-4.2-.4Z" fill="white"/>
+          <path d="M12 33.5h24l-2.6 3.5H14.6L12 33.5Z" fill="white"/>
+          <path d="M24 10v6.5" stroke="white" stroke-width="1.4"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <strong>VANGUARD</strong>
+        <small>GROUP • A HOUSE DIVIDED</small>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="#alliance">Alliance</a>
+      <a href="#eligibility">Eligibility</a>
+      <a href="#members">Members</a>
+      <a href="#advantage">Advantage</a>
+      <a href="#apply" class="btn btn-sm btn-red">Apply Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#alliance">Alliance</a>
+    <a href="#eligibility">Eligibility</a>
+    <a href="#members">Members</a>
+    <a href="#advantage">Advantage</a>
+    <a href="#apply">Apply Now</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="badge-row">
+        <span class="badge badge-red">● NEGOTIATIONS OPEN</span>
+        <span class="badge badge-ghost">Corporate Coordination Group</span>
+      </div>
+      <h1>Scale Wins.<br><span class="red">Discipline</span> Keeps It.<br><em>Coordination</em> Multiplies It.</h1>
+      <p class="lede">The <strong>Vanguard Group</strong> is the private alliance for serious corporations in <a href="https://ahousedividedgame.com" target="_blank" rel="noopener">A House Divided</a>. We coordinate pricing, supply, and market strategy — and we only negotiate entry with corporations that can already perform.</p>
+      <div class="hero-cta">
+        <a href="#apply" class="btn btn-red btn-lg">Request Negotiation →</a>
+        <a href="#eligibility" class="btn btn-ghost btn-lg">Check Eligibility</a>
+      </div>
+      <div class="hero-reqs">
+        <div><strong>$350M+</strong><span>Market Cap Required</span></div>
+        <div><strong>10–15%</strong><span>Minimum Margin</span></div>
+        <div><strong>100%</strong><span>Active & Coordinated</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="terminal-card">
+        <div class="terminal-head">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span>VANGUARD // MEMBERS TERMINAL</span>
+          <span class="live" id="liveStamp">LIVE • VERIFYING…</span>
+        </div>
+        <div class="terminal-body">
+          <div class="t-row t-head"><span>CORP</span><span>MKT CAP</span><span>REV</span><span>GRW</span></div>
+          <div class="t-row"><span class="t-name"><b class="v-dot"></b> VANGUARD</span><span class="wip">—</span><span class="wip">—</span><span class="up">—</span></div>
+          <div class="t-row"><span class="t-name"><b class="b-dot"></b> BLACKROCK INC.</span><span class="wip" data-live="blackrock:marketCap">WIP</span><span class="wip" data-live="blackrock:revenue">WIP</span><span class="up" data-live="blackrock:growth">WIP</span></div>
+          <div class="t-row"><span class="t-name"><b class="j-dot"></b> JOHN DEERE</span><span class="wip" data-live="deere:marketCap">WIP</span><span class="wip" data-live="deere:revenue">WIP</span><span class="up" data-live="deere:growth">WIP</span></div>
+          <div class="t-note" id="snapNote">Verifying revenue • market cap • growth % against the AHD game API…</div>
+          <div class="t-req">
+            <div>ENTRY FLOOR <strong>$350,000,000</strong></div>
+            <div class="bar"><div class="bar-fill" style="width:100%"></div></div>
+            <small>Below floor = no negotiation. No exceptions.</small>
+          </div>
+        </div>
+      </div>
+      <div class="official-strip">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Vanguard_The Vanguard Group Logo.svg/512px-Vanguard_The Vanguard Group Logo.svg.png" alt="Vanguard official logo" onerror="this.style.display='none'" />
+        <span>Official Vanguard identity • Alliance chapter for A House Divided</span>
+      </div>
+    </div>
+  </div>
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker" id="ticker">
+      <span>VANGUARD GROUP ▲ COORDINATION PROTOCOL ACTIVE</span><span>◆</span>
+      <span>ENTRY FLOOR: $350M MKT CAP</span><span>◆</span>
+      <span>MIN MARGIN: 10–15%</span><span>◆</span>
+      <span>MEMBERS: BLACKROCK INCORPORATED • JOHN DEERE</span><span>◆</span>
+      <span>LIVE STATS: <em class="wip-inline" id="tickerLive">VERIFYING…</em></span><span>◆</span>
+      <span>APPLY: DISCORD hyawii2.0 / IN-GAME: LARRY FINK</span><span>◆</span>
+    </div>
+  </div>
+</section>
+
+<!-- ALLIANCE -->
+<section class="section" id="alliance">
+  <div class="container">
+    <p class="kicker">01 — THE ALLIANCE</p>
+    <h2>A private group for corporations <span class="red">that already win.</span></h2>
+    <p class="sub">Vanguard Group does not incubate. We coordinate. Every member defends its margin, shares intel, and moves with the group when it matters.</p>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="icon">◈</div>
+        <h3>Scale</h3>
+        <p>$350M minimum market cap ensures every seat at the table moves markets. No micro-caps. No passengers.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon">⬣</div>
+        <h3>Discipline</h3>
+        <p>10–15% minimum margin proves operational control. If you can't protect margin, you can't protect the group.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon">⬢</div>
+        <h3>Coordination</h3>
+        <p>Active players willing to coordinate pricing, supply chains, votes and crisis response with all members.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section class="section section-dark" id="eligibility">
+  <div class="container">
+    <p class="kicker">02 — ELIGIBILITY TO TALK</p>
+    <h2>Requirements to be eligible <span class="red">for entry negotiations.</span></h2>
+    <p class="sub">Fail any one of these and we do not open negotiations. This page is the filter — do not apply if you do not pass.</p>
+    <div class="grid-3 req-cards">
+      <div class="req reveal">
+        <span class="req-num">R-01</span>
+        <h3>$350 Million Market Cap</h3>
+        <p>Hard floor. Verified in-game valuation at time of application. Snapshot required.</p>
+        <div class="req-tag">NON-NEGOTIABLE</div>
+      </div>
+      <div class="req reveal">
+        <span class="req-num">R-02</span>
+        <h3>10–15% Minimum Margin</h3>
+        <p>Sustained net margin across recent cycles. 10% absolute minimum, 15% preferred.</p>
+        <div class="req-tag">AUDITED</div>
+      </div>
+      <div class="req reveal">
+        <span class="req-num">R-03</span>
+        <h3>Active + Willing to Coordinate</h3>
+        <p>Daily-active leadership, responsive comms, and written commitment to coordinate with the group and its members.</p>
+        <div class="req-tag">MANDATORY</div>
+      </div>
+    </div>
+
+    <div class="checker reveal" id="checker">
+      <div class="checker-left">
+        <h3>◉ Eligibility Checker</h3>
+        <p>Enter your figures. Get an instant verdict before you message us.</p>
+        <label>Corporation name<input id="cName" placeholder="e.g. Acme Steel Co." /></label>
+        <div class="two">
+          <label>Market cap ($M)<input id="cCap" type="number" placeholder="350" min="0" /></label>
+          <label>Net margin (%)<input id="cMargin" type="number" placeholder="12" min="0" max="100" step="0.1" /></label>
+        </div>
+        <div class="checks">
+          <label class="chk"><input type="checkbox" id="cActive" /> <span>We are active daily</span></label>
+          <label class="chk"><input type="checkbox" id="cCoord" /> <span>Willing to coordinate with group & members</span></label>
+        </div>
+        <button class="btn btn-red btn-lg" id="checkBtn">Evaluate My Corporation</button>
+        <div class="code-row" style="margin-top:10px"><code style="font-size:.75rem">Have a corp ID? (# in corp URL)</code></div>
+        <div class="two">
+          <label style="margin:0">Corp sequential ID<input id="cId" type="number" placeholder="e.g. 498" min="0" /></label>
+          <div style="display:flex;align-items:flex-end"><button class="btn btn-ghost btn-sm" id="lookupBtn" type="button">Pull my API figures</button></div>
+        </div>
+      </div>
+      <div class="checker-right">
+        <div class="verdict" id="verdict">
+          <span class="v-label">VERDICT</span>
+          <strong id="verdictTitle">Awaiting input…</strong>
+          <p id="verdictBody">Fill in your market cap, margin, and coordination status. The group floor is $350M and 10% margin.</p>
+          <a href="#apply" class="btn btn-ghost" id="verdictCta" style="display:none">Proceed to Apply →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section class="section" id="members">
+  <div class="container">
+    <p class="kicker">03 — CURRENT MEMBERS</p>
+    <h2>Holding the line. <span class="red">Holding margin.</span></h2>
+    <p class="sub" id="membersSub">Live revenue, market cap and growth % verified against the AHD game API — refreshing hourly. Full snapshot: <a href="data/live.json">data/live.json</a>.</p>
+    <div class="grid-3 members">
+      <article class="member featured reveal">
+        <div class="m-top"><span class="m-role">★ FOUNDER / COORDINATOR</span><span class="live-dot">● ACTIVE</span></div>
+        <div class="m-logo vanguard-logo">
+          <svg viewBox="0 0 120 36" aria-label="Vanguard logo"><rect x="1" y="1" width="34" height="34" rx="7" fill="#C4122E"/><path d="M7 24.5 18 8l11 16.5-3.3.3L18 14.4l-7.7 10.4-3.3-.3Z" fill="#fff"/><text x="42" y="23" font-family="Inter,Arial" font-weight="900" font-size="17" fill="#0A1230" letter-spacing="1">VANGUARD</text><text x="42" y="31" font-family="Inter,Arial" font-size="7.5" fill="#C4122E" letter-spacing="2.4">GROUP</text></svg>
+        </div>
+        <h3>Vanguard Group</h3>
+        <p class="m-desc">Central coordinator. Sets negotiation floors, runs joint strategy, and enforces margin discipline across the alliance.</p>
+        <div class="m-stats">
+          <div><small>REVENUE</small><strong class="wip">WIP</strong></div>
+          <div><small>MKT CAP</small><strong class="wip">WIP</strong></div>
+          <div><small>GROWTH</small><strong class="wip">WIP</strong></div>
+        </div>
+      </article>
+      <article class="member reveal">
+        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
+        <div class="m-logo blackrock">BLACKROCK<span>INCORPORATED</span></div>
+        <h3>BlackRock Incorporated</h3>
+        <p class="m-desc">Capital & holdings powerhouse. Anchors group liquidity and long-horizon investment coordination. <span id="blackrockNote"></span></p>
+        <div class="m-stats">
+          <div><small>REVENUE</small><strong class="wip" data-live="blackrock:revenue">WIP</strong></div>
+          <div><small>MKT CAP</small><strong class="wip" data-live="blackrock:marketCap">WIP</strong></div>
+          <div><small>GROWTH</small><strong class="wip" data-live="blackrock:growth">WIP</strong></div>
+        </div>
+        <div class="m-stats">
+          <div><small>MARGIN</small><strong class="wip" data-live="blackrock:margin">WIP</strong></div>
+          <div><small>RATING</small><strong class="wip" data-live="blackrock:rating">WIP</strong></div>
+          <div><small>CEO</small><strong>Larry Fink</strong></div>
+        </div>
+      </article>
+      <article class="member reveal">
+        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
+        <div class="m-logo deere"><span class="deere-mark">🦌</span> JOHN DEERE<span>INDUSTRIALS</span></div>
+        <h3>John Deere</h3>
+        <p class="m-desc">Industrial backbone. Heavy production, supply-chain weight, and resilient margin performance. <span id="deereNote"></span></p>
+        <div class="m-stats">
+          <div><small>REVENUE</small><strong class="wip" data-live="deere:revenue">WIP</strong></div>
+          <div><small>MKT CAP</small><strong class="wip" data-live="deere:marketCap">WIP</strong></div>
+          <div><small>GROWTH</small><strong class="wip" data-live="deere:growth">WIP</strong></div>
+        </div>
+        <div class="m-stats">
+          <div><small>MARGIN</small><strong class="wip" data-live="deere:margin">WIP</strong></div>
+          <div><small>RATING</small><strong class="wip" data-live="deere:rating">WIP</strong></div>
+          <div><small>CEO</small><strong>Darren W. Woods</strong></div>
+        </div>
+      </article>
+    </div>
+    <div class="wip-banner" id="dataBanner">⚙ LIVE DATA — revenue • market cap • growth % verifying against the AHD game API…</div>
+  </div>
+</section>
+
+<!-- ADVANTAGE -->
+<section class="section section-dark" id="advantage">
+  <div class="container">
+    <p class="kicker">04 — WHY JOIN</p>
+    <h2>What coordination <span class="red">actually gets you.</span></h2>
+    <div class="grid-3">
+      <div class="card reveal"><div class="icon">◐</div><h3>Joint Negotiations</h3><p>Enter every deal backed by $1B+ in combined allied market weight.</p></div>
+      <div class="card reveal"><div class="icon">◑</div><h3>Margin Defense</h3><p>Coordinated pricing floors stop race-to-the-bottom undercutting.</p></div>
+      <div class="card reveal"><div class="icon">⬔</div><h3>Crisis Response</h3><p>Supply shocks, raids, votes — the group moves as one bloc.</p></div>
+      <div class="card reveal"><div class="icon">⬕</div><h3>Intel Sharing</h3><p>Market data, rival tracking, and cycle forecasts shared internally.</p></div>
+      <div class="card reveal"><div class="icon">⬘</div><h3>Supply Priority</h3><p>Members route contracts and logistics to members first.</p></div>
+      <div class="card reveal"><div class="icon">⬗</div><h3>Voting Bloc</h3><p>Aligned votes in A House Divided political & economic decisions.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="section apply" id="apply">
+  <div class="container">
+    <p class="kicker">05 — REQUEST NEGOTIATION</p>
+    <h2>Think you qualify? <span class="red">Prove it.</span></h2>
+    <p class="sub">Two official application channels. Include corporation name, market cap, margin %, and activity statement — or you will be ignored.</p>
+    <div class="grid-2">
+      <div class="apply-card reveal">
+        <span class="ch-num">CHANNEL 01</span>
+        <h3>💬 Discord — hyawii2.0</h3>
+        <p>Fastest route. Send a direct message to <code>hyawii2.0</code> on Discord with your corp dossier.</p>
+        <div class="code-row"><code id="discordTag">hyawii2.0</code><button class="btn btn-sm btn-red" data-copy="hyawii2.0">Copy</button></div>
+        <ul class="apply-list">
+          <li>✓ Corp name + in-game owner</li>
+          <li>✓ Market cap screenshot ($350M+)</li>
+          <li>✓ Margin % over last cycles (10–15%+)</li>
+          <li>✓ "Willing to coordinate" statement</li>
+        </ul>
+      </div>
+      <div class="apply-card reveal">
+        <span class="ch-num">CHANNEL 02</span>
+        <h3>✉ In-Game Mail — Larry Fink</h3>
+        <p>On <a href="https://ahousedividedgame.com" target="_blank" rel="noopener">ahousedividedgame.com</a>, send in-game mail to <code>Larry Fink</code> (A House Divided).</p>
+        <div class="code-row"><code>Larry Fink — A House Divided</code><button class="btn btn-sm btn-ghost" data-copy="Larry Fink">Copy Name</button></div>
+        <div class="mail-gen">
+          <label>Your corp name<input id="mCorp" placeholder="Acme Steel Co." /></label>
+          <div class="two">
+            <label>Mkt cap ($M)<input id="mCap" type="number" placeholder="420" /></label>
+            <label>Margin (%)<input id="mMargin" type="number" placeholder="13" /></label>
+          </div>
+          <button class="btn btn-red" id="genMail">Generate Application Mail</button>
+          <textarea id="mailOut" rows="8" readonly placeholder="Your formatted application mail will appear here…"></textarea>
+          <button class="btn btn-ghost btn-sm" id="copyMail">Copy Mail Text</button>
+        </div>
+      </div>
+    </div>
+    <div class="warn">⛔ Do not apply if you are under $350M market cap or under 10% margin. Unqualified messages will not receive a reply. Active coordination is mandatory — silent partners are removed.</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-dark" id="faq">
+  <div class="container narrow">
+    <p class="kicker">06 — FAQ</p>
+    <h2>Before you message us.</h2>
+    <div class="faq">
+      <details open><summary>Is $350M market cap a hard requirement?</summary><p>Yes. It is the absolute floor to even open negotiations. No exceptions, no probationary entries.</p></details>
+      <details><summary>What margin do you actually enforce?</summary><p>10% minimum, 15% preferred. We check sustained margin, not a single lucky cycle.</p></details>
+      <details><summary>What does "willing to coordinate" mean?</summary><p>You respond quickly, share relevant intel, align pricing/supply when agreed, and vote with the bloc on coordinated decisions.</p></details>
+      <details><summary>When will live revenue / market cap / growth show?</summary><p>They are live now — pulled from the AHD game API and refreshed hourly. See <a href="data/live.json">data/live.json</a> for the raw snapshot.</p></details>
+      <details><summary>Who do I contact?</summary><p>Discord: <code>hyawii2.0</code> — or in-game mail to <code>Larry Fink</code> on <a href="https://ahousedividedgame.com" target="_blank" rel="noopener">ahousedividedgame.com</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <div class="brand-text"><strong>VANGUARD</strong><small>GROUP • A HOUSE DIVIDED</small></div>
+      <p>Fan-run corporate alliance for <a href="https://ahousedividedgame.com" target="_blank" rel="noopener">ahousedividedgame.com</a>. Game roles and corporations are in-game entities.</p>
+    </div>
+    <div>
+      <strong>Apply</strong>
+      <p>Discord: <code>hyawii2.0</code><br>In-game: <code>Larry Fink</code></p>
+    </div>
+    <div>
+      <strong>Members</strong>
+      <p>Vanguard Group<br>BlackRock Incorporated<br>John Deere</p>
+    </div>
+  </div>
+  <div class="foot-base">© <span id="year"></span> Vanguard Group (AHD Chapter) • Entry floor $350M • Margin 10–15% • Coordination mandatory</div>
+</footer>
+</main>
+
+<script src="app.js?v=2"></script>
 </body>
 </html>

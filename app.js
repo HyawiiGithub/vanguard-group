@@ -1,143 +1,235 @@
-// Vanguard Group — live snapshot rendering + self-check. No API keys in this file.
+// Vanguard Group — interactions + live AHD snapshot (no API keys in this file).
+// Every binding is null-guarded so a missing element can never throw.
 const $ = (s) => document.querySelector(s);
-$("#year").textContent = new Date().getFullYear();
+const on = (sel, ev, fn) => {
+  const el = typeof sel === 'string' ? $(sel) : sel;
+  if (el) el.addEventListener(ev, fn);
+  return el;
+};
 
-const fmtMoney = (n) =>
-  n == null ? "—" : "$" + Math.round(n).toLocaleString("en-US");
-const fmtPct = (n) => (n == null ? "—" : n.toFixed(2) + "%");
-const esc = (s) =>
-  String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const yearEl = $('#year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// Nav
+const toggle = $('#navToggle'), mm = $('#mobileMenu');
+if (toggle && mm) {
+  on(toggle, 'click', () => mm.classList.toggle('open'));
+  mm.querySelectorAll('a').forEach(a => on(a, 'click', () => mm.classList.remove('open')));
+}
+
+// Ticker duplicate for seamless loop
+const ticker = $('#ticker');
+if (ticker) ticker.innerHTML += ticker.innerHTML;
+
+// Reveal on scroll
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((es) => es.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  }), { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+}
+
+// Copy buttons
+document.querySelectorAll('[data-copy]').forEach(btn => {
+  on(btn, 'click', async () => {
+    const txt = btn.getAttribute('data-copy');
+    try { await navigator.clipboard.writeText(txt); } catch {
+      const ta = document.createElement('textarea');
+      ta.value = txt; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch {}
+      ta.remove();
+    }
+    const old = btn.textContent; btn.textContent = 'Copied ✓';
+    setTimeout(() => btn.textContent = old, 1400);
+  });
+});
+
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function fmtCompact(n){
+  if (n == null || !isFinite(n)) return 'WIP';
+  const a = Math.abs(n);
+  if (a >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+  if (a >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
+  if (a >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
+  return '$' + Math.round(n).toLocaleString('en-US');
+}
+function fmtGrowth(g, short){
+  if (!g || g.pct == null) return 'n/a';
+  const sign = g.pct >= 0 ? '+' : '';
+  return short ? sign + g.pct.toFixed(1) + '%'
+               : sign + g.pct.toFixed(2) + '% (t' + g.fromTurn + '→t' + g.toTurn + ')';
+}
+
+// ---- Live snapshot (data/live.json, refreshed hourly by Action; no key here)
 let SNAP = null;
-
-async function load() {
+function corpByKey(key){
+  if (!SNAP || !SNAP.corporations) return null;
+  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : null;
+  return SNAP.corporations.find(c => c.id === id || c.name.toLowerCase().includes(key)) || null;
+}
+function liveText(key, field){
+  const c = corpByKey(key);
+  if (!c) return null;
+  if (field === 'marketCap') return c.marketCap != null ? fmtCompact(c.marketCap) : null;
+  if (field === 'revenue') return c.revenue != null ? fmtCompact(c.revenue) : null;
+  if (field === 'margin') return c.marginPct != null ? c.marginPct.toFixed(2) + '%' : null;
+  if (field === 'rating') return c.creditRating || null;
+  if (field === 'growth') return c.growth ? fmtGrowth(c.growth, true) : 'n/a';
+  return null;
+}
+async function loadLive(){
+  let s;
   try {
-    const r = await fetch("data/live.json", { cache: "no-store" });
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    SNAP = await r.json();
-    renderSnap(SNAP);
-  } catch (e) {
-    $("#snapTag").textContent = "SNAPSHOT UNAVAILABLE";
-    $("#snapTag").classList.add("bad");
-    $("#snapLine").textContent = "Could not load data/live.json (" + e.message + "). Figures below are stale — see repo.";
-    $("#registerBody").innerHTML = '<tr><td colspan="8">Snapshot failed to load. Open data/live.json directly.</td></tr>';
-    $("#dateline").textContent = "Snapshot unavailable.";
+    const r = await fetch('data/live.json', { cache: 'no-store' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    s = await r.json();
+  } catch {
+    const stamp = $('#liveStamp'); if (stamp) stamp.textContent = 'LIVE • OFFLINE';
+    const note = $('#snapNote'); if (note) note.textContent = 'Live snapshot unavailable — showing last known structure. Raw: data/live.json.';
+    return;
   }
-}
-
-function renderSnap(s) {
+  SNAP = s;
   const upd = new Date(s.updatedAt);
-  $("#dateline").textContent =
-    `Turn ${s.game.currentTurn} · ${s.game.gameDateLabel} · game ${s.game.status} · snapshot ${upd.toUTCString()}`;
-  $("#snapTag").textContent = "VERIFIED " + upd.toISOString().slice(0, 10);
-  $("#snapTag").classList.add("ok");
-  $("#snapLine").textContent =
-    `Source: ${s.source}. Next turn ${s.game.nextTurnAt || "—"}. ` +
-    `Floor T-1 $${s.thresholds.marketCapFloor.toLocaleString("en-US")}, T-2 ${s.thresholds.marginFloorPct}%.`;
+  const dateStr = upd.toISOString().slice(0, 10);
 
-  $("#registerBody").innerHTML = s.corporations.map((c) => {
-    const pass = c.checks.marketCapPass && c.checks.marginPass;
-    const g = c.growth ? `${c.growth.pct >= 0 ? "+" : ""}${c.growth.pct.toFixed(2)}% (t${c.growth.fromTurn}→t${c.growth.toTurn})` : "n/a — new listing";
-    return `<tr>
-      <td><div class="corp-cell">
-        <img src="${esc(c.logoUrl)}" alt="" loading="lazy" onerror="this.remove()" />
-        <div><div class="cn"><a href="${esc(c.corpUrl)}">${esc(c.name)}</a></div>
-        <div class="cid">#${c.id} · ${esc(c.type)} · ${esc(c.countryId)} · ${c.sectorCount} sectors · ${esc(c.creditRating || "")}</div></div>
-      </div></td>
-      <td>${esc(c.ceo || "—")}</td>
-      <td class="num">${fmtMoney(c.revenue)}</td>
-      <td class="num">${fmtMoney(c.operatingIncome)}</td>
-      <td class="num">${fmtPct(c.marginPct)}</td>
-      <td class="num">${fmtMoney(c.marketCap)}</td>
-      <td class="num">${esc(g)}</td>
-      <td><span class="stamp ${pass ? "pass" : "fail"}">${pass ? "PASS" : "FAIL T-1"}</span></td>
-    </tr>`;
-  }).join("");
+  const stamp = $('#liveStamp');
+  if (stamp) stamp.textContent = 'LIVE • TURN ' + s.game.currentTurn;
+  const tick = $('#tickerLive');
+  if (tick) tick.textContent = 'VERIFIED ' + dateStr;
+  const note = $('#snapNote');
+  if (note) note.innerHTML = 'Verified ' + esc(dateStr) + ' · Turn ' + s.game.currentTurn +
+    ' (' + esc(s.game.gameDateLabel) + ') · margin = income ÷ revenue · growth from share tape · <a href="data/live.json">raw snapshot</a>';
+
+  document.querySelectorAll('[data-live]').forEach(el => {
+    const parts = (el.getAttribute('data-live') || '').split(':');
+    if (parts.length !== 2) return;
+    const v = liveText(parts[0], parts[1]);
+    if (v == null) return; // keep WIP fallback
+    el.textContent = v;
+    el.classList.remove('wip');
+    if (parts[1] === 'growth' && v !== 'n/a') el.classList.add('up');
+    const c = corpByKey(parts[0]);
+    if (c) {
+      if (parts[1] === 'marketCap') el.title = '$' + Math.round(c.marketCap).toLocaleString('en-US');
+      if (parts[1] === 'revenue') el.title = '$' + Math.round(c.revenue).toLocaleString('en-US');
+    }
+  });
+
+  const b = corpByKey('blackrock'), d = corpByKey('deere');
+  const bn = $('#blackrockNote');
+  if (bn && b) bn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(b.marketCap) + ' cap, ' + b.marginPct.toFixed(2) + '% margin).';
+  const dn = $('#deereNote');
+  if (dn && d) {
+    dn.textContent = d.checks && d.checks.marketCapPass
+      ? 'Meets the $350M floor (' + fmtCompact(d.marketCap) + ' cap, ' + d.marginPct.toFixed(2) + '% margin).'
+      : 'Currently at ' + fmtCompact(d.marketCap) + ' — below the $350M floor, flagged pending recovery. Margin ' + d.marginPct.toFixed(2) + '% holds.';
+  }
+  const banner = $('#dataBanner');
+  if (banner && b && d) {
+    banner.innerHTML = '⚙ LIVE DATA — BlackRock <strong>PASS</strong> (' + esc(fmtCompact(b.marketCap)) + ' · ' + b.marginPct.toFixed(2) + '% · ' + esc(fmtGrowth(b.growth, true)) + ')' +
+      ' · John Deere <strong>' + (d.checks && d.checks.marketCapPass ? 'PASS' : 'BELOW FLOOR') + '</strong>' +
+      ' (' + esc(fmtCompact(d.marketCap)) + ' · ' + d.marginPct.toFixed(2) + '%) · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
+  }
 }
 
-// ---- self-check (T-1/T-2 + T-3), margin computed if revenue+income given
-function readNum(id) {
-  const v = $(id).value.trim().replace(/[$,%\s]/g, "");
-  if (!v) return null;
-  const n = Number(v);
-  return Number.isFinite(n) ? n : NaN;
+// ---- Eligibility checker
+const verdict = $('#verdict'), vTitle = $('#verdictTitle'),
+      vBody = $('#verdictBody'), vCta = $('#verdictCta');
+function setVerdict(ok, title, bodyHtml, showCta){
+  if (!verdict) return;
+  verdict.classList.remove('pass', 'fail');
+  verdict.classList.add(ok ? 'pass' : 'fail');
+  if (vTitle) vTitle.textContent = title;
+  if (vBody) vBody.innerHTML = bodyHtml;
+  if (vCta) vCta.style.display = showCta ? 'inline-flex' : 'none';
+  try { verdict.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch {}
 }
-function verdictBox(ok, title, bodyHtml) {
-  const v = $("#verdict");
-  v.classList.remove("pass", "fail");
-  v.classList.add(ok ? "pass" : "fail");
-  $("#verdictTitle").textContent = title;
-  $("#verdictBody").innerHTML = bodyHtml;
-}
-$("#checkBtn").addEventListener("click", () => {
-  const name = $("#cName").value.trim() || "Your corporation";
-  const cap = readNum("#cCap"), rev = readNum("#cRev"), inc = readNum("#cInc");
-  const active = $("#cActive").checked, coord = $("#cCoord").checked;
+on('#checkBtn', 'click', () => {
+  const nameEl = $('#cName'), capEl = $('#cCap'), margEl = $('#cMargin');
+  if (!nameEl || !capEl || !margEl) return;
+  const name = nameEl.value.trim() || 'Your corporation';
+  const cap = parseFloat(capEl.value);
+  const margin = parseFloat(margEl.value);
+  const active = $('#cActive') ? $('#cActive').checked : false;
+  const coord = $('#cCoord') ? $('#cCoord').checked : false;
+
   const fails = [];
-  if (cap == null || isNaN(cap)) fails.push("Market cap missing — enter the figure from your corporation page.");
-  else if (cap < 350_000_000) fails.push(`Market cap ${fmtMoney(cap)} is below the $350,000,000 floor (T-1).`);
-  let mg = null;
-  if (rev != null && inc != null && !isNaN(rev) && !isNaN(inc) && rev > 0) mg = (inc / rev) * 100;
-  if (mg == null) fails.push("Margin cannot be computed — enter revenue and operating income.");
-  else if (mg < 10) fails.push(`Margin ${mg.toFixed(2)}% is below the 10% minimum (T-2).`);
-  if (!active) fails.push("T-3: daily-active status not confirmed.");
-  if (!coord) fails.push("T-3: coordination commitment not confirmed.");
-  if (!fails.length) {
-    verdictBox(true, "Passes self-check — file the dossier.",
-      `<strong>${esc(name)}</strong>: ${fmtMoney(cap)} cap` +
-      (mg != null ? `, ${mg.toFixed(2)}% margin` : "") +
-      `, active and coordinated. Final verification is run by the group through the game API before negotiation. File via §4.`);
+  if (isNaN(cap)) fails.push('Enter your market cap ($M).');
+  else if (cap < 350) fails.push(`Market cap $${cap}M is below the $350M floor.`);
+  if (isNaN(margin)) fails.push('Enter your net margin %.');
+  else if (margin < 10) fails.push(`Margin ${margin}% is below the 10% minimum (15% preferred).`);
+  if (!active) fails.push('Daily-active status not confirmed.');
+  if (!coord) fails.push('Coordination commitment not confirmed.');
+
+  if (fails.length === 0) {
+    setVerdict(true, '✓ ELIGIBLE — open negotiations',
+      `<strong>${escapeHtml(name)}</strong> passes: $${cap}M cap, ${margin}% margin, active + coordinated. Message <code>hyawii2.0</code> on Discord or mail <code>Larry Fink</code> in-game now.`, true);
   } else {
-    verdictBox(false, "Does not pass.", `<strong>${esc(name)}</strong>:<br>— ` + fails.map(esc).join("<br>— "));
+    setVerdict(false, '✕ NOT ELIGIBLE YET',
+      `<strong>${escapeHtml(name)}:</strong><br>• ` + fails.map(escapeHtml).join('<br>• '), false);
   }
 });
-$("#lookupBtn").addEventListener("click", () => {
-  const id = $("#cId").value.trim();
-  if (!SNAP || !id) { verdictBox(false, "No lookup.", "Load the snapshot and enter a corp sequential ID first."); return; }
-  const c = SNAP.corporations.find((x) => String(x.id) === String(id));
-  if (!c) { verdictBox(false, "Not in snapshot.", `Corp #${esc(id)} is not one of the tracked members. Enter figures manually for a self-check.`); return; }
-  $("#cName").value = c.name;
-  $("#cCap").value = c.marketCap;
-  $("#cRev").value = c.revenue;
-  $("#cInc").value = c.operatingIncome;
-  verdictBox(c.checks.marketCapPass && c.checks.marginPass, c.name + " (snapshot)",
-    `Revenue ${fmtMoney(c.revenue)} · income ${fmtMoney(c.operatingIncome)} · margin ${fmtPct(c.marginPct)} · cap ${fmtMoney(c.marketCap)} · ` +
-    (c.growth ? `growth ${c.growth.pct >= 0 ? "+" : ""}${c.growth.pct.toFixed(2)}% (t${c.growth.fromTurn}→t${c.growth.toTurn})` : "growth n/a") +
-    `. <a href="${esc(c.corpUrl)}">Open corp page</a>.`);
+
+// Pull figures from the verified snapshot by corp ID (members tracked: 498, 853)
+on('#lookupBtn', 'click', () => {
+  const idEl = $('#cId');
+  if (!idEl) return;
+  const id = parseInt(idEl.value, 10);
+  if (!SNAP) { setVerdict(false, 'Snapshot not loaded', 'Wait a moment for data/live.json to load, then try again.', false); return; }
+  if (isNaN(id)) { setVerdict(false, 'No corp ID', 'Enter your corp sequential ID — the number in your corporation page URL.', false); return; }
+  const c = SNAP.corporations.find(x => x.id === id);
+  if (!c) {
+    setVerdict(false, 'Not in snapshot',
+      'Corp #' + id + ' is not one of the currently tracked members — the snapshot tracks alliance members only. Enter your market cap ($M) and margin % manually from your corporation page.', false);
+    return;
+  }
+  if ($('#cName')) $('#cName').value = c.name;
+  if ($('#cCap')) $('#cCap').value = c.marketCap != null ? (c.marketCap / 1e6).toFixed(2) : '';
+  if ($('#cMargin')) $('#cMargin').value = c.marginPct != null ? c.marginPct.toFixed(2) : '';
+  setVerdict(c.checks.marketCapPass && c.checks.marginPass,
+    c.name + ' — pulled from API snapshot',
+    'Revenue ' + esc(fmtCompact(c.revenue)) + ' · income ' + esc(fmtCompact(c.operatingIncome)) +
+    ' · margin ' + (c.marginPct != null ? c.marginPct.toFixed(2) + '%' : 'n/a') +
+    ' · cap ' + esc(fmtCompact(c.marketCap)) +
+    (c.growth ? ' · growth ' + esc(fmtGrowth(c.growth, false)) : ' · growth n/a') +
+    ' · <a href="' + escapeHtml(c.corpUrl) + '">open corp page</a>. Now tick the activity boxes and press Evaluate.', false);
 });
 
-// ---- copy buttons
-document.querySelectorAll("[data-copy]").forEach((b) =>
-  b.addEventListener("click", async () => {
-    const t = b.getAttribute("data-copy");
-    try { await navigator.clipboard.writeText(t); }
-    catch { const ta = document.createElement("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
-    const o = b.textContent; b.textContent = "Copied"; setTimeout(() => (b.textContent = o), 1200);
-  })
-);
+// Mail generator
+on('#genMail', 'click', () => {
+  const corpEl = $('#mCorp'), capEl = $('#mCap'), margEl = $('#mMargin'), out = $('#mailOut');
+  if (!out) return;
+  const corp = (corpEl && corpEl.value.trim()) || '[Your Corp Name]';
+  const cap = (capEl && capEl.value) || '[350+]';
+  const marg = (margEl && margEl.value) || '[10-15+]';
+  out.value =
+`Subject: Vanguard Group — Entry Negotiation Request (${corp})
 
-// ---- dossier generator
-$("#genMail").addEventListener("click", () => {
-  const corp = $("#mCorp").value.trim() || "[Corporation]";
-  const id = $("#mId").value.trim() || "[ID]";
-  const cap = $("#mCap").value.trim() || "[market cap]";
-  const mg = $("#mMargin").value.trim() || "[margin]";
-  $("#mailOut").value =
-`VANGUARD GROUP — ENTRY DOSSIER
-Corporation: ${corp} (#${id})
-Market cap: ${cap} (screenshot attached)
-Margin: ${mg}% sustained (revenue + operating income attached)
-Activity: daily-active leadership, responsive comms
-Commitment: willing to coordinate pricing, supply, votes and crisis response with the group and all members.
-Contact: [your Discord] / [your character name]
-Sent to: hyawii2.0 (Discord) / Larry Fink (in-game mail)`;
+Hello Larry Fink,
+
+I am writing on behalf of ${corp} to request entry negotiations for the Vanguard Group.
+
+— Market Cap: $${cap}M (verified screenshot attached)
+— Net Margin: ${marg}% sustained
+— Activity: Daily-active leadership, responsive comms
+— Commitment: Willing to coordinate pricing, supply, votes and crisis response with the group and its members.
+
+Current members noted: BlackRock Incorporated, John Deere.
+
+Please advise on verification steps and negotiation time.
+
+Regards,
+[Your Name] — ${corp} (A House Divided)`;
 });
-$("#copyMail").addEventListener("click", async () => {
-  const ta = $("#mailOut");
-  if (!ta.value) return;
-  try { await navigator.clipboard.writeText(ta.value); }
-  catch { ta.select(); document.execCommand("copy"); }
-  const b = $("#copyMail"), o = b.textContent; b.textContent = "Copied"; setTimeout(() => (b.textContent = o), 1200);
+on('#copyMail', 'click', async () => {
+  const ta = $('#mailOut');
+  if (!ta || !ta.value) return;
+  try { await navigator.clipboard.writeText(ta.value); } catch { try { ta.select(); document.execCommand('copy'); } catch {} }
+  const b = $('#copyMail'); if (!b) return;
+  const o = b.textContent; b.textContent = 'Copied ✓';
+  setTimeout(() => b.textContent = o, 1400);
 });
 
-load();
+loadLive();
