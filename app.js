@@ -124,7 +124,10 @@ async function loadLive(){
     if (v == null) return; // keep WIP fallback
     el.textContent = v;
     el.classList.remove('wip');
-    if (parts[1] === 'growth' && v !== 'n/a') el.classList.add('up');
+    if (parts[1] === 'growth' && v !== 'n/a') {
+      el.classList.remove('up', 'down');
+      el.classList.add(v.trim().startsWith('-') ? 'down' : 'up');
+    }
     const c = corpByKey(parts[0]);
     if (c) {
       if (parts[1] === 'marketCap' && c.marketCap != null)

@@ -20,29 +20,54 @@ const num = (n) => (typeof n === "number" && isFinite(n) ? n : null);
 const marginPct = (f) =>
   f && num(f.totalRevenue) ? (num(f.operatingIncome) / f.totalRevenue) * 100 : null;
 
-// growth from share tape: earliest post-split price vs latest price.
-// Requires a real window (span >= 2 turns), else null (e.g. founding transfers).
-function growthFromTape(entries) {
+// growth: split-adjusted tape change over the trailing 30 turns, labeled.
+// Splits parsed from tape notes; each trade scaled by splits newer than it.
+// (The in-game 6M column uses internal per-turn snapshots we cannot fetch;
+// BlackRock's +14k% there spans its listing run-up. Ours is trailing momentum.)
+function growthFromTape(entries, lookback = 30) {
   if (!entries?.length) return null;
   const trades = entries
     .filter((e) => num(e.pricePerShareAnchor) && e.pricePerShareAnchor > 0)
     .sort((a, b) => a.turn - b.turn || new Date(a.createdAt) - new Date(b.createdAt));
   if (trades.length < 2) return null;
-  const lastSplitTurn = entries
+  const splits = entries
     .filter((e) => e.kind === "stock_split" || e.kind === "reverse_split")
-    .reduce((m, e) => Math.max(m, e.turn), -1);
-  const post = trades.filter((t) => t.turn > lastSplitTurn);
-  if (post.length < 2) return null;
-  const first = post[0], last = post[post.length - 1];
-  if (last.turn - first.turn < 2) return null;
+    .map((e) => {
+      const m = /([\d,]+)\s*[^0-9A-Za-z]+([\d,]+)\s*shares/.exec(e.note || "");
+      if (!m) return null;
+      return { turn: e.turn, ratio: Number(m[1].replace(/,/g, "")) / Number(m[2].replace(/,/g, "")) };
+    })
+    .filter(Boolean);
+  const adj = (t) =>
+    t.pricePerShareAnchor *
+    splits.filter((s) => s.turn > t.turn).reduce((f, s) => f * s.ratio, 1);
+  const first = trades[0], last = trades[trades.length - 1];
+  if (last.turn - first.turn < 1) return null; // single-turn tape (founding transfers)
+  const w = trades.filter((t) => t.turn >= last.turn - lookback);
+  if (w.length < 2 || w[w.length - 1].turn - w[0].turn < 1) return null;
+  const f = w[0], l = w[w.length - 1];
+  const a0 = adj(f), a1 = adj(l);
+  if (!(a0 > 0)) return null;
   return {
-    pct: ((last.pricePerShareAnchor - first.pricePerShareAnchor) / first.pricePerShareAnchor) * 100,
-    fromTurn: first.turn,
-    toTurn: last.turn,
-    fromPrice: first.pricePerShareAnchor,
-    toPrice: last.pricePerShareAnchor,
-    trades: post.length,
+    pct: ((a1 - a0) / a0) * 100,
+    fromTurn: f.turn,
+    toTurn: l.turn,
+    fromPrice: Math.round(a0 * 10000) / 10000,
+    toPrice: Math.round(a1 * 10000) / 10000,
+    trades: w.length,
+    splitAdjusted: splits.length > 0,
+    window: "30T",
   };
+}
+
+async function fullTape(id) {
+  let entries = [];
+  for (let pg = 1; pg <= 12; pg++) {
+    const r = await j(`/api/public/v1/corporation/shares/history?id=${id}&pageSize=100&page=${pg}`);
+    entries = entries.concat(r.entries || []);
+    if (pg >= (r.pageCount || 1)) break;
+  }
+  return entries;
 }
 
 const FLOOR_MKT_USD = 350_000_000;
@@ -104,8 +129,8 @@ function corpRow(c, tape) {
 const corporations = [];
 for (const id of TRACKED) {
   const c = await j(`/api/public/v1/corporation?id=${id}`);
-  const tape = await j(`/api/public/v1/corporation/shares/history?id=${id}&pageSize=50`);
-  corporations.push(corpRow(c, tape));
+  const entries = await fullTape(id);
+  corporations.push(corpRow(c, { entries }));
 }
 
 const larry = await j("/api/public/v1/character?name=" + encodeURIComponent("Larry Fink"));
@@ -122,7 +147,7 @@ const out = {
   },
   thresholds: { marketCapFloorUsd: FLOOR_MKT_USD, marginFloorPct: FLOOR_MARGIN },
   methodology:
-    "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = share-tape last vs first post-split price (anchor units), requires >=2 turn window. Threshold checks run on USD market cap.",
+    "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = split-adjusted tape change over trailing 30 turns (game 6M uses internal snapshots; figures converge for steady traders). Threshold checks run on USD market cap.",
   corporations,
   contact: {
     discord: larry.characters?.[0]?.discordUsername ?? "hyawii2.0",

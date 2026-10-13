@@ -66,6 +66,7 @@ main,header.topbar,footer{position:relative;z-index:1}
 @keyframes wipPulse{50%{opacity:.55}}
 .wip-inline{background:rgba(245,158,11,.18);color:#fcd34d;border:1px solid rgba(245,158,11,.4);padding:1px 8px;border-radius:999px;font-size:.75em;font-weight:800}
 .up{color:#7dffb0;font-weight:800}
+.down{color:#ff8fa3;font-weight:800}
 .t-note{margin:12px 2px;color:var(--muted);font-size:.82rem}
 .t-req{margin-top:12px;background:rgba(196,18,46,.1);border:1px solid rgba(196,18,46,.35);border-radius:14px;padding:12px 14px;font-size:.82rem}
 .t-req strong{color:#fff}

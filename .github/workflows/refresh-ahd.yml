@@ -2,7 +2,7 @@ name: refresh-ahd-snapshot
 
 on:
   schedule:
-    - cron: "17 * * * *" # hourly
+    - cron: "3,33 * * * *" # every 30 minutes (game turns hourly)
   workflow_dispatch:
 
 permissions:
