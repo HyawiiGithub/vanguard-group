@@ -66,7 +66,7 @@ function fmtGrowth(g, short){
 let SNAP = null;
 function corpByKey(key){
   if (!SNAP || !SNAP.corporations) return null;
-  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : key === 'vermont' ? 964 : key === 'pfizer' ? 496 : key === 'abc' ? 645 : key === 'ranco' ? 767 : null;
+  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : key === 'vermont' ? 964 : key === 'pfizer' ? 496 : key === 'abc' ? 645 : key === 'ranco' ? 767 : key === 'kanso' ? 521 : null;
   return SNAP.corporations.find(c => c.id === id || (id === null && c.name.toLowerCase().includes(key))) || null;
 }
 function localSym(c){ return c.currency === 'JPY' ? '¥' : c.currency === 'GBP' ? '£' : '$'; }
@@ -165,6 +165,9 @@ async function loadLive(){
       ? 'Passes T-1 + T-2 (' + fmtCompact(rc.marketCapUsd) + ' cap, ' + rc.marginPct.toFixed(2) + '% margin).'
       : 'Margin ' + rc.marginPct.toFixed(2) + '% below the 10% floor, flagged. Market cap ' + fmtCompact(rc.marketCapUsd) + ' holds.';
   }
+  const kn = $('#kansoNote');
+  const kc = corpByKey('kanso');
+  if (kn && kc) kn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(kc.marketCapUsd) + ' cap, ' + kc.marginPct.toFixed(2) + '% margin).';
   const banner = $('#dataBanner');
   if (banner && b && d) {
     banner.innerHTML = '⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> (' + esc(fmtCompact(b.marketCapUsd)) + ' · ' + b.marginPct.toFixed(2) + '% · ' + esc(fmtGrowth(b.growth, false)) + ')' +
@@ -173,6 +176,7 @@ async function loadLive(){
       (v ? ' · Vermont Logistics <strong>PASS</strong> (' + esc(fmtCompact(v.marketCapUsd)) + ' · ' + v.marginPct.toFixed(2) + '%)' : '') +
       (a ? ' · ABC Media <strong>PASS</strong> (' + esc(fmtCompact(a.marketCapUsd)) + ' · ' + a.marginPct.toFixed(2) + '%' + (a.growth ? ' · ' + esc(fmtGrowth(a.growth, true)) : '') + ')' : '') +
       (rc ? ' · Ranco Arms <strong>' + (rc.checks.marginPass ? 'PASS' : 'LOW MARGIN') + '</strong> (' + esc(fmtCompact(rc.marketCapUsd)) + ' · ' + rc.marginPct.toFixed(2) + '%)' : '') +
+      (kc ? ' · 簡素 <strong>PASS</strong> (' + esc(fmtCompact(kc.marketCapUsd)) + ' · ' + kc.marginPct.toFixed(2) + '%' + (kc.growth ? ' · ' + esc(fmtGrowth(kc.growth, true)) : '') + ')' : '') +
       (p ? ' · Pfizer <strong>' + (p.checks && p.checks.marketCapPass ? 'PASS' : 'BELOW FLOOR') + '</strong> (' + esc(fmtCompact(p.marketCapUsd)) + ' · ' + p.marginPct.toFixed(2) + '%' + (p.growth ? ' · ' + esc(fmtGrowth(p.growth, true)) : '') + ')' : '') +
       ' · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
   }
@@ -216,7 +220,7 @@ on('#checkBtn', 'click', () => {
   }
 });
 
-// Pull figures from the verified snapshot by corp ID (members tracked: 498, 853, 964, 496, 645, 767)
+// Pull figures from the verified snapshot by corp ID (members tracked: 498, 853, 964, 496, 645, 767, 521)
 on('#lookupBtn', 'click', () => {
   const idEl = $('#cId');
   if (!idEl) return;
@@ -261,7 +265,7 @@ I am writing on behalf of ${corp} to request entry negotiations for the Vanguard
 — Activity: Daily-active leadership, responsive comms
 — Commitment: Willing to coordinate pricing, supply, votes and crisis response with the group and its members.
 
-Current members noted: BlackRock Incorporated, John Deere, Vermont Logistics, Pfizer, American Broadcasting Company, Ranco Weapon Manfacturing.
+Current members noted: BlackRock Incorporated, John Deere, Vermont Logistics, Pfizer, American Broadcasting Company, Ranco Weapon Manfacturing, 簡素 (#521).
 
 Please advise on verification steps and negotiation time.
 
