@@ -47,7 +47,7 @@ function growthFromTape(entries) {
 
 const FLOOR_MKT_USD = 350_000_000;
 const FLOOR_MARGIN = 10;
-const TRACKED = [498, 853, 964, 496];
+const TRACKED = [498, 853, 964, 496, 645];
 
 const game = await j("/api/public/v1/game");
 const forex = await j("/api/public/v1/forex");
