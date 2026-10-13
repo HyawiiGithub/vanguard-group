@@ -83,14 +83,14 @@
         <div class="terminal-head">
           <span class="dots"><i></i><i></i><i></i></span>
           <span>VANGUARD // MEMBERS TERMINAL</span>
-          <span class="live" id="liveStamp">LIVE • VERIFYING…</span>
+          <span class="live" id="liveStamp">LIVE • TURN 166</span>
         </div>
         <div class="terminal-body">
           <div class="t-row t-head"><span>CORP</span><span>MKT CAP</span><span>REV</span><span>GRW</span></div>
-          <div class="t-row"><span class="t-name"><b class="v-dot"></b> VANGUARD</span><span class="wip">—</span><span class="wip">—</span><span class="up">—</span></div>
-          <div class="t-row"><span class="t-name"><b class="b-dot"></b> BLACKROCK INC.</span><span class="wip" data-live="blackrock:marketCap">WIP</span><span class="wip" data-live="blackrock:revenue">WIP</span><span class="up" data-live="blackrock:growth">WIP</span></div>
-          <div class="t-row"><span class="t-name"><b class="j-dot"></b> JOHN DEERE</span><span class="wip" data-live="deere:marketCap">WIP</span><span class="wip" data-live="deere:revenue">WIP</span><span class="up" data-live="deere:growth">WIP</span></div>
-          <div class="t-note" id="snapNote">Verifying revenue • market cap • growth % against the AHD game API…</div>
+          <div class="t-row"><span class="t-name"><b class="v-dot"></b> VANGUARD</span><span data-live="alliance:marketCap" title="Alliance combined: BlackRock + John Deere">$973.94B</span><span data-live="alliance:revenue" title="Alliance combined: BlackRock + John Deere">$756.07M</span><span class="up" data-live="alliance:growth" title="BlackRock share-tape t145→t166">+42.3%</span></div>
+          <div class="t-row"><span class="t-name"><b class="b-dot"></b> BLACKROCK INC.</span><span data-live="blackrock:marketCap" title="$973,766,200,000">$973.77B</span><span data-live="blackrock:revenue" title="$722,995,078">$723.00M</span><span class="up" data-live="blackrock:growth" title="Share-tape t145→t166">+42.3%</span></div>
+          <div class="t-row"><span class="t-name"><b class="j-dot"></b> JOHN DEERE</span><span data-live="deere:marketCap" title="$173,764,678">$173.76M</span><span data-live="deere:revenue" title="$33,078,453">$33.08M</span><span data-live="deere:growth" title="Newly listed — insufficient tape">n/a</span></div>
+          <div class="t-note" id="snapNote">Verified 2026-10-13 · Turn 166 (May, Week 3, 1993) · margin = income ÷ revenue · growth from share tape · <a href="data/live.json">raw snapshot</a></div>
           <div class="t-req">
             <div>ENTRY FLOOR <strong>$350,000,000</strong></div>
             <div class="bar"><div class="bar-fill" style="width:100%"></div></div>
@@ -111,7 +111,7 @@
       <span>ENTRY FLOOR: $350M MKT CAP</span><span>◆</span>
       <span>MIN MARGIN: 10–15%</span><span>◆</span>
       <span>MEMBERS: BLACKROCK INCORPORATED • JOHN DEERE</span><span>◆</span>
-      <span>LIVE STATS: <em class="wip-inline" id="tickerLive">VERIFYING…</em></span><span>◆</span>
+      <span>LIVE STATS: <em class="wip-inline" id="tickerLive">VERIFIED 2026-10-13</em></span><span>◆</span>
       <span>APPLY: DISCORD hyawii2.0 / IN-GAME: LARRY FINK</span><span>◆</span>
     </div>
   </div>
@@ -217,24 +217,25 @@
         <h3>Vanguard Group</h3>
         <p class="m-desc">Central coordinator. Sets negotiation floors, runs joint strategy, and enforces margin discipline across the alliance.</p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong class="wip">WIP</strong></div>
-          <div><small>MKT CAP</small><strong class="wip">WIP</strong></div>
-          <div><small>GROWTH</small><strong class="wip">WIP</strong></div>
+          <div><small>REVENUE</small><strong data-live="alliance:revenue" title="Alliance combined: BlackRock + John Deere">$756.07M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="alliance:marketCap" title="Alliance combined: BlackRock + John Deere">$973.94B</strong></div>
+          <div><small>GROWTH</small><strong data-live="alliance:growth" data-growth="long" title="BlackRock share-tape t145→t166">+42.28% (t145→t166)</strong></div>
         </div>
+        <p class="t-note">Alliance combined figures (BlackRock + John Deere).</p>
       </article>
       <article class="member reveal">
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo blackrock">BLACKROCK<span>INCORPORATED</span></div>
         <h3>BlackRock Incorporated</h3>
-        <p class="m-desc">Capital & holdings powerhouse. Anchors group liquidity and long-horizon investment coordination. <span id="blackrockNote"></span></p>
+        <p class="m-desc">Capital & holdings powerhouse. Anchors group liquidity and long-horizon investment coordination. <span id="blackrockNote">Passes T-1 + T-2 ($973.77B cap, 33.93% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong class="wip" data-live="blackrock:revenue">WIP</strong></div>
-          <div><small>MKT CAP</small><strong class="wip" data-live="blackrock:marketCap">WIP</strong></div>
-          <div><small>GROWTH</small><strong class="wip" data-live="blackrock:growth">WIP</strong></div>
+          <div><small>REVENUE</small><strong data-live="blackrock:revenue" title="$722,995,078">$723.00M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="blackrock:marketCap" title="$973,766,200,000">$973.77B</strong></div>
+          <div><small>GROWTH</small><strong data-live="blackrock:growth" data-growth="long" title="Share-tape t145→t166">+42.28% (t145→t166)</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong class="wip" data-live="blackrock:margin">WIP</strong></div>
-          <div><small>RATING</small><strong class="wip" data-live="blackrock:rating">WIP</strong></div>
+          <div><small>MARGIN</small><strong data-live="blackrock:margin">33.93%</strong></div>
+          <div><small>RATING</small><strong data-live="blackrock:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Larry Fink</strong></div>
         </div>
       </article>
@@ -242,20 +243,20 @@
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo deere"><span class="deere-mark">🦌</span> JOHN DEERE<span>INDUSTRIALS</span></div>
         <h3>John Deere</h3>
-        <p class="m-desc">Industrial backbone. Heavy production, supply-chain weight, and resilient margin performance. <span id="deereNote"></span></p>
+        <p class="m-desc">Industrial backbone. Heavy production, supply-chain weight, and resilient margin performance. <span id="deereNote">Currently at $173.76M — below the $350M floor, flagged pending recovery. Margin 29.55% holds.</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong class="wip" data-live="deere:revenue">WIP</strong></div>
-          <div><small>MKT CAP</small><strong class="wip" data-live="deere:marketCap">WIP</strong></div>
-          <div><small>GROWTH</small><strong class="wip" data-live="deere:growth">WIP</strong></div>
+          <div><small>REVENUE</small><strong data-live="deere:revenue" title="$33,078,453">$33.08M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="deere:marketCap" title="$173,764,678">$173.76M</strong></div>
+          <div><small>GROWTH</small><strong data-live="deere:growth" title="Newly listed — insufficient tape">n/a</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong class="wip" data-live="deere:margin">WIP</strong></div>
-          <div><small>RATING</small><strong class="wip" data-live="deere:rating">WIP</strong></div>
+          <div><small>MARGIN</small><strong data-live="deere:margin">29.55%</strong></div>
+          <div><small>RATING</small><strong data-live="deere:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Darren W. Woods</strong></div>
         </div>
       </article>
     </div>
-    <div class="wip-banner" id="dataBanner">⚙ LIVE DATA — revenue • market cap • growth % verifying against the AHD game API…</div>
+    <div class="wip-banner" id="dataBanner">⚙ LIVE DATA — BlackRock <strong>PASS</strong> ($973.77B · 33.93% · +42.28% (t145→t166)) · John Deere <strong>BELOW FLOOR</strong> ($173.76M · 29.55%) · snapshot <a href="data/live.json">data/live.json</a> · turn 166</div>
   </div>
 </section>
 

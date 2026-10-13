@@ -69,14 +69,24 @@ function corpByKey(key){
   const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : null;
   return SNAP.corporations.find(c => c.id === id || c.name.toLowerCase().includes(key)) || null;
 }
-function liveText(key, field){
+function liveText(key, field, long){
+  if (key === 'alliance' && SNAP && SNAP.corporations) {
+    const sum = (f) => SNAP.corporations.reduce((a, c) => a + (c[f] || 0), 0);
+    if (field === 'marketCap') return fmtCompact(sum('marketCap'));
+    if (field === 'revenue') return fmtCompact(sum('revenue'));
+    if (field === 'growth') {
+      const b = SNAP.corporations.find(c => c.id === 498);
+      return b && b.growth ? fmtGrowth(b.growth, !long) : 'n/a';
+    }
+    return null;
+  }
   const c = corpByKey(key);
   if (!c) return null;
   if (field === 'marketCap') return c.marketCap != null ? fmtCompact(c.marketCap) : null;
   if (field === 'revenue') return c.revenue != null ? fmtCompact(c.revenue) : null;
   if (field === 'margin') return c.marginPct != null ? c.marginPct.toFixed(2) + '%' : null;
   if (field === 'rating') return c.creditRating || null;
-  if (field === 'growth') return c.growth ? fmtGrowth(c.growth, true) : 'n/a';
+  if (field === 'growth') return c.growth ? fmtGrowth(c.growth, !long) : 'n/a';
   return null;
 }
 async function loadLive(){
@@ -105,7 +115,7 @@ async function loadLive(){
   document.querySelectorAll('[data-live]').forEach(el => {
     const parts = (el.getAttribute('data-live') || '').split(':');
     if (parts.length !== 2) return;
-    const v = liveText(parts[0], parts[1]);
+    const v = liveText(parts[0], parts[1], el.hasAttribute('data-growth'));
     if (v == null) return; // keep WIP fallback
     el.textContent = v;
     el.classList.remove('wip');
@@ -128,7 +138,7 @@ async function loadLive(){
   }
   const banner = $('#dataBanner');
   if (banner && b && d) {
-    banner.innerHTML = '⚙ LIVE DATA — BlackRock <strong>PASS</strong> (' + esc(fmtCompact(b.marketCap)) + ' · ' + b.marginPct.toFixed(2) + '% · ' + esc(fmtGrowth(b.growth, true)) + ')' +
+    banner.innerHTML = '⚙ LIVE DATA — BlackRock <strong>PASS</strong> (' + esc(fmtCompact(b.marketCap)) + ' · ' + b.marginPct.toFixed(2) + '% · ' + esc(fmtGrowth(b.growth, false)) + ')' +
       ' · John Deere <strong>' + (d.checks && d.checks.marketCapPass ? 'PASS' : 'BELOW FLOOR') + '</strong>' +
       ' (' + esc(fmtCompact(d.marketCap)) + ' · ' + d.marginPct.toFixed(2) + '%) · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
   }
