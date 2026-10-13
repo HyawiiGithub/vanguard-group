@@ -1,0 +1,78 @@
+{
+  "updatedAt": "2026-10-13T14:51:11.290Z",
+  "source": "ahousedividedgame.com /api/public/v1",
+  "game": {
+    "currentTurn": 166,
+    "gameDateLabel": "May, Week 3, 1993",
+    "status": "active",
+    "nextTurnAt": "2026-10-13T15:00:00.000Z"
+  },
+  "thresholds": {
+    "marketCapFloor": 350000000,
+    "marginFloorPct": 10
+  },
+  "methodology": "marginPct = operatingIncome / totalRevenue * 100 from /corporation. marketCap from balanceSheet.marketCapitalization. growth = share-tape last vs first post-split pricePerShareAnchor (all trades, anchor units). Tape is paged (50 most recent); growth window noted in fromTurn/toTurn.",
+  "corporations": [
+    {
+      "id": 498,
+      "name": "BlackRock Incorporated",
+      "type": "logistics",
+      "countryId": "JP",
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/498",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac3dbf9c6e9f850d977790d-1791469818210.webp",
+      "brandColor": "#106fb7",
+      "ceo": "Larry Fink",
+      "revenue": 722995078,
+      "operatingIncome": 245285630,
+      "marginPct": 33.93,
+      "marketCap": 973766200000,
+      "sharePrice": 8852.42,
+      "sharePriceRaw": 8852.42,
+      "totalShares": 110000000,
+      "creditRating": "AAA",
+      "sectorCount": 70,
+      "growth": {
+        "pct": 42.28,
+        "fromTurn": 145,
+        "toTurn": 166,
+        "fromPrice": 48.70361519283195,
+        "toPrice": 69.29456883069999,
+        "trades": 36
+      },
+      "checks": {
+        "marketCapPass": true,
+        "marginPass": true
+      }
+    },
+    {
+      "id": 853,
+      "name": "John Deere",
+      "type": "manufacturing",
+      "countryId": "US",
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/853",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6acb10f57f0eaca56be706cd-1791830248551.webp",
+      "brandColor": "#0c7313",
+      "ceo": "Darren W. Woods",
+      "revenue": 33078453,
+      "operatingIncome": 9774411,
+      "marginPct": 29.55,
+      "marketCap": 173764678,
+      "sharePrice": 59.08,
+      "sharePriceRaw": 59.08,
+      "totalShares": 2941176,
+      "creditRating": "AAA",
+      "sectorCount": 14,
+      "growth": null,
+      "checks": {
+        "marketCapPass": false,
+        "marginPass": true
+      }
+    }
+  ],
+  "contact": {
+    "discord": "hyawii2.0",
+    "character": "Larry Fink",
+    "characterUrl": "https://www.ahousedividedgame.com/character/1",
+    "ceoOf": "BlackRock Incorporated"
+  }
+}
