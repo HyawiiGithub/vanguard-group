@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=8" />
+<link rel="stylesheet" href="styles.css?v=9" />
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -83,19 +83,21 @@
         <div class="terminal-head">
           <span class="dots"><i></i><i></i><i></i></span>
           <span>VANGUARD // MEMBERS TERMINAL</span>
-          <span class="live" id="liveStamp">LIVE • TURN 169 • USD</span>
+          <span class="live" id="liveStamp">LIVE • TURN 170 • USD</span>
+          <span class="live live-dim" id="turnTimer">SYNC…</span>
         </div>
         <div class="terminal-body">
           <div class="t-row t-head"><span>CORP</span><span>MKT CAP</span><span>REV</span><span>GRW·30T</span></div>
-          <div class="t-row"><span class="t-name"><b class="v-dot"></b> VANGUARD</span><span data-live="alliance:marketCap" title="Alliance combined, USD">$26.20B</span><span data-live="alliance:revenue" title="Alliance combined, USD">$2.10B</span><span class="up" data-live="alliance:growth" title="BlackRock tape t138→t168">+53.5%</span></div>
-          <div class="t-row"><span class="t-name"><b class="b-dot"></b> BLACKROCK INC.</span><span data-live="blackrock:marketCap" title="¥1,024,354,100,000 ≈ $7.47B">$7.47B</span><span data-live="blackrock:revenue" title="₳746,014,215 per game day ≈ $705.36M">$705.36M</span><span class="up" data-live="blackrock:growth" title="Tape t138→t168">+53.5%</span></div>
-          <div class="t-row"><span class="t-name"><b class="j-dot"></b> JOHN DEERE</span><span data-live="deere:marketCap" title="$207,411,732">$207.41M</span><span data-live="deere:revenue" title="₳39,957,876 per game day ≈ $37.78M">$37.78M</span><span data-live="deere:growth" title="Newly listed — insufficient tape">n/a</span></div>
-          <div class="t-row"><span class="t-name"><b class="vl-dot"></b> VERMONT LOG.</span><span data-live="vermont:marketCap" title="$9,011,400,000">$9.01B</span><span data-live="vermont:revenue" title="₳761,879,289 per game day ≈ $720.36M">$720.36M</span><span data-live="vermont:growth" title="Newly listed — insufficient tape">n/a</span></div>
-          <div class="t-row"><span class="t-name"><b class="pf-dot"></b> PFIZER</span><span data-live="pfizer:marketCap" title="$353,098,439">$353.10M</span><span data-live="pfizer:revenue" title="₳38,580,291 per game day ≈ $36.48M">$36.48M</span><span class="up" data-live="pfizer:growth" title="Tape t139→t167">+132.7%</span></div>
-          <div class="t-row"><span class="t-name"><b class="abc-dot"></b> ABC MEDIA</span><span data-live="abc:marketCap" title="$6,710,000,000">$6.71B</span><span data-live="abc:revenue" title="₳356,335,896 per game day ≈ $336.92M">$336.92M</span><span data-live="abc:growth" title="Tape t138→t168">-1.7%</span></div>
-          <div class="t-row"><span class="t-name"><b class="ra-dot"></b> RANCO ARMS</span><span data-live="ranco:marketCap" title="¥219,650,500,000 ≈ $1.60B">$1.60B</span><span data-live="ranco:revenue" title="₳178,668,836 per game day ≈ $168.93M">$168.93M</span><span data-live="ranco:growth" title="No share tape yet">n/a</span></div>
-          <div class="t-row"><span class="t-name"><b class="ka-dot"></b> 簡素</span><span data-live="kanso:marketCap" title="¥116,004,700,000 ≈ $846.20M">$846.20M</span><span data-live="kanso:revenue" title="₳102,384,605 per game day ≈ $96.81M">$96.81M</span><span class="up" data-live="kanso:growth" title="Tape t138→t168">+77.6%</span></div>
-          <div class="t-note" id="snapNote">Verified 2026-10-13 · Turn 169 (June, Week 2, 1993) · figures in USD (¥137.09/$, revenue gross per game day) · margin = income ÷ revenue · growth = trailing 30-turn tape · <a href="data/live.json">raw snapshot</a></div>
+          <div class="t-row"><span class="t-name"><b class="v-dot"></b> VANGUARD</span><span data-live="alliance:marketCap" title="Alliance combined, USD">$26.80B</span><span data-live="alliance:revenue" title="Alliance combined, USD">$2.14B</span><span class="up" data-live="alliance:growth" title="BlackRock tape t140→t170">+55.8%</span></div>
+          <div class="t-row"><span class="t-name"><b class="b-dot"></b> BLACKROCK INC.</span><span data-live="blackrock:marketCap" title="¥1,033,186,000,000 ≈ $7.50B">$7.50B</span><span data-live="blackrock:revenue" title="₳741,908,327 per game day ≈ $701.36M">$701.36M</span><span class="up" data-live="blackrock:growth" title="Tape t140→t170">+55.8%</span></div>
+          <div class="t-row"><span class="t-name"><b class="j-dot"></b> JOHN DEERE</span><span data-live="deere:marketCap" title="$271,088,192">$271.09M</span><span data-live="deere:revenue" title="₳42,055,651 per game day ≈ $39.76M">$39.76M</span><span data-live="deere:growth" title="Newly listed — insufficient tape">n/a</span></div>
+          <div class="t-row"><span class="t-name"><b class="vl-dot"></b> VERMONT LOG.</span><span data-live="vermont:marketCap" title="$9,379,900,000">$9.38B</span><span data-live="vermont:revenue" title="₳801,563,439 per game day ≈ $757.76M">$757.76M</span><span data-live="vermont:growth" title="Newly listed — insufficient tape">n/a</span></div>
+          <div class="t-row"><span class="t-name"><b class="pf-dot"></b> PFIZER</span><span data-live="pfizer:marketCap" title="$361,003,628">$361.00M</span><span data-live="pfizer:revenue" title="₳40,077,180 per game day ≈ $37.89M">$37.89M</span><span class="up" data-live="pfizer:growth" title="Tape t139→t167">+132.7%</span></div>
+          <div class="t-row"><span class="t-name"><b class="abc-dot"></b> ABC MEDIA</span><span data-live="abc:marketCap" title="$6,750,000,000">$6.75B</span><span data-live="abc:revenue" title="₳354,911,038 per game day ≈ $335.51M">$335.51M</span><span data-live="abc:growth" title="Tape t138→t168">-1.7%</span></div>
+          <div class="t-row"><span class="t-name"><b class="ra-dot"></b> RANCO ARMS</span><span data-live="ranco:marketCap" title="¥222,403,500,000 ≈ $1.61B">$1.61B</span><span data-live="ranco:revenue" title="₳182,363,339 per game day ≈ $172.40M">$172.40M</span><span data-live="ranco:growth" title="No share tape yet">n/a</span></div>
+          <div class="t-row"><span class="t-name"><b class="ka-dot"></b> 簡素</span><span data-live="kanso:marketCap" title="¥127,336,760,000 ≈ $924.10M">$924.10M</span><span data-live="kanso:revenue" title="₳103,665,632 per game day ≈ $98.00M">$98.00M</span><span class="up" data-live="kanso:growth" title="Tape t140→t169">+83.1%</span></div>
+          <div class="t-row"><span class="t-name"><b class="to-dot"></b> THE ORG.</span><span data-live="org:marketCap" title="¥147,444,443 ≈ $1.07M">$1.07M</span><span data-live="org:revenue" title="₳92,309 per game day ≈ $87.26K">$87.26K</span><span data-live="org:growth" title="No share tape yet">n/a</span></div>
+          <div class="t-note" id="snapNote">Verified 2026-10-13 · Turn 170 (June, Week 3, 1993) · figures in USD (¥137.79/$, revenue gross per game day) · margin = income ÷ revenue · growth = trailing 30-turn tape · <a href="data/live.json">raw snapshot</a></div>
           <div class="t-req">
             <div>ENTRY FLOOR <strong>$350,000,000</strong></div>
             <div class="bar"><div class="bar-fill" style="width:100%"></div></div>
@@ -115,7 +117,7 @@
       <span>VANGUARD GROUP ▲ COORDINATION PROTOCOL ACTIVE</span><span>◆</span>
       <span>ENTRY FLOOR: $350M MKT CAP</span><span>◆</span>
       <span>MIN MARGIN: 10–15%</span><span>◆</span>
-      <span>MEMBERS: BLACKROCK • JOHN DEERE • VERMONT LOGISTICS • PFIZER • ABC MEDIA • RANCO ARMS • 簡素</span><span>◆</span>
+      <span>MEMBERS: BLACKROCK • JOHN DEERE • VERMONT LOGISTICS • PFIZER • ABC MEDIA • RANCO ARMS • 簡素 • THE ORGANIZATION</span><span>◆</span>
       <span>LIVE STATS: <em class="wip-inline" id="tickerLive">VERIFIED 2026-10-13</em></span><span>◆</span>
       <span>APPLY: DISCORD hyawii2.0 / IN-GAME: LARRY FINK</span><span>◆</span>
     </div>
@@ -222,24 +224,24 @@
         <h3>Vanguard Group</h3>
         <p class="m-desc">Central coordinator. Sets negotiation floors, runs joint strategy, and enforces margin discipline across the alliance.</p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="alliance:revenue" title="Alliance combined, USD">$2.10B</strong></div>
-          <div><small>MKT CAP</small><strong data-live="alliance:marketCap" title="Alliance combined, USD">$26.20B</strong></div>
-          <div><small>GROWTH</small><strong data-live="alliance:growth" data-growth="long" title="BlackRock tape t138→t168">+53.52% (t138→t168)</strong></div>
+          <div><small>REVENUE</small><strong data-live="alliance:revenue" title="Alliance combined, USD">$2.14B</strong></div>
+          <div><small>MKT CAP</small><strong data-live="alliance:marketCap" title="Alliance combined, USD">$26.80B</strong></div>
+          <div><small>GROWTH</small><strong data-live="alliance:growth" data-growth="long" title="BlackRock tape t140→t170">+55.83% (t140→t170)</strong></div>
         </div>
-        <p class="t-note">Alliance combined figures, USD (BlackRock + John Deere + Vermont Logistics + Pfizer + ABC + Ranco Arms + 簡素).</p>
+        <p class="t-note">Alliance combined figures, USD (8 member corporations).</p>
       </article>
       <article class="member reveal">
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo blackrock">BLACKROCK<span>INCORPORATED</span></div>
         <h3>BlackRock Incorporated</h3>
-        <p class="m-desc">Capital & holdings powerhouse. Anchors group liquidity and long-horizon investment coordination. <span id="blackrockNote">Passes T-1 + T-2 ($7.47B cap, 36.09% margin).</span></p>
+        <p class="m-desc">Capital & holdings powerhouse. Anchors group liquidity and long-horizon investment coordination. <span id="blackrockNote">Passes T-1 + T-2 ($7.50B cap, 35.55% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="blackrock:revenue" title="₳746,014,215 per game day ≈ $705.36M">$705.36M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="blackrock:marketCap" title="¥1,024,354,100,000 ≈ $7.47B">$7.47B</strong></div>
-          <div><small>GROWTH</small><strong data-live="blackrock:growth" data-growth="long" title="Tape t138→t168">+53.52% (t138→t168)</strong></div>
+          <div><small>REVENUE</small><strong data-live="blackrock:revenue" title="₳741,908,327 per game day ≈ $701.36M">$701.36M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="blackrock:marketCap" title="¥1,033,186,000,000 ≈ $7.50B">$7.50B</strong></div>
+          <div><small>GROWTH</small><strong data-live="blackrock:growth" data-growth="long" title="Tape t140→t170">+55.83% (t140→t170)</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="blackrock:margin">36.09%</strong></div>
+          <div><small>MARGIN</small><strong data-live="blackrock:margin">35.55%</strong></div>
           <div><small>RATING</small><strong data-live="blackrock:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Larry Fink</strong></div>
         </div>
@@ -248,14 +250,14 @@
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo deere"><span class="deere-mark">🦌</span> JOHN DEERE<span>INDUSTRIALS</span></div>
         <h3>John Deere</h3>
-        <p class="m-desc">Industrial backbone. Heavy production, supply-chain weight, and resilient margin performance. <span id="deereNote">Currently at $207.41M — below the $350M floor, flagged pending recovery. Margin 27.99% holds.</span></p>
+        <p class="m-desc">Industrial backbone. Heavy production, supply-chain weight, and resilient margin performance. <span id="deereNote">Currently at $271.09M — below the $350M floor, flagged pending recovery. Margin 36.50% holds.</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="deere:revenue" title="₳39,957,876 per game day ≈ $37.78M">$37.78M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="deere:marketCap" title="$207,411,732">$207.41M</strong></div>
+          <div><small>REVENUE</small><strong data-live="deere:revenue" title="₳42,055,651 per game day ≈ $39.76M">$39.76M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="deere:marketCap" title="$271,088,192">$271.09M</strong></div>
           <div><small>GROWTH</small><strong data-live="deere:growth" title="Newly listed — insufficient tape">n/a</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="deere:margin">27.99%</strong></div>
+          <div><small>MARGIN</small><strong data-live="deere:margin">36.50%</strong></div>
           <div><small>RATING</small><strong data-live="deere:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Darren W. Woods</strong></div>
         </div>
@@ -264,14 +266,14 @@
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo vermont">VERMONT<span>LOGISTICS</span></div>
         <h3>Vermont Logistics</h3>
-        <p class="m-desc">US heavy-haul logistics network across 70 sectors. Highest margin in the alliance. <span id="vermontNote">Passes T-1 + T-2 ($9.01B cap, 52.56% margin).</span></p>
+        <p class="m-desc">US heavy-haul logistics network across 70 sectors. Highest margin in the alliance. <span id="vermontNote">Passes T-1 + T-2 ($9.38B cap, 50.56% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="vermont:revenue" title="₳761,879,289 per game day ≈ $720.36M">$720.36M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="vermont:marketCap" title="$9,011,400,000">$9.01B</strong></div>
+          <div><small>REVENUE</small><strong data-live="vermont:revenue" title="₳801,563,439 per game day ≈ $757.76M">$757.76M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="vermont:marketCap" title="$9,379,900,000">$9.38B</strong></div>
           <div><small>GROWTH</small><strong data-live="vermont:growth" title="Newly listed — insufficient tape">n/a</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="vermont:margin">52.56%</strong></div>
+          <div><small>MARGIN</small><strong data-live="vermont:margin">50.56%</strong></div>
           <div><small>RATING</small><strong data-live="vermont:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Malik Rahman</strong></div>
         </div>
@@ -280,14 +282,14 @@
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp" alt="Pfizer logo" loading="lazy" onerror="this.outerHTML='PFIZER'" /></div>
         <h3>Pfizer</h3>
-        <p class="m-desc">US energy holding across 9 sectors. Strong margin, triple-digit tape growth. <span id="pfizerNote">Meets the $350M floor ($353.10M cap, 50.81% margin).</span></p>
+        <p class="m-desc">US energy holding across 9 sectors. Strong margin, triple-digit tape growth. <span id="pfizerNote">Meets the $350M floor ($361.00M cap, 49.45% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="pfizer:revenue" title="₳38,580,291 per game day ≈ $36.48M">$36.48M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="pfizer:marketCap" title="$353,098,439">$353.10M</strong></div>
+          <div><small>REVENUE</small><strong data-live="pfizer:revenue" title="₳40,077,180 per game day ≈ $37.89M">$37.89M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="pfizer:marketCap" title="$361,003,628">$361.00M</strong></div>
           <div><small>GROWTH</small><strong data-live="pfizer:growth" data-growth="long" title="Share-tape t139→t167">+132.74% (t139→t167)</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="pfizer:margin">50.81%</strong></div>
+          <div><small>MARGIN</small><strong data-live="pfizer:margin">49.45%</strong></div>
           <div><small>RATING</small><strong data-live="pfizer:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Ronald Reagan</strong></div>
         </div>
@@ -296,14 +298,14 @@
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac763824f4573325e5f8069-1791634076204.webp" alt="American Broadcasting Company logo" loading="lazy" onerror="this.outerHTML='ABC'" /></div>
         <h3>American Broadcasting Company</h3>
-        <p class="m-desc">US media network across 51 sectors. <span id="abcNote">Passes T-1 + T-2 ($6.71B cap, 42.40% margin).</span></p>
+        <p class="m-desc">US media network across 51 sectors. <span id="abcNote">Passes T-1 + T-2 ($6.75B cap, 40.74% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="abc:revenue" title="₳356,335,896 per game day ≈ $336.92M">$336.92M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="abc:marketCap" title="$6,710,000,000">$6.71B</strong></div>
+          <div><small>REVENUE</small><strong data-live="abc:revenue" title="₳354,911,038 per game day ≈ $335.51M">$335.51M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="abc:marketCap" title="$6,750,000,000">$6.75B</strong></div>
           <div><small>GROWTH</small><strong data-live="abc:growth" data-growth="long" title="Tape t138→t168">-1.67% (t138→t168)</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="abc:margin">42.40%</strong></div>
+          <div><small>MARGIN</small><strong data-live="abc:margin">40.74%</strong></div>
           <div><small>RATING</small><strong data-live="abc:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Rat</strong></div>
         </div>
@@ -312,14 +314,14 @@
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac9e73e96249b1f17b71dca-1791643534845.webp" alt="Ranco Weapon Manfacturing logo" loading="lazy" onerror="this.outerHTML='RANCO'" /></div>
         <h3>Ranco Weapon Manfacturing</h3>
-        <p class="m-desc">JP defense manufacturer across 47 sectors. Scale is there, margin is not. <span id="rancoNote">Margin 4.71% — below the 10% floor, flagged. Market cap $1.60B holds.</span></p>
+        <p class="m-desc">JP defense manufacturer across 47 sectors. Scale is there, margin is not. <span id="rancoNote">Margin 3.73% — below the 10% floor, flagged. Market cap $1.61B holds.</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="ranco:revenue" title="₳178,668,836 per game day ≈ $168.93M">$168.93M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="ranco:marketCap" title="¥219,650,500,000 ≈ $1.60B">$1.60B</strong></div>
+          <div><small>REVENUE</small><strong data-live="ranco:revenue" title="₳182,363,339 per game day ≈ $172.40M">$172.40M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="ranco:marketCap" title="¥222,403,500,000 ≈ $1.61B">$1.61B</strong></div>
           <div><small>GROWTH</small><strong data-live="ranco:growth" title="No share tape yet">n/a</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="ranco:margin">4.71%</strong></div>
+          <div><small>MARGIN</small><strong data-live="ranco:margin">3.73%</strong></div>
           <div><small>RATING</small><strong data-live="ranco:rating">AA</strong></div>
           <div><small>CEO</small><strong>Ranco Hashimoto</strong></div>
         </div>
@@ -328,20 +330,36 @@
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo kanso">簡素<span>TECHNOLOGY</span></div>
         <h3>簡素 (#521)</h3>
-        <p class="m-desc">JP technology holding across 5 sectors. <span id="kansoNote">Passes T-1 + T-2 ($846.20M cap, 32.83% margin).</span></p>
+        <p class="m-desc">JP technology holding across 5 sectors. <span id="kansoNote">Passes T-1 + T-2 ($924.10M cap, 35.03% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="kanso:revenue" title="₳102,384,605 per game day ≈ $96.81M">$96.81M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="kanso:marketCap" title="¥116,004,700,000 ≈ $846.20M">$846.20M</strong></div>
-          <div><small>GROWTH</small><strong data-live="kanso:growth" data-growth="long" title="Tape t138→t168">+77.63% (t138→t168)</strong></div>
+          <div><small>REVENUE</small><strong data-live="kanso:revenue" title="₳103,665,632 per game day ≈ $98.00M">$98.00M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="kanso:marketCap" title="¥127,336,760,000 ≈ $924.10M">$924.10M</strong></div>
+          <div><small>GROWTH</small><strong data-live="kanso:growth" data-growth="long" title="Tape t140→t169">+83.08% (t140→t169)</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="kanso:margin">32.83%</strong></div>
+          <div><small>MARGIN</small><strong data-live="kanso:margin">35.03%</strong></div>
           <div><small>RATING</small><strong data-live="kanso:rating">AA</strong></div>
           <div><small>CEO</small><strong>Satoshi Fukuda</strong></div>
         </div>
       </article>
+      <article class="member reveal">
+        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
+        <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ace7b48076f76a31679a279-1791917252503.webp" alt="The Organization logo" loading="lazy" onerror="this.outerHTML='ORG'" /></div>
+        <h3>The Organization</h3>
+        <p class="m-desc">JP energy outfit, 4 sectors. Early days. <span id="orgNote">At $1.07M — far below the $350M floor. Margin 35.00% holds.</span></p>
+        <div class="m-stats">
+          <div><small>REVENUE</small><strong data-live="org:revenue" title="₳92,309 per game day ≈ $87.26K">$87.26K</strong></div>
+          <div><small>MKT CAP</small><strong data-live="org:marketCap" title="¥147,444,443 ≈ $1.07M">$1.07M</strong></div>
+          <div><small>GROWTH</small><strong data-live="org:growth" title="No share tape yet">n/a</strong></div>
+        </div>
+        <div class="m-stats">
+          <div><small>MARGIN</small><strong data-live="org:margin">35.00%</strong></div>
+          <div><small>RATING</small><strong data-live="org:rating">—</strong></div>
+          <div><small>CEO</small><strong>Nariyoshi Miyagi</strong></div>
+        </div>
+      </article>
     </div>
-    <div class="wip-banner" id="dataBanner">⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> ($7.47B · 36.09% · +53.52%) · John Deere <strong>BELOW FLOOR</strong> ($207.41M · 27.99%) · Vermont Logistics <strong>PASS</strong> ($9.01B · 52.56%) · Pfizer <strong>PASS</strong> ($353.10M · 50.81% · +132.74%) · ABC Media <strong>PASS</strong> ($6.71B · 42.40% · -1.67%) · Ranco Arms <strong>LOW MARGIN</strong> ($1.60B · 4.71%) · 簡素 <strong>PASS</strong> ($846.20M · 32.83% · +77.63%) · snapshot <a href="data/live.json">data/live.json</a> · turn 169</div>
+    <div class="wip-banner" id="dataBanner">⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> ($7.50B · 35.55% · +55.83%) · John Deere <strong>BELOW FLOOR</strong> ($271.09M · 36.50%) · Vermont Logistics <strong>PASS</strong> ($9.38B · 50.56%) · Pfizer <strong>PASS</strong> ($361.00M · 49.45% · +132.74%) · ABC Media <strong>PASS</strong> ($6.75B · 40.74% · -1.67%) · Ranco Arms <strong>LOW MARGIN</strong> ($1.61B · 3.73%) · 簡素 <strong>PASS</strong> ($924.10M · 35.03% · +83.08%) · The Organization <strong>BELOW FLOOR</strong> ($1.07M · 35.00%) · snapshot <a href="data/live.json">data/live.json</a> · turn 170</div>
   </div>
 </section>
 
@@ -428,13 +446,13 @@
     </div>
     <div>
       <strong>Members</strong>
-      <p>Vanguard Group<br>BlackRock Incorporated<br>John Deere<br>Vermont Logistics<br>Pfizer<br>American Broadcasting Company<br>Ranco Weapon Manfacturing<br>簡素 (#521)</p>
+      <p>Vanguard Group<br>BlackRock Incorporated<br>John Deere<br>Vermont Logistics<br>Pfizer<br>American Broadcasting Company<br>Ranco Weapon Manfacturing<br>簡素 (#521)<br>The Organization (#1084)</p>
     </div>
   </div>
   <div class="foot-base">© <span id="year"></span> Vanguard Group (AHD Chapter) • Entry floor $350M • Margin 10–15% • Coordination mandatory</div>
 </footer>
 </main>
 
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>

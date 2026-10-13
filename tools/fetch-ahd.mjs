@@ -72,7 +72,7 @@ async function fullTape(id) {
 
 const FLOOR_MKT_USD = 350_000_000;
 const FLOOR_MARGIN = 10;
-const TRACKED = [498, 853, 964, 496, 645, 767, 521];
+const TRACKED = [498, 853, 964, 496, 645, 767, 521, 1084];
 
 const game = await j("/api/public/v1/game");
 const forex = await j("/api/public/v1/forex");

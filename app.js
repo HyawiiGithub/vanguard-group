@@ -66,7 +66,7 @@ function fmtGrowth(g, short){
 let SNAP = null;
 function corpByKey(key){
   if (!SNAP || !SNAP.corporations) return null;
-  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : key === 'vermont' ? 964 : key === 'pfizer' ? 496 : key === 'abc' ? 645 : key === 'ranco' ? 767 : key === 'kanso' ? 521 : null;
+  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : key === 'vermont' ? 964 : key === 'pfizer' ? 496 : key === 'abc' ? 645 : key === 'ranco' ? 767 : key === 'kanso' ? 521 : key === 'org' ? 1084 : null;
   return SNAP.corporations.find(c => c.id === id || (id === null && c.name.toLowerCase().includes(key))) || null;
 }
 function localSym(c){ return c.currency === 'JPY' ? '¥' : c.currency === 'GBP' ? '£' : '$'; }
@@ -92,6 +92,33 @@ function liveText(key, field, long){
   if (field === 'growth') return c.growth ? fmtGrowth(c.growth, !long) : 'n/a';
   return null;
 }
+// Live turn timer: counts down to the next game turn and shows snapshot age,
+// so the numbers always carry their freshness with them. Null-safe.
+let timerInt = null;
+function startTimer(s){
+  const el = $('#turnTimer');
+  if (!el) return;
+  if (timerInt) clearInterval(timerInt);
+  const snapAt = new Date(s.updatedAt).getTime();
+  const next = s.game && s.game.nextTurnAt ? new Date(s.game.nextTurnAt).getTime() : null;
+  const fmtAge = (ms) => {
+    const m = Math.max(0, Math.floor(ms / 60000));
+    if (m < 1) return 'JUST NOW';
+    if (m < 60) return m + 'M AGO';
+    return Math.floor(m / 60) + 'H ' + (m % 60) + 'M AGO';
+  };
+  const tickFn = () => {
+    const now = Date.now();
+    const age = 'SNAP ' + fmtAge(now - snapAt);
+    if (!next) { el.textContent = age; return; }
+    const ms = next - now;
+    if (ms <= 0) { el.textContent = 'TURNING OVER… ' + age; return; }
+    const mm = Math.floor(ms / 60000), ss = Math.floor((ms % 60000) / 1000);
+    el.textContent = 'NEXT TURN ' + mm + ':' + String(ss).padStart(2, '0') + ' · ' + age;
+  };
+  tickFn();
+  timerInt = setInterval(tickFn, 1000);
+}
 async function loadLive(){
   let s;
   try {
@@ -104,6 +131,7 @@ async function loadLive(){
     return;
   }
   SNAP = s;
+  startTimer(s);
   const upd = new Date(s.updatedAt);
   const dateStr = upd.toISOString().slice(0, 10);
 
@@ -168,6 +196,13 @@ async function loadLive(){
   const kn = $('#kansoNote');
   const kc = corpByKey('kanso');
   if (kn && kc) kn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(kc.marketCapUsd) + ' cap, ' + kc.marginPct.toFixed(2) + '% margin).';
+  const on2 = $('#orgNote');
+  const oc = corpByKey('org');
+  if (on2 && oc) {
+    on2.textContent = oc.checks.marketCapPass
+      ? 'Meets the $350M floor (' + fmtCompact(oc.marketCapUsd) + ' cap, ' + oc.marginPct.toFixed(2) + '% margin).'
+      : 'At ' + fmtCompact(oc.marketCapUsd) + ' below the $350M floor. Margin ' + oc.marginPct.toFixed(2) + '% holds.';
+  }
   const banner = $('#dataBanner');
   if (banner && b && d) {
     banner.innerHTML = '⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> (' + esc(fmtCompact(b.marketCapUsd)) + ' · ' + b.marginPct.toFixed(2) + '% · ' + esc(fmtGrowth(b.growth, false)) + ')' +
@@ -177,6 +212,7 @@ async function loadLive(){
       (a ? ' · ABC Media <strong>PASS</strong> (' + esc(fmtCompact(a.marketCapUsd)) + ' · ' + a.marginPct.toFixed(2) + '%' + (a.growth ? ' · ' + esc(fmtGrowth(a.growth, true)) : '') + ')' : '') +
       (rc ? ' · Ranco Arms <strong>' + (rc.checks.marginPass ? 'PASS' : 'LOW MARGIN') + '</strong> (' + esc(fmtCompact(rc.marketCapUsd)) + ' · ' + rc.marginPct.toFixed(2) + '%)' : '') +
       (kc ? ' · 簡素 <strong>PASS</strong> (' + esc(fmtCompact(kc.marketCapUsd)) + ' · ' + kc.marginPct.toFixed(2) + '%' + (kc.growth ? ' · ' + esc(fmtGrowth(kc.growth, true)) : '') + ')' : '') +
+      (oc ? ' · The Organization <strong>BELOW FLOOR</strong> (' + esc(fmtCompact(oc.marketCapUsd)) + ' · ' + oc.marginPct.toFixed(2) + '%)' : '') +
       (p ? ' · Pfizer <strong>' + (p.checks && p.checks.marketCapPass ? 'PASS' : 'BELOW FLOOR') + '</strong> (' + esc(fmtCompact(p.marketCapUsd)) + ' · ' + p.marginPct.toFixed(2) + '%' + (p.growth ? ' · ' + esc(fmtGrowth(p.growth, true)) : '') + ')' : '') +
       ' · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
   }
@@ -220,7 +256,7 @@ on('#checkBtn', 'click', () => {
   }
 });
 
-// Pull figures from the verified snapshot by corp ID (members tracked: 498, 853, 964, 496, 645, 767, 521)
+// Pull figures from the verified snapshot by corp ID (members tracked: 498, 853, 964, 496, 645, 767, 521, 1084)
 on('#lookupBtn', 'click', () => {
   const idEl = $('#cId');
   if (!idEl) return;
@@ -265,7 +301,7 @@ I am writing on behalf of ${corp} to request entry negotiations for the Vanguard
 — Activity: Daily-active leadership, responsive comms
 — Commitment: Willing to coordinate pricing, supply, votes and crisis response with the group and its members.
 
-Current members noted: BlackRock Incorporated, John Deere, Vermont Logistics, Pfizer, American Broadcasting Company, Ranco Weapon Manfacturing, 簡素 (#521).
+Current members noted: BlackRock Incorporated, John Deere, Vermont Logistics, Pfizer, American Broadcasting Company, Ranco Weapon Manfacturing, 簡素 (#521), The Organization (#1084).
 
 Please advise on verification steps and negotiation time.
 
