@@ -90,6 +90,11 @@ function liveText(key, field, long){
   if (field === 'margin') return c.marginPct != null ? c.marginPct.toFixed(2) + '%' : null;
   if (field === 'rating') return c.creditRating || null;
   if (field === 'growth') return c.growth ? fmtGrowth(c.growth, !long) : 'n/a';
+  if (field === 'stake') return c.blackrockStakePct > 0 ? (Math.round(c.blackrockStakePct * 10) / 10) + '%' : '—';
+  if (field === 'top') {
+    const h = (c.holders || [])[0];
+    return h ? h.name + ' ' + h.pct + '%' : '—';
+  }
   return null;
 }
 // Live turn timer: counts down to the next game turn and shows snapshot age,

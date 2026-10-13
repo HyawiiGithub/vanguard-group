@@ -123,6 +123,17 @@ main,header.topbar,footer{position:relative;z-index:1}
 .m-logo.kanso{flex-direction:column;color:#be185d;font-weight:900;font-size:1.6rem;line-height:1}
 .m-logo.kanso span{font-size:.6rem;letter-spacing:3px;color:#333;font-family:Inter,Arial,sans-serif}
 .m-desc{min-height:72px}
+.table-title{font-size:1.05rem;margin:26px 0 4px}
+.table-scroll{overflow-x:auto}
+.control-table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:.88rem;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.control-table th{font-size:.66rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
+.control-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05)}
+.control-table tr:last-child td{border-bottom:0}
+.control-table td.num,.control-table th.num{text-align:right;font-family:ui-monospace,Consolas,monospace;white-space:nowrap}
+.stamp{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:1.2px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.stamp.pass{color:#7dffb0;border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.08)}
+.stamp.na{color:#fcd34d;border-color:rgba(245,158,11,.4);background:rgba(245,158,11,.08)}
+.note{color:var(--muted);font-size:.82rem;margin:4px 0 0}
 .m-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
 .m-stats div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
 .m-stats small{display:block;color:var(--muted);font-size:.62rem;letter-spacing:1px;font-weight:800}

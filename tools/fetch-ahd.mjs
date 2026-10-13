@@ -116,6 +116,16 @@ function corpRow(c, tape) {
     marginPct: mg == null ? null : Math.round(mg * 100) / 100,
     sharePrice: c.shareStructure?.sharePrice ?? null,
     totalShares: c.shareStructure?.totalShares ?? null,
+    holders: (c.shareStructure?.shareholders || []).slice(0, 3).map((h) => ({
+      name: h.name,
+      pct: Math.round(h.percentage * 100) / 100,
+    })),
+    blackrockStakePct: (() => {
+      const h = (c.shareStructure?.shareholders || []).find((x) =>
+        /blackrock/i.test(x.name || "")
+      );
+      return h ? Math.round(h.percentage * 100) / 100 : 0;
+    })(),
     creditRating: c.creditRating?.rating ?? null,
     sectorCount: Array.isArray(c.sectors) ? c.sectors.length : null,
     growth: g ? { ...g, pct: Math.round(g.pct * 100) / 100 } : null,

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=9" />
+<link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -247,7 +247,7 @@
         </div>
       </article>
       <article class="member reveal">
-        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
+        <div class="m-top"><span class="m-role">■ SUBSIDIARY · 66% BLACKROCK</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo deere"><span class="deere-mark">🦌</span> JOHN DEERE<span>INDUSTRIALS</span></div>
         <h3>John Deere</h3>
         <p class="m-desc">Industrial backbone. Heavy production, supply-chain weight, and resilient margin performance. <span id="deereNote">Currently at $271.09M — below the $350M floor, flagged pending recovery. Margin 36.50% holds.</span></p>
@@ -279,7 +279,7 @@
         </div>
       </article>
       <article class="member reveal">
-        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
+        <div class="m-top"><span class="m-role">■ MEMBER · 28.7% BLACKROCK STAKE</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp" alt="Pfizer logo" loading="lazy" onerror="this.outerHTML='PFIZER'" /></div>
         <h3>Pfizer</h3>
         <p class="m-desc">US energy holding across 9 sectors. Strong margin, triple-digit tape growth. <span id="pfizerNote">Meets the $350M floor ($361.00M cap, 49.45% margin).</span></p>
@@ -343,7 +343,7 @@
         </div>
       </article>
       <article class="member reveal">
-        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
+        <div class="m-top"><span class="m-role">■ SUBSIDIARY · 55% BLACKROCK</span><span class="live-dot">● ACTIVE</span></div>
         <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ace7b48076f76a31679a279-1791917252503.webp" alt="The Organization logo" loading="lazy" onerror="this.outerHTML='ORG'" /></div>
         <h3>The Organization</h3>
         <p class="m-desc">JP energy outfit, 4 sectors. Early days. <span id="orgNote">At $1.07M — far below the $350M floor. Margin 35.00% holds.</span></p>
@@ -359,6 +359,20 @@
         </div>
       </article>
     </div>
+    <h3 class="table-title">Control — BlackRock holdings across the alliance</h3>
+    <div class="table-scroll">
+    <table class="control-table">
+      <thead><tr><th>Corporation</th><th class="num">BlackRock stake</th><th>Top holder</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>John Deere</td><td class="num" data-live="deere:stake">66%</td><td data-live="deere:top">BlackRock Incorporated 66%</td><td><span class="stamp pass">SUBSIDIARY</span></td></tr>
+        <tr><td>The Organization</td><td class="num" data-live="org:stake">55%</td><td data-live="org:top">BlackRock Incorporated 55%</td><td><span class="stamp pass">SUBSIDIARY</span></td></tr>
+        <tr><td>Pfizer</td><td class="num" data-live="pfizer:stake">28.7%</td><td data-live="pfizer:top">Ronald Reagan 60.8%</td><td><span class="stamp na">MINORITY</span></td></tr>
+        <tr><td>American Broadcasting</td><td class="num" data-live="abc:stake">0.5%</td><td data-live="abc:top">Rat 50%</td><td><span class="stamp na">TOEHOLD</span></td></tr>
+        <tr><td>BlackRock Incorporated</td><td class="num">— (apex)</td><td data-live="blackrock:top">Larry Fink 60.3%</td><td><span class="stamp pass">APEX</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="note">Stakes from the live shareholder registers (≥50% = subsidiary, consolidated control).</p>
     <div class="wip-banner" id="dataBanner">⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> ($7.50B · 35.55% · +55.83%) · John Deere <strong>BELOW FLOOR</strong> ($271.09M · 36.50%) · Vermont Logistics <strong>PASS</strong> ($9.38B · 50.56%) · Pfizer <strong>PASS</strong> ($361.00M · 49.45% · +132.74%) · ABC Media <strong>PASS</strong> ($6.75B · 40.74% · -1.67%) · Ranco Arms <strong>LOW MARGIN</strong> ($1.61B · 3.73%) · 簡素 <strong>PASS</strong> ($924.10M · 35.03% · +83.08%) · The Organization <strong>BELOW FLOOR</strong> ($1.07M · 35.00%) · snapshot <a href="data/live.json">data/live.json</a> · turn 170</div>
   </div>
 </section>
@@ -453,6 +467,6 @@
 </footer>
 </main>
 
-<script src="app.js?v=9"></script>
+<script src="app.js?v=10"></script>
 </body>
 </html>

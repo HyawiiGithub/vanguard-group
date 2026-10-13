@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T18:52:52.879Z",
+  "updatedAt": "2026-10-13T18:59:09.363Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -34,6 +34,21 @@
       "marginPct": 35.55,
       "sharePrice": 9392.6,
       "totalShares": 110000000,
+      "holders": [
+        {
+          "name": "Larry Fink",
+          "pct": 60.3
+        },
+        {
+          "name": "簡素",
+          "pct": 7.2
+        },
+        {
+          "name": "Ranco Hashimoto",
+          "pct": 6.4
+        }
+      ],
+      "blackrockStakePct": 0,
       "creditRating": "AAA",
       "sectorCount": 70,
       "growth": {
@@ -71,6 +86,17 @@
       "marginPct": 36.5,
       "sharePrice": 92.17,
       "totalShares": 2941176,
+      "holders": [
+        {
+          "name": "BlackRock Incorporated",
+          "pct": 66
+        },
+        {
+          "name": "Darren W. Woods",
+          "pct": 34
+        }
+      ],
+      "blackrockStakePct": 66,
       "creditRating": "AAA",
       "sectorCount": 14,
       "growth": null,
@@ -99,6 +125,13 @@
       "marginPct": 50.56,
       "sharePrice": 937.99,
       "totalShares": 10000000,
+      "holders": [
+        {
+          "name": "Malik Rahman",
+          "pct": 100
+        }
+      ],
+      "blackrockStakePct": 0,
       "creditRating": "AAA",
       "sectorCount": 70,
       "growth": null,
@@ -127,6 +160,21 @@
       "marginPct": 49.45,
       "sharePrice": 2.74,
       "totalShares": 131753149,
+      "holders": [
+        {
+          "name": "Ronald Reagan",
+          "pct": 60.8
+        },
+        {
+          "name": "BlackRock Incorporated",
+          "pct": 28.7
+        },
+        {
+          "name": "Index Fund",
+          "pct": 5.2
+        }
+      ],
+      "blackrockStakePct": 28.7,
       "creditRating": "AAA",
       "sectorCount": 9,
       "growth": {
@@ -164,6 +212,21 @@
       "marginPct": 40.74,
       "sharePrice": 6.75,
       "totalShares": 1000000000,
+      "holders": [
+        {
+          "name": "Rat",
+          "pct": 50
+        },
+        {
+          "name": "BlackRock Incorporated",
+          "pct": 0.5
+        },
+        {
+          "name": "Greenbaum Group",
+          "pct": 0.4
+        }
+      ],
+      "blackrockStakePct": 0.5,
       "creditRating": "AAA",
       "sectorCount": 51,
       "growth": {
@@ -201,6 +264,13 @@
       "marginPct": 3.73,
       "sharePrice": 22240.35,
       "totalShares": 10000000,
+      "holders": [
+        {
+          "name": "Ranco Hashimoto",
+          "pct": 100
+        }
+      ],
+      "blackrockStakePct": 0,
       "creditRating": "AA",
       "sectorCount": 47,
       "growth": null,
@@ -229,6 +299,21 @@
       "marginPct": 35.03,
       "sharePrice": 127336.76,
       "totalShares": 1000000,
+      "holders": [
+        {
+          "name": "Satoshi Fukuda",
+          "pct": 67.5
+        },
+        {
+          "name": "Index Fund",
+          "pct": 2.4
+        },
+        {
+          "name": "Index Fund",
+          "pct": 0.5
+        }
+      ],
+      "blackrockStakePct": 0,
       "creditRating": "AA",
       "sectorCount": 5,
       "growth": {
@@ -266,6 +351,17 @@
       "marginPct": 35,
       "sharePrice": 13.27,
       "totalShares": 11111111,
+      "holders": [
+        {
+          "name": "BlackRock Incorporated",
+          "pct": 55
+        },
+        {
+          "name": "Nariyoshi Miyagi",
+          "pct": 45
+        }
+      ],
+      "blackrockStakePct": 55,
       "creditRating": null,
       "sectorCount": 4,
       "growth": null,
