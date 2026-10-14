@@ -5,9 +5,10 @@ Corporate alliance operating in [A House Divided](https://ahousedividedgame.com)
 - **T-1:** $350,000,000 market-cap floor (hard)
 - **T-2:** 10% minimum margin, 15% preferred (`operatingIncome / revenue`)
 - **T-3:** Active daily + written commitment to coordinate with the group and all members
-- **Members:** BlackRock Incorporated (#498, CEO Larry Fink), John Deere (#853), Vermont Logistics (#964, CEO Malik Rahman), Pfizer (#496, CEO Ronald Reagan), American Broadcasting Company (#645, CEO Rat), Ranco Weapon Manfacturing (#767, CEO Ranco Hashimoto), 簡素 (#521, CEO Satoshi Fukuda), The Organization (#1084, CEO Nariyoshi Miyagi)
+- **Members:** BlackRock Incorporated (#498, CEO Larry Fink), John Deere (#853), Vermont Logistics (#964, CEO Malik Rahman), Pfizer (#496, CEO Ronald Reagan), American Broadcasting Company (#645, CEO Rat), Ranco Weapon Manfacturing (#767, CEO Ranco Hashimoto), 簡素 (#521, CEO Satoshi Fukuda), The Organization (#1084, CEO Nariyoshi Miyagi), I Love Misa (#561, CEO Napoleon Astrae), I Love Napoleon (#565, CEO Misa Astrae)
 - **Figures:** USD-normalized (balance sheet via live forex; revenue gross per game day in anchor units); growth = trailing-30-turn split-adjusted tape; refreshed every 15 min
 - **Control:** BlackRock holds 66% of John Deere and 55% of The Organization (subsidiaries), 28.7% of Pfizer, 0.5% of ABC; Larry Fink holds 60.3% of BlackRock
+- **Ties:** cross-holdings, owner-operators and shared backers computed from live registers (`ties` in snapshot, rendered on page)
 - **Apply:** Discord DM `hyawii2.0` · in-game mail `Larry Fink`
 
 ## Live data

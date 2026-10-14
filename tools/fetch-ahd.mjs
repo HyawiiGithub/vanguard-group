@@ -72,7 +72,7 @@ async function fullTape(id) {
 
 const FLOOR_MKT_USD = 350_000_000;
 const FLOOR_MARGIN = 10;
-const TRACKED = [498, 853, 964, 496, 645, 767, 521, 1084];
+const TRACKED = [498, 853, 964, 496, 645, 767, 521, 1084, 561, 565];
 
 const game = await j("/api/public/v1/game");
 const forex = await j("/api/public/v1/forex");
@@ -116,8 +116,9 @@ function corpRow(c, tape) {
     marginPct: mg == null ? null : Math.round(mg * 100) / 100,
     sharePrice: c.shareStructure?.sharePrice ?? null,
     totalShares: c.shareStructure?.totalShares ?? null,
-    holders: (c.shareStructure?.shareholders || []).slice(0, 3).map((h) => ({
+    holders: (c.shareStructure?.shareholders || []).map((h) => ({
       name: h.name,
+      shares: h.shares ?? null,
       pct: Math.round(h.percentage * 100) / 100,
     })),
     blackrockStakePct: (() => {
@@ -143,6 +144,30 @@ for (const id of TRACKED) {
   corporations.push(corpRow(c, { entries }));
 }
 
+// ties between members: cross-ownership, shared backers, shared CEOs.
+const ties = [];
+const byName = new Map(corporations.map((c) => [c.name.toLowerCase(), c]));
+for (const b of corporations) {
+  for (const h of b.holders || []) {
+    const a = byName.get((h.name || "").toLowerCase());
+    if (a && a.id !== b.id && h.pct > 0)
+      ties.push({ type: "owns", from: a.name, to: b.name, pct: h.pct });
+  }
+}
+const NOISE = /index fund|^\?\?$/i;
+for (let i = 0; i < corporations.length; i++) {
+  for (let j = i + 1; j < corporations.length; j++) {
+    const A = corporations[i], B = corporations[j];
+    if (A.ceo && B.ceo && A.ceo === B.ceo)
+      ties.push({ type: "ceo", who: A.ceo, a: A.name, b: B.name });
+    const ha = new Map((A.holders || []).map((h) => [h.name, h.pct]));
+    for (const h of B.holders || []) {
+      if (ha.has(h.name) && !NOISE.test(h.name || "") && !byName.has((h.name || "").toLowerCase()))
+        ties.push({ type: "backer", who: h.name, a: A.name, aPct: ha.get(h.name), b: B.name, bPct: h.pct });
+    }
+  }
+}
+
 const larry = await j("/api/public/v1/character?name=" + encodeURIComponent("Larry Fink"));
 
 const out = {
@@ -159,6 +184,7 @@ const out = {
   methodology:
     "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = split-adjusted tape change over trailing 30 turns (game 6M uses internal snapshots; figures converge for steady traders). Threshold checks run on USD market cap.",
   corporations,
+  ties,
   contact: {
     discord: larry.characters?.[0]?.discordUsername ?? "hyawii2.0",
     character: "Larry Fink",

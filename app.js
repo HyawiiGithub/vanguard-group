@@ -47,6 +47,7 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
 });
 
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+const esc = escapeHtml;
 function fmtCompact(n){
   if (n == null || !isFinite(n)) return 'WIP';
   const a = Math.abs(n);
@@ -66,7 +67,7 @@ function fmtGrowth(g, short){
 let SNAP = null;
 function corpByKey(key){
   if (!SNAP || !SNAP.corporations) return null;
-  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : key === 'vermont' ? 964 : key === 'pfizer' ? 496 : key === 'abc' ? 645 : key === 'ranco' ? 767 : key === 'kanso' ? 521 : key === 'org' ? 1084 : null;
+  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : key === 'vermont' ? 964 : key === 'pfizer' ? 496 : key === 'abc' ? 645 : key === 'ranco' ? 767 : key === 'kanso' ? 521 : key === 'org' ? 1084 : key === 'misa' ? 561 : key === 'napoleon' ? 565 : null;
   return SNAP.corporations.find(c => c.id === id || (id === null && c.name.toLowerCase().includes(key))) || null;
 }
 function localSym(c){ return c.currency === 'JPY' ? '¥' : c.currency === 'GBP' ? '£' : '$'; }
@@ -101,8 +102,16 @@ function liveText(key, field, long){
 // so the numbers always carry their freshness with them. Null-safe.
 let timerInt = null;
 function startTimer(s){
-  const el = $('#turnTimer');
-  if (!el) return;
+  let el = $('#turnTimer');
+  if (!el) {
+    const anchor = $('#liveStamp');
+    if (!anchor || !anchor.after) return;
+    el = document.createElement('span');
+    el.id = 'turnTimer';
+    el.className = 'live live-dim';
+    el.textContent = 'SYNC...';
+    anchor.after(el);
+  }
   if (timerInt) clearInterval(timerInt);
   const snapAt = new Date(s.updatedAt).getTime();
   const next = s.game && s.game.nextTurnAt ? new Date(s.game.nextTurnAt).getTime() : null;
@@ -137,6 +146,7 @@ async function loadLive(){
   }
   SNAP = s;
   startTimer(s);
+  renderTies();
   const upd = new Date(s.updatedAt);
   const dateStr = upd.toISOString().slice(0, 10);
 
@@ -208,6 +218,12 @@ async function loadLive(){
       ? 'Meets the $350M floor (' + fmtCompact(oc.marketCapUsd) + ' cap, ' + oc.marginPct.toFixed(2) + '% margin).'
       : 'At ' + fmtCompact(oc.marketCapUsd) + ' below the $350M floor. Margin ' + oc.marginPct.toFixed(2) + '% holds.';
   }
+  const mn = $('#misaNote');
+  const mc = corpByKey('misa');
+  if (mn && mc) mn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(mc.marketCapUsd) + ' cap, ' + mc.marginPct.toFixed(2) + '% margin).';
+  const nn = $('#napoleonNote');
+  const nc = corpByKey('napoleon');
+  if (nn && nc) nn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(nc.marketCapUsd) + ' cap, ' + nc.marginPct.toFixed(2) + '% margin).';
   const banner = $('#dataBanner');
   if (banner && b && d) {
     banner.innerHTML = '⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> (' + esc(fmtCompact(b.marketCapUsd)) + ' · ' + b.marginPct.toFixed(2) + '% · ' + esc(fmtGrowth(b.growth, false)) + ')' +
@@ -217,10 +233,41 @@ async function loadLive(){
       (a ? ' · ABC Media <strong>PASS</strong> (' + esc(fmtCompact(a.marketCapUsd)) + ' · ' + a.marginPct.toFixed(2) + '%' + (a.growth ? ' · ' + esc(fmtGrowth(a.growth, true)) : '') + ')' : '') +
       (rc ? ' · Ranco Arms <strong>' + (rc.checks.marginPass ? 'PASS' : 'LOW MARGIN') + '</strong> (' + esc(fmtCompact(rc.marketCapUsd)) + ' · ' + rc.marginPct.toFixed(2) + '%)' : '') +
       (kc ? ' · 簡素 <strong>PASS</strong> (' + esc(fmtCompact(kc.marketCapUsd)) + ' · ' + kc.marginPct.toFixed(2) + '%' + (kc.growth ? ' · ' + esc(fmtGrowth(kc.growth, true)) : '') + ')' : '') +
+      (mc ? ' · I Love Misa <strong>PASS</strong> (' + esc(fmtCompact(mc.marketCapUsd)) + ' · ' + mc.marginPct.toFixed(2) + '%' + (mc.growth ? ' · ' + esc(fmtGrowth(mc.growth, true)) : '') + ')' : '') +
+      (nc ? ' · I Love Napoleon <strong>PASS</strong> (' + esc(fmtCompact(nc.marketCapUsd)) + ' · ' + nc.marginPct.toFixed(2) + '%' + (nc.growth ? ' · ' + esc(fmtGrowth(nc.growth, true)) : '') + ')' : '') +
       (oc ? ' · The Organization <strong>BELOW FLOOR</strong> (' + esc(fmtCompact(oc.marketCapUsd)) + ' · ' + oc.marginPct.toFixed(2) + '%)' : '') +
       (p ? ' · Pfizer <strong>' + (p.checks && p.checks.marketCapPass ? 'PASS' : 'BELOW FLOOR') + '</strong> (' + esc(fmtCompact(p.marketCapUsd)) + ' · ' + p.marginPct.toFixed(2) + '%' + (p.growth ? ' · ' + esc(fmtGrowth(p.growth, true)) : '') + ')' : '') +
       ' · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
   }
+}
+
+// ---- Member ties renderer (cross-holdings + owner-operators + shared backers)
+function renderTies(){
+  const box = $('#tiesList');
+  if (!box || !SNAP || !SNAP.ties) return;
+  const owns = SNAP.ties.filter(t => t.type === 'owns');
+  const backers = SNAP.ties.filter(t => t.type === 'backer' && Math.min(t.aPct, t.bPct) >= 0.5 && Math.max(t.aPct, t.bPct) >= 5);
+  const ops = (SNAP.corporations || []).filter(c => {
+    const h = (c.holders || [])[0];
+    return h && c.ceo && h.name === c.ceo;
+  });
+  let html = '';
+  if (owns.length) {
+    html += '<div class="tie-group">CROSS-HOLDINGS</div><div class="ties">';
+    html += owns.map(t => '<div class="tie-row"><span class="tie-from">' + escapeHtml(t.from) + '</span><span class="tie-link">holds ' + t.pct + '% of</span><span class="tie-to">' + escapeHtml(t.to) + '</span></div>').join('');
+    html += '</div>';
+  }
+  if (ops.length) {
+    html += '<div class="tie-group">OWNER-OPERATORS</div><div class="ties">';
+    html += ops.map(c => '<div class="tie-row"><span class="tie-from">' + escapeHtml(c.holders[0].name) + '</span><span class="tie-link">runs ' + escapeHtml(c.name) + ' and holds</span><span class="tie-to">' + c.holders[0].pct + '%</span></div>').join('');
+    html += '</div>';
+  }
+  if (backers.length) {
+    html += '<div class="tie-group">SHARED BACKERS</div><div class="ties">';
+    html += backers.map(t => '<div class="tie-row"><span class="tie-from">' + escapeHtml(t.who) + '</span><span class="tie-link">backs</span><span class="tie-to">' + escapeHtml(t.a) + ' (' + t.aPct + '%) + ' + escapeHtml(t.b) + ' (' + t.bPct + '%)</span></div>').join('');
+    html += '</div>';
+  }
+  if (html) box.innerHTML = html;
 }
 
 // ---- Eligibility checker
@@ -261,7 +308,7 @@ on('#checkBtn', 'click', () => {
   }
 });
 
-// Pull figures from the verified snapshot by corp ID (members tracked: 498, 853, 964, 496, 645, 767, 521, 1084)
+// Pull figures from the verified snapshot by corp ID (members tracked: 498, 853, 964, 496, 645, 767, 521, 1084, 561, 565)
 on('#lookupBtn', 'click', () => {
   const idEl = $('#cId');
   if (!idEl) return;
@@ -306,7 +353,7 @@ I am writing on behalf of ${corp} to request entry negotiations for the Vanguard
 — Activity: Daily-active leadership, responsive comms
 — Commitment: Willing to coordinate pricing, supply, votes and crisis response with the group and its members.
 
-Current members noted: BlackRock Incorporated, John Deere, Vermont Logistics, Pfizer, American Broadcasting Company, Ranco Weapon Manfacturing, 簡素 (#521), The Organization (#1084).
+Current members noted: BlackRock Incorporated, John Deere, Vermont Logistics, Pfizer, American Broadcasting Company, Ranco Weapon Manfacturing, 簡素 (#521), The Organization (#1084), I Love Misa (#561), I Love Napoleon (#565).
 
 Please advise on verification steps and negotiation time.
 
@@ -323,3 +370,20 @@ on('#copyMail', 'click', async () => {
 });
 
 loadLive();
+
+// Live data watch: the snapshot republishes every 15 min. If a newer one
+// appears while the page is open, flag it in the timer pill and reload so
+// the numbers always match the latest turn.
+setInterval(async () => {
+  try {
+    if (!SNAP) return;
+    const r = await fetch('data/live.json', { cache: 'no-store' });
+    if (!r.ok) return;
+    const s = await r.json();
+    if (s.updatedAt && s.updatedAt !== SNAP.updatedAt) {
+      const el = $('#turnTimer');
+      if (el) el.textContent = 'NEW DATA — RELOADING...';
+      setTimeout(() => location.reload(), 2000);
+    }
+  } catch {}
+}, 60000);

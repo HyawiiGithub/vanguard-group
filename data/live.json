@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-13T18:59:09.363Z",
+  "updatedAt": "2026-10-14T10:06:36.073Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
-    "currentTurn": 170,
-    "gameDateLabel": "June, Week 3, 1993",
+    "currentTurn": 186,
+    "gameDateLabel": "October, Week 3, 1993",
     "status": "active",
-    "nextTurnAt": "2026-10-13T19:00:00.000Z"
+    "nextTurnAt": "2026-10-14T11:00:00.000Z"
   },
   "thresholds": {
     "marketCapFloorUsd": 350000000,
@@ -20,44 +20,132 @@
       "type": "logistics",
       "countryId": "JP",
       "currency": "JPY",
-      "fxPerUsd": 137.8,
+      "fxPerUsd": 136.3,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/498",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac3dbf9c6e9f850d977790d-1791469818210.webp",
       "brandColor": "#106fb7",
       "ceo": "Larry Fink",
-      "revenue": 741908327,
-      "operatingIncome": 263732719,
-      "marketCap": 1033186000000,
-      "revenueUsd": 701361343.1492956,
-      "operatingIncomeUsd": 249319123.8036283,
-      "marketCapUsd": 7497957315.0449095,
-      "marginPct": 35.55,
-      "sharePrice": 9392.6,
+      "revenue": 735486159,
+      "operatingIncome": 143999702,
+      "marketCap": 666274509701,
+      "revenueUsd": 696933450.005123,
+      "operatingIncomeUsd": 136451526.49918136,
+      "marketCapUsd": 4888303336.591298,
+      "marginPct": 19.58,
+      "sharePrice": 6057.04099727887,
       "totalShares": 110000000,
       "holders": [
         {
           "name": "Larry Fink",
+          "shares": 66283718,
           "pct": 60.3
         },
         {
           "name": "簡素",
+          "shares": 7952969,
           "pct": 7.2
         },
         {
           "name": "Ranco Hashimoto",
+          "shares": 7068903,
           "pct": 6.4
+        },
+        {
+          "name": "Ranco Weapon Manfacturing",
+          "shares": 4520684,
+          "pct": 4.1
+        },
+        {
+          "name": "Index Fund",
+          "shares": 762722,
+          "pct": 0.7
+        },
+        {
+          "name": "Index Fund",
+          "shares": 614145,
+          "pct": 0.6
+        },
+        {
+          "name": "Malik Rahman",
+          "shares": 527925,
+          "pct": 0.5
+        },
+        {
+          "name": "Index Fund",
+          "shares": 480368,
+          "pct": 0.4
+        },
+        {
+          "name": "Matsudaira Kobayashi",
+          "shares": 445190,
+          "pct": 0.4
+        },
+        {
+          "name": "Index Fund",
+          "shares": 425510,
+          "pct": 0.4
+        },
+        {
+          "name": "Napoleon Astrae",
+          "shares": 210664,
+          "pct": 0.2
+        },
+        {
+          "name": "Satoshi Fukuda",
+          "shares": 191220,
+          "pct": 0.2
+        },
+        {
+          "name": "Index Fund",
+          "shares": 173693,
+          "pct": 0.2
+        },
+        {
+          "name": "Hillary Clinton",
+          "shares": 148007,
+          "pct": 0.1
+        },
+        {
+          "name": "Greenbaum Group",
+          "shares": 110214,
+          "pct": 0.1
+        },
+        {
+          "name": "David Bennett",
+          "shares": 92041,
+          "pct": 0.1
+        },
+        {
+          "name": "Pfizer",
+          "shares": 36029,
+          "pct": 0
+        },
+        {
+          "name": "Gareth Evans",
+          "shares": 22603,
+          "pct": 0
+        },
+        {
+          "name": "Lukas Hochburger",
+          "shares": 22500,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 21618,
+          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "sectorCount": 70,
+      "sectorCount": 73,
       "growth": {
-        "pct": 55.83,
-        "fromTurn": 140,
-        "toTurn": 170,
-        "fromPrice": 46.3551,
-        "toPrice": 72.2359,
-        "trades": 48,
+        "pct": -35.02,
+        "fromTurn": 158,
+        "toTurn": 185,
+        "fromPrice": 69.0548,
+        "toPrice": 44.8735,
+        "trades": 51,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -77,22 +165,24 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6acb10f57f0eaca56be706cd-1791830248551.webp",
       "brandColor": "#0c7313",
       "ceo": "Darren W. Woods",
-      "revenue": 42055651,
-      "operatingIncome": 15350791,
-      "marketCap": 271088192,
-      "revenueUsd": 39757213.65960354,
-      "operatingIncomeUsd": 14511835.225922888,
-      "marketCapUsd": 271088192,
-      "marginPct": 36.5,
-      "sharePrice": 92.17,
+      "revenue": 82038890,
+      "operatingIncome": 16876817,
+      "marketCap": 352844732,
+      "revenueUsd": 77738575.96454209,
+      "operatingIncomeUsd": 15992168.10946827,
+      "marketCapUsd": 352844732,
+      "marginPct": 20.57,
+      "sharePrice": 119.96722815417289,
       "totalShares": 2941176,
       "holders": [
         {
           "name": "BlackRock Incorporated",
+          "shares": 1941176,
           "pct": 66
         },
         {
           "name": "Darren W. Woods",
+          "shares": 1000000,
           "pct": 34
         }
       ],
@@ -101,7 +191,7 @@
       "sectorCount": 14,
       "growth": null,
       "checks": {
-        "marketCapPass": false,
+        "marketCapPass": true,
         "marginPass": true
       }
     },
@@ -116,18 +206,19 @@
       "logoUrl": null,
       "brandColor": "#10b981",
       "ceo": "Malik Rahman",
-      "revenue": 801563439,
-      "operatingIncome": 405241526,
-      "marketCap": 9379900000,
-      "revenueUsd": 757756167.0855979,
-      "operatingIncomeUsd": 383094151.43581504,
-      "marketCapUsd": 9379900000,
-      "marginPct": 50.56,
-      "sharePrice": 937.99,
+      "revenue": 947456763,
+      "operatingIncome": 361887908,
+      "marketCap": 9736327637,
+      "revenueUsd": 897792980.1779943,
+      "operatingIncomeUsd": 342918469.84652305,
+      "marketCapUsd": 9736327637,
+      "marginPct": 38.2,
+      "sharePrice": 973.6327636841511,
       "totalShares": 10000000,
       "holders": [
         {
           "name": "Malik Rahman",
+          "shares": 10000000,
           "pct": 100
         }
       ],
@@ -151,39 +242,117 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp",
       "brandColor": "#d946ef",
       "ceo": "Ronald Reagan",
-      "revenue": 40077180,
-      "operatingIncome": 19819270,
-      "marketCap": 361003628,
-      "revenueUsd": 37886870.616612025,
-      "operatingIncomeUsd": 18736101.647014588,
-      "marketCapUsd": 361003628,
-      "marginPct": 49.45,
-      "sharePrice": 2.74,
+      "revenue": 61820920,
+      "operatingIncome": 31786824,
+      "marketCap": 593977733,
+      "revenueUsd": 58580391.3926417,
+      "operatingIncomeUsd": 30120622.453516006,
+      "marketCapUsd": 593977733,
+      "marginPct": 51.42,
+      "sharePrice": 4.508262133958238,
       "totalShares": 131753149,
       "holders": [
         {
           "name": "Ronald Reagan",
+          "shares": 80110097,
           "pct": 60.8
         },
         {
           "name": "BlackRock Incorporated",
+          "shares": 37777945,
           "pct": 28.7
         },
         {
           "name": "Index Fund",
+          "shares": 6911572,
           "pct": 5.2
+        },
+        {
+          "name": "Paddy Riot",
+          "shares": 2127958,
+          "pct": 1.6
+        },
+        {
+          "name": "Index Fund",
+          "shares": 1214628,
+          "pct": 0.9
+        },
+        {
+          "name": "Index Fund",
+          "shares": 1196681,
+          "pct": 0.9
+        },
+        {
+          "name": "Index Fund",
+          "shares": 937596,
+          "pct": 0.7
+        },
+        {
+          "name": "Malik Rahman",
+          "shares": 200000,
+          "pct": 0.2
+        },
+        {
+          "name": "Index Fund",
+          "shares": 34610,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 7783,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 7775,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 7037,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 6374,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 5979,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 5113,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 3537,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 3483,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 782,
+          "pct": 0
         }
       ],
       "blackrockStakePct": 28.7,
       "creditRating": "AAA",
       "sectorCount": 9,
       "growth": {
-        "pct": 132.74,
-        "fromTurn": 139,
-        "toTurn": 167,
-        "fromPrice": 1.1231,
-        "toPrice": 2.6138,
-        "trades": 27,
+        "pct": 154.09,
+        "fromTurn": 156,
+        "toTurn": 186,
+        "fromPrice": 1.742,
+        "toPrice": 4.4262,
+        "trades": 14,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -203,39 +372,127 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac763824f4573325e5f8069-1791634076204.webp",
       "brandColor": "#00ff00",
       "ceo": "Rat",
-      "revenue": 354911038,
-      "operatingIncome": 144596196,
-      "marketCap": 6750000000,
-      "revenueUsd": 335514339.50975275,
-      "operatingIncomeUsd": 136693683.77481332,
-      "marketCapUsd": 6750000000,
-      "marginPct": 40.74,
-      "sharePrice": 6.75,
+      "revenue": 935733449,
+      "operatingIncome": 432504794,
+      "marketCap": 11275400874,
+      "revenueUsd": 886684178.7797163,
+      "operatingIncomeUsd": 409833760.34704554,
+      "marketCapUsd": 11275400874,
+      "marginPct": 46.22,
+      "sharePrice": 11.27540087398397,
       "totalShares": 1000000000,
       "holders": [
         {
           "name": "Rat",
+          "shares": 500005739,
           "pct": 50
         },
         {
           "name": "BlackRock Incorporated",
+          "shares": 5304561,
           "pct": 0.5
         },
         {
           "name": "Greenbaum Group",
+          "shares": 4000046,
           "pct": 0.4
+        },
+        {
+          "name": "Arthur Flaco",
+          "shares": 3959059,
+          "pct": 0.4
+        },
+        {
+          "name": "Index Fund",
+          "shares": 2045364,
+          "pct": 0.2
+        },
+        {
+          "name": "Misa Astrae",
+          "shares": 1828050,
+          "pct": 0.2
+        },
+        {
+          "name": "Malik Rahman",
+          "shares": 1224945,
+          "pct": 0.1
+        },
+        {
+          "name": "I Love Napoleon",
+          "shares": 746071,
+          "pct": 0.1
+        },
+        {
+          "name": "Yui Takeuchi",
+          "shares": 507273,
+          "pct": 0.1
+        },
+        {
+          "name": "caleb mercer",
+          "shares": 500683,
+          "pct": 0.1
+        },
+        {
+          "name": "Crossroads Corporation",
+          "shares": 500006,
+          "pct": 0.1
+        },
+        {
+          "name": "Osian “Osi” Morgan",
+          "shares": 400000,
+          "pct": 0
+        },
+        {
+          "name": "Winston Churchill",
+          "shares": 300591,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 205674,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 174540,
+          "pct": 0
+        },
+        {
+          "name": "Ranco Hashimoto",
+          "shares": 91293,
+          "pct": 0
+        },
+        {
+          "name": "Yoshi Nakamura",
+          "shares": 39500,
+          "pct": 0
+        },
+        {
+          "name": "Darren W. Woods",
+          "shares": 13761,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 13027,
+          "pct": 0
+        },
+        {
+          "name": "Aether J. Strickler II",
+          "shares": 4722,
+          "pct": 0
         }
       ],
       "blackrockStakePct": 0.5,
       "creditRating": "AAA",
-      "sectorCount": 51,
+      "sectorCount": 52,
       "growth": {
-        "pct": -1.67,
-        "fromTurn": 138,
-        "toTurn": 168,
-        "fromPrice": 7.4155,
-        "toPrice": 7.2918,
-        "trades": 42,
+        "pct": 75.51,
+        "fromTurn": 158,
+        "toTurn": 185,
+        "fromPrice": 6.7027,
+        "toPrice": 11.7636,
+        "trades": 17,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -250,29 +507,30 @@
       "type": "defense",
       "countryId": "JP",
       "currency": "JPY",
-      "fxPerUsd": 137.8,
+      "fxPerUsd": 136.3,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/767",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac9e73e96249b1f17b71dca-1791643534845.webp",
       "brandColor": "#ff0000",
       "ceo": "Ranco Hashimoto",
-      "revenue": 182363339,
-      "operatingIncome": 6797334,
-      "marketCap": 222403500000,
-      "revenueUsd": 172396766.18730053,
-      "operatingIncomeUsd": 6425844.178554925,
-      "marketCapUsd": 1614009432.683554,
-      "marginPct": 3.73,
-      "sharePrice": 22240.35,
+      "revenue": 260089945,
+      "operatingIncome": 22281643,
+      "marketCap": 375443575097,
+      "revenueUsd": 246456551.84993452,
+      "operatingIncomeUsd": 21113683.973177936,
+      "marketCapUsd": 2754543441.3692927,
+      "marginPct": 8.57,
+      "sharePrice": 37544.357509673355,
       "totalShares": 10000000,
       "holders": [
         {
           "name": "Ranco Hashimoto",
+          "shares": 10000000,
           "pct": 100
         }
       ],
       "blackrockStakePct": 0,
-      "creditRating": "AA",
-      "sectorCount": 47,
+      "creditRating": "AAA",
+      "sectorCount": 48,
       "growth": null,
       "checks": {
         "marketCapPass": true,
@@ -285,44 +543,67 @@
       "type": "technology",
       "countryId": "JP",
       "currency": "JPY",
-      "fxPerUsd": 137.8,
+      "fxPerUsd": 136.3,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/521",
       "logoUrl": null,
       "brandColor": "#ec4899",
       "ceo": "Satoshi Fukuda",
-      "revenue": 103665632,
-      "operatingIncome": 36316417,
-      "marketCap": 127336760000,
-      "revenueUsd": 98000068.54208092,
-      "operatingIncomeUsd": 34331641.900401406,
-      "marketCapUsd": 924098459.6346815,
-      "marginPct": 35.03,
-      "sharePrice": 127336.76,
+      "revenue": 102093157,
+      "operatingIncome": 35497021,
+      "marketCap": 134568057066,
+      "revenueUsd": 96741638.51929764,
+      "operatingIncomeUsd": 33636338.369807854,
+      "marketCapUsd": 987294985.4400662,
+      "marginPct": 34.77,
+      "sharePrice": 134568.05706574433,
       "totalShares": 1000000,
       "holders": [
         {
           "name": "Satoshi Fukuda",
+          "shares": 674786,
           "pct": 67.5
         },
         {
           "name": "Index Fund",
+          "shares": 23937,
           "pct": 2.4
         },
         {
           "name": "Index Fund",
+          "shares": 4890,
           "pct": 0.5
+        },
+        {
+          "name": "Index Fund",
+          "shares": 4859,
+          "pct": 0.5
+        },
+        {
+          "name": "Greenbaum Group",
+          "shares": 601,
+          "pct": 0.1
+        },
+        {
+          "name": "Index Fund",
+          "shares": 349,
+          "pct": 0
+        },
+        {
+          "name": "Castiglione & Co.",
+          "shares": 18,
+          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
       "creditRating": "AA",
       "sectorCount": 5,
       "growth": {
-        "pct": 83.08,
-        "fromTurn": 140,
-        "toTurn": 169,
-        "fromPrice": 550.9319,
-        "toPrice": 1008.6527,
-        "trades": 16,
+        "pct": -4.74,
+        "fromTurn": 160,
+        "toTurn": 183,
+        "fromPrice": 1050.9939,
+        "toPrice": 1001.1444,
+        "trades": 18,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -337,38 +618,488 @@
       "type": "energy",
       "countryId": "JP",
       "currency": "JPY",
-      "fxPerUsd": 137.8,
+      "fxPerUsd": 136.3,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/1084",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ace7b48076f76a31679a279-1791917252503.webp",
       "brandColor": "#fef100",
       "ceo": "Nariyoshi Miyagi",
-      "revenue": 92309,
-      "operatingIncome": 32308,
-      "marketCap": 147444443,
-      "revenueUsd": 87264.1024081245,
-      "operatingIncomeUsd": 30542.294040686025,
-      "marketCapUsd": 1070022.3773401615,
-      "marginPct": 35,
-      "sharePrice": 13.27,
+      "revenue": 23925163,
+      "operatingIncome": 12707104,
+      "marketCap": 33255692677,
+      "revenueUsd": 22671053.951845907,
+      "operatingIncomeUsd": 12041023.100060675,
+      "marketCapUsd": 243989393.4207189,
+      "marginPct": 53.11,
+      "sharePrice": 2993.0123708574765,
       "totalShares": 11111111,
       "holders": [
         {
           "name": "BlackRock Incorporated",
+          "shares": 6111111,
           "pct": 55
         },
         {
           "name": "Nariyoshi Miyagi",
+          "shares": 5000000,
           "pct": 45
         }
       ],
       "blackrockStakePct": 55,
-      "creditRating": null,
+      "creditRating": "AAA",
       "sectorCount": 4,
       "growth": null,
       "checks": {
         "marketCapPass": false,
         "marginPass": true
       }
+    },
+    {
+      "id": 561,
+      "name": "I Love Misa",
+      "type": "manufacturing",
+      "countryId": "JP",
+      "currency": "JPY",
+      "fxPerUsd": 136.3,
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/561",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac56dd29c01603665694296-1791929558224.webp",
+      "brandColor": "#0161fd",
+      "ceo": "Napoleon Astrae",
+      "revenue": 1432056757,
+      "operatingIncome": 339693612,
+      "marketCap": 1115075294386,
+      "revenueUsd": 1356991214.6492999,
+      "operatingIncomeUsd": 321887554.31883204,
+      "marketCapUsd": 8181051807.825789,
+      "marginPct": 23.72,
+      "sharePrice": 1115075.2943856432,
+      "totalShares": 1000000,
+      "holders": [
+        {
+          "name": "Napoleon Astrae",
+          "shares": 750003,
+          "pct": 75
+        },
+        {
+          "name": "Ranco Weapon Manfacturing",
+          "shares": 248777,
+          "pct": 24.9
+        },
+        {
+          "name": "Ranco Hashimoto",
+          "shares": 1142,
+          "pct": 0.1
+        },
+        {
+          "name": "Index Fund",
+          "shares": 57,
+          "pct": 0
+        },
+        {
+          "name": "Matsudaira Kobayashi",
+          "shares": 21,
+          "pct": 0
+        }
+      ],
+      "blackrockStakePct": 0,
+      "creditRating": "AA",
+      "sectorCount": 12,
+      "growth": {
+        "pct": -10.88,
+        "fromTurn": 131,
+        "toTurn": 132,
+        "fromPrice": 829.3358,
+        "toPrice": 739.0646,
+        "trades": 5,
+        "splitAdjusted": true,
+        "window": "30T"
+      },
+      "checks": {
+        "marketCapPass": true,
+        "marginPass": true
+      }
+    },
+    {
+      "id": 565,
+      "name": "I Love Napoleon",
+      "type": "agriculture",
+      "countryId": "JP",
+      "currency": "JPY",
+      "fxPerUsd": 136.3,
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/565",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac5701a9c0160366569479b-1791899834943.webp",
+      "brandColor": "#4576c4",
+      "ceo": "Misa Astrae",
+      "revenue": 616362667,
+      "operatingIncome": 217975531,
+      "marketCap": 834510324937,
+      "revenueUsd": 584054172.4819443,
+      "operatingIncomeUsd": 206549690.9460245,
+      "marketCapUsd": 6122610945.509661,
+      "marginPct": 35.36,
+      "sharePrice": 758639.5428917537,
+      "totalShares": 1100009,
+      "holders": [
+        {
+          "name": "Misa Astrae",
+          "shares": 858797,
+          "pct": 78.1
+        },
+        {
+          "name": "Ranco Weapon Manfacturing",
+          "shares": 107500,
+          "pct": 9.8
+        },
+        {
+          "name": "Napoleon Astrae",
+          "shares": 26003,
+          "pct": 2.4
+        },
+        {
+          "name": "Greenbaum Group",
+          "shares": 2121,
+          "pct": 0.2
+        },
+        {
+          "name": "Index Fund",
+          "shares": 1777,
+          "pct": 0.2
+        },
+        {
+          "name": "Philipp Navratil",
+          "shares": 1759,
+          "pct": 0.2
+        },
+        {
+          "name": "Ranco Hashimoto",
+          "shares": 1071,
+          "pct": 0.1
+        },
+        {
+          "name": "Nestlé UK & Ireland",
+          "shares": 443,
+          "pct": 0
+        },
+        {
+          "name": "Henry Beck",
+          "shares": 425,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 57,
+          "pct": 0
+        },
+        {
+          "name": "Donald J. Trump",
+          "shares": 47,
+          "pct": 0
+        }
+      ],
+      "blackrockStakePct": 0,
+      "creditRating": "A",
+      "sectorCount": 12,
+      "growth": {
+        "pct": 31.61,
+        "fromTurn": 155,
+        "toTurn": 185,
+        "fromPrice": 2909.785,
+        "toPrice": 3829.685,
+        "trades": 49,
+        "splitAdjusted": true,
+        "window": "30T"
+      },
+      "checks": {
+        "marketCapPass": true,
+        "marginPass": true
+      }
+    }
+  ],
+  "ties": [
+    {
+      "type": "owns",
+      "from": "簡素",
+      "to": "BlackRock Incorporated",
+      "pct": 7.2
+    },
+    {
+      "type": "owns",
+      "from": "Ranco Weapon Manfacturing",
+      "to": "BlackRock Incorporated",
+      "pct": 4.1
+    },
+    {
+      "type": "owns",
+      "from": "BlackRock Incorporated",
+      "to": "John Deere",
+      "pct": 66
+    },
+    {
+      "type": "owns",
+      "from": "BlackRock Incorporated",
+      "to": "Pfizer",
+      "pct": 28.7
+    },
+    {
+      "type": "owns",
+      "from": "BlackRock Incorporated",
+      "to": "American Broadcasting Company",
+      "pct": 0.5
+    },
+    {
+      "type": "owns",
+      "from": "I Love Napoleon",
+      "to": "American Broadcasting Company",
+      "pct": 0.1
+    },
+    {
+      "type": "owns",
+      "from": "BlackRock Incorporated",
+      "to": "The Organization",
+      "pct": 55
+    },
+    {
+      "type": "owns",
+      "from": "Ranco Weapon Manfacturing",
+      "to": "I Love Misa",
+      "pct": 24.9
+    },
+    {
+      "type": "owns",
+      "from": "Ranco Weapon Manfacturing",
+      "to": "I Love Napoleon",
+      "pct": 9.8
+    },
+    {
+      "type": "backer",
+      "who": "Malik Rahman",
+      "a": "BlackRock Incorporated",
+      "aPct": 0.5,
+      "b": "Vermont Logistics",
+      "bPct": 100
+    },
+    {
+      "type": "backer",
+      "who": "Malik Rahman",
+      "a": "BlackRock Incorporated",
+      "aPct": 0.5,
+      "b": "Pfizer",
+      "bPct": 0.2
+    },
+    {
+      "type": "backer",
+      "who": "Greenbaum Group",
+      "a": "BlackRock Incorporated",
+      "aPct": 0.1,
+      "b": "American Broadcasting Company",
+      "bPct": 0.4
+    },
+    {
+      "type": "backer",
+      "who": "Malik Rahman",
+      "a": "BlackRock Incorporated",
+      "aPct": 0.5,
+      "b": "American Broadcasting Company",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Ranco Hashimoto",
+      "a": "BlackRock Incorporated",
+      "aPct": 6.4,
+      "b": "American Broadcasting Company",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "Ranco Hashimoto",
+      "a": "BlackRock Incorporated",
+      "aPct": 6.4,
+      "b": "Ranco Weapon Manfacturing",
+      "bPct": 100
+    },
+    {
+      "type": "backer",
+      "who": "Satoshi Fukuda",
+      "a": "BlackRock Incorporated",
+      "aPct": 0.2,
+      "b": "簡素",
+      "bPct": 67.5
+    },
+    {
+      "type": "backer",
+      "who": "Greenbaum Group",
+      "a": "BlackRock Incorporated",
+      "aPct": 0.1,
+      "b": "簡素",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Napoleon Astrae",
+      "a": "BlackRock Incorporated",
+      "aPct": 0.2,
+      "b": "I Love Misa",
+      "bPct": 75
+    },
+    {
+      "type": "backer",
+      "who": "Ranco Hashimoto",
+      "a": "BlackRock Incorporated",
+      "aPct": 6.4,
+      "b": "I Love Misa",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Matsudaira Kobayashi",
+      "a": "BlackRock Incorporated",
+      "aPct": 0.4,
+      "b": "I Love Misa",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "Napoleon Astrae",
+      "a": "BlackRock Incorporated",
+      "aPct": 0.2,
+      "b": "I Love Napoleon",
+      "bPct": 2.4
+    },
+    {
+      "type": "backer",
+      "who": "Greenbaum Group",
+      "a": "BlackRock Incorporated",
+      "aPct": 0.1,
+      "b": "I Love Napoleon",
+      "bPct": 0.2
+    },
+    {
+      "type": "backer",
+      "who": "Ranco Hashimoto",
+      "a": "BlackRock Incorporated",
+      "aPct": 6.4,
+      "b": "I Love Napoleon",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Darren W. Woods",
+      "a": "John Deere",
+      "aPct": 34,
+      "b": "American Broadcasting Company",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "Malik Rahman",
+      "a": "Vermont Logistics",
+      "aPct": 100,
+      "b": "Pfizer",
+      "bPct": 0.2
+    },
+    {
+      "type": "backer",
+      "who": "Malik Rahman",
+      "a": "Vermont Logistics",
+      "aPct": 100,
+      "b": "American Broadcasting Company",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Malik Rahman",
+      "a": "Pfizer",
+      "aPct": 0.2,
+      "b": "American Broadcasting Company",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Ranco Hashimoto",
+      "a": "American Broadcasting Company",
+      "aPct": 0,
+      "b": "Ranco Weapon Manfacturing",
+      "bPct": 100
+    },
+    {
+      "type": "backer",
+      "who": "Greenbaum Group",
+      "a": "American Broadcasting Company",
+      "aPct": 0.4,
+      "b": "簡素",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Ranco Hashimoto",
+      "a": "American Broadcasting Company",
+      "aPct": 0,
+      "b": "I Love Misa",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Misa Astrae",
+      "a": "American Broadcasting Company",
+      "aPct": 0.2,
+      "b": "I Love Napoleon",
+      "bPct": 78.1
+    },
+    {
+      "type": "backer",
+      "who": "Greenbaum Group",
+      "a": "American Broadcasting Company",
+      "aPct": 0.4,
+      "b": "I Love Napoleon",
+      "bPct": 0.2
+    },
+    {
+      "type": "backer",
+      "who": "Ranco Hashimoto",
+      "a": "American Broadcasting Company",
+      "aPct": 0,
+      "b": "I Love Napoleon",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Ranco Hashimoto",
+      "a": "Ranco Weapon Manfacturing",
+      "aPct": 100,
+      "b": "I Love Misa",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Ranco Hashimoto",
+      "a": "Ranco Weapon Manfacturing",
+      "aPct": 100,
+      "b": "I Love Napoleon",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Greenbaum Group",
+      "a": "簡素",
+      "aPct": 0.1,
+      "b": "I Love Napoleon",
+      "bPct": 0.2
+    },
+    {
+      "type": "backer",
+      "who": "Napoleon Astrae",
+      "a": "I Love Misa",
+      "aPct": 75,
+      "b": "I Love Napoleon",
+      "bPct": 2.4
+    },
+    {
+      "type": "backer",
+      "who": "Ranco Hashimoto",
+      "a": "I Love Misa",
+      "aPct": 0.1,
+      "b": "I Love Napoleon",
+      "bPct": 0.1
     }
   ],
   "contact": {
