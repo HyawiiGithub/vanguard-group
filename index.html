@@ -183,6 +183,15 @@
       <div class="checker-left">
         <h3>◉ Eligibility Checker</h3>
         <p>Enter your figures. Get an instant verdict before you message us.</p>
+        <div class="search-block">
+          <label>Find any corporation <span class="hint">(searches all <span id="corpCount">1,177</span> AHD corps)</span><input id="q" placeholder="Type a name or #ID — e.g. Pfizer" autocomplete="off" /></label>
+          <div id="qResults" class="q-results"></div>
+          <label>Your AHD public key <span class="hint">(optional — pulls live figures for any corp; never leaves this browser)</span><input id="akey" placeholder="ahd_pub_…" autocomplete="off" /></label>
+          <div class="two">
+            <div style="display:flex;align-items:flex-end"><button class="btn btn-ghost btn-sm" id="pullBtn" type="button">Pull live figures</button></div>
+            <p class="note" id="pullMsg" style="margin:0">No key? Enter figures manually. Keys: in-game Settings → API Keys.</p>
+          </div>
+        </div>
         <label>Corporation name<input id="cName" placeholder="e.g. Acme Steel Co." /></label>
         <div class="two">
           <label>Market cap ($M)<input id="cCap" type="number" placeholder="350" min="0" /></label>
@@ -410,14 +419,63 @@
     <h3 class="table-title">Between members — cross-holdings & shared backers</h3>
     <div id="tiesList"><p class="note">Loading register ties…</p></div>
     <p class="note">Crossed corner offices: Napoleon Astrae runs I Love Misa (and holds 75% of it) while Misa Astrae runs I Love Napoleon (and holds 78.1% of it).</p>
+    <h3 class="table-title">Alliance charts</h3>
+    <p class="note">Combined market cap and revenue build point-by-point as snapshots publish (every 15 min). Share prices are split-adjusted tape history in anchor units.</p>
+    <div class="grid-2">
+      <div class="chart-card reveal"><h4>Combined market cap (USD)</h4><div id="chCapHist" class="chart"><p class="note">Collecting history…</p></div></div>
+      <div class="chart-card reveal"><h4>Combined revenue (USD)</h4><div id="chRevHist" class="chart"><p class="note">Collecting history…</p></div></div>
+    </div>
+    <div class="grid-2">
+      <div class="chart-card reveal"><h4>Market cap by member (USD)</h4><div id="chCapBars" class="chart"></div></div>
+      <div class="chart-card reveal"><h4>Margin by member (floor 10%)</h4><div id="chMarginBars" class="chart"></div></div>
+    </div>
+    <div class="chart-card reveal"><h4>Share price tape (anchor, split-adjusted, log scale)</h4><div id="chTape" class="chart"></div><div id="chTapeLegend" class="chart-legend"></div></div>
     <div class="wip-banner" id="dataBanner">⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> ($4.89B · 19.58% · -35.02%) · John Deere <strong>PASS</strong> ($352.84M · 20.57%) · Vermont Logistics <strong>PASS</strong> ($9.74B · 38.20%) · Pfizer <strong>PASS</strong> ($593.98M · 51.42% · +154.09%) · ABC Media <strong>PASS</strong> ($11.28B · 46.22% · +75.51%) · Ranco Arms <strong>LOW MARGIN</strong> ($2.75B · 8.57%) · 簡素 <strong>PASS</strong> ($987.29M · 34.77% · -4.74%) · The Organization <strong>BELOW FLOOR</strong> ($243.99M · 53.11%) · I Love Misa <strong>PASS</strong> ($8.18B · 23.72% · -10.88%) · I Love Napoleon <strong>PASS</strong> ($6.12B · 35.36% · +31.61%) · snapshot <a href="data/live.json">data/live.json</a> · turn 186</div>
+  </div>
+</section>
+
+<!-- CHAIRMAN -->
+<section class="section section-dark" id="chairman">
+  <div class="container">
+    <p class="kicker">04 — CHAIRMAN</p>
+    <h2>Elected to speak <span class="red">for the group.</span></h2>
+    <p class="sub">The Chairman speaks for Vanguard in negotiations and breaks tied alliance votes. Elected by the member corporations — one vote each, cast by Discord ballot.</p>
+    <div class="grid-2">
+      <div class="apply-card reveal">
+        <span class="ch-num" id="chairTag">INTERIM CHAIRMAN</span>
+        <h3 id="chairName">BlackRock Incorporated</h3>
+        <p>Held by <strong id="chairHolder">Larry Fink</strong> · since <span id="chairSince">2026-10-14</span> · term <span id="chairTerm">1 calendar month</span></p>
+        <p class="note" id="chairNote"></p>
+      </div>
+      <div class="apply-card reveal">
+        <span class="ch-num">NEXT ELECTION</span>
+        <h3 id="elecDate">—</h3>
+        <p class="big-count" id="elecCountdown">—</p>
+        <p class="note">Each member corporation casts exactly 1 vote by Discord DM to <code>hyawii2.0</code>. Tie → 48-hour runoff.</p>
+      </div>
+    </div>
+    <h3>Cast a ballot</h3>
+    <p class="sub">Pick your corporation, pick a candidate, generate the ballot, DM it to <code>hyawii2.0</code>.</p>
+    <div class="mail-gen">
+      <div class="two">
+        <label>Your corporation<select id="voteCorp"></select></label>
+        <label>Candidate<select id="voteCand"></select></label>
+      </div>
+      <div class="frow" style="display:flex;gap:10px">
+        <button class="btn btn-red" id="genBallot" type="button">Generate ballot</button>
+        <button class="btn btn-ghost btn-sm" id="copyBallot" type="button">Copy ballot</button>
+      </div>
+      <textarea id="ballotOut" rows="6" readonly placeholder="Your ballot will appear here."></textarea>
+    </div>
+    <h3>Standing rules</h3>
+    <ul class="apply-list" id="chairRules"></ul>
   </div>
 </section>
 
 <!-- ADVANTAGE -->
 <section class="section section-dark" id="advantage">
   <div class="container">
-    <p class="kicker">04 — WHY JOIN</p>
+    <p class="kicker">05 — WHY JOIN</p>
     <h2>What coordination <span class="red">actually gets you.</span></h2>
     <div class="grid-3">
       <div class="card reveal"><div class="icon">◐</div><h3>Joint Negotiations</h3><p>Enter every deal backed by $1B+ in combined allied market weight.</p></div>
@@ -433,7 +491,7 @@
 <!-- APPLY -->
 <section class="section apply" id="apply">
   <div class="container">
-    <p class="kicker">05 — REQUEST NEGOTIATION</p>
+    <p class="kicker">06 — REQUEST NEGOTIATION</p>
     <h2>Think you qualify? <span class="red">Prove it.</span></h2>
     <p class="sub">Two official application channels. Include corporation name, market cap, margin %, and activity statement — or you will be ignored.</p>
     <div class="grid-2">
@@ -473,7 +531,7 @@
 <!-- FAQ -->
 <section class="section section-dark" id="faq">
   <div class="container narrow">
-    <p class="kicker">06 — FAQ</p>
+    <p class="kicker">07 — FAQ</p>
     <h2>Before you message us.</h2>
     <div class="faq">
       <details open><summary>Is $350M market cap a hard requirement?</summary><p>Yes. It is the absolute floor to even open negotiations. No exceptions, no probationary entries.</p></details>

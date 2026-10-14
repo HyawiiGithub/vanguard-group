@@ -1,0 +1,24 @@
+{
+  "chairman": {
+    "kind": "company",
+    "name": "BlackRock Incorporated",
+    "id": 498,
+    "holder": "Larry Fink",
+    "since": "2026-10-14",
+    "interim": true
+  },
+  "election": {
+    "nextVote": "2026-11-01T00:00:00Z",
+    "term": "1 calendar month",
+    "votesPerCorp": 1,
+    "channel": "Discord DM to hyawii2.0",
+    "eligibility": "Member corporations in good standing (pass T-1 + T-2 at vote time) may stand and vote."
+  },
+  "rules": [
+    "The Chairman speaks for the group in negotiations and breaks tied alliance votes.",
+    "Each member corporation casts exactly 1 vote, naming a member corporation or its CEO.",
+    "Votes are cast by Discord DM to hyawii2.0 with a generated ballot (see site) before the deadline.",
+    "Most votes wins. A tie triggers a 48-hour runoff between the tied candidates.",
+    "A Chairman that falls below T-1 or T-2 mid-term triggers an early election."
+  ]
+}

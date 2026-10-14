@@ -2,7 +2,7 @@
 // Fetch live AHD corp data -> data/live.json
 // Usage: AHD_API_KEY=ahd_pub_... node tools/fetch-ahd.mjs
 // Never commit keys. In CI, key comes from repo secret AHD_API_KEY.
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir, readFile } from "node:fs/promises";
 
 const BASE = "https://ahousedividedgame.com";
 const KEY = process.env.AHD_API_KEY;
@@ -70,6 +70,25 @@ async function fullTape(id) {
   return entries;
 }
 
+// split-adjusted [turn, price] series for charts (anchor units, current-share basis).
+function tapeSeries(entries) {
+  const splits = (entries || [])
+    .filter((e) => e.kind === "stock_split" || e.kind === "reverse_split")
+    .map((e) => {
+      const m = /([\d,]+)\s*[^0-9A-Za-z]+([\d,]+)\s*shares/.exec(e.note || "");
+      if (!m) return null;
+      return { turn: e.turn, ratio: Number(m[1].replace(/,/g, "")) / Number(m[2].replace(/,/g, "")) };
+    })
+    .filter(Boolean);
+  return (entries || [])
+    .filter((e) => num(e.pricePerShareAnchor) && e.pricePerShareAnchor > 0)
+    .sort((a, b) => a.turn - b.turn)
+    .map((t) => [
+      t.turn,
+      Math.round(t.pricePerShareAnchor * splits.filter((s) => s.turn > t.turn).reduce((f, s) => f * s.ratio, 1) * 10000) / 10000,
+    ]);
+}
+
 const FLOOR_MKT_USD = 350_000_000;
 const FLOOR_MARGIN = 10;
 const TRACKED = [498, 853, 964, 496, 645, 767, 521, 1084, 561, 565];
@@ -130,6 +149,7 @@ function corpRow(c, tape) {
     creditRating: c.creditRating?.rating ?? null,
     sectorCount: Array.isArray(c.sectors) ? c.sectors.length : null,
     growth: g ? { ...g, pct: Math.round(g.pct * 100) / 100 } : null,
+    tape: tapeSeries(tape.entries),
     checks: {
       marketCapPass: mktUsd == null ? null : mktUsd >= FLOOR_MKT_USD,
       marginPass: mg == null ? null : mg >= FLOOR_MARGIN,
@@ -170,8 +190,19 @@ for (let i = 0; i < corporations.length; i++) {
 
 const larry = await j("/api/public/v1/character?name=" + encodeURIComponent("Larry Fink"));
 
+// full corporation directory for site search (cheap: one request).
+const dir = await j("/api/public/v1/corporations");
+const corpsIndex = (dir.corporations || []).map((c) => ({
+  id: c.sequentialId,
+  name: c.name,
+  type: c.type,
+  country: c.countryId,
+}));
+
+const NOW = new Date().toISOString();
+
 const out = {
-  updatedAt: new Date().toISOString(),
+  updatedAt: NOW,
   source: "ahousedividedgame.com /api/public/v1",
   displayCurrency: "USD",
   game: {
@@ -185,6 +216,13 @@ const out = {
     "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = split-adjusted tape change over trailing 30 turns (game 6M uses internal snapshots; figures converge for steady traders). Threshold checks run on USD market cap.",
   corporations,
   ties,
+  forex: {
+    rates,
+    perUsd: Object.fromEntries(
+      Object.keys(rates).map((k) => [k, perUsd(k) == null ? null : Math.round(perUsd(k) * 10000) / 10000])
+    ),
+    countryCcy,
+  },
   contact: {
     discord: larry.characters?.[0]?.discordUsername ?? "hyawii2.0",
     character: "Larry Fink",
@@ -196,6 +234,34 @@ const out = {
 await mkdir("data", { recursive: true });
 await writeFile("data/live.json", JSON.stringify(out, null, 2) + "\n");
 console.log("Wrote data/live.json");
+await writeFile(
+  "data/corps.json",
+  JSON.stringify({ updatedAt: NOW, count: corpsIndex.length, corps: corpsIndex }) + "\n"
+);
+console.log("Wrote data/corps.json (" + corpsIndex.length + " corps)");
+
+// rolling history for alliance charts (cap ~3000 points ≈ 31 days at 15min).
+let hist = { points: [] };
+try {
+  hist = JSON.parse(await readFile("data/history.json", "utf8"));
+  if (!Array.isArray(hist.points)) hist.points = [];
+} catch {}
+const lastT = hist.points.length ? new Date(hist.points[hist.points.length - 1].t).getTime() : 0;
+if (Date.now() - lastT > 20 * 60 * 1000) {
+  hist.points.push({
+    t: NOW,
+    turn: game.currentTurn,
+    corps: corporations.map((c) => ({
+      id: c.id,
+      m: c.marketCapUsd == null ? null : Math.round(c.marketCapUsd),
+      r: c.revenueUsd == null ? null : Math.round(c.revenueUsd),
+      mg: c.marginPct,
+    })),
+  });
+}
+if (hist.points.length > 3000) hist.points = hist.points.slice(-3000);
+await writeFile("data/history.json", JSON.stringify(hist) + "\n");
+console.log("history points:", hist.points.length);
 for (const c of corporations) {
   console.log(
     `${c.name} (#${c.id}, ${c.currency}): mkt=${c.marketCap} -> $${Math.round(c.marketCapUsd).toLocaleString()} | rev=${c.revenue} -> $${Math.round(c.revenueUsd).toLocaleString()} | margin=${c.marginPct}% | growth=${c.growth ? c.growth.pct + "%" : "n/a"} | pass=${c.checks.marketCapPass && c.checks.marginPass}`

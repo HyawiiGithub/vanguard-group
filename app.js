@@ -147,6 +147,8 @@ async function loadLive(){
   SNAP = s;
   startTimer(s);
   renderTies();
+  renderChair();
+  renderCharts();
   const upd = new Date(s.updatedAt);
   const dateStr = upd.toISOString().slice(0, 10);
 
@@ -387,3 +389,251 @@ setInterval(async () => {
     }
   } catch {}
 }, 60000);
+
+// ---- Universal corp search + live pull (user key stays in their browser)
+let CORPS = [];
+let selCorp = null;
+async function loadCorps(){
+  try {
+    const r = await fetch('data/corps.json', { cache: 'no-store' });
+    if (!r.ok) return;
+    const j = await r.json();
+    CORPS = j.corps || [];
+    const cc = $('#corpCount');
+    if (cc) cc.textContent = (j.count || CORPS.length).toLocaleString('en-US');
+    try { const k = sessionStorage.getItem('ahd_key'); if (k && $('#akey')) $('#akey').value = k; } catch {}
+  } catch {}
+}
+function renderSearch(q){
+  const box = $('#qResults');
+  if (!box) return;
+  q = (q || '').trim().toLowerCase();
+  if (q.length < 2) { box.innerHTML = ''; selCorp = null; return; }
+  const isNum = /^\d+$/.test(q);
+  const inSnap = (id) => !!(SNAP && SNAP.corporations.some(x => x.id === id));
+  const hits = [];
+  for (const c of CORPS) {
+    const hit = isNum ? String(c.id).startsWith(q) : c.name.toLowerCase().includes(q);
+    if (hit) { hits.push(c); if (hits.length >= 60) break; }
+  }
+  hits.sort((a, b) => ((inSnap(b.id) ? 1 : 0) - (inSnap(a.id) ? 1 : 0)) || (a.name.toLowerCase().indexOf(q) - b.name.toLowerCase().indexOf(q)));
+  const top = hits.slice(0, 8);
+  box.innerHTML = top.map(c =>
+    '<div class="q-item" data-id="' + c.id + '"><span>' + escapeHtml(c.name) + '</span><small>#' + c.id + ' · ' + escapeHtml(c.type || '?') + ' · ' + escapeHtml(c.country || '') + (inSnap(c.id) ? ' · MEMBER' : '') + '</small></div>'
+  ).join('') || '<p class="note">No matches.</p>';
+  box.querySelectorAll('.q-item').forEach(el => el.addEventListener('click', () => {
+    const c = CORPS.find(x => x.id === Number(el.getAttribute('data-id')));
+    if (c) selectCorp(c);
+  }));
+}
+function selectCorp(c){
+  selCorp = c;
+  const box = $('#qResults');
+  const member = SNAP && SNAP.corporations.find(x => x.id === c.id);
+  if (box) box.innerHTML = '<p class="note">Selected: <strong>' + escapeHtml(c.name) + '</strong> (#' + c.id + '). ' + (member ? 'Alliance member — verified figures load automatically.' : 'Enter figures manually, or pull live with your key below.') + '</p>';
+  if ($('#cName')) $('#cName').value = c.name;
+  if ($('#cId')) $('#cId').value = c.id;
+  if (member) {
+    if ($('#cCap')) $('#cCap').value = member.marketCapUsd != null ? (member.marketCapUsd / 1e6).toFixed(2) : '';
+    if ($('#cMargin')) $('#cMargin').value = member.marginPct != null ? member.marginPct.toFixed(2) : '';
+    setVerdict(member.checks.marketCapPass && member.checks.marginPass, member.name + ' — alliance snapshot',
+      'Revenue ' + esc(fmtCompact(member.revenueUsd)) + ' · margin ' + (member.marginPct != null ? member.marginPct.toFixed(2) + '%' : 'n/a') + ' · cap ' + esc(fmtCompact(member.marketCapUsd)) + ' · <a href="' + escapeHtml(member.corpUrl) + '">open corp page</a>. Tick the activity boxes and press Evaluate.', false);
+  }
+}
+function getKey(){
+  const inp = $('#akey');
+  let k = (inp && inp.value.trim()) || '';
+  if (!k) { try { k = sessionStorage.getItem('ahd_key') || ''; } catch {} }
+  return k;
+}
+async function pullLive(){
+  const msg = $('#pullMsg');
+  const say = (t) => { if (msg) msg.textContent = t; };
+  if (!selCorp) { say('Search and pick a corporation first.'); return; }
+  const member = SNAP && SNAP.corporations.find(x => x.id === selCorp.id);
+  if (member) { say(selCorp.name + ' is an alliance member — figures already loaded from the verified snapshot.'); return; }
+  const key = getKey();
+  if (!key || key.indexOf('ahd_') !== 0) { say('Enter your AHD public key first (ahd_pub_…). It stays in this browser tab.'); return; }
+  say('Pulling #' + selCorp.id + ' from the game API…');
+  try {
+    const r = await fetch('https://ahousedividedgame.com/api/public/v1/corporation?id=' + selCorp.id, { headers: { 'X-API-Key': key } });
+    if (r.status === 401) { say('Key rejected (401). Check it in-game: Settings → API Keys.'); return; }
+    if (!r.ok) { say('Game API error ' + r.status + '. Try again in a minute.'); return; }
+    const c = await r.json();
+    if (!c.found) { say('Corporation not found — it may have been dissolved.'); return; }
+    try { sessionStorage.setItem('ahd_key', key); } catch {}
+    const fx = (SNAP && SNAP.forex) || {};
+    const ccy = (fx.countryCcy && fx.countryCcy[c.countryId]) || 'USD';
+    const usdRate = fx.rates && fx.rates.USD ? fx.rates.USD : 0.9422652295481025;
+    const ccyRate = fx.rates && fx.rates[ccy] ? fx.rates[ccy] : (ccy === 'USD' ? usdRate : null);
+    const mkt = c.balanceSheet ? c.balanceSheet.marketCapitalization : null;
+    const mktUsd = (mkt != null && ccyRate) ? (mkt / ccyRate) * usdRate : null;
+    const rev = c.financials ? c.financials.totalRevenue : null;
+    const inc = c.financials ? c.financials.operatingIncome : null;
+    const mg = (rev && inc != null && rev !== 0) ? (inc / rev) * 100 : null;
+    if ($('#cName')) $('#cName').value = c.name;
+    if ($('#cCap') && mktUsd != null) $('#cCap').value = (mktUsd / 1e6).toFixed(2);
+    if ($('#cMargin') && mg != null) $('#cMargin').value = mg.toFixed(2);
+    setVerdict(mktUsd != null && mktUsd >= 350000000 && mg != null && mg >= 10, c.name + ' — live pull',
+      'Revenue ' + esc(fmtCompact(rev != null ? rev * usdRate : null)) + ' · margin ' + (mg != null ? mg.toFixed(2) + '%' : 'n/a') + ' · cap ' + esc(fmtCompact(mktUsd)) + (ccy !== 'USD' ? ' (converted from ' + esc(ccy) + ')' : '') + ' · CEO ' + escapeHtml((c.ceo && c.ceo.name) || '—') + ' · <a href="' + escapeHtml(c.corpUrl || ('https://www.ahousedividedgame.com/corporations/' + selCorp.id)) + '">open corp page</a>. Tick the activity boxes and press Evaluate.', false);
+    say('Pulled live. Key saved for this tab only.');
+  } catch (e) {
+    say('Pull blocked by the browser or network (CORS/offline). Enter figures manually from the corp page.');
+  }
+}
+on('#q', 'input', (e) => renderSearch(e.target.value));
+on('#pullBtn', 'click', pullLive);
+
+// ---- Chairman (org.json config, member-ballot flow)
+let ORG = null;
+async function loadOrg(){
+  try {
+    const r = await fetch('data/org.json', { cache: 'no-store' });
+    if (!r.ok) return;
+    ORG = await r.json();
+    renderChair();
+  } catch {}
+}
+function renderChair(){
+  if (!ORG) return;
+  const ch = ORG.chairman || {}, el = ORG.election || {};
+  if ($('#chairName')) $('#chairName').textContent = ch.name || '—';
+  if ($('#chairHolder')) $('#chairHolder').textContent = ch.holder || '—';
+  if ($('#chairSince')) $('#chairSince').textContent = ch.since || '—';
+  if ($('#chairTerm')) $('#chairTerm').textContent = el.term || '—';
+  if ($('#chairTag')) $('#chairTag').textContent = ch.interim ? 'INTERIM CHAIRMAN' : 'CHAIRMAN';
+  if ($('#chairNote')) $('#chairNote').textContent = ch.interim ? 'Interim appointment — stands until the first member vote.' : 'Elected by the member corporations.';
+  if ($('#elecDate') && el.nextVote) {
+    try { $('#elecDate').textContent = new Date(el.nextVote).toUTCString().slice(0, 22); } catch {}
+  }
+  if ($('#chairRules') && ORG.rules) $('#chairRules').innerHTML = ORG.rules.map(x => '<li>' + escapeHtml(x) + '</li>').join('');
+  if (SNAP && $('#voteCorp') && $('#voteCand')) {
+    const opts = SNAP.corporations.map(c => '<option value="' + c.id + '">' + escapeHtml(c.name) + '</option>').join('');
+    $('#voteCorp').innerHTML = opts;
+    $('#voteCand').innerHTML = opts;
+  }
+  tickElection();
+}
+function tickElection(){
+  const el = $('#elecCountdown');
+  if (!el || !ORG || !ORG.election || !ORG.election.nextVote) return;
+  const ms = new Date(ORG.election.nextVote).getTime() - Date.now();
+  if (isNaN(ms)) return;
+  if (ms <= 0) { el.textContent = 'VOTING OPEN'; return; }
+  const d = Math.floor(ms / 86400000), h = Math.floor(ms % 86400000 / 3600000),
+        m = Math.floor(ms % 3600000 / 60000), s = Math.floor(ms % 60000 / 1000);
+  el.textContent = d + 'D ' + h + 'H ' + m + 'M ' + s + 'S';
+}
+setInterval(tickElection, 1000);
+function corpNameById(id){
+  const c = SNAP && SNAP.corporations.find(x => x.id === Number(id));
+  if (c) return c.name;
+  const d = CORPS.find(x => x.id === Number(id));
+  return d ? d.name : '#' + id;
+}
+on('#genBallot', 'click', () => {
+  const vc = $('#voteCorp'), vd = $('#voteCand'), out = $('#ballotOut');
+  if (!vc || !vd || !out) return;
+  out.value = 'VANGUARD CHAIRMAN BALLOT — turn ' + ((SNAP && SNAP.game.currentTurn) || '?') + '\n' +
+    'Voter (corp): ' + corpNameById(vc.value) + ' (#' + vc.value + ')\n' +
+    'Vote for: ' + corpNameById(vd.value) + ' (#' + vd.value + ')\n' +
+    'Signed: [your character + Discord]\nSend via Discord DM to hyawii2.0 before the deadline.';
+});
+on('#copyBallot', 'click', async () => {
+  const ta = $('#ballotOut');
+  if (!ta || !ta.value) return;
+  try { await navigator.clipboard.writeText(ta.value); } catch { try { ta.select(); document.execCommand('copy'); } catch {} }
+  const b = $('#copyBallot'); if (!b) return;
+  const o = b.textContent; b.textContent = 'Copied ✓';
+  setTimeout(() => b.textContent = o, 1400);
+});
+
+// ---- Charts (hand-rolled SVG, no dependencies)
+const PALETTE = ['#60a5fa', '#4ade80', '#f472b6', '#fbbf24', '#a78bfa', '#f87171', '#22d3ee', '#e879f9', '#a3e635', '#fb923c'];
+function svgOpen(w, h, inner){ return '<svg viewBox="0 0 ' + w + ' ' + h + '" role="img" style="width:100%;height:auto;display:block">' + (inner || '') + '</svg>'; }
+function axisLabel(x, y, t, anchor){
+  return '<text x="' + x + '" y="' + y + '" fill="#9aa3c7" font-size="10" text-anchor="' + (anchor || 'middle') + '" font-family="ui-monospace,monospace">' + escapeHtml(t) + '</text>';
+}
+function lineChart(el, series, opts){
+  opts = opts || {};
+  if (!el) return;
+  if (!series.length) { el.innerHTML = '<p class="note">Collecting history.</p>'; return; }
+  const W = 560, H = 230, P = 40;
+  const ok = series.map(s => ({ name: s.name, color: s.color, pts: s.pts.filter(p => p[1] > 0) })).filter(s => s.pts.length > 1);
+  if (!ok.length) { el.innerHTML = '<p class="note">Not enough history yet — points accumulate every 15 min.</p>'; return; }
+  const xs = ok.flatMap(s => s.pts.map(p => p[0]));
+  const ys = ok.flatMap(s => s.pts.map(p => p[1]));
+  const xmin = Math.min(...xs), xmax = Math.max(...xs);
+  let lo = Math.min(...ys), hi = Math.max(...ys);
+  if (lo === hi) { lo *= 0.9; hi *= 1.1; }
+  const X = (x) => P + (xmax === xmin ? 0.5 : (x - xmin) / (xmax - xmin)) * (W - 2 * P);
+  const l0 = Math.log10(lo), l1 = Math.log10(hi);
+  const Y = (y) => {
+    const t = opts.log ? (Math.log10(Math.max(y, lo)) - l0) / ((l1 - l0) || 1) : (y - lo) / ((hi - lo) || 1);
+    return H - P - t * (H - 2 * P);
+  };
+  let g = '';
+  [0, 0.5, 1].forEach(f => {
+    const y = H - P - f * (H - 2 * P);
+    const v = opts.log ? Math.pow(10, l0 + f * (l1 - l0)) : lo + f * (hi - lo);
+    g += '<line x1="' + P + '" y1="' + y + '" x2="' + (W - 12) + '" y2="' + y + '" stroke="rgba(255,255,255,.08)"/>' + axisLabel(4, y + 3, opts.fmt ? opts.fmt(v) : Math.round(v), 'start');
+  });
+  g += axisLabel(P, H - 8, String(xmin), 'start') + axisLabel(W - 12, H - 8, String(xmax), 'end');
+  ok.forEach(s => {
+    g += '<polyline fill="none" stroke="' + s.color + '" stroke-width="2" points="' + s.pts.map(p => X(p[0]).toFixed(1) + ',' + Y(p[1]).toFixed(1)).join(' ') + '"/>';
+    const last = s.pts[s.pts.length - 1];
+    g += '<circle cx="' + X(last[0]).toFixed(1) + '" cy="' + Y(last[1]).toFixed(1) + '" r="3" fill="' + s.color + '"/>';
+  });
+  el.innerHTML = svgOpen(W, H, g);
+}
+function barChart(el, items, opts){
+  opts = opts || {};
+  if (!el || !items.length) return;
+  const W = 560, RH = 30, P = 150;
+  const max = Math.max(...items.map(i => i.value), opts.ref || 0, 1);
+  const H = items.length * RH + 34;
+  let g = '';
+  items.forEach((it, i) => {
+    const y = 8 + i * RH, w = Math.max(2, (it.value / max) * (W - P - 70));
+    g += axisLabel(P - 8, y + 15, it.label, 'end');
+    g += '<rect x="' + P + '" y="' + y + '" width="' + w.toFixed(1) + '" height="16" rx="4" fill="' + it.color + '"/>';
+    g += axisLabel(P + w + 6, y + 13, opts.fmt ? opts.fmt(it.value) : it.value, 'start');
+  });
+  if (opts.ref != null) {
+    const x = P + (opts.ref / max) * (W - P - 70);
+    g += '<line x1="' + x + '" y1="4" x2="' + x + '" y2="' + (H - 26) + '" stroke="#ff4d67" stroke-dasharray="4 3"/>' + axisLabel(x, H - 8, opts.refLabel || '', 'middle');
+  }
+  el.innerHTML = svgOpen(W, H, g);
+}
+function colorFor(c, i){
+  return c.brandColor || PALETTE[i % PALETTE.length];
+}
+async function renderCharts(){
+  if (!SNAP) return;
+  // alliance history (combined per snapshot point)
+  try {
+    const r = await fetch('data/history.json', { cache: 'no-store' });
+    const h = r.ok ? await r.json() : { points: [] };
+    const pts = (h.points || []).filter(p => p.turn != null);
+    const cap = pts.map(p => [p.turn, p.corps.reduce((a, c) => a + (c.m || 0), 0)]);
+    const rev = pts.map(p => [p.turn, p.corps.reduce((a, c) => a + (c.r || 0), 0)]);
+    lineChart($('#chCapHist'), cap.length > 1 ? [{ name: 'cap', color: '#60a5fa', pts: cap }] : [], { fmt: fmtCompact });
+    lineChart($('#chRevHist'), rev.length > 1 ? [{ name: 'rev', color: '#4ade80', pts: rev }] : [], { fmt: fmtCompact });
+  } catch {
+    const a = $('#chCapHist'), b = $('#chRevHist');
+    if (a) a.innerHTML = '<p class="note">History unavailable.</p>';
+    if (b) b.innerHTML = '<p class="note">History unavailable.</p>';
+  }
+  // per-member bars
+  const corps = [...SNAP.corporations].sort((a, b) => (b.marketCapUsd || 0) - (a.marketCapUsd || 0));
+  barChart($('#chCapBars'), corps.map((c, i) => ({ label: c.name.length > 22 ? c.name.slice(0, 21) + '…' : c.name, value: c.marketCapUsd || 0, color: colorFor(c, i) })), { fmt: fmtCompact });
+  barChart($('#chMarginBars'), corps.map((c, i) => ({ label: c.name.length > 22 ? c.name.slice(0, 21) + '…' : c.name, value: c.marginPct || 0, color: (c.marginPct || 0) >= 10 ? '#4ade80' : '#f87171' })), { fmt: (v) => v.toFixed(1) + '%', ref: 10, refLabel: 'floor 10%' });
+  // tape chart (log scale)
+  const series = corps.map((c, i) => ({ name: c.name, color: colorFor(c, i), pts: (c.tape || []).filter(p => p[1] > 0) })).filter(s => s.pts.length > 1);
+  lineChart($('#chTape'), series, { log: true, fmt: (v) => v >= 1000 ? (v / 1000).toFixed(1) + 'k' : v >= 1 ? v.toFixed(1) : v.toFixed(3) });
+  const lg = $('#chTapeLegend');
+  if (lg) lg.innerHTML = series.map(s => '<span><b style="background:' + s.color + '"></b>' + escapeHtml(s.name) + '</span>').join('');
+}
+
+loadCorps();
+loadOrg();
