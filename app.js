@@ -78,6 +78,8 @@ function liveText(key, field, long){
     const sum = (f) => SNAP.corporations.reduce((a, c) => a + (c[f] || 0), 0);
     if (field === 'marketCap') return fmtCompact(sum('marketCapUsd'));
     if (field === 'revenue') return fmtCompact(sum('revenueUsd'));
+    if (field === 'workers') return Math.round(sum('workers')).toLocaleString('en-US');
+    if (field === 'sectors') return String(sum('sectorCount'));
     if (field === 'growth') {
       const b = SNAP.corporations.find(c => c.id === 498);
       return b && b.growth ? fmtGrowth(b.growth, !long) : 'n/a';
@@ -96,6 +98,9 @@ function liveText(key, field, long){
     const h = (c.holders || [])[0];
     return h ? h.name + ' ' + h.pct + '%' : '—';
   }
+  if (field === 'workers') return c.workers != null ? Math.round(c.workers).toLocaleString('en-US') : null;
+  if (field === 'sectors') return c.sectorCount != null ? String(c.sectorCount) : null;
+  if (field === 'div') return c.divRate != null ? (Math.round(c.divRate * 10) / 10) + '%' : null;
   return null;
 }
 // Live turn timer: counts down to the next game turn and shows snapshot age,
@@ -270,6 +275,80 @@ function renderTies(){
     html += '</div>';
   }
   if (html) box.innerHTML = html;
+}
+
+// ---- Chart hover: crosshair + value tooltip on lines, row tooltip on bars
+let tipEl = null;
+function tip(){
+  if (!tipEl) {
+    tipEl = document.createElement('div');
+    tipEl.id = 'chartTip';
+    tipEl.className = 'chart-tip';
+    tipEl.style.display = 'none';
+    document.body.appendChild(tipEl);
+  }
+  return tipEl;
+}
+function bindHover(el){
+  if (!el || !el._meta) return;
+  const svg = el.querySelector ? el.querySelector('svg') : null;
+  if (!svg || !svg.addEventListener) return;
+  svg.addEventListener('mousemove', (ev) => {
+    const m = el._meta;
+    const r = svg.getBoundingClientRect ? svg.getBoundingClientRect() : { left: 0, top: 0, width: m.W, height: m.H };
+    const t = tip();
+    let html = '';
+    if (m.type === 'line') {
+      const px = (ev.clientX - r.left) * (m.W / (r.width || m.W));
+      const tval = m.xmin + ((px - m.P) / ((m.W - 2 * m.P) || 1)) * (m.xmax - m.xmin);
+      const turn = Math.round(Math.min(Math.max(tval, m.xmin), m.xmax));
+      html = '<strong>Turn ' + turn + '</strong>';
+      m.series.forEach(s => {
+        let best = null, bd = Infinity;
+        for (const p of s.pts) { const d = Math.abs(p[0] - turn); if (d < bd) { bd = d; best = p; } }
+        if (best) html += '<div><b style="background:' + s.color + '"></b>' + escapeHtml(s.name) + ' ' + (m.fmt ? m.fmt(best[1]) : best[1]) + '</div>';
+      });
+      const xh = svg.querySelector('.xhair');
+      if (xh) {
+        const X = m.P + ((turn - m.xmin) / ((m.xmax - m.xmin) || 1)) * (m.W - 2 * m.P);
+        xh.setAttribute('x1', X.toFixed(1));
+        xh.setAttribute('x2', X.toFixed(1));
+        xh.style.display = '';
+      }
+    } else {
+      const py = (ev.clientY - r.top) * (m.H / (r.height || m.H));
+      const row = Math.floor((py - 8) / (m.RH || 30));
+      const it = m.items[row];
+      if (!it) { t.style.display = 'none'; return; }
+      html = '<strong>' + escapeHtml(it.label) + '</strong><div>' + (m.fmt ? m.fmt(it.value) : it.value) + '</div>';
+    }
+    t.innerHTML = html;
+    t.style.display = 'block';
+    const vw = (typeof window !== 'undefined' && window.innerWidth) || 1200;
+    t.style.left = Math.max(4, Math.min(vw - 200, ev.clientX + 14)) + 'px';
+    t.style.top = (ev.clientY + 14) + 'px';
+  });
+  svg.addEventListener('mouseleave', () => {
+    tip().style.display = 'none';
+    const xh = svg.querySelector('.xhair');
+    if (xh) xh.style.display = 'none';
+  });
+}
+function syncTapeLegend(){
+  const wrap = $('#chTape');
+  const lg = $('#chTapeLegend');
+  if (!wrap || !lg || !wrap.querySelector || !lg.querySelectorAll) return;
+  const svg = wrap.querySelector('svg');
+  if (!svg || !svg.querySelectorAll) return;
+  const lines = svg.querySelectorAll('polyline');
+  lg.querySelectorAll('span').forEach((sp, i) => {
+    sp.addEventListener('mouseenter', () => {
+      lines.forEach((pl, j) => { pl.style.opacity = (i === j) ? '1' : '0.12'; });
+    });
+    sp.addEventListener('mouseleave', () => {
+      lines.forEach(pl => { pl.style.opacity = '1'; });
+    });
+  });
 }
 
 // ---- Eligibility checker
@@ -584,7 +663,10 @@ function lineChart(el, series, opts){
     const last = s.pts[s.pts.length - 1];
     g += '<circle cx="' + X(last[0]).toFixed(1) + '" cy="' + Y(last[1]).toFixed(1) + '" r="3" fill="' + s.color + '"/>';
   });
+  g += '<line class="xhair" x1="-20" y1="' + P + '" x2="-20" y2="' + (H - P) + '" stroke="#ffffff" stroke-width="1" stroke-dasharray="3 3" style="display:none"/>';
   el.innerHTML = svgOpen(W, H, g);
+  el._meta = { type: 'line', series: ok, xmin: xmin, xmax: xmax, lo: lo, hi: hi, log: !!opts.log, W: W, H: H, P: P, fmt: opts.fmt };
+  bindHover(el);
 }
 function barChart(el, items, opts){
   opts = opts || {};
@@ -604,6 +686,8 @@ function barChart(el, items, opts){
     g += '<line x1="' + x + '" y1="4" x2="' + x + '" y2="' + (H - 26) + '" stroke="#ff4d67" stroke-dasharray="4 3"/>' + axisLabel(x, H - 8, opts.refLabel || '', 'middle');
   }
   el.innerHTML = svgOpen(W, H, g);
+  el._meta = { type: 'bars', items: items, max: max, W: W, RH: RH, P: P, H: H, fmt: opts.fmt };
+  bindHover(el);
 }
 function colorFor(c, i){
   return c.brandColor || PALETTE[i % PALETTE.length];
@@ -628,11 +712,17 @@ async function renderCharts(){
   const corps = [...SNAP.corporations].sort((a, b) => (b.marketCapUsd || 0) - (a.marketCapUsd || 0));
   barChart($('#chCapBars'), corps.map((c, i) => ({ label: c.name.length > 22 ? c.name.slice(0, 21) + '…' : c.name, value: c.marketCapUsd || 0, color: colorFor(c, i) })), { fmt: fmtCompact });
   barChart($('#chMarginBars'), corps.map((c, i) => ({ label: c.name.length > 22 ? c.name.slice(0, 21) + '…' : c.name, value: c.marginPct || 0, color: (c.marginPct || 0) >= 10 ? '#4ade80' : '#f87171' })), { fmt: (v) => v.toFixed(1) + '%', ref: 10, refLabel: 'floor 10%' });
+  // workforce + sectors
+  const byW = [...corps].sort((a, b) => (b.workers || 0) - (a.workers || 0));
+  barChart($('#chWorkers'), byW.map(c => ({ label: c.name.length > 22 ? c.name.slice(0, 21) + '…' : c.name, value: c.workers || 0, color: '#22d3ee' })), { fmt: (v) => Math.round(v).toLocaleString('en-US') });
+  const byS = [...corps].sort((a, b) => (b.sectorCount || 0) - (a.sectorCount || 0));
+  barChart($('#chSectors'), byS.map(c => ({ label: c.name.length > 22 ? c.name.slice(0, 21) + '…' : c.name, value: c.sectorCount || 0, color: '#a78bfa' })), { fmt: (v) => String(v) });
   // tape chart (log scale)
   const series = corps.map((c, i) => ({ name: c.name, color: colorFor(c, i), pts: (c.tape || []).filter(p => p[1] > 0) })).filter(s => s.pts.length > 1);
   lineChart($('#chTape'), series, { log: true, fmt: (v) => v >= 1000 ? (v / 1000).toFixed(1) + 'k' : v >= 1 ? v.toFixed(1) : v.toFixed(3) });
   const lg = $('#chTapeLegend');
   if (lg) lg.innerHTML = series.map(s => '<span><b style="background:' + s.color + '"></b>' + escapeHtml(s.name) + '</span>').join('');
+  syncTapeLegend();
 }
 
 loadCorps();

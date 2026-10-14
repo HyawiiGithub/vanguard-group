@@ -9,6 +9,9 @@ Corporate alliance operating in [A House Divided](https://ahousedividedgame.com)
 - **Figures:** USD-normalized (balance sheet via live forex; revenue gross per game day in anchor units); growth = trailing-30-turn split-adjusted tape; refreshed every 15 min
 - **Control:** BlackRock holds 66% of John Deere and 55% of The Organization (subsidiaries), 28.7% of Pfizer, 0.5% of ABC; Larry Fink holds 60.3% of BlackRock
 - **Ties:** cross-holdings, owner-operators and shared backers computed from live registers (`ties` in snapshot, rendered on page)
+- **Search:** all corps bundled in `data/corps.json`; pull any corp's live figures with your own `ahd_pub_` key (browser-only, never committed)
+- **Chairman:** elected monthly, one vote per member corp; config in `data/org.json`, ballots generated on page
+- **Graphs:** alliance cap/revenue history (`data/history.json`), per-member bars, split-adjusted tape; hover any chart for values
 - **Apply:** Discord DM `hyawii2.0` · in-game mail `Larry Fink`
 
 ## Live data

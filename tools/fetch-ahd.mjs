@@ -148,6 +148,8 @@ function corpRow(c, tape) {
     })(),
     creditRating: c.creditRating?.rating ?? null,
     sectorCount: Array.isArray(c.sectors) ? c.sectors.length : null,
+    workers: Array.isArray(c.sectors) ? c.sectors.reduce((a, s) => a + (num(s.workers) || 0), 0) : null,
+    divRate: num(c.financials?.dividendRate),
     growth: g ? { ...g, pct: Math.round(g.pct * 100) / 100 } : null,
     tape: tapeSeries(tape.entries),
     checks: {
