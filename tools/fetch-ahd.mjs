@@ -117,6 +117,7 @@ function corpRow(c, tape) {
   const mktUsd = toUSD(mkt, ccy);
   return {
     id: c.sequentialId,
+    alive: true,
     name: c.name,
     type: c.type,
     countryId: c.countryId,
@@ -160,10 +161,42 @@ function corpRow(c, tape) {
 }
 
 const corporations = [];
+let prev = null;
+try {
+  prev = JSON.parse(await readFile("data/live.json", "utf8"));
+} catch {}
+const prevById = new Map(((prev && prev.corporations) || []).map((c) => [c.id, c]));
+const prevTurn = prev && prev.game ? prev.game.currentTurn : null;
 for (const id of TRACKED) {
-  const c = await j(`/api/public/v1/corporation?id=${id}`);
-  const entries = await fullTape(id);
-  corporations.push(corpRow(c, { entries }));
+  try {
+    const c = await j(`/api/public/v1/corporation?id=${id}`);
+    if (!c || c.found === false || !c.name) throw new Error("corp gone (id " + id + ")");
+    const entries = await fullTape(id);
+    corporations.push(corpRow(c, { entries }));
+  } catch (e) {
+    // dissolved corp (or blip): freeze last-known figures, flag dead. Revives automatically if it reappears.
+    const p = prevById.get(id);
+    console.log("corp #" + id + " unreachable (" + (e.message || e) + ") — freezing last-known");
+    if (p) {
+      corporations.push({
+        ...p,
+        alive: false,
+        lastSeenTurn: p.lastSeenTurn ?? prevTurn,
+        checkedTurn: game.currentTurn,
+        tape: [],
+      });
+    } else {
+      corporations.push({
+        id, name: "Unknown #" + id, alive: false, lastSeenTurn: null, checkedTurn: game.currentTurn,
+        type: null, countryId: null, currency: "USD", fxPerUsd: 1, corpUrl: null, logoUrl: null,
+        brandColor: null, ceo: null, revenue: null, operatingIncome: null, marketCap: null,
+        revenueUsd: null, operatingIncomeUsd: null, marketCapUsd: null, marginPct: null,
+        sharePrice: null, totalShares: null, holders: [], blackrockStakePct: 0,
+        creditRating: null, sectorCount: null, workers: null, divRate: null, growth: null,
+        checks: { marketCapPass: false, marginPass: false }, tape: [],
+      });
+    }
+  }
 }
 
 // ties between members: cross-ownership, shared backers, shared CEOs.
@@ -190,7 +223,10 @@ for (let i = 0; i < corporations.length; i++) {
   }
 }
 
-const larry = await j("/api/public/v1/character?name=" + encodeURIComponent("Larry Fink"));
+let larry = null;
+try {
+  larry = await j("/api/public/v1/character?name=" + encodeURIComponent("Larry Fink"));
+} catch {}
 
 // full corporation directory for site search (cheap: one request).
 const dir = await j("/api/public/v1/corporations");
@@ -215,7 +251,7 @@ const out = {
   },
   thresholds: { marketCapFloorUsd: FLOOR_MKT_USD, marginFloorPct: FLOOR_MARGIN },
   methodology:
-    "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = split-adjusted tape change over trailing 30 turns (game 6M uses internal snapshots; figures converge for steady traders). Threshold checks run on USD market cap.",
+    "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = split-adjusted tape change over trailing 30 turns (game 6M uses internal snapshots; figures converge for steady traders). Threshold checks run on USD market cap. Corps that 404 are flagged alive:false with frozen last-known figures and excluded from sums until they reappear.",
   corporations,
   ties,
   forex: {
@@ -226,10 +262,10 @@ const out = {
     countryCcy,
   },
   contact: {
-    discord: larry.characters?.[0]?.discordUsername ?? "hyawii2.0",
+    discord: (larry && larry.characters && larry.characters[0] && larry.characters[0].discordUsername) || "hyawii2.0",
     character: "Larry Fink",
-    characterUrl: larry.characters?.[0]?.profileUrl ?? null,
-    ceoOf: larry.characters?.[0]?.ceoOf ?? "BlackRock Incorporated",
+    characterUrl: (larry && larry.characters && larry.characters[0] && larry.characters[0].profileUrl) || null,
+    ceoOf: (larry && larry.characters && larry.characters[0] && larry.characters[0].ceoOf) || "BlackRock Incorporated",
   },
 };
 
@@ -255,9 +291,9 @@ if (Date.now() - lastT > 20 * 60 * 1000) {
     turn: game.currentTurn,
     corps: corporations.map((c) => ({
       id: c.id,
-      m: c.marketCapUsd == null ? null : Math.round(c.marketCapUsd),
-      r: c.revenueUsd == null ? null : Math.round(c.revenueUsd),
-      mg: c.marginPct,
+      m: !c.alive ? null : (c.marketCapUsd == null ? null : Math.round(c.marketCapUsd)),
+      r: !c.alive ? null : (c.revenueUsd == null ? null : Math.round(c.revenueUsd)),
+      mg: !c.alive ? null : c.marginPct,
     })),
   });
 }

@@ -75,14 +75,15 @@ function fmtLocal(n, c){ return localSym(c) + Math.round(n).toLocaleString('en-U
 function fmtUSD(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
 function liveText(key, field, long){
   if (key === 'alliance' && SNAP && SNAP.corporations) {
-    const sum = (f) => SNAP.corporations.reduce((a, c) => a + (c[f] || 0), 0);
+    const sum = (f) => SNAP.corporations.filter(c => c.alive !== false).reduce((a, c) => a + (c[f] || 0), 0);
     if (field === 'marketCap') return fmtCompact(sum('marketCapUsd'));
     if (field === 'revenue') return fmtCompact(sum('revenueUsd'));
     if (field === 'workers') return Math.round(sum('workers')).toLocaleString('en-US');
     if (field === 'sectors') return String(sum('sectorCount'));
     if (field === 'growth') {
-      const b = SNAP.corporations.find(c => c.id === 498);
-      return b && b.growth ? fmtGrowth(b.growth, !long) : 'n/a';
+      const alive = SNAP.corporations.filter(c => c.alive !== false && c.growth);
+      const b = alive.find(c => c.id === 498) || alive.sort((x, y) => (y.marketCapUsd || 0) - (x.marketCapUsd || 0))[0];
+      return b ? fmtGrowth(b.growth, !long) : 'n/a';
     }
     return null;
   }
@@ -141,7 +142,7 @@ function startTimer(s){
 async function loadLive(){
   let s;
   try {
-    const r = await fetch('data/live.json', { cache: 'no-store' });
+    const r = await fetch('data/live.json?t=' + Date.now(), { cache: 'no-store' });
     if (!r.ok) throw new Error('HTTP ' + r.status);
     s = await r.json();
   } catch {
@@ -231,20 +232,25 @@ async function loadLive(){
   const nn = $('#napoleonNote');
   const nc = corpByKey('napoleon');
   if (nn && nc) nn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(nc.marketCapUsd) + ' cap, ' + nc.marginPct.toFixed(2) + '% margin).';
+  const NOTE_BY_ID = { 498: '#blackrockNote', 853: '#deereNote', 964: '#vermontNote', 496: '#pfizerNote', 645: '#abcNote', 767: '#rancoNote', 521: '#kansoNote', 1084: '#orgNote', 561: '#misaNote', 565: '#napoleonNote' };
+  SNAP.corporations.forEach(c => {
+    if (c.alive === false) {
+      const n = $(NOTE_BY_ID[c.id]);
+      if (n) n.textContent = 'DISSOLVED in-game — last seen turn ' + (c.lastSeenTurn != null ? c.lastSeenTurn : '?') + '. Frozen last-verified figures below.';
+      const art = (n && n.closest) ? n.closest('article') : null;
+      if (art) art.classList.add('dead');
+    }
+  });
   const banner = $('#dataBanner');
-  if (banner && b && d) {
-    banner.innerHTML = '⚙ LIVE DATA (USD) — BlackRock <strong>PASS</strong> (' + esc(fmtCompact(b.marketCapUsd)) + ' · ' + b.marginPct.toFixed(2) + '% · ' + esc(fmtGrowth(b.growth, false)) + ')' +
-      ' · John Deere <strong>' + (d.checks && d.checks.marketCapPass ? 'PASS' : 'BELOW FLOOR') + '</strong>' +
-      ' (' + esc(fmtCompact(d.marketCapUsd)) + ' · ' + d.marginPct.toFixed(2) + '%)' +
-      (v ? ' · Vermont Logistics <strong>PASS</strong> (' + esc(fmtCompact(v.marketCapUsd)) + ' · ' + v.marginPct.toFixed(2) + '%)' : '') +
-      (a ? ' · ABC Media <strong>PASS</strong> (' + esc(fmtCompact(a.marketCapUsd)) + ' · ' + a.marginPct.toFixed(2) + '%' + (a.growth ? ' · ' + esc(fmtGrowth(a.growth, true)) : '') + ')' : '') +
-      (rc ? ' · Ranco Arms <strong>' + (rc.checks.marginPass ? 'PASS' : 'LOW MARGIN') + '</strong> (' + esc(fmtCompact(rc.marketCapUsd)) + ' · ' + rc.marginPct.toFixed(2) + '%)' : '') +
-      (kc ? ' · 簡素 <strong>PASS</strong> (' + esc(fmtCompact(kc.marketCapUsd)) + ' · ' + kc.marginPct.toFixed(2) + '%' + (kc.growth ? ' · ' + esc(fmtGrowth(kc.growth, true)) : '') + ')' : '') +
-      (mc ? ' · I Love Misa <strong>PASS</strong> (' + esc(fmtCompact(mc.marketCapUsd)) + ' · ' + mc.marginPct.toFixed(2) + '%' + (mc.growth ? ' · ' + esc(fmtGrowth(mc.growth, true)) : '') + ')' : '') +
-      (nc ? ' · I Love Napoleon <strong>PASS</strong> (' + esc(fmtCompact(nc.marketCapUsd)) + ' · ' + nc.marginPct.toFixed(2) + '%' + (nc.growth ? ' · ' + esc(fmtGrowth(nc.growth, true)) : '') + ')' : '') +
-      (oc ? ' · The Organization <strong>BELOW FLOOR</strong> (' + esc(fmtCompact(oc.marketCapUsd)) + ' · ' + oc.marginPct.toFixed(2) + '%)' : '') +
-      (p ? ' · Pfizer <strong>' + (p.checks && p.checks.marketCapPass ? 'PASS' : 'BELOW FLOOR') + '</strong> (' + esc(fmtCompact(p.marketCapUsd)) + ' · ' + p.marginPct.toFixed(2) + '%' + (p.growth ? ' · ' + esc(fmtGrowth(p.growth, true)) : '') + ')' : '') +
-      ' · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
+  if (banner && SNAP && SNAP.corporations) {
+    const short = { 498: 'BlackRock', 853: 'John Deere', 964: 'Vermont Log.', 496: 'Pfizer', 645: 'ABC Media', 767: 'Ranco Arms', 521: '簡素', 1084: 'The Org.', 561: 'I Love Misa', 565: 'I Love Napoleon' };
+    const seg = SNAP.corporations.map(c => {
+      const nm = short[c.id] || c.name;
+      if (c.alive === false) return nm + ' <strong>DISSOLVED</strong> (last seen T' + (c.lastSeenTurn != null ? c.lastSeenTurn : '?') + ')';
+      const st = (c.checks && c.checks.marketCapPass && c.checks.marginPass) ? 'PASS' : ((c.checks && !c.checks.marketCapPass) ? 'BELOW FLOOR' : 'LOW MARGIN');
+      return nm + ' <strong>' + st + '</strong> (' + esc(fmtCompact(c.marketCapUsd)) + ' · ' + (c.marginPct != null ? c.marginPct.toFixed(2) : '?') + '%' + (c.growth ? ' · ' + esc(fmtGrowth(c.growth, true)) : '') + ')';
+    }).join(' · ');
+    banner.innerHTML = '⚙ LIVE DATA (USD) — ' + seg + ' · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
   }
 }
 
@@ -402,6 +408,11 @@ on('#lookupBtn', 'click', () => {
       'Corp #' + id + ' is not one of the currently tracked members — the snapshot tracks alliance members only. Enter your market cap ($M) and margin % manually from your corporation page.', false);
     return;
   }
+  if (c.alive === false) {
+    setVerdict(false, c.name + ' is dissolved',
+      'Last seen turn ' + (c.lastSeenTurn != null ? c.lastSeenTurn : '?') + '. Frozen figures: cap ' + esc(fmtCompact(c.marketCapUsd)) + ' · margin ' + (c.marginPct != null ? c.marginPct.toFixed(2) + '%' : 'n/a') + '. A dissolved corp cannot apply — refound it first.', false);
+    return;
+  }
   if ($('#cName')) $('#cName').value = c.name;
   if ($('#cCap')) $('#cCap').value = c.marketCapUsd != null ? (c.marketCapUsd / 1e6).toFixed(2) : '';
   if ($('#cMargin')) $('#cMargin').value = c.marginPct != null ? c.marginPct.toFixed(2) : '';
@@ -458,7 +469,7 @@ loadLive();
 setInterval(async () => {
   try {
     if (!SNAP) return;
-    const r = await fetch('data/live.json', { cache: 'no-store' });
+    const r = await fetch('data/live.json?t=' + Date.now(), { cache: 'no-store' });
     if (!r.ok) return;
     const s = await r.json();
     if (s.updatedAt && s.updatedAt !== SNAP.updatedAt) {
@@ -474,7 +485,7 @@ let CORPS = [];
 let selCorp = null;
 async function loadCorps(){
   try {
-    const r = await fetch('data/corps.json', { cache: 'no-store' });
+    const r = await fetch('data/corps.json?t=' + Date.now(), { cache: 'no-store' });
     if (!r.ok) return;
     const j = await r.json();
     CORPS = j.corps || [];
@@ -567,7 +578,7 @@ on('#pullBtn', 'click', pullLive);
 let ORG = null;
 async function loadOrg(){
   try {
-    const r = await fetch('data/org.json', { cache: 'no-store' });
+    const r = await fetch('data/org.json?t=' + Date.now(), { cache: 'no-store' });
     if (!r.ok) return;
     ORG = await r.json();
     renderChair();
@@ -587,11 +598,18 @@ function renderChair(){
   }
   if ($('#chairRules') && ORG.rules) $('#chairRules').innerHTML = ORG.rules.map(x => '<li>' + escapeHtml(x) + '</li>').join('');
   if (SNAP && $('#voteCorp') && $('#voteCand')) {
-    const opts = SNAP.corporations.map(c => '<option value="' + c.id + '">' + escapeHtml(c.name) + '</option>').join('');
+    const opts = SNAP.corporations.filter(c => c.alive !== false).map(c => '<option value="' + c.id + '">' + escapeHtml(c.name) + '</option>').join('');
     $('#voteCorp').innerHTML = opts;
     $('#voteCand').innerHTML = opts;
   }
   tickElection();
+  if (SNAP && ORG && ORG.chairman && ORG.chairman.id != null) {
+    const chCorp = SNAP.corporations.find(x => x.id === ORG.chairman.id);
+    if (chCorp && chCorp.alive === false) {
+      if ($('#chairTag')) $('#chairTag').textContent = 'VACANT — DISSOLVED';
+      if ($('#chairNote')) $('#chairNote').textContent = 'The sitting chairman (' + ORG.chairman.name + ') dissolved in-game — last seen turn ' + (chCorp.lastSeenTurn != null ? chCorp.lastSeenTurn : '?') + '. Early election due: ballot below.';
+    }
+  }
 }
 function tickElection(){
   const el = $('#elecCountdown');
@@ -696,13 +714,29 @@ async function renderCharts(){
   if (!SNAP) return;
   // alliance history (combined per snapshot point)
   try {
-    const r = await fetch('data/history.json', { cache: 'no-store' });
+    const r = await fetch('data/history.json?t=' + Date.now(), { cache: 'no-store' });
     const h = r.ok ? await r.json() : { points: [] };
     const pts = (h.points || []).filter(p => p.turn != null);
     const cap = pts.map(p => [p.turn, p.corps.reduce((a, c) => a + (c.m || 0), 0)]);
     const rev = pts.map(p => [p.turn, p.corps.reduce((a, c) => a + (c.r || 0), 0)]);
     lineChart($('#chCapHist'), cap.length > 1 ? [{ name: 'cap', color: '#60a5fa', pts: cap }] : [], { fmt: fmtCompact });
     lineChart($('#chRevHist'), rev.length > 1 ? [{ name: 'rev', color: '#4ade80', pts: rev }] : [], { fmt: fmtCompact });
+    if (pts.length >= 2) {
+      const cut = pts[pts.length - 1].turn - 30;
+      const base = pts.find(p => p.turn >= cut) || pts[0];
+      const lastP = pts[pts.length - 1];
+      const sumCap = (p) => p.corps.reduce((a, c) => a + (c.m || 0), 0);
+      const g0 = sumCap(base), g1 = sumCap(lastP);
+      if (g0 > 0) {
+        const gpct = ((g1 - g0) / g0) * 100;
+        document.querySelectorAll('[data-live="alliance:growth"]').forEach(el => {
+          el.textContent = (gpct >= 0 ? '+' : '') + gpct.toFixed(1) + '%';
+          el.title = 'Alliance market cap ' + (gpct >= 0 ? '+' : '') + gpct.toFixed(2) + '% (t' + base.turn + '→t' + lastP.turn + ')';
+          el.classList.remove('up', 'down');
+          el.classList.add(gpct >= 0 ? 'up' : 'down');
+        });
+      }
+    }
   } catch {
     const a = $('#chCapHist'), b = $('#chRevHist');
     if (a) a.innerHTML = '<p class="note">History unavailable.</p>';
