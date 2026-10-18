@@ -100,7 +100,10 @@ const FLOOR_MARGIN = 10;
 // fetch re-checks the identity and quarantines the row if it no longer matches.
 const ROSTER = [
   { id: 498, name: "BlackRock Incorporated" },
-  { id: 853, name: "John Deere" },
+  // #853 was renamed John Deere -> Exxon Mobil in-game (same corporation document,
+  // same CEO, same logo document key). `formerly` is pinned here so the rename stays
+  // visible forever, not just on the run that happens to detect it.
+  { id: 853, name: "Exxon Mobil", formerly: "John Deere" },
   { id: 964, name: "Vermont Logistics" },
   { id: 496, name: "Pfizer" },
   { id: 645, name: "American Broadcasting Company" },
@@ -175,6 +178,7 @@ function corpRow(c, tape) {
     dissolved: false,
     name: c.name,
     memberName: c.name,
+    formerly: rosterById.get(c.sequentialId)?.formerly ?? null,
     type: c.type,
     typeLabel: c.typeLabel ?? c.type,
     description: c.description ?? null,
