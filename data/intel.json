@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T19:31:30.170Z",
+  "updatedAt": "2026-10-18T19:46:29.937Z",
   "game": {
     "currentTurn": 291,
     "gameDateLabel": "December, Week 4, 1995",
@@ -40,8 +40,8 @@
     "workers": 759620,
     "sectorCount": 50,
     "revenueUsd": 1630254242.9294686,
-    "marketCapUsd": 19380351646,
-    "cashUsd": 161940237.3976836,
+    "marketCapUsd": 19388159328,
+    "cashUsd": 44438689.593036816,
     "debtUsd": 405624000,
     "bonds": 15,
     "defaultedBonds": 0,
@@ -87,18 +87,18 @@
         "marginPct": 26.89
       },
       "balanceSheet": {
-        "cashOnHand": 139029622.98016897,
-        "marketCapitalization": 12112491646,
+        "cashOnHand": 21528075.17552218,
+        "marketCapitalization": 12120299328,
         "totalDebt": 251467000,
-        "cashOnHandUsd": 139029622.98016897,
-        "marketCapitalizationUsd": 12112491646,
+        "cashOnHandUsd": 21528075.17552218,
+        "marketCapitalizationUsd": 12120299328,
         "totalDebtUsd": 251467000
       },
       "shareStructure": {
         "totalShares": 1251231,
-        "publicFloat": 228759,
+        "publicFloat": 228751,
         "publicFloatPct": 18.3,
-        "sharePrice": 9680.46,
+        "sharePrice": 9686.7,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -156,6 +156,11 @@
             "pct": null
           },
           {
+            "name": "I Love Napoleon",
+            "shares": 6,
+            "pct": null
+          },
+          {
             "name": "National Public Party",
             "shares": 5,
             "pct": null
@@ -166,8 +171,8 @@
             "pct": null
           },
           {
-            "name": "National Public Party",
-            "shares": 1,
+            "name": "Misa Astrae",
+            "shares": 2,
             "pct": null
           },
           {
@@ -1001,7 +1006,7 @@
         "toTurn": 291,
         "fromPrice": 3176.2503,
         "toPrice": 10283.5461,
-        "trades": 46,
+        "trades": 48,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1184,6 +1189,14 @@
         ],
         [
           291,
+          11340.1537
+        ],
+        [
+          291,
+          11340.1537
+        ],
+        [
+          291,
           9921.393
         ],
         [
@@ -1191,7 +1204,7 @@
           10283.5461
         ]
       ],
-      "tapeTradeCount": 46,
+      "tapeTradeCount": 48,
       "tapeSplitCount": 1
     },
     {

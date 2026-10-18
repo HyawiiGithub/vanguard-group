@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T19:31:28.413Z",
+  "updatedAt": "2026-10-18T19:46:28.110Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -182,12 +182,12 @@
       "ceo": "Braden E Peters",
       "revenue": 385771678,
       "operatingIncome": 85828271,
-      "marketCap": 2693626671,
+      "marketCap": 2721771835,
       "revenueUsd": 330235643.8843496,
       "operatingIncomeUsd": 73472356.71656914,
-      "marketCapUsd": 2693626671,
+      "marketCapUsd": 2721771835,
       "marginPct": 22.25,
-      "sharePrice": 560.83,
+      "sharePrice": 566.69,
       "totalShares": 4802929,
       "holders": [
         {
@@ -795,12 +795,12 @@
       "ceo": "Ronald Reagan",
       "revenue": 33627196,
       "operatingIncome": 10422438,
-      "marketCap": 354415971,
+      "marketCap": 358368565,
       "revenueUsd": 28786194.934417203,
       "operatingIncomeUsd": 8922014.549172562,
-      "marketCapUsd": 354415971,
+      "marketCapUsd": 358368565,
       "marginPct": 30.99,
-      "sharePrice": 2.69,
+      "sharePrice": 2.72,
       "totalShares": 131753149,
       "holders": [
         {
@@ -1624,12 +1624,12 @@
       "ceo": "Rat",
       "revenue": 2674265587,
       "operatingIncome": 849162751,
-      "marketCap": 14624219253,
+      "marketCap": 14593539072,
       "revenueUsd": 2289275932.9022155,
       "operatingIncomeUsd": 726916525.5804254,
-      "marketCapUsd": 14624219253,
+      "marketCapUsd": 14593539072,
       "marginPct": 31.75,
-      "sharePrice": 14.3,
+      "sharePrice": 14.27,
       "totalShares": 1022672675,
       "holders": [
         {
@@ -2610,12 +2610,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 247160915,
       "operatingIncome": 110121293,
-      "marketCap": 434656551209,
+      "marketCap": 439229106719,
       "revenueUsd": 211579409.6944307,
       "operatingIncomeUsd": 94268133.6477794,
-      "marketCapUsd": 2688623962.988931,
+      "marketCapUsd": 2716908092.796909,
       "marginPct": 44.55,
-      "sharePrice": 39119.09,
+      "sharePrice": 39530.62,
       "totalShares": 11111111,
       "holders": [
         {
@@ -2927,12 +2927,12 @@
       "ceo": "Napoleon Astrae",
       "revenue": 11137280439,
       "operatingIncome": 2607198912,
-      "marketCap": 13480125390000,
+      "marketCap": 13578562150000,
       "revenueUsd": 9533947634.418451,
       "operatingIncomeUsd": 2231864236.126986,
-      "marketCapUsd": 83383048171.80234,
+      "marketCapUsd": 83991941402.65054,
       "marginPct": 23.41,
-      "sharePrice": 13480125.39,
+      "sharePrice": 13578562.15,
       "totalShares": 1000000,
       "holders": [
         {
@@ -2947,17 +2947,17 @@
         },
         {
           "name": "Misa Astrae",
-          "shares": 3275,
+          "shares": 3462,
           "pct": 0.3
+        },
+        {
+          "name": "I Love Napoleon",
+          "shares": 1341,
+          "pct": 0.1
         },
         {
           "name": "Ranco Hashimoto",
           "shares": 1018,
-          "pct": 0.1
-        },
-        {
-          "name": "I Love Napoleon",
-          "shares": 827,
           "pct": 0.1
         },
         {
@@ -2998,12 +2998,12 @@
       "workers": 4174563,
       "divRate": 20,
       "growth": {
-        "pct": 72.68,
+        "pct": 74.56,
         "fromTurn": 261,
-        "toTurn": 290,
+        "toTurn": 291,
         "fromPrice": 55846.9044,
-        "toPrice": 96436.795,
-        "trades": 20,
+        "toPrice": 97484.9607,
+        "trades": 22,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -3259,6 +3259,14 @@
         [
           290,
           96436.795
+        ],
+        [
+          291,
+          97484.9607
+        ],
+        [
+          291,
+          97484.2682
         ]
       ],
       "checks": {
@@ -3286,12 +3294,12 @@
       "ceo": "Misa Astrae",
       "revenue": 7355462035,
       "operatingIncome": 2900872278,
-      "marketCap": 17508131219310,
+      "marketCap": 17488681237350,
       "revenueUsd": 6296563173.813691,
       "operatingIncomeUsd": 2483260122.97769,
-      "marketCapUsd": 108298795940.05484,
+      "marketCapUsd": 108178485576.77629,
       "marginPct": 39.44,
-      "sharePrice": 17317637.21,
+      "sharePrice": 17298398.85,
       "totalShares": 1011000,
       "holders": [
         {
@@ -3368,7 +3376,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AA",
       "creditScore": 89,
-      "cashOnHand": 25809957151.840225,
+      "cashOnHand": 235620.0650281962,
       "totalDebt": 438517990000,
       "defaultedBonds": 0,
       "distress": [],
@@ -4229,12 +4237,12 @@
       "ceo": "Malik Rahman",
       "revenue": 2783824507,
       "operatingIncome": 377657752,
-      "marketCap": 12150490000,
+      "marketCap": 12150470000,
       "revenueUsd": 2383062653.267607,
       "operatingIncomeUsd": 323289805.8929977,
-      "marketCapUsd": 12150490000,
+      "marketCapUsd": 12150470000,
       "marginPct": 13.57,
-      "sharePrice": 12150.49,
+      "sharePrice": 12150.47,
       "totalShares": 1000000,
       "holders": [
         {
@@ -4534,12 +4542,12 @@
       "ceo": "Larry Fink",
       "revenue": 393980306,
       "operatingIncome": 174387232,
-      "marketCap": 1479040970039,
+      "marketCap": 1475171950458,
       "revenueUsd": 337262550.4914933,
       "operatingIncomeUsd": 149282290.87032527,
-      "marketCapUsd": 9148798018.178612,
+      "marketCapUsd": 9124865700.283447,
       "marginPct": 44.26,
-      "sharePrice": 75431.09,
+      "sharePrice": 75233.77,
       "totalShares": 19607843,
       "holders": [
         {
