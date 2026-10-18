@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T15:31:30.421Z",
+  "updatedAt": "2026-10-18T15:46:26.493Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -182,12 +182,12 @@
       "ceo": "Braden E Peters",
       "revenue": 351919445,
       "operatingIncome": 116570005,
-      "marketCap": 2319526531,
+      "marketCap": 2277885137,
       "revenueUsd": 304021860.2405054,
       "operatingIncomeUsd": 100704380.70946895,
-      "marketCapUsd": 2319526531,
+      "marketCapUsd": 2277885137,
       "marginPct": 33.12,
-      "sharePrice": 482.94,
+      "sharePrice": 474.27,
       "totalShares": 4802929,
       "holders": [
         {
@@ -783,12 +783,12 @@
       "ceo": "Ronald Reagan",
       "revenue": 35873529,
       "operatingIncome": 13696298,
-      "marketCap": 474311336,
+      "marketCap": 466406147,
       "revenueUsd": 30991004.262272913,
       "operatingIncomeUsd": 11832179.368117364,
-      "marketCapUsd": 474311336.00000006,
+      "marketCapUsd": 466406147,
       "marginPct": 38.18,
-      "sharePrice": 3.6,
+      "sharePrice": 3.54,
       "totalShares": 131753149,
       "holders": [
         {
@@ -1596,12 +1596,12 @@
       "ceo": "Rat",
       "revenue": 2692967039,
       "operatingIncome": 982347595,
-      "marketCap": 15943467003,
+      "marketCap": 16096867905,
       "revenueUsd": 2326443907.5344234,
       "operatingIncomeUsd": 848646323.6911691,
-      "marketCapUsd": 15943467003,
+      "marketCapUsd": 16096867904.999998,
       "marginPct": 36.48,
-      "sharePrice": 15.59,
+      "sharePrice": 15.74,
       "totalShares": 1022672675,
       "holders": [
         {
@@ -2570,12 +2570,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 246805151,
       "operatingIncome": 109981608,
-      "marketCap": 484273106268,
+      "marketCap": 475576661911,
       "revenueUsd": 213214024.3741258,
       "operatingIncomeUsd": 95012689.78303273,
-      "marketCapUsd": 2988630558.3955517,
+      "marketCapUsd": 2934961545.976073,
       "marginPct": 44.56,
-      "sharePrice": 43584.58,
+      "sharePrice": 42801.9,
       "totalShares": 11111111,
       "holders": [
         {
@@ -2585,8 +2585,8 @@
         },
         {
           "name": "Larry Fink",
-          "shares": 3049632,
-          "pct": 27.4
+          "shares": 2426390,
+          "pct": 21.8
         },
         {
           "name": "Ranco Weapon Manfacturing",
@@ -2691,12 +2691,12 @@
       "workers": 76140,
       "divRate": 0,
       "growth": {
-        "pct": 32.21,
-        "fromTurn": 255,
-        "toTurn": 285,
-        "fromPrice": 204.5742,
-        "toPrice": 270.4706,
-        "trades": 12,
+        "pct": 33.54,
+        "fromTurn": 258,
+        "toTurn": 287,
+        "fromPrice": 207.8302,
+        "toPrice": 277.5385,
+        "trades": 11,
         "splitAdjusted": false,
         "window": "30T"
       },
@@ -2844,6 +2844,10 @@
         [
           285,
           270.4706
+        ],
+        [
+          287,
+          277.5385
         ]
       ],
       "checks": {
@@ -2871,12 +2875,12 @@
       "ceo": "Napoleon Astrae",
       "revenue": 11419560916,
       "operatingIncome": 2522154706,
-      "marketCap": 13820984770000,
+      "marketCap": 13795750340000,
       "revenueUsd": 9865314924.022142,
       "operatingIncomeUsd": 2178879787.4822316,
-      "marketCapUsd": 85294468960.0058,
+      "marketCapUsd": 85138737849.51138,
       "marginPct": 22.09,
-      "sharePrice": 13820984.77,
+      "sharePrice": 13795750.34,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3224,12 +3228,12 @@
       "ceo": "Misa Astrae",
       "revenue": 6486042505,
       "operatingIncome": 2325237671,
-      "marketCap": 15562835435460,
+      "marketCap": 15562893729720,
       "revenueUsd": 5603267270.352417,
       "operatingIncomeUsd": 2008763915.3861482,
-      "marketCapUsd": 96044081233.69354,
+      "marketCapUsd": 96044440989.38628,
       "marginPct": 35.85,
-      "sharePrice": 15393506.86,
+      "sharePrice": 15393564.52,
       "totalShares": 1011000,
       "holders": [
         {
@@ -3269,7 +3273,7 @@
         },
         {
           "name": "Henry Beck",
-          "shares": 348,
+          "shares": 393,
           "pct": 0
         },
         {
@@ -3315,12 +3319,12 @@
       "workers": 2390632,
       "divRate": 0,
       "growth": {
-        "pct": 41.96,
-        "fromTurn": 256,
-        "toTurn": 286,
-        "fromPrice": 76386.875,
-        "toPrice": 108438.0088,
-        "trades": 8,
+        "pct": 50.34,
+        "fromTurn": 259,
+        "toTurn": 287,
+        "fromPrice": 73264.6757,
+        "toPrice": 110145.7863,
+        "trades": 10,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -4120,6 +4124,18 @@
         [
           286,
           108438.0088
+        ],
+        [
+          287,
+          110145.7863
+        ],
+        [
+          287,
+          107946.6595
+        ],
+        [
+          287,
+          110145.7824
         ]
       ],
       "checks": {
@@ -4147,12 +4163,12 @@
       "ceo": "Malik Rahman",
       "revenue": 2773502973,
       "operatingIncome": 442953493,
-      "marketCap": 14093230000,
+      "marketCap": 14092970000,
       "revenueUsd": 2396018592.362898,
       "operatingIncomeUsd": 382665825.5325723,
-      "marketCapUsd": 14093230000,
+      "marketCapUsd": 14092970000,
       "marginPct": 15.97,
-      "sharePrice": 14093.23,
+      "sharePrice": 14092.97,
       "totalShares": 1000000,
       "holders": [
         {
@@ -4442,18 +4458,18 @@
       "ceo": "Larry Fink",
       "revenue": 302643049,
       "operatingIncome": 137297397,
-      "marketCap": 363011900000,
+      "marketCap": 364004100000,
       "revenueUsd": 261452170.5268046,
       "operatingIncomeUsd": 118610695.24623507,
-      "marketCapUsd": 2240282277.4156585,
+      "marketCapUsd": 2246405514.9063625,
       "marginPct": 45.37,
-      "sharePrice": 36301.19,
+      "sharePrice": 36400.41,
       "totalShares": 10000000,
       "holders": [],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 89,
-      "cashOnHand": 27449659898.450253,
+      "cashOnHand": 25829384689.325684,
       "totalDebt": 0,
       "defaultedBonds": 0,
       "distress": [],
@@ -4691,7 +4707,7 @@
       "a": "BlackRock Incorporated",
       "aPct": 60.3,
       "b": "The Organization",
-      "bPct": 27.4
+      "bPct": 21.8
     },
     {
       "type": "backer",
@@ -5295,7 +5311,7 @@
       "a": "Pfizer",
       "aPct": 5.1,
       "b": "The Organization",
-      "bPct": 27.4
+      "bPct": 21.8
     },
     {
       "type": "backer",
@@ -5693,7 +5709,7 @@
       "type": "backer",
       "who": "Larry Fink",
       "a": "The Organization",
-      "aPct": 27.4,
+      "aPct": 21.8,
       "b": "I Love Misa",
       "bPct": 0
     },
