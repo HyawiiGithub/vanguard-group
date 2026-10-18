@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T13:31:28.363Z",
+  "updatedAt": "2026-10-18T13:46:28.671Z",
   "game": {
     "currentTurn": 285,
     "gameDateLabel": "November, Week 2, 1995",
@@ -40,8 +40,8 @@
     "workers": 563983,
     "sectorCount": 49,
     "revenueUsd": 1148457390.7171426,
-    "marketCapUsd": 15149833835,
-    "cashUsd": 101582227.52524035,
+    "marketCapUsd": 15168352054,
+    "cashUsd": 105423566.63524035,
     "debtUsd": 405624000,
     "bonds": 15,
     "defaultedBonds": 0,
@@ -87,18 +87,18 @@
         "marginPct": 31.41
       },
       "balanceSheet": {
-        "cashOnHand": 47842463.00091893,
-        "marketCapitalization": 9723553835,
+        "cashOnHand": 51683802.11091893,
+        "marketCapitalization": 9742072054,
         "totalDebt": 251467000,
-        "cashOnHandUsd": 47842463.00091893,
-        "marketCapitalizationUsd": 9723553835,
+        "cashOnHandUsd": 51683802.11091893,
+        "marketCapitalizationUsd": 9742072054,
         "totalDebtUsd": 251467000
       },
       "shareStructure": {
         "totalShares": 1251231,
-        "publicFloat": 230871,
-        "publicFloatPct": 18.5,
-        "sharePrice": 7771.19,
+        "publicFloat": 230378,
+        "publicFloatPct": 18.4,
+        "sharePrice": 7785.99,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -126,13 +126,13 @@
             "pct": null
           },
           {
-            "name": "Coopers & Company",
-            "shares": 100,
+            "name": "George Cooper",
+            "shares": 558,
             "pct": null
           },
           {
-            "name": "George Cooper",
-            "shares": 65,
+            "name": "Coopers & Company",
+            "shares": 100,
             "pct": null
           },
           {
@@ -956,7 +956,7 @@
         "toTurn": 285,
         "fromPrice": 3176.2503,
         "toPrice": 8191.2083,
-        "trades": 31,
+        "trades": 32,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1083,10 +1083,14 @@
         ],
         [
           285,
+          8985.195
+        ],
+        [
+          285,
           8191.2083
         ]
       ],
-      "tapeTradeCount": 31,
+      "tapeTradeCount": 32,
       "tapeSplitCount": 1
     },
     {
