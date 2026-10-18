@@ -1,0 +1,606 @@
+{
+  "updatedAt": "2026-10-18T00:01:40.343Z",
+  "game": {
+    "currentTurn": 271,
+    "gameDateLabel": "July, Week 4, 1995"
+  },
+  "thread": {
+    "title": "Umbrella Corporation & Technologies",
+    "classification": "COUNTER-THREAT ASSESSMENT",
+    "threat": {
+      "primary": "Military Weapons Development",
+      "secondary": "Biochemical Weapons Development"
+    },
+    "basis": "Exact name match /umbrella/i against the live AHD corporation register. The engine exposes no tag, category or 'umbrella' concept, so membership is established by registered name plus proven shareholding.",
+    "bannerNote": "Public API exposes logoUrl and brandColor only. The corporation hero banner (headerImageUrl) is not available from the public endpoint, so the site renders a brand-coloured banner."
+  },
+  "group": {
+    "count": 2,
+    "revenue": 715040281,
+    "revenueUsd": 618594419.872894,
+    "marketCapUsd": 4778772811,
+    "cashUsd": 49791499.30434751,
+    "debtUsd": 155932000,
+    "workers": 268739,
+    "sectorCount": 48,
+    "threatAxes": {
+      "military": {
+        "sectorCount": 1,
+        "workers": 2897,
+        "revenue": 4277844.874297184
+      },
+      "biochemical": {
+        "sectorCount": 17,
+        "workers": 34191,
+        "revenue": 8174626591.142042
+      }
+    }
+  },
+  "corporations": [
+    {
+      "id": 824,
+      "name": "Umbrella Technologies",
+      "type": "energy",
+      "typeLabel": "energy",
+      "description": "Umbrella Technologies (UMBT) is a multi-sector industrial conglomerate. The corporation primary manages automated nuclear energy facilities, pharmaceuticals and bio-engineering, and laboratory-grade chemical manufacturing assets under the direction of Chairman William E. Spencer. UMBT operates at the intersection of heavy infrastructure, commercial resource logistics, and advanced material processing. Our business is life itself.",
+      "ceo": "William E. Spencer",
+      "ceoUrl": "https://www.ahousedividedgame.com/character/6acabd89991874547f66cb78",
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/824",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6acabe83991874547f66cc22-1791673119435.webp",
+      "bannerUrl": null,
+      "brandColor": "#c70000",
+      "countryId": "US",
+      "headquartersState": "NY",
+      "currency": "USD",
+      "revenue": 473366087,
+      "revenueUsd": 409517656.21616346,
+      "operatingIncome": 102750165,
+      "marginPct": 21.706279309358298,
+      "dividendRate": 0,
+      "marketCap": 3136778311,
+      "marketCapUsd": 3136778311,
+      "cashOnHand": 45457618.79254638,
+      "totalDebt": 1775000,
+      "defaultedBonds": 0,
+      "sharePrice": 2509.422648725866,
+      "totalShares": 1250000,
+      "publicFloatPct": 18.8,
+      "creditRating": "AA",
+      "creditScore": 92,
+      "sectorCount": 41,
+      "workers": 148270,
+      "sectorsByType": {
+        "energy": {
+          "sectorCount": 20,
+          "workers": 100121,
+          "revenue": 1621933088.7636323
+        },
+        "chemical_industries": {
+          "sectorCount": 16,
+          "workers": 34190,
+          "revenue": 8165265555.60813
+        },
+        "telecommunications": {
+          "sectorCount": 2,
+          "workers": 6544,
+          "revenue": 10955223.411685929
+        },
+        "healthcare": {
+          "sectorCount": 1,
+          "workers": 1,
+          "revenue": 9361035.533911413
+        },
+        "logistics": {
+          "sectorCount": 2,
+          "workers": 7414,
+          "revenue": 10948920.44943357
+        }
+      },
+      "threatAxes": {
+        "military": {
+          "sectorTypes": [
+            "defense"
+          ],
+          "sectorCount": 0,
+          "workers": 0,
+          "revenue": 0,
+          "states": []
+        },
+        "biochemical": {
+          "sectorTypes": [
+            "chemical_industries",
+            "healthcare"
+          ],
+          "sectorCount": 17,
+          "workers": 34191,
+          "revenue": 8174626591.142042,
+          "states": [
+            "New York",
+            "Pennsylvania",
+            "Illinois",
+            "Arizona",
+            "Texas",
+            "Ohio",
+            "Kansai",
+            "Massachusetts",
+            "North Carolina",
+            "Connecticut",
+            "Louisiana",
+            "Northwest",
+            "South West England",
+            "Baden-Württemberg",
+            "Hessen",
+            "Kyushu & Okinawa"
+          ]
+        }
+      },
+      "shareholders": [
+        {
+          "name": "William E. Spencer",
+          "shares": 1000000,
+          "pct": 80
+        },
+        {
+          "name": "Donald J. Trump",
+          "shares": 8000,
+          "pct": 0.6
+        },
+        {
+          "name": "Jib's Arms Corps",
+          "shares": 5000,
+          "pct": 0.4
+        },
+        {
+          "name": "Jimmy Jibbson",
+          "shares": 1000,
+          "pct": 0.1
+        },
+        {
+          "name": "Ranco Hashimoto",
+          "shares": 878,
+          "pct": 0.1
+        },
+        {
+          "name": "Coopers & Company",
+          "shares": 100,
+          "pct": 0
+        },
+        {
+          "name": "George Cooper",
+          "shares": 65,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 50,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 7,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 2,
+          "pct": 0
+        }
+      ],
+      "sectors": [
+        {
+          "sectorType": "energy",
+          "stateName": "New York",
+          "revenue": 15846590.537051404,
+          "profitMargin": 35,
+          "workers": 9734
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "New York",
+          "revenue": 5170708.497340203,
+          "profitMargin": 35,
+          "workers": 3452
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Pennsylvania",
+          "revenue": 5447060.34955963,
+          "profitMargin": 35,
+          "workers": 922
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Arizona",
+          "revenue": 7204246.724044526,
+          "profitMargin": 35,
+          "workers": 4878
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Ohio",
+          "revenue": 8085391.929294723,
+          "profitMargin": 35,
+          "workers": 5475
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Georgia",
+          "revenue": 7803664.736817744,
+          "profitMargin": 35,
+          "workers": 5212
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Minnesota",
+          "revenue": 11874212.272315186,
+          "profitMargin": 35,
+          "workers": 8040
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Illinois",
+          "revenue": 8989550.869322805,
+          "profitMargin": 35,
+          "workers": 5798
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Illinois",
+          "revenue": 2064746.9421365676,
+          "profitMargin": 35,
+          "workers": 1398
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Arizona",
+          "revenue": 743051.0640237165,
+          "profitMargin": 35,
+          "workers": 503
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Texas",
+          "revenue": 2586750.2548803906,
+          "profitMargin": 35,
+          "workers": 1752
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Indiana",
+          "revenue": 2616378.143421038,
+          "profitMargin": 35,
+          "workers": 1772
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Colorado",
+          "revenue": 5104440.397613746,
+          "profitMargin": 35,
+          "workers": 3456
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Washington",
+          "revenue": 7337790.376831382,
+          "profitMargin": 35,
+          "workers": 4969
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Alabama",
+          "revenue": 3802882.6770692067,
+          "profitMargin": 35,
+          "workers": 2576
+        },
+        {
+          "sectorType": "telecommunications",
+          "stateName": "New York",
+          "revenue": 6678572.950094617,
+          "profitMargin": 35,
+          "workers": 4459
+        },
+        {
+          "sectorType": "healthcare",
+          "stateName": "New York",
+          "revenue": 9361035.533911413,
+          "profitMargin": 35,
+          "workers": 1
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Oregon",
+          "revenue": 3175732.1765259057,
+          "profitMargin": 35,
+          "workers": 2150
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Ohio",
+          "revenue": 5205074.423259811,
+          "profitMargin": 35,
+          "workers": 3524
+        },
+        {
+          "sectorType": "logistics",
+          "stateName": "Illinois",
+          "revenue": 10097983.32801023,
+          "profitMargin": 35,
+          "workers": 6838
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "California",
+          "revenue": 19850486.460567266,
+          "profitMargin": 35,
+          "workers": 13441
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Texas",
+          "revenue": 13098173.083910465,
+          "profitMargin": 35,
+          "workers": 8870
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Kansai",
+          "revenue": 1348603318.726826,
+          "profitMargin": 35,
+          "workers": 5578
+        },
+        {
+          "sectorType": "logistics",
+          "stateName": "Texas",
+          "revenue": 850937.121423341,
+          "profitMargin": 35,
+          "workers": 576
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Massachusetts",
+          "revenue": 6358863.392101403,
+          "profitMargin": 35,
+          "workers": 4306
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "North Carolina",
+          "revenue": 3730496.0195056014,
+          "profitMargin": 35,
+          "workers": 2526
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Connecticut",
+          "revenue": 2605702.228471492,
+          "profitMargin": 35,
+          "workers": 441
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Louisiana",
+          "revenue": 5389385.9952672245,
+          "profitMargin": 35,
+          "workers": 912
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Auvergne-Rhône-Alpes",
+          "revenue": 45830153.468885034,
+          "profitMargin": 35,
+          "workers": 1883
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Mediterranean",
+          "revenue": 54578890.688951954,
+          "profitMargin": 35,
+          "workers": 4506
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Southwest",
+          "revenue": 27357498.824138,
+          "profitMargin": 35,
+          "workers": 2258
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Northwest",
+          "revenue": 5666304582.866682,
+          "profitMargin": 35,
+          "workers": 1672
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "South West England",
+          "revenue": 1275787.9634253592,
+          "profitMargin": 35,
+          "workers": 359
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Hessen",
+          "revenue": 5261745.58181694,
+          "profitMargin": 35,
+          "workers": 1175
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Niedersachsen",
+          "revenue": 10151406.689715518,
+          "profitMargin": 35,
+          "workers": 5339
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Baden-Württemberg",
+          "revenue": 4358544.786135557,
+          "profitMargin": 35,
+          "workers": 1681
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "Shikoku",
+          "revenue": 1356924684.7328596,
+          "profitMargin": 35,
+          "workers": 4012
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Hessen",
+          "revenue": 4347750.371420309,
+          "profitMargin": 35,
+          "workers": 1677
+        },
+        {
+          "sectorType": "telecommunications",
+          "stateName": "California",
+          "revenue": 4276650.461591312,
+          "profitMargin": 35,
+          "workers": 2085
+        },
+        {
+          "sectorType": "chemical_industries",
+          "stateName": "Kyushu & Okinawa",
+          "revenue": 1101073731.7270958,
+          "profitMargin": 35,
+          "workers": 3487
+        },
+        {
+          "sectorType": "energy",
+          "stateName": "North Carolina",
+          "revenue": 7039168.392479889,
+          "profitMargin": 35,
+          "workers": 4577
+        }
+      ]
+    },
+    {
+      "id": 978,
+      "name": "Umbrella Advanced Research",
+      "type": "technology",
+      "typeLabel": "technology",
+      "description": "Subsidiary of Umbrella Technologies dedicated to advanced research within defence and frontier research. Headed by the brilliant Dr. Birkin.",
+      "ceo": "Dr. Oswell Birkin",
+      "ceoUrl": "https://www.ahousedividedgame.com/character/6accd760d3e3b97f121725e4",
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/978",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6accd53cd3e3b97f1217240b-1791810970085.webp",
+      "bannerUrl": null,
+      "brandColor": "#c70000",
+      "countryId": "US",
+      "headquartersState": "NY",
+      "currency": "USD",
+      "revenue": 241674194,
+      "revenueUsd": 209076763.65673062,
+      "operatingIncome": 58810755,
+      "marginPct": 24.334726859583526,
+      "dividendRate": 0,
+      "marketCap": 1641994500,
+      "marketCapUsd": 1641994500,
+      "cashOnHand": 4333880.511801131,
+      "totalDebt": 154157000,
+      "defaultedBonds": 0,
+      "sharePrice": 1641.9945003332657,
+      "totalShares": 1000000,
+      "publicFloatPct": 0,
+      "creditRating": "AAA",
+      "creditScore": 89,
+      "sectorCount": 7,
+      "workers": 120469,
+      "sectorsByType": {
+        "technology": {
+          "sectorCount": 6,
+          "workers": 117572,
+          "revenue": 180309510.68481165
+        },
+        "defense": {
+          "sectorCount": 1,
+          "workers": 2897,
+          "revenue": 4277844.874297184
+        }
+      },
+      "threatAxes": {
+        "military": {
+          "sectorTypes": [
+            "defense"
+          ],
+          "sectorCount": 1,
+          "workers": 2897,
+          "revenue": 4277844.874297184,
+          "states": [
+            "Illinois"
+          ]
+        },
+        "biochemical": {
+          "sectorTypes": [
+            "chemical_industries",
+            "healthcare"
+          ],
+          "sectorCount": 0,
+          "workers": 0,
+          "revenue": 0,
+          "states": []
+        }
+      },
+      "shareholders": [
+        {
+          "name": "Umbrella Technologies",
+          "shares": 1000000,
+          "pct": 100
+        }
+      ],
+      "sectors": [
+        {
+          "sectorType": "technology",
+          "stateName": "Illinois",
+          "revenue": 60019882.74507609,
+          "profitMargin": 35,
+          "workers": 40641
+        },
+        {
+          "sectorType": "defense",
+          "stateName": "Illinois",
+          "revenue": 4277844.874297184,
+          "profitMargin": 35,
+          "workers": 2897
+        },
+        {
+          "sectorType": "technology",
+          "stateName": "North Carolina",
+          "revenue": 69670857.87975684,
+          "profitMargin": 35,
+          "workers": 47185
+        },
+        {
+          "sectorType": "technology",
+          "stateName": "Michigan",
+          "revenue": 11458087.658432603,
+          "profitMargin": 35,
+          "workers": 7603
+        },
+        {
+          "sectorType": "technology",
+          "stateName": "New Jersey",
+          "revenue": 3974368.8591280724,
+          "profitMargin": 35,
+          "workers": 2691
+        },
+        {
+          "sectorType": "technology",
+          "stateName": "Ohio",
+          "revenue": 9010202.638385303,
+          "profitMargin": 35,
+          "workers": 5979
+        },
+        {
+          "sectorType": "technology",
+          "stateName": "Tennessee",
+          "revenue": 26176110.90403276,
+          "profitMargin": 35,
+          "workers": 13473
+        }
+      ]
+    }
+  ]
+}

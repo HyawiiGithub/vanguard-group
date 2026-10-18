@@ -65,9 +65,10 @@ function fmtGrowth(g, short){
 
 // ---- Live snapshot (data/live.json, refreshed hourly by Action; no key here)
 let SNAP = null;
+const KEY_ID = { blackrock: 498, deere: 853, vermont: 964, pfizer: 496, abc: 645, ranco: 767, kanso: 521, org: 1084, misa: 561, napoleon: 565, vtretail: 1341, tinky: 1530 };
 function corpByKey(key){
   if (!SNAP || !SNAP.corporations) return null;
-  const id = key === 'blackrock' ? 498 : key === 'deere' ? 853 : key === 'vermont' ? 964 : key === 'pfizer' ? 496 : key === 'abc' ? 645 : key === 'ranco' ? 767 : key === 'kanso' ? 521 : key === 'org' ? 1084 : key === 'misa' ? 561 : key === 'napoleon' ? 565 : null;
+  const id = KEY_ID[key] != null ? KEY_ID[key] : null;
   return SNAP.corporations.find(c => c.id === id || (id === null && c.name.toLowerCase().includes(key))) || null;
 }
 function localSym(c){ return c.currency === 'JPY' ? '¥' : c.currency === 'GBP' ? '£' : '$'; }
@@ -154,6 +155,7 @@ async function loadLive(){
   startTimer(s);
   renderTies();
   renderChair();
+  renderBankrupt();
   renderCharts();
   const upd = new Date(s.updatedAt);
   const dateStr = upd.toISOString().slice(0, 10);
@@ -232,25 +234,80 @@ async function loadLive(){
   const nn = $('#napoleonNote');
   const nc = corpByKey('napoleon');
   if (nn && nc) nn.textContent = 'Passes T-1 + T-2 (' + fmtCompact(nc.marketCapUsd) + ' cap, ' + nc.marginPct.toFixed(2) + '% margin).';
-  const NOTE_BY_ID = { 498: '#blackrockNote', 853: '#deereNote', 964: '#vermontNote', 496: '#pfizerNote', 645: '#abcNote', 767: '#rancoNote', 521: '#kansoNote', 1084: '#orgNote', 561: '#misaNote', 565: '#napoleonNote' };
+  const NOTE_BY_ID = { 498: '#blackrockNote', 853: '#deereNote', 964: '#vermontNote', 496: '#pfizerNote', 645: '#abcNote', 767: '#rancoNote', 521: '#kansoNote', 1084: '#orgNote', 561: '#misaNote', 565: '#napoleonNote', 1341: '#vtretailNote', 1530: '#tinkyNote' };
   SNAP.corporations.forEach(c => {
     if (c.alive === false) {
       const n = $(NOTE_BY_ID[c.id]);
-      if (n) n.textContent = 'DISSOLVED in-game — last seen turn ' + (c.lastSeenTurn != null ? c.lastSeenTurn : '?') + '. Frozen last-verified figures below.';
+      if (n) n.textContent = 'BANKRUPT — wound down in-game, last seen turn ' + (c.lastSeenTurn != null ? c.lastSeenTurn : '?') + '. Frozen last-verified figures below.';
       const art = (n && n.closest) ? n.closest('article') : null;
       if (art) art.classList.add('dead');
     }
   });
   const banner = $('#dataBanner');
   if (banner && SNAP && SNAP.corporations) {
-    const short = { 498: 'BlackRock', 853: 'John Deere', 964: 'Vermont Log.', 496: 'Pfizer', 645: 'ABC Media', 767: 'Ranco Arms', 521: '簡素', 1084: 'The Org.', 561: 'I Love Misa', 565: 'I Love Napoleon' };
+    const short = { 498: 'BlackRock', 853: 'Exxon Mobil', 964: 'Vermont Log.', 496: 'Pfizer', 645: 'ABC Media', 767: 'Ranco Arms', 521: '簡素', 1084: 'The Org.', 561: 'I Love Misa', 565: 'I Love Napoleon', 1341: 'Vermont Retail', 1530: 'Tinky Winky' };
     const seg = SNAP.corporations.map(c => {
       const nm = short[c.id] || c.name;
-      if (c.alive === false) return nm + ' <strong>DISSOLVED</strong> (last seen T' + (c.lastSeenTurn != null ? c.lastSeenTurn : '?') + ')';
-      const st = (c.checks && c.checks.marketCapPass && c.checks.marginPass) ? 'PASS' : ((c.checks && !c.checks.marketCapPass) ? 'BELOW FLOOR' : 'LOW MARGIN');
+      if (c.alive === false) return nm + ' <strong>BANKRUPT</strong> (last seen T' + (c.lastSeenTurn != null ? c.lastSeenTurn : '?') + ')';
+      const st = c.distressed ? 'DISTRESS' : ((c.checks && c.checks.marketCapPass && c.checks.marginPass) ? 'PASS' : ((c.checks && !c.checks.marketCapPass) ? 'BELOW FLOOR' : 'LOW MARGIN'));
       return nm + ' <strong>' + st + '</strong> (' + esc(fmtCompact(c.marketCapUsd)) + ' · ' + (c.marginPct != null ? c.marginPct.toFixed(2) : '?') + '%' + (c.growth ? ' · ' + esc(fmtGrowth(c.growth, true)) : '') + ')';
     }).join(' · ');
     banner.innerHTML = '⚙ LIVE DATA (USD) — ' + seg + ' · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
+  }
+}
+
+// ---- Bankruptcy watch: dissolved corps + live distress signals
+function renderBankrupt(){
+  const box = $('#bankruptList');
+  const foot = $('#bankruptFoot');
+  if (!box || !SNAP) return;
+  const dead = SNAP.corporations.filter(c => c.alive === false);
+  const distressed = SNAP.corporations.filter(c => c.alive !== false && c.distressed);
+
+  if (!dead.length) {
+    box.innerHTML = '<p class="t-note" style="color:var(--muted)">No member has entered terminal insolvency. All ' +
+      SNAP.corporations.length + ' tracked corporations are still resolving against the AHD API.</p>';
+  } else {
+    box.innerHTML = dead.map(c => {
+      const nm = c.memberName || c.name;
+      const renamed = (c.renamedFrom && c.renamedFrom !== nm) ? c.renamedFrom : null;
+      const f = (label, val, stale) => '<div><small>' + label + '</small><strong class="' +
+        (stale ? 'stale' : '') + '">' + val + '</strong></div>';
+      const reuse = c.idReusedBy
+        ? '<div class="bk-idreuse">&#9888; ID ' + c.idReusedBy.id + ' has been RECYCLED onto an unrelated corporation — now "' +
+          esc(c.idReusedBy.name) + '" (' + esc(c.idReusedBy.type || 'unknown') + '). Its figures are quarantined and excluded from every Vanguard total.</div>'
+        : '';
+      return '<article class="bankrupt-card reveal">' +
+        '<span class="bk-badge"><span class="blip"></span>BANKRUPT · WOUND DOWN</span>' +
+        '<h4>' + esc(nm) + (renamed ? ' <span style="color:#ffb020;font-size:12px">(formerly ' + esc(renamed) + ')</span>' : '') + '</h4>' +
+        '<p class="bk-since">CORP #' + c.id + ' · LAST SEEN TURN ' + (c.lastSeenTurn != null ? c.lastSeenTurn : '?') +
+          ' · CHECKED T' + (c.checkedTurn != null ? c.checkedTurn : SNAP.game.currentTurn) + '</p>' +
+        '<div class="bk-grid">' +
+          f('MKT CAP (FROZEN)', esc(fmtCompact(c.marketCapUsd)), true) +
+          f('REVENUE (FROZEN)', esc(fmtCompact(c.revenueUsd)), true) +
+          f('MARGIN (FROZEN)', c.marginPct != null ? c.marginPct.toFixed(2) + '%' : 'n/a', true) +
+          f('WORKERS', c.workers != null ? Number(c.workers).toLocaleString('en-US') : 'n/a') +
+          f('SECTORS', c.sectorCount != null ? String(c.sectorCount) : 'n/a') +
+          f('LAST CEO', esc(c.ceo || 'n/a')) +
+        '</div>' + reuse +
+        '<p class="bk-foot">Record deleted server-side (bond default &rarr; wind-down &rarr; hard delete). Figures above are the last values the API returned before deletion and are <b>struck through</b> because they are no longer live. This corporation is <b>not</b> an eligible member until it reappears.</p>' +
+      '</article>';
+    }).join('');
+  }
+
+  const strip = $('#distressList');
+  if (strip) {
+    strip.innerHTML = distressed.length
+      ? '<p class="t-note" style="color:#ffb020;margin-bottom:2px">&#9888; NEAR-DEFAULT WATCH — trading, but showing insolvency signals</p>' +
+        distressed.map(c => '<div class="distress-row"><span class="dk">DISTRESS</span><b>' + esc(c.name) +
+          '</b><span>' + esc((c.distress || []).join(' · ')) + '</span><span style="color:#c9cfe8">cash ' +
+          esc(fmtCompact(c.cashOnHand)) + ' · debt ' + esc(fmtCompact(c.totalDebt)) + '</span></div>').join('')
+      : '';
+  }
+  if (foot) {
+    foot.textContent = dead.length
+      ? dead.length + ' of ' + SNAP.corporations.length + ' tracked corporations have been wound down. Register rebuilt from the live API on every refresh; a revived corporation re-enters the alliance automatically.'
+      : '';
   }
 }
 
@@ -409,8 +466,8 @@ on('#lookupBtn', 'click', () => {
     return;
   }
   if (c.alive === false) {
-    setVerdict(false, c.name + ' is dissolved',
-      'Last seen turn ' + (c.lastSeenTurn != null ? c.lastSeenTurn : '?') + '. Frozen figures: cap ' + esc(fmtCompact(c.marketCapUsd)) + ' · margin ' + (c.marginPct != null ? c.marginPct.toFixed(2) + '%' : 'n/a') + '. A dissolved corp cannot apply — refound it first.', false);
+    setVerdict(false, c.name + ' is bankrupt',
+      'Wound down in-game, last seen turn ' + (c.lastSeenTurn != null ? c.lastSeenTurn : '?') + '. Frozen figures: cap ' + esc(fmtCompact(c.marketCapUsd)) + ' · margin ' + (c.marginPct != null ? c.marginPct.toFixed(2) + '%' : 'n/a') + '. A bankrupt corporation cannot apply — refound it first.', false);
     return;
   }
   if ($('#cName')) $('#cName').value = c.name;
@@ -605,9 +662,16 @@ function renderChair(){
   tickElection();
   if (SNAP && ORG && ORG.chairman && ORG.chairman.id != null) {
     const chCorp = SNAP.corporations.find(x => x.id === ORG.chairman.id);
+    const holder = ORG.chairman.holder || ORG.chairman.name;
     if (chCorp && chCorp.alive === false) {
-      if ($('#chairTag')) $('#chairTag').textContent = 'VACANT — DISSOLVED';
-      if ($('#chairNote')) $('#chairNote').textContent = 'The sitting chairman (' + ORG.chairman.name + ') dissolved in-game — last seen turn ' + (chCorp.lastSeenTurn != null ? chCorp.lastSeenTurn : '?') + '. Early election due: ballot below.';
+      // The Chairman is a person; the corporation backing the seat may be wound up.
+      // Keep the holder in office but flag that the seat is early-election eligible.
+      if ($('#chairTag')) $('#chairTag').textContent = 'SEAT UNFILLED — EARLY ELECTION DUE';
+      if ($('#chairNote')) $('#chairNote').textContent =
+        holder + ' continues as Chairman in a personal capacity, but the corporation backing the seat (' +
+        (ORG.chairman.throughCorp || chCorp.memberName || chCorp.name) + ', #' + chCorp.id +
+        ') was wound down in-game at turn ' + (chCorp.lastSeenTurn != null ? chCorp.lastSeenTurn : '?') +
+        '. Under the rules this triggers an early election — ballot below.';
     }
   }
 }
@@ -743,7 +807,10 @@ async function renderCharts(){
     if (b) b.innerHTML = '<p class="note">History unavailable.</p>';
   }
   // per-member bars
-  const corps = [...SNAP.corporations].sort((a, b) => (b.marketCapUsd || 0) - (a.marketCapUsd || 0));
+  // Bankrupt/wound-up corps carry frozen last-known figures. Plotting them beside live
+// members would imply those numbers are current, so every chart uses solvent corps only.
+const corps = SNAP.corporations.filter(c => c.alive !== false)
+  .sort((a, b) => (b.marketCapUsd || 0) - (a.marketCapUsd || 0));
   barChart($('#chCapBars'), corps.map((c, i) => ({ label: c.name.length > 22 ? c.name.slice(0, 21) + '…' : c.name, value: c.marketCapUsd || 0, color: colorFor(c, i) })), { fmt: fmtCompact });
   barChart($('#chMarginBars'), corps.map((c, i) => ({ label: c.name.length > 22 ? c.name.slice(0, 21) + '…' : c.name, value: c.marginPct || 0, color: (c.marginPct || 0) >= 10 ? '#4ade80' : '#f87171' })), { fmt: (v) => v.toFixed(1) + '%', ref: 10, refLabel: 'floor 10%' });
   // workforce + sectors

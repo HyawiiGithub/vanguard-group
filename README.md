@@ -5,34 +5,98 @@ Corporate alliance operating in [A House Divided](https://ahousedividedgame.com)
 - **T-1:** $350,000,000 market-cap floor (hard)
 - **T-2:** 10% minimum margin, 15% preferred (`operatingIncome / revenue`)
 - **T-3:** Active daily + written commitment to coordinate with the group and all members
-- **Members:** BlackRock Incorporated (#498, CEO Larry Fink), John Deere (#853), Vermont Logistics (#964, CEO Malik Rahman), Pfizer (#496, CEO Ronald Reagan), American Broadcasting Company (#645, CEO Rat), Ranco Weapon Manfacturing (#767, CEO Ranco Hashimoto), 簡素 (#521, CEO Satoshi Fukuda), The Organization (#1084, CEO Nariyoshi Miyagi), I Love Misa (#561, CEO Napoleon Astrae), I Love Napoleon (#565, CEO Misa Astrae)
+- **Solvent members (9):** Exxon Mobil (#853, CEO Braden E Peters), Pfizer (#496, CEO Ronald Reagan), American Broadcasting Company (#645, CEO Rat), Ranco Weapon Manfacturing (#767, CEO Ranco Hashimoto), The Organization (#1084, CEO Nariyoshi Miyagi), I Love Misa (#561, CEO Napoleon Astrae), I Love Napoleon (#565, CEO Misa Astrae), Vermont Retail (#1341, CEO Malik Rahman), Tinky Winky (#1530, wholly owned by The Organization)
+- **Wound up (3):** BlackRock Incorporated (#498, last seen T187), Vermont Logistics (#964, last seen T187), 簡素 (#521, last seen T216)
 - **Figures:** USD-normalized (balance sheet via live forex; revenue gross per game day in anchor units); growth = trailing-30-turn split-adjusted tape; refreshed every 15 min
-- **Control:** BlackRock holds 66% of John Deere and 55% of The Organization (subsidiaries), 28.7% of Pfizer, 0.5% of ABC; Larry Fink holds 60.3% of BlackRock
-- **Ties:** cross-holdings, owner-operators and shared backers computed from live registers (`ties` in snapshot, rendered on page)
+- **Control:** I Love Misa holds 54.4% of Exxon Mobil; The Organization holds 100% of Tinky Winky; Malik Rahman (who ran the bankrupt Vermont Logistics) controls Vermont Retail at 81.7%; Misa and Napoleon hold each other
+- **Chairman:** Larry Fink, in a personal capacity. The corporation backing the seat (BlackRock #498) was wound down, so the seat is unfilled by a member corporation and an early election is on the ballot. Config in `data/org.json`
 - **Search:** all corps bundled in `data/corps.json`; pull any corp's live figures with your own `ahd_pub_` key (browser-only, never committed)
-- **Chairman:** elected monthly, one vote per member corp; config in `data/org.json`, ballots generated on page
 - **Graphs:** alliance cap/revenue history (`data/history.json`), per-member bars, split-adjusted tape; hover any chart for values
 - **Apply:** Discord DM `hyawii2.0` · in-game mail `Larry Fink`
 
+## Bankruptcy handling
+
+The AHD engine exposes **no bankruptcy flag**. Terminal insolvency is a hard delete of
+the corporation document, so a bankrupt corporation simply stops resolving on the public
+API. `tools/fetch-ahd.mjs` therefore models it as:
+
+- **`alive:false` + `dissolved:true`** — the corporation no longer resolves. Last-verified
+  figures are frozen and `lastSeenTurn` is recorded. Wrecked corps appear struck through
+  in the insolvency register and are excluded from alliance totals, rankings and charts.
+- **`distressed:true`** — still trading but showing `bonds[].defaulted` or negative
+  `cashOnHand`. Surfaced as a "near-default watch" row.
+
+### Identity guard (why this exists)
+
+The engine **reuses a sequentialId** once a corporation document is deleted. Tracking a
+roster on ids alone silently relabels whoever inherits the id. `ROSTER` in
+`tools/fetch-ahd.mjs` therefore pins an expected name per id, and each fetch checks:
+
+- same corporation document → **rename adopted** (John Deere #853 → Exxon Mobil; detected
+  by matching the document key embedded in the `logoUrl` asset name)
+- different document → **quarantined**, the stranger's figures are discarded and reported
+  under `idReusedBy`
+
+## Auto-refresh
+
+GitHub Actions cron **is currently broken at the account level** — every job fails in ~2s
+having executed zero steps, including a trivial `echo` workflow, while GitHub's own Pages
+deploy succeeds. Repo Actions permissions report `enabled: true`. This is a runner/billing
+problem outside the repo; check `github.com/settings/billing`.
+
+Refresh is therefore run from a local Windows scheduled task instead:
+
+| | |
+|---|---|
+| Task | `Vanguard AHD Snapshot Refresh` (every 15 min, on logon) |
+| Script | `tools/refresh-local.ps1` |
+| Key | `%USERPROFILE%\.ahd\key.env` — **outside the repository** |
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\refresh-local.ps1          # fetch + commit + push
+powershell -ExecutionPolicy Bypass -File tools\refresh-local.ps1 -DryRun  # fetch only
+Register-ScheduledTask -TaskName 'Vanguard AHD Snapshot Refresh' ...      # re-register
+```
+
+The script skips the commit when nothing changed. To restore the GitHub Actions route,
+check billing first, then re-enable `.github/workflows/refresh-ahd.yml`.
+
+## Thread Matrix (restricted)
+
+`thread.html` is a passcode-gated internal page carrying the **Umbrella Corporation &
+Technologies** dossier: logo, brand-coloured banner, revenue, market cap, share price,
+share register, sector footprint, and a threat matrix rating **Military Weapons
+Development** (from `defense` sectors) and **Biochemical Weapons Development** (from
+`chemical_industries` + `healthcare` sectors). Data from `data/umbrella.json`, generated by
+`tools/fetch-umbrella.mjs`.
+
+Group is assembled by exact `/umbrella/i` name match on the live register — the engine has
+no tag or "umbrella" concept. UMBT (#824) owns 100% of UAR (#978); William E. Spencer holds
+80% of UMBT.
+
+> **The passcode is not an IP restriction.** A browser page cannot read the visitor's IP,
+> and client-side JS can be bypassed. For a real `81.242.37.70` restriction, put a Cloudflare
+> Worker in front of the site and reject any request whose `CF-Connecting-IP` does not match.
+> Passcode is stored as a SHA-256 hash; plaintext lives only in
+> `%USERPROFILE%\.ahd\thread-passcode.txt`.
+
+**Banner limitation:** the public v1 payload exposes `logoUrl` and `brandColor` but not the
+corporation hero banner (`headerImageUrl`), which is only served from the cookie-authenticated
+in-game endpoint. Banners are therefore generated from brand colour; `bannerUrl` is `null`.
+
 ## Live data
 
-`data/live.json` is the verified snapshot, generated from the game API — never hand-edited.
-The page renders revenue, operating income, margin, market cap and tape growth from it.
-
-Refresh locally (key stays in env, never committed):
+`data/live.json` and `data/umbrella.json` are verified snapshots generated from the game
+API — never hand-edited.
 
 ```bash
 AHD_API_KEY=ahd_pub_... node tools/fetch-ahd.mjs
+AHD_API_KEY=ahd_pub_... node tools/fetch-umbrella.mjs
 ```
 
-Auto-refresh every 15 minutes: `.github/workflows/refresh-ahd.yml` runs `tools/fetch-ahd.mjs`
-with the repo secret `AHD_API_KEY` and commits the new `data/live.json`.
-Setup: repo Settings → Secrets → Actions → add `AHD_API_KEY` (a public-scope key is enough).
-
-Endpoints used (`https://ahousedividedgame.com`):
-`GET /api/public/v1/corporation?id=`, `/corporation/shares/history`,
-`/game`, `/character?name=`. Growth = share-tape last vs first post-split
-price, window recorded per row in the JSON.
+Endpoints used (`https://ahousedividedgame.com`): `GET /api/public/v1/corporation?id=`,
+`/corporation/shares/history`, `/corporations`, `/game`, `/forex`, `/character?name=`.
+`/api/news/wire` is public and carries `corporation_dissolved` events (48h rolling window).
 
 ## Run locally
 

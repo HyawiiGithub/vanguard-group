@@ -91,7 +91,52 @@ function tapeSeries(entries) {
 
 const FLOOR_MKT_USD = 350_000_000;
 const FLOOR_MARGIN = 10;
-const TRACKED = [498, 853, 964, 496, 645, 767, 521, 1084, 561, 565];
+// Vanguard alliance roster, tracked by sequentialId + expected identity.
+//
+// IMPORTANT: the engine REUSES a sequentialId once the corporation document is deleted.
+// BlackRock (#498), Vermont Logistics (#964), John Deere (#853) and 簡素 (#521) all
+// dissolved, and #853 was then handed to an unrelated newcomer ("Exxon Mobil").
+// Tracking on the id alone would silently relabel that stranger as John Deere, so every
+// fetch re-checks the identity and quarantines the row if it no longer matches.
+const ROSTER = [
+  { id: 498, name: "BlackRock Incorporated" },
+  { id: 853, name: "John Deere" },
+  { id: 964, name: "Vermont Logistics" },
+  { id: 496, name: "Pfizer" },
+  { id: 645, name: "American Broadcasting Company" },
+  { id: 767, name: "Ranco Weapon Manfacturing" },
+  { id: 521, name: "簡素" },
+  { id: 1084, name: "The Organization" },
+  { id: 561, name: "I Love Misa" },
+  { id: 565, name: "I Love Napoleon" },
+  { id: 1341, name: "Vermont Retail" },
+  { id: 1530, name: "Tinky Winky" },
+];
+const TRACKED = ROSTER.map((r) => r.id);
+const rosterById = new Map(ROSTER.map((r) => [r.id, r]));
+
+// Compare on a canonical form so cosmetic differences ("Foo Inc." vs "Foo Incorporated")
+// don't trip the guard, while a genuinely different company does.
+const SUFFIX = /\b(incorporated|inc|corp|corporation|company|co|ltd|limited|plc|holdings?|group|the)\b/g;
+const normName = (s) =>
+  String(s || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[^a-z0-9\u3040-\u30ff\u4e00-\u9fff]+/g, "")
+    .replace(SUFFIX, "")
+    .replace(/(incorporated|inc|corp|corporation|company|co|ltd|limited|plc|holdings?|group)/g, "");
+const sameIdentity = (a, b) => normName(a) === normName(b);
+
+// The engine reuses a sequentialId once a corporation document is deleted, so a name
+// mismatch alone is ambiguous: it can mean our member was renamed, OR that our member
+// dissolved and a stranger inherited the id. Distinguish them with the stable document
+// key embedded in the corporation's logo asset name
+// (".../corporation-logos/<docKey>-<epochMs>.webp"). Same docKey => same corporation,
+// renamed. Different docKey => a different company squatting on a recycled id.
+const docKey = (logoUrl) => {
+  const m = /\/([0-9a-f]{16,})-(?:\d{10,})\.[a-z0-9]+$/i.exec(String(logoUrl || ""));
+  return m ? m[1] : null;
+};
 
 const game = await j("/api/public/v1/game");
 const forex = await j("/api/public/v1/forex");
@@ -112,15 +157,29 @@ function corpRow(c, tape) {
   const rev = num(c.financials?.totalRevenue);
   const inc = num(c.financials?.operatingIncome);
   const mkt = num(c.balanceSheet?.marketCapitalization);
+  const cash = num(c.balanceSheet?.cashOnHand);
+  const debt = num(c.balanceSheet?.totalDebt);
   const mg = marginPct(c.financials);
   const g = growthFromTape(tape.entries);
   const mktUsd = toUSD(mkt, ccy);
+  // The engine exposes NO `bankrupt` flag: insolvency is modelled as bond default +
+  // negative liquid capital, and terminal bankruptcy is a hard delete (corp 404s).
+  // So live distress must be inferred from what the public payload actually carries.
+  const defaultedBonds = (c.bonds || []).filter((b) => b && b.defaulted);
+  const distress = [];
+  if (defaultedBonds.length) distress.push(`bond default (${defaultedBonds.length} bond${defaultedBonds.length > 1 ? "s" : ""})`);
+  if (cash != null && cash < 0) distress.push("negative liquid capital");
   return {
     id: c.sequentialId,
     alive: true,
+    dissolved: false,
     name: c.name,
+    memberName: c.name,
     type: c.type,
+    typeLabel: c.typeLabel ?? c.type,
+    description: c.description ?? null,
     countryId: c.countryId,
+    headquartersState: c.headquartersState ?? null,
     currency: ccy,
     fxPerUsd: perUsd(ccy) == null ? null : Math.round(perUsd(ccy) * 100) / 100,
     corpUrl: c.corpUrl,
@@ -148,6 +207,14 @@ function corpRow(c, tape) {
       return h ? Math.round(h.percentage * 100) / 100 : 0;
     })(),
     creditRating: c.creditRating?.rating ?? null,
+    creditScore: num(c.creditRating?.compositeScore),
+    cashOnHand: cash,
+    totalDebt: debt,
+    defaultedBonds: defaultedBonds.length,
+    // live insolvency signals (see note above): surfaced as a warning before
+    // the engine finishes the wind-down and 404s the corp.
+    distress,
+    distressed: distress.length > 0,
     sectorCount: Array.isArray(c.sectors) ? c.sectors.length : null,
     workers: Array.isArray(c.sectors) ? c.sectors.reduce((a, s) => a + (num(s.workers) || 0), 0) : null,
     divRate: num(c.financials?.dividendRate),
@@ -161,6 +228,7 @@ function corpRow(c, tape) {
 }
 
 const corporations = [];
+const renames = [];
 let prev = null;
 try {
   prev = JSON.parse(await readFile("data/live.json", "utf8"));
@@ -168,31 +236,79 @@ try {
 const prevById = new Map(((prev && prev.corporations) || []).map((c) => [c.id, c]));
 const prevTurn = prev && prev.game ? prev.game.currentTurn : null;
 for (const id of TRACKED) {
+  const expected = rosterById.get(id);
   try {
     const c = await j(`/api/public/v1/corporation?id=${id}`);
-    if (!c || c.found === false || !c.name) throw new Error("corp gone (id " + id + ")");
+    // NOTE: the engine hardcodes `found: true` on every successful lookup, so it is
+    // never a "corp is gone" signal. A dissolved corporation simply stops resolving.
+    if (!c || !c.name) throw new Error("corp gone (id " + id + ")");
+    // Identity guard: this id may have been recycled onto an unrelated corporation
+    // after our member dissolved. Never let that stranger inherit the member's slot.
+    if (expected && !sameIdentity(c.name, expected.name)) {
+      const prior = prevById.get(id);
+      const priorKey = prior ? docKey(prior.logoUrl) : null;
+      const nowKey = docKey(c.logoUrl);
+      const sameDoc = priorKey != null && nowKey != null && priorKey === nowKey;
+      if (sameDoc) {
+        // Same corporation document: our member was renamed in-game.
+        console.log("corp #" + id + " RENAMED: '" + (prior && prior.name) + "' -> '" + c.name + "' (same corporation document)");
+        renames.push({ id, from: (prior && prior.name) || expected.name, to: c.name, turn: game.currentTurn });
+      } else {
+        throw Object.assign(new Error("id " + id + " now belongs to '" + c.name + "'"), { reusedBy: c });
+      }
+    }
     const entries = await fullTape(id);
-    corporations.push(corpRow(c, { entries }));
+    const row = corpRow(c, { entries });
+    const prior = prevById.get(id);
+    if (expected && prior && !sameIdentity(prior.name, expected.name)) {
+      row.renamedFrom = prior.name;
+      row.memberName = expected.name;
+    }
+    corporations.push(row);
   } catch (e) {
-    // dissolved corp (or blip): freeze last-known figures, flag dead. Revives automatically if it reappears.
+    // 404 here == the engine hard-deleted the corporation, which is what terminal
+    // bankruptcy looks like from outside (bond default -> wind-down -> deleteOne).
+    // Freeze last-known figures so the warning keeps its numbers, and record the
+    // exact turn it was last confirmed alive.
     const p = prevById.get(id);
-    console.log("corp #" + id + " unreachable (" + (e.message || e) + ") — freezing last-known");
+    const reason = String((e && e.message) || e);
+    const reused = e && e.reusedBy ? e.reusedBy : null;
+    const gone = !!reused || /\b404\b|not found|corp gone/i.test(reason);
+    console.log(
+      "corp #" + id + " unreachable (" + reason + ") — " +
+      (reused
+        ? "ID REUSED by '" + reused.name + "': member dissolved, quarantining the newcomer"
+        : gone
+          ? "DISSOLVED (bankrupt): freezing last-known"
+          : "transient: freezing last-known")
+    );
     if (p) {
       corporations.push({
         ...p,
         alive: false,
+        dissolved: gone ? true : p.dissolved ?? false,
+        // If our member's name also drifted vs the roster, that is a rename, not a new company.
+        memberName: expected ? expected.name : p.memberName ?? p.name,
         lastSeenTurn: p.lastSeenTurn ?? prevTurn,
         checkedTurn: game.currentTurn,
+        ...(reused ? { idReusedBy: { id, name: reused.name, type: reused.type ?? null } } : {}),
         tape: [],
       });
     } else {
       corporations.push({
-        id, name: "Unknown #" + id, alive: false, lastSeenTurn: null, checkedTurn: game.currentTurn,
-        type: null, countryId: null, currency: "USD", fxPerUsd: 1, corpUrl: null, logoUrl: null,
+        id, name: expected ? expected.name : "Unknown #" + id,
+        memberName: expected ? expected.name : null,
+        alive: false, dissolved: gone ? true : false,
+        lastSeenTurn: null, checkedTurn: game.currentTurn,
+        type: null, typeLabel: null, description: null, countryId: null,
+        headquartersState: null, currency: "USD", fxPerUsd: 1, corpUrl: null, logoUrl: null,
         brandColor: null, ceo: null, revenue: null, operatingIncome: null, marketCap: null,
         revenueUsd: null, operatingIncomeUsd: null, marketCapUsd: null, marginPct: null,
         sharePrice: null, totalShares: null, holders: [], blackrockStakePct: 0,
-        creditRating: null, sectorCount: null, workers: null, divRate: null, growth: null,
+        creditRating: null, creditScore: null, cashOnHand: null, totalDebt: null,
+        defaultedBonds: 0, distress: [], distressed: false,
+        sectorCount: null, workers: null, divRate: null, growth: null,
+        ...(reused ? { idReusedBy: { id, name: reused.name, type: reused.type ?? null } } : {}),
         checks: { marketCapPass: false, marginPass: false }, tape: [],
       });
     }
@@ -251,8 +367,9 @@ const out = {
   },
   thresholds: { marketCapFloorUsd: FLOOR_MKT_USD, marginFloorPct: FLOOR_MARGIN },
   methodology:
-    "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = split-adjusted tape change over trailing 30 turns (game 6M uses internal snapshots; figures converge for steady traders). Threshold checks run on USD market cap. Corps that 404 are flagged alive:false with frozen last-known figures and excluded from sums until they reappear.",
+    "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = split-adjusted tape change over trailing 30 turns (game 6M uses internal snapshots; figures converge for steady traders). Threshold checks run on USD market cap. BANKRUPTCY: the engine exposes no bankruptcy flag - terminal insolvency is a hard delete of the corporation document, so a bankrupt corp simply stops resolving and is recorded here as alive:false + dissolved:true with its last-verified figures frozen and lastSeenTurn recorded. Corps still trading but approaching default are flagged distressed:true from bonds[].defaulted or negative cashOnHand. Dissolved corps are excluded from all alliance sums and charts until they reappear.",
   corporations,
+  renames,
   ties,
   forex: {
     rates,
@@ -301,7 +418,14 @@ if (hist.points.length > 3000) hist.points = hist.points.slice(-3000);
 await writeFile("data/history.json", JSON.stringify(hist) + "\n");
 console.log("history points:", hist.points.length);
 for (const c of corporations) {
+  if (c.alive === false) {
+    console.log(
+      `${c.name} (#${c.id}) BANKRUPT/DISSOLVED — last seen turn ${c.lastSeenTurn ?? "?"} (frozen $${Math.round(c.marketCapUsd || 0).toLocaleString()})`
+    );
+    continue;
+  }
+  const warn = c.distressed ? "  *** DISTRESS: " + c.distress.join(" + ") + " ***" : "";
   console.log(
-    `${c.name} (#${c.id}, ${c.currency}): mkt=${c.marketCap} -> $${Math.round(c.marketCapUsd).toLocaleString()} | rev=${c.revenue} -> $${Math.round(c.revenueUsd).toLocaleString()} | margin=${c.marginPct}% | growth=${c.growth ? c.growth.pct + "%" : "n/a"} | pass=${c.checks.marketCapPass && c.checks.marginPass}`
+    `${c.name} (#${c.id}, ${c.currency}): mkt=${c.marketCap} -> $${Math.round(c.marketCapUsd).toLocaleString()} | rev=${c.revenue} -> $${Math.round(c.revenueUsd).toLocaleString()} | margin=${c.marginPct}% | cash=$${Math.round(c.cashOnHand || 0).toLocaleString()} | workers=${c.workers ?? "n/a"} | growth=${c.growth ? c.growth.pct + "%" : "n/a"} | pass=${c.checks.marketCapPass && c.checks.marginPass}${warn}`
   );
 }

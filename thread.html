@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THREAD MATRIX — Vanguard Group (restricted)</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="Restricted internal threat matrix.">
+<link rel="stylesheet" href="styles.css?v=13">
+<style>
+  /* ---------- passcode gate ---------- */
+  .gate{min-height:100vh;display:grid;place-items:center;padding:24px}
+  .gate-card{
+    width:min(520px,100%);padding:34px 30px;border-radius:18px;text-align:center;
+    background:linear-gradient(165deg,rgba(196,18,46,.10),rgba(13,22,51,.96) 60%);
+    border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.55);
+  }
+  .gate-card h1{margin:0 0 6px;font-size:22px;letter-spacing:-.01em}
+  .gate-sub{margin:0 0 22px;color:var(--muted);font-size:13px}
+  .gate-row{display:flex;gap:9px;justify-content:center}
+  .gate-row input{
+    flex:1;max-width:280px;padding:13px 15px;border-radius:10px;font:600 15px/1 ui-monospace,monospace;
+    letter-spacing:.16em;text-align:center;color:var(--text);
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);outline:none;
+  }
+  .gate-row input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(196,18,46,.22)}
+  .gate-row button{
+    padding:13px 22px;border:0;border-radius:10px;cursor:pointer;
+    font:800 12px/1 Inter,Arial,sans-serif;letter-spacing:.1em;color:#fff;
+    background:linear-gradient(135deg,#C4122E,#8f0d22);
+  }
+  .gate-msg{min-height:20px;margin:14px 0 0;font:700 12px/1.4 Inter,Arial,sans-serif;color:#ff8fa8}
+  .gate-msg.ok{color:#4ade80}
+  .gate-warn{
+    margin-top:24px;padding:13px 15px;border-radius:11px;text-align:left;
+    background:rgba(255,176,32,.09);border:1px solid rgba(255,176,32,.3);
+    font:500 11.5px/1.65 Inter,Arial,sans-serif;color:#ffd489;
+  }
+  .gate-warn b{color:#fff}
+
+  /* ---------- matrix shell ---------- */
+  .mx{max-width:1180px;margin:0 auto;padding:30px 20px 70px}
+  .mx-head{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:26px}
+  .mx-tag{
+    display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border-radius:999px;
+    font:800 10px/1 Inter,Arial,sans-serif;letter-spacing:.16em;color:#fff;
+    background:linear-gradient(90deg,#ff2d55,#8f0d22);
+  }
+  .mx-title{font-size:27px;margin:10px 0 4px;letter-spacing:-.02em}
+  .mx-meta{color:var(--muted);font:600 11.5px/1.6 ui-monospace,monospace}
+  .mx-lock{
+    padding:8px 13px;border-radius:9px;cursor:pointer;
+    font:700 11px/1 Inter,Arial,sans-serif;letter-spacing:.06em;
+    color:var(--muted);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+  }
+  .mx-lock:hover{color:#fff;border-color:var(--red)}
+
+  /* threat banner */
+  .threat{
+    position:relative;overflow:hidden;border-radius:15px;padding:20px 22px;margin-bottom:22px;
+    background:linear-gradient(150deg,rgba(255,45,85,.16),rgba(13,22,51,.95) 62%);
+    border:1px solid rgba(255,45,85,.42);
+  }
+  .threat::after{
+    content:"";position:absolute;left:0;right:0;top:0;height:3px;
+    background:linear-gradient(90deg,transparent,#ff2d55,#ffb020,#ff2d55,transparent);
+    background-size:220% 100%;animation:sweep 3.2s linear infinite;
+  }
+  @keyframes sweep{0%{background-position:0 0}100%{background-position:220% 0}}
+  .threat h3{margin:0 0 4px;font-size:16px;letter-spacing:.02em}
+  .threat .axes{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
+  .axis{
+    flex:1 1 230px;padding:12px 14px;border-radius:11px;
+    background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);
+  }
+  .axis small{display:block;font:800 9px/1.4 Inter,Arial,sans-serif;letter-spacing:.15em;color:var(--muted);margin-bottom:5px}
+  .axis strong{display:block;font:800 14px/1.35 Inter,Arial,sans-serif;color:#fff}
+  .axis .sub{margin-top:5px;font:600 11px/1.5 ui-monospace,monospace;color:#c9cfe8}
+
+  /* corp dossier */
+  .corp{
+    margin-bottom:20px;border-radius:15px;overflow:hidden;
+    background:rgba(13,22,51,.86);border:1px solid rgba(255,255,255,.1);
+  }
+  .corp-banner{
+    position:relative;height:132px;display:flex;align-items:center;gap:18px;padding:0 22px;
+    background:
+      radial-gradient(1200px 200px at 12% 0%,rgba(199,0,0,.34),transparent 62%),
+      linear-gradient(120deg,#180609,#0a1230 70%);
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .corp-banner::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background:repeating-linear-gradient(115deg,rgba(255,255,255,.045) 0 2px,transparent 2px 16px);
+  }
+  .corp-logo{
+    position:relative;flex:0 0 auto;width:78px;height:78px;border-radius:13px;
+    display:grid;place-items:center;padding:9px;
+    background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.16);
+  }
+  .corp-logo img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.6))}
+  .corp-logo .fallback{font:800 15px/1.15 Inter,Arial,sans-serif;color:#fff;text-align:center;letter-spacing:.04em}
+  .corp-id{position:relative}
+  .corp-id h4{margin:0 0 5px;font-size:20px;color:#fff;letter-spacing:-.01em}
+  .corp-id .meta{font:600 11.5px/1.6 ui-monospace,monospace;color:#c9cfe8}
+  .corp-id .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .chip{
+    padding:3px 9px;border-radius:999px;
+    font:800 9px/1.7 Inter,Arial,sans-serif;letter-spacing:.12em;
+    color:#cfe0ff;background:rgba(120,160,255,.14);border:1px solid rgba(120,160,255,.34);
+  }
+  .chip.red{color:#ffb3c1;background:rgba(255,45,85,.15);border-color:rgba(255,45,85,.42)}
+  .chip.amber{color:#ffd489;background:rgba(255,176,32,.14);border-color:rgba(255,176,32,.4)}
+  .corp-desc{padding:15px 22px 0;color:#c9cfe8;font:500 13px/1.7 Inter,Arial,sans-serif}
+  .mx-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));padding:16px 22px 20px}
+  .panel{border-radius:12px;padding:14px 15px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1)}
+  .panel h5{margin:0 0 11px;font:800 10px/1.4 Inter,Arial,sans-serif;letter-spacing:.15em;color:var(--muted)}
+  .kv{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+  .kv:last-child{border-bottom:0}
+  .kv span{font:500 11.5px/1.5 Inter,Arial,sans-serif;color:var(--muted)}
+  .kv b{font:700 12.5px/1.5 ui-monospace,monospace;color:#eef1ff;text-align:right;word-break:break-word}
+  .kv b.warn{color:#ffd489}
+  .kv b.bad{color:#ff8fa8}
+  .holders{display:grid;gap:7px}
+  .holder{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
+  .holder .nm{font:600 11.5px/1.4 Inter,Arial,sans-serif;color:#eef1ff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .holder .pc{font:700 11px/1.4 ui-monospace,monospace;color:#c9cfe8}
+  .hbar{grid-column:1/-1;height:4px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden}
+  .hbar i{display:block;height:100%;background:linear-gradient(90deg,#C4122E,#ff6b6b)}
+  table.mx{width:100%;border-collapse:collapse;font:500 11.5px/1.5 Inter,Arial,sans-serif}
+  table.mx th{
+    text-align:left;padding:7px 8px;font:800 9px/1.4 Inter,Arial,sans-serif;letter-spacing:.13em;
+    color:var(--muted);border-bottom:1px solid rgba(255,255,255,.12);text-transform:uppercase;
+  }
+  table.mx td{padding:7px 8px;border-bottom:1px solid rgba(255,255,255,.055);color:#dfe4f7}
+  table.mx td.num{text-align:right;font-family:ui-monospace,monospace;white-space:nowrap}
+  .mx-note{margin:16px 22px 20px;padding:11px 13px;border-radius:10px;background:rgba(255,176,32,.09);
+    border:1px solid rgba(255,176,32,.3);font:500 11.5px/1.65 Inter,Arial,sans-serif;color:#ffd489}
+  .mx-foot{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.09);
+    color:var(--muted);font:500 11px/1.7 Inter,Arial,sans-serif}
+  .hidden{display:none !important}
+</style>
+</head>
+<body>
+
+<!-- ================= PASSCODE GATE ================= -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <h1>THREAD MATRIX</h1>
+    <p class="gate-sub">Vanguard Group &middot; internal &middot; restricted circulation</p>
+    <div class="gate-row">
+      <input id="pw" type="password" inputmode="text" autocomplete="off" placeholder="PASSCODE" aria-label="Passcode">
+      <button id="go" type="button">UNLOCK</button>
+    </div>
+    <p class="gate-msg" id="msg"></p>
+    <div class="gate-warn">
+      <b>What this gate actually does.</b> A browser page cannot see your IP address, so this
+      page <b>cannot</b> enforce a real <code>81.242.37.70</code> restriction — anything enforced in
+      client-side JavaScript can be bypassed by anyone who opens the source. Treat this as a
+      speed bump and a plain warning label, not as security. For genuine IP filtering, put a
+      Cloudflare Worker in front of the site and reject any request whose
+      <code>CF-Connecting-IP</code> is not <code>81.242.37.70</code>.
+    </div>
+  </div>
+</div>
+
+<!-- ================= MATRIX ================= -->
+<div class="hidden" id="matrix">
+  <div class="mx">
+    <div class="mx-head">
+      <div>
+        <span class="mx-tag">◈ COUNTER-THREAT ASSESSMENT</span>
+        <h1 class="mx-title">Thread Matrix — <span style="color:#ff8fa8">Umbrella Corporation &amp; Technologies</span></h1>
+        <div class="mx-meta" id="mxMeta">loading…</div>
+      </div>
+      <button class="mx-lock" id="relock" type="button">◈ RE-LOCK</button>
+    </div>
+
+    <section class="threat">
+      <h3>&#9888; THREAT ASSESSMENT</h3>
+      <div class="mx-meta" id="threatBasis"></div>
+      <div class="axes" id="threatAxes"></div>
+    </section>
+
+    <div id="corps"></div>
+
+    <div class="mx-foot">
+      <b>Source of truth.</b> Every figure on this page is read from <code>data/umbrella.json</code>,
+      generated by <code>tools/fetch-umbrella.mjs</code> against the AHD public v1 API and refreshed on
+      the same 15-minute cycle as the main site. Nothing here is hand-entered.
+      <br><br>
+      <b>Banner limitation.</b> The AHD public endpoint exposes <code>logoUrl</code> and
+      <code>brandColor</code> but <b>not</b> the corporation hero banner
+      (<code>headerImageUrl</code>), which is only served from the cookie-authenticated in-game
+      endpoint. Banners here are therefore generated from each corporation's registered brand colour
+      rather than fetched, and <code>bannerUrl</code> is recorded as <code>null</code> in the data file.
+      <br><br>
+      <a href="index.html" style="color:#4f7bd6">&larr; Back to the Vanguard Group site</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  // SHA-256 of the passcode. The plaintext passcode is never stored in this file.
+  var PW_HASH = '75bc1bc63fd61e6882198b454a2a4ad321d452ae698954132d033514d502a3bb';
+  var SESSION_KEY = 'vg.thread.unlocked';
+  var $ = function (s) { return document.querySelector(s); };
+
+  function b64(buf) {
+    var b = new Uint8Array(buf), s = '';
+    for (var i = 0; i < b.length; i++) s += String.fromCharCode(b[i]);
+    return btoa(s);
+  }
+  function sha256(str) {
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(b64).then(function (h) {
+      var hex = '';
+      for (var i = 0; i < h.length; i++) hex += ('0' + h.charCodeAt(i).toString(16)).slice(-2);
+      return hex;
+    });
+  }
+
+  var unlocked = false;
+  function unlock() {
+    $('#gate').classList.add('hidden');
+    $('#matrix').classList.remove('hidden');
+    unlocked = true;
+    render();
+  }
+  function lock() {
+    sessionStorage.removeItem(SESSION_KEY);
+    $('#matrix').classList.add('hidden');
+    $('#gate').classList.remove('hidden');
+    $('#pw').value = '';
+    unlocked = false;
+  }
+
+  function attempt() {
+    var v = $('#pw').value.trim();
+    var msg = $('#msg');
+    if (!v) { msg.textContent = 'Enter the passcode.'; msg.classList.remove('ok'); return; }
+    sha256(v).then(function (h) {
+      if (h === PW_HASH) {
+        msg.textContent = 'ACCESS GRANTED';
+        msg.classList.add('ok');
+        try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+        setTimeout(unlock, 220);
+      } else {
+        msg.textContent = 'ACCESS DENIED — incorrect passcode.';
+        msg.classList.remove('ok');
+        $('#pw').select();
+      }
+    }).catch(function () {
+      msg.textContent = 'Could not verify (needs a secure context).';
+    });
+  }
+  $('#go').addEventListener('click', attempt);
+  $('#pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') attempt(); });
+  $('#relock').addEventListener('click', lock);
+
+  // ---------- rendering ----------
+  var DATA = null;
+  var fmt = function (n) {
+    if (n == null || !isFinite(n)) return 'n/a';
+    var a = Math.abs(n);
+    return a >= 1e9 ? '$' + (n / 1e9).toFixed(2) + 'B'
+      : a >= 1e6 ? '$' + (n / 1e6).toFixed(2) + 'M'
+        : a >= 1e3 ? '$' + (n / 1e3).toFixed(1) + 'K'
+          : '$' + Math.round(n).toLocaleString('en-US');
+  };
+  var esc = function (t) {
+    return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  };
+  var pct = function (n) { return n == null ? 'n/a' : n.toFixed(2) + '%'; };
+
+  function axisCard(name, label, a, corps) {
+    return '<div class="axis"><small>' + label + '</small>' +
+      '<strong>' + esc(name) + '</strong>' +
+      '<div class="sub">' + a.sectorCount + ' sectors &middot; ' +
+      a.workers.toLocaleString('en-US') + ' workers<br>' +
+      'anchor revenue ' + Math.round(a.revenue).toLocaleString('en-US') + ' / game day</div></div>';
+  }
+
+  function render() {
+    if (!DATA) {
+      fetch('data/umbrella.json?t=' + Date.now(), { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (d) { DATA = d; paint(); })
+        .catch(function (e) {
+          $('#mxMeta').textContent = 'Could not load data/umbrella.json (' + e.message + ')';
+        });
+      return;
+    }
+    paint();
+  }
+
+  function paint() {
+    var d = DATA, t = d.thread, g = d.group;
+    $('#mxMeta').textContent = 'thread ' + t.classification + ' · turn ' + d.game.currentTurn +
+      ' (' + d.game.gameDateLabel + ') · snapshot ' + new Date(d.updatedAt).toISOString().slice(0, 16).replace('T', ' ') + 'Z · ' +
+      g.count + ' registered corporations';
+    $('#threatBasis').textContent = t.basis + ' ' + t.bannerNote;
+
+    $('#threatAxes').innerHTML =
+      axisCard(t.threat.primary, 'PRIMARY THREAT', g.threatAxes.military) +
+      axisCard(t.threat.secondary, 'SECONDARY THREAT', g.threatAxes.biochemical);
+
+    $('#corps').innerHTML = d.corporations.map(function (c) {
+      var logo = c.logoUrl
+        ? '<img src="' + esc(c.logoUrl) + '" alt="' + esc(c.name) + '">'
+        : '<span class="fallback">' + esc(c.name.split(' ')[0]) + '</span>';
+      var brand = esc(c.brandColor || '#c70000');
+
+      var kv = function (k, v, cls) {
+        return '<div class="kv"><span>' + k + '</span><b class="' + (cls || '') + '">' + v + '</b></div>';
+      };
+
+      var holders = c.shareholders.slice(0, 8).map(function (h) {
+        return '<div class="holder"><span class="nm">' + esc(h.name || 'unknown') + '</span>' +
+          '<span class="pc">' + h.pct + '%</span>' +
+          '<span class="hbar"><i style="width:' + Math.max(1, Math.min(100, h.pct)) + '%"></i></span></div>';
+      }).join('');
+
+      var rows = Object.keys(c.sectorsByType).sort(function (a, b) {
+        return c.sectorsByType[b].revenue - c.sectorsByType[a].revenue;
+      }).map(function (k) {
+        var v = c.sectorsByType[k];
+        var flag = THREAT_FLAG[k] || '';
+        return '<tr><td>' + esc(k) + (flag ? ' ' + flag : '') + '</td>' +
+          '<td class="num">' + v.sectorCount + '</td>' +
+          '<td class="num">' + v.workers.toLocaleString('en-US') + '</td>' +
+          '<td class="num">' + Math.round(v.revenue).toLocaleString('en-US') + '</td></tr>';
+      }).join('');
+
+      var liquid = c.cashOnHand != null && c.marketCapUsd ? (c.cashOnHand / c.marketCapUsd) * 100 : null;
+      var liqCls = liquid == null ? '' : liquid < 0.2 ? 'bad' : liquid < 1 ? 'warn' : '';
+
+      return '<article class="corp">' +
+        '<div class="corp-banner" style="box-shadow:inset 0 -1px 0 ' + brand + '33">' +
+          '<div class="corp-logo">' + logo + '</div>' +
+          '<div class="corp-id"><h4>' + esc(c.name) + '</h4>' +
+            '<div class="meta">CORP #' + c.id + ' · ' + esc(c.typeLabel || c.type || '') + ' · HQ ' +
+              esc(c.headquartersState || c.countryId || '?') + ' · CEO ' + esc(c.ceo || 'vacant') + '</div>' +
+            '<div class="tags">' +
+              '<span class="chip">MARKET CAP ' + fmt(c.marketCapUsd) + '</span>' +
+              '<span class="chip">REV ' + fmt(c.revenueUsd) + '/DAY</span>' +
+              '<span class="chip">MARGIN ' + pct(c.marginPct) + '</span>' +
+              '<span class="chip">WORKERS ' + (c.workers || 0).toLocaleString('en-US') + '</span>' +
+              (c.creditRating ? '<span class="chip">RATING ' + esc(c.creditRating) + '</span>' : '') +
+              (c.publicFloatPct != null ? '<span class="chip">FLOAT ' + c.publicFloatPct + '%</span>' : '') +
+              (c.threatAxes.military.sectorCount ? '<span class="chip red">DEFENSE ×' + c.threatAxes.military.sectorCount + '</span>' : '') +
+              (c.threatAxes.biochemical.sectorCount ? '<span class="chip red">CHEM/HEALTH ×' + c.threatAxes.biochemical.sectorCount + '</span>' : '') +
+              (c.defaultedBonds ? '<span class="chip amber">BOND DEFAULT</span>' : '') +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        (c.description ? '<p class="corp-desc">' + esc(c.description) + '</p>' : '') +
+        '<div class="mx-grid">' +
+          '<div class="panel"><h5>FINANCIALS (USD)</h5>' +
+            kv('Revenue / game day', fmt(c.revenueUsd)) +
+            kv('Operating income', c.operatingIncome == null ? 'n/a' : '$' + Math.round(c.operatingIncome * (c.revenueUsd && c.revenue ? c.revenueUsd / c.revenue : 1)).toLocaleString('en-US')) +
+            kv('Operating margin', pct(c.marginPct), c.marginPct != null && c.marginPct < 10 ? 'bad' : '') +
+            kv('Market cap', fmt(c.marketCapUsd)) +
+            kv('Cash on hand', fmt(c.cashOnHand), liqCls) +
+            kv('Total debt', fmt(c.totalDebt)) +
+            kv('Cash / market cap', pct(liquid), liqCls) +
+            kv('Dividend rate', c.dividendRate != null ? c.dividendRate + '%' : '—') +
+            kv('Local figures', c.currency + ' · anchor ' + Math.round(c.revenue || 0).toLocaleString('en-US') + '/day') +
+          '</div>' +
+          '<div class="panel"><h5>SHARE REGISTER</h5>' +
+            kv('Share price', c.sharePrice == null ? 'n/a' : '$' + Number(c.sharePrice).toLocaleString('en-US')) +
+            kv('Total shares', c.totalShares == null ? 'n/a' : Number(c.totalShares).toLocaleString('en-US')) +
+            kv('Public float', c.publicFloatPct == null ? 'n/a' : c.publicFloatPct + '%') +
+            kv('Credit rating', esc(c.creditRating || 'n/a') + (c.creditScore != null ? ' (' + c.creditScore + ')' : '')) +
+            '<div style="height:9px"></div>' + (holders || '<span class="kv"><span>no register</span></span>') +
+          '</div>' +
+          '<div class="panel"><h5>SECTOR FOOTPRINT</h5>' +
+            '<table class="mx"><thead><tr><th>Type</th><th style="text-align:right">#</th>' +
+              '<th style="text-align:right">Workers</th><th style="text-align:right">Anchor rev/day</th></tr></thead>' +
+              '<tbody>' + rows + '</tbody></table>' +
+          '</div>' +
+        '</div>' +
+        (c.bannerUrl ? '' : '<p class="mx-note">Hero banner unavailable from the public API for this corporation — the banner strip above is generated from its registered brand colour ' + brand + ' instead of a fetched image.</p>') +
+      '</article>';
+    }).join('');
+  }
+
+  var THREAT_FLAG = {
+    defense: '<span style="color:#ff8fa8">&#9679; MILITARY</span>',
+    chemical_industries: '<span style="color:#ff8fa8">&#9679; BIOCHEM</span>',
+    healthcare: '<span style="color:#ff8fa8">&#9679; BIOCHEM</span>'
+  };
+
+  if (location.protocol !== 'file:') {
+    try { if (sessionStorage.getItem(SESSION_KEY) === '1') unlock(); } catch (e) {}
+  }
+  $('#pw').focus();
+})();
+</script>
+</body>
+</html>

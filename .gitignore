@@ -1,0 +1,21 @@
+# secrets — never commit API keys
+.env
+.env.*
+*.env
+!*.env.example
+ahd_key*
+*.key
+*.pem
+
+# node
+node_modules/
+
+# local scratch / generators
+gen-*.cjs
+gen-*.txt
+scratch/
+*.log
+
+# os
+.DS_Store
+Thumbs.db

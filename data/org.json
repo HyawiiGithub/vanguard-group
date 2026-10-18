@@ -1,11 +1,14 @@
 {
   "chairman": {
-    "kind": "company",
-    "name": "BlackRock Incorporated",
+    "kind": "individual",
+    "name": "Larry Fink",
+    "throughCorp": "BlackRock Incorporated",
     "id": 498,
     "holder": "Larry Fink",
     "since": "2026-10-14",
-    "interim": true
+    "interim": true,
+    "personalCapacity": true,
+    "note": "Larry Fink continues as Chairman in a personal capacity. The corporation whose seat he holds (BlackRock Incorporated, #498) was wound down in-game at turn 187, so the seat is unfilled by a member corporation and rule 5 puts an early election on the ballot."
   },
   "election": {
     "nextVote": "2026-11-01T00:00:00Z",

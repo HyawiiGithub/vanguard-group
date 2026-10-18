@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12" />
+<link rel="stylesheet" href="styles.css?v=13" />
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -43,6 +43,8 @@
       <a href="#alliance">Alliance</a>
       <a href="#eligibility">Eligibility</a>
       <a href="#members">Members</a>
+      <a href="#bankruptcy">Insolvency</a>
+      <a href="thread.html" title="Passcode-gated internal threat matrix">Thread Matrix</a>
       <a href="#advantage">Advantage</a>
       <a href="#apply" class="btn btn-sm btn-red">Apply Now</a>
     </nav>
@@ -88,18 +90,20 @@
         </div>
         <div class="terminal-body">
           <div class="t-row t-head"><span>CORP</span><span>MKT CAP</span><span>REV</span><span>GRW·30T</span></div>
-          <div class="t-row"><span class="t-name"><b class="v-dot"></b> VANGUARD</span><span data-live="alliance:marketCap" title="Alliance combined, USD">$90.96B</span><span data-live="alliance:revenue" title="Alliance combined, USD">$6.94B</span><span class="up" data-live="alliance:growth" title="I Love Misa tape t201→t211 (largest mover)">+94.6%</span></div>
-          <div class="t-row"><span class="t-name"><b class="b-dot"></b> ✕ BLACKROCK INC.</span><span data-live="blackrock:marketCap" title="¥694,583,685,631 ≈ $5.08B — DISSOLVED, frozen T187">$5.08B</span><span data-live="blackrock:revenue" title="₳733,747,393 per game day ≈ $693.10M">$693.10M</span><span class="down" data-live="blackrock:growth" title="Tape t158→t186">-33.7%</span></div>
-          <div class="t-row"><span class="t-name"><b class="j-dot"></b> JOHN DEERE</span><span data-live="deere:marketCap" title="$512,058,742">$512.06M</span><span data-live="deere:revenue" title="₳110,677,845 per game day ≈ $93.01M">$93.01M</span><span data-live="deere:growth" title="Newly listed — insufficient tape">n/a</span></div>
-          <div class="t-row"><span class="t-name"><b class="vl-dot"></b> ✕ VERMONT LOG.</span><span data-live="vermont:marketCap" title="$9,411,005,452 — DISSOLVED, frozen T187">$9.41B</span><span data-live="vermont:revenue" title="₳913,280,761 per game day ≈ $862.69M">$862.69M</span><span data-live="vermont:growth" title="Newly listed — insufficient tape">n/a</span></div>
-          <div class="t-row"><span class="t-name"><b class="pf-dot"></b> PFIZER</span><span data-live="pfizer:marketCap" title="$550,728,163">$550.73M</span><span data-live="pfizer:revenue" title="₳64,637,267 per game day ≈ $54.32M">$54.32M</span><span class="down" data-live="pfizer:growth" title="Tape t186→t216">-0.8%</span></div>
-          <div class="t-row"><span class="t-name"><b class="abc-dot"></b> ABC MEDIA</span><span data-live="abc:marketCap" title="$30,470,000,000">$30.47B</span><span data-live="abc:revenue" title="₳1,849,013,840 per game day ≈ $1.55B">$1.55B</span><span class="up" data-live="abc:growth" title="Tape t187→t216">+115.3%</span></div>
-          <div class="t-row"><span class="t-name"><b class="ra-dot"></b> RANCO ARMS</span><span data-live="ranco:marketCap" title="¥1,390,524,700,000 ≈ $9.18B">$9.18B</span><span data-live="ranco:revenue" title="₳516,491,415 per game day ≈ $434.03M">$434.03M</span><span data-live="ranco:growth" title="No share tape yet">n/a</span></div>
-          <div class="t-row"><span class="t-name"><b class="ka-dot"></b> 簡素</span><span data-live="kanso:marketCap" title="¥117,669,440,000 ≈ $776.94M">$776.94M</span><span data-live="kanso:revenue" title="₳95,782,562 per game day ≈ $80.49M">$80.49M</span><span class="up" data-live="kanso:growth" title="Tape t194→t214">+11.8%</span></div>
-          <div class="t-row"><span class="t-name"><b class="to-dot"></b> THE ORG.</span><span data-live="org:marketCap" title="¥105,369,776,724 ≈ $695.73M">$695.73M</span><span data-live="org:revenue" title="₳81,722,924 per game day ≈ $68.67M">$68.67M</span><span data-live="org:growth" title="No share tape yet">n/a</span></div>
-          <div class="t-row"><span class="t-name"><b class="misa-dot"></b> I LOVE MISA</span><span data-live="misa:marketCap" title="¥1,137,385,789,985 ≈ $8.32B">$8.32B</span><span data-live="misa:revenue" title="₳1,449,875,548 per game day ≈ $1.37B">$1.37B</span><span class="down" data-live="misa:growth" title="Tape t131→t132">-10.9%</span></div>
-          <div class="t-row"><span class="t-name"><b class="napo-dot"></b> I LOVE NAPO.</span><span data-live="napoleon:marketCap" title="¥873,369,767,371 ≈ $6.39B">$6.39B</span><span data-live="napoleon:revenue" title="₳652,371,012 per game day ≈ $616.23M">$616.23M</span><span class="up" data-live="napoleon:growth" title="Tape t160→t186">+87.5%</span></div>
-          <div class="t-note" id="snapNote">Verified 2026-10-13 · Turn 216 (June, Week 1, 1994) · figures in USD (¥151.45/$, revenue gross per game day) · margin = income ÷ revenue · growth = trailing 30-turn tape · <a href="data/live.json">raw snapshot</a></div>
+<div class="t-row"><span class="t-name"><b class="v-dot"></b> VANGUARD</span><span data-live="alliance:marketCap" title="Alliance combined, USD, 9 solvent members">$141.23B</span><span data-live="alliance:revenue" title="Alliance combined, USD">$20.06B</span><span class="up" data-live="alliance:growth">—</span></div>
+<div class="t-row"><span class="t-name"><b class="b-dot"></b> ✕ BLACKROCK INCORPORATED</span><span data-live="blackrock:marketCap" title="¥694,583,685,631 — BANKRUPT, frozen T187">$5.08B</span><span data-live="blackrock:revenue" title="₳ 733,747,393 per game day ≈ $693.10M">$693.10M</span><span class="down" data-live="blackrock:growth" title="Split-adjusted tape t158→t186">-33.7%</span></div>
+<div class="t-row"><span class="t-name"><b class="j-dot"></b> EXXON MOBIL</span><span data-live="deere:marketCap" title="$1,302,026,023">$1.30B</span><span data-live="deere:revenue" title="₳ 381,253,735 per game day ≈ $329.38M">$329.38M</span><span class="up" data-live="deere:growth" title="Split-adjusted tape t236→t266">+552.1%</span></div>
+<div class="t-row"><span class="t-name"><b class="vl-dot"></b> ✕ VERMONT LOGISTICS</span><span data-live="vermont:marketCap" title="$9,411,005,452 — BANKRUPT, frozen T187">$9.41B</span><span data-live="vermont:revenue" title="₳ 913,280,761 per game day ≈ $862.69M">$862.69M</span><span data-live="vermont:growth">n/a</span></div>
+<div class="t-row"><span class="t-name"><b class="pf-dot"></b> PFIZER</span><span data-live="pfizer:marketCap" title="$318,842,621">$318.84M</span><span data-live="pfizer:revenue" title="₳ 34,770,581 per game day ≈ $30.04M">$30.04M</span><span class="down" data-live="pfizer:growth" title="Split-adjusted tape t240→t267">-19.1%</span></div>
+<div class="t-row"><span class="t-name"><b class="abc-dot"></b> AMERICAN BROADCASTING COMPANY</span><span data-live="abc:marketCap" title="$23,240,000,000">$23.24B</span><span data-live="abc:revenue" title="₳ 2,620,650,207 per game day ≈ $2.26B">$2.26B</span><span class="down" data-live="abc:growth" title="Split-adjusted tape t237→t267">-31.0%</span></div>
+<div class="t-row"><span class="t-name"><b class="ra-dot"></b> RANCO WEAPON MANFACTURING</span><span data-live="ranco:marketCap" title="¥1,603,568,200,000">$10.38B</span><span data-live="ranco:revenue" title="₳ 903,547,488 per game day ≈ $780.62M">$780.62M</span><span data-live="ranco:growth">n/a</span></div>
+<div class="t-row"><span class="t-name"><b class="ka-dot"></b> ✕ 簡素</span><span data-live="kanso:marketCap" title="¥117,669,440,000 — BANKRUPT, frozen T216">$776.94M</span><span data-live="kanso:revenue" title="₳ 95,782,562 per game day ≈ $80.49M">$80.49M</span><span class="up" data-live="kanso:growth" title="Split-adjusted tape t194→t214">+11.8%</span></div>
+<div class="t-row"><span class="t-name"><b class="to-dot"></b> THE ORGANIZATION</span><span data-live="org:marketCap" title="¥160,822,331,725">$1.04B</span><span data-live="org:revenue" title="₳ 218,203,335 per game day ≈ $188.52M">$188.52M</span><span class="down" data-live="org:growth" title="Split-adjusted tape t241→t265">-10.9%</span></div>
+<div class="t-row"><span class="t-name"><b class="misa-dot"></b> I LOVE MISA</span><span data-live="misa:marketCap" title="¥4,391,414,490,000">$28.43B</span><span data-live="misa:revenue" title="₳ 9,420,974,093 per game day ≈ $8.14B">$8.14B</span><span class="down" data-live="misa:growth" title="Split-adjusted tape t239→t266">-55.8%</span></div>
+<div class="t-row"><span class="t-name"><b class="napo-dot"></b> I LOVE NAPOLEON</span><span data-live="napoleon:marketCap" title="¥10,323,947,920,000">$66.83B</span><span data-live="napoleon:revenue" title="₳ 6,666,349,886 per game day ≈ $5.76B">$5.76B</span><span class="up" data-live="napoleon:growth" title="Split-adjusted tape t238→t266">+67.7%</span></div>
+<div class="t-row"><span class="t-name"><b class="vr-dot"></b> VERMONT RETAIL</span><span data-live="vtretail:marketCap" title="$8,752,160,000">$8.75B</span><span data-live="vtretail:revenue" title="₳ 2,856,098,387 per game day ≈ $2.47B">$2.47B</span><span class="up" data-live="vtretail:growth" title="Split-adjusted tape t240→t268">+605.0%</span></div>
+<div class="t-row"><span class="t-name"><b class="tw-dot"></b> TINKY WINKY</span><span data-live="tinky:marketCap" title="¥144,369,900,000">$934.59M</span><span data-live="tinky:revenue" title="₳ 119,280,724 per game day ≈ $103.05M">$103.05M</span><span data-live="tinky:growth">n/a</span></div>
+          <div class="t-note" id="snapNote">Verified 2026-10-17 · Turn 269 (July, Week 2, 1995) · figures in USD (¥154.47/$, revenue gross per game day) · margin = income ÷ revenue · growth = trailing 30-turn tape · bankrupt corps struck through · <a href="data/live.json">raw snapshot</a></div>
           <div class="t-req">
             <div>ENTRY FLOOR <strong>$350,000,000</strong></div>
             <div class="bar"><div class="bar-fill" style="width:100%"></div></div>
@@ -119,7 +123,7 @@
       <span>VANGUARD GROUP ▲ COORDINATION PROTOCOL ACTIVE</span><span>◆</span>
       <span>ENTRY FLOOR: $350M MKT CAP</span><span>◆</span>
       <span>MIN MARGIN: 10–15%</span><span>◆</span>
-      <span>MEMBERS: BLACKROCK • JOHN DEERE • VERMONT LOGISTICS • PFIZER • ABC MEDIA • RANCO ARMS • 簡素 • THE ORGANIZATION • I LOVE MISA • I LOVE NAPOLEON</span><span>◆</span>
+      <span>MEMBERS: EXXON MOBIL • PFIZER • ABC MEDIA • RANCO ARMS • THE ORGANIZATION • I LOVE MISA • I LOVE NAPOLEON • VERMONT RETAIL • TINKY WINKY &nbsp;|&nbsp; WOUND UP: BLACKROCK • VERMONT LOGISTICS • 簡素</span><span>◆</span>
       <span>LIVE STATS: <em class="wip-inline" id="tickerLive">VERIFIED 2026-10-13</em></span><span>◆</span>
       <span>APPLY: DISCORD hyawii2.0 / IN-GAME: LARRY FINK</span><span>◆</span>
     </div>
@@ -235,26 +239,26 @@
         <h3>Vanguard Group</h3>
         <p class="m-desc">Central coordinator. Sets negotiation floors, runs joint strategy, and enforces margin discipline across the alliance.</p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="alliance:revenue" title="Alliance combined, USD">$6.94B</strong></div>
-          <div><small>MKT CAP</small><strong data-live="alliance:marketCap" title="Alliance combined, USD">$90.96B</strong></div>
-          <div><small>GROWTH</small><strong data-live="alliance:growth" data-growth="long" title="I Love Misa tape t201→t211 (largest mover)">+94.56% (t201→t211)</strong></div>
+          <div><small>REVENUE</small><strong data-live="alliance:revenue" title="Alliance combined, USD">$20.06B</strong></div>
+          <div><small>MKT CAP</small><strong data-live="alliance:marketCap" title="Alliance combined, USD">$141.23B</strong></div>
+          <div><small>GROWTH</small><strong data-live="alliance:growth" data-growth="long" title="Vermont Retail tape t240→t268 (largest mover)">+605.02% (t240→t268)</strong></div>
         </div>
-        <p class="t-note">Alliance combined figures, USD (10 member corporations).</p>
+        <p class="t-note">Alliance combined figures, USD — 9 solvent member corporations. 3 further members have been wound up and appear struck through in the <a href="#bankruptcy">insolvency register</a>.</p>
         <div class="m-stats">
-          <div><small>WORKERS</small><strong data-live="alliance:workers">2,985,972</strong></div>
-          <div><small>SECTORS</small><strong data-live="alliance:sectors">172</strong></div>
+          <div><small>WORKERS</small><strong data-live="alliance:workers">9,232,605</strong></div>
+          <div><small>SECTORS</small><strong data-live="alliance:sectors">260</strong></div>
           <div><small>DIVIDEND</small><strong>—</strong></div>
         </div>
       </article>
-      <article class="member reveal">
-        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
-        <div class="m-logo blackrock">BLACKROCK<span>INCORPORATED</span></div>
+      <article class="member reveal dead">
+        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot dot-dead">✕ WOUND UP</span></div>
+        <div class="m-logo undefined" style="--brand:#106fb7"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac3dbf9c6e9f850d977790d-1791469818210.webp" alt="BlackRock Incorporated logo" loading="lazy" style="width:100%;max-width:190px;height:auto;object-fit:contain"></div>
         <h3>BlackRock Incorporated</h3>
-        <p class="m-desc">Capital & holdings powerhouse. Anchors group liquidity and long-horizon investment coordination. <span id="blackrockNote">DISSOLVED in-game — last seen turn 187. Frozen last-verified figures below.</span></p>
+        <p class="m-desc">Capital and holdings powerhouse that anchored group liquidity. Wound down in-game. <span id="blackrockNote">BANKRUPT — wound down in-game, last seen turn 187. Frozen last-verified figures below.</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="blackrock:revenue" title="₳733,747,393 per game day ≈ $693.10M">$693.10M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="blackrock:marketCap" title="¥694,583,685,631 ≈ $5.08B">$5.08B</strong></div>
-          <div><small>GROWTH</small><strong data-live="blackrock:growth" data-growth="long" title="Tape t158→t186">-33.68% (t158→t186)</strong></div>
+          <div><small>REVENUE</small><strong data-live="blackrock:revenue" title="₳ 733,747,393 per game day ≈ $693.10M">$693.10M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="blackrock:marketCap" title="FROZEN — bankrupt T187">$5.08B</strong></div>
+          <div><small>GROWTH</small><strong><span class="down" data-live="blackrock:growth" title="Split-adjusted tape t158→t186">-33.68% <span style="font-size:9px;opacity:.75">(t158→t186)</span></span></strong></div>
         </div>
         <div class="m-stats">
           <div><small>MARGIN</small><strong data-live="blackrock:margin">22.04%</strong></div>
@@ -266,37 +270,39 @@
           <div><small>SECTORS</small><strong data-live="blackrock:sectors">73</strong></div>
           <div><small>DIVIDEND</small><strong data-live="blackrock:div">0%</strong></div>
         </div>
+        <p class="t-note">Top holder: <b>Larry Fink</b> 60.3%</p>
       </article>
       <article class="member reveal">
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
-        <div class="m-logo deere"><span class="deere-mark">🦌</span> JOHN DEERE<span>INDUSTRIALS</span></div>
-        <h3>John Deere</h3>
-        <p class="m-desc">Industrial backbone. Heavy production, supply-chain weight, and resilient margin performance. <span id="deereNote">Passes T-1 + T-2 ($512.06M cap, 22.37% margin).</span></p>
+        <div class="m-logo undefined" style="--brand:#730c0c"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6acb10f57f0eaca56be706cd-1792201473041.webp" alt="Exxon Mobil logo" loading="lazy" style="width:100%;max-width:190px;height:auto;object-fit:contain"></div>
+        <h3>Exxon Mobil</h3>
+        <p class="m-desc">American extraction and energy company. <span id="deereNote">Passes T-1 + T-2 ($1.30B cap, 13.09% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="deere:revenue" title="₳110,677,845 per game day ≈ $93.01M">$93.01M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="deere:marketCap" title="$512,058,742">$512.06M</strong></div>
-          <div><small>GROWTH</small><strong data-live="deere:growth" title="Newly listed — insufficient tape">n/a</strong></div>
+          <div><small>REVENUE</small><strong data-live="deere:revenue" title="₳ 381,253,735 per game day ≈ $329.38M">$329.38M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="deere:marketCap" title="$1,302,026,023">$1.30B</strong></div>
+          <div><small>GROWTH</small><strong><span class="up" data-live="deere:growth" title="Split-adjusted tape t236→t266">+552.13% <span style="font-size:9px;opacity:.75">(t236→t266)</span></span></strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="deere:margin">22.37%</strong></div>
+          <div><small>MARGIN</small><strong data-live="deere:margin">13.09%</strong></div>
           <div><small>RATING</small><strong data-live="deere:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Braden E Peters</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>WORKERS</small><strong data-live="deere:workers">43,481</strong></div>
-          <div><small>SECTORS</small><strong data-live="deere:sectors">14</strong></div>
-          <div><small>DIVIDEND</small><strong data-live="deere:div">0%</strong></div>
+          <div><small>WORKERS</small><strong data-live="deere:workers">164,247</strong></div>
+          <div><small>SECTORS</small><strong data-live="deere:sectors">16</strong></div>
+          <div><small>DIVIDEND</small><strong data-live="deere:div">15%</strong></div>
         </div>
+        <p class="t-note">Top holder: <b>I Love Misa</b> 54.4%</p>
       </article>
-      <article class="member reveal">
-        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
-        <div class="m-logo vermont">VERMONT<span>LOGISTICS</span></div>
+      <article class="member reveal dead">
+        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot dot-dead">✕ WOUND UP</span></div>
+        <div class="m-logo undefined" style="--brand:#10b981">VERMONT LOGISTICS<span>LOGISTICS</span></div>
         <h3>Vermont Logistics</h3>
-        <p class="m-desc">US heavy-haul logistics network across 70 sectors. Highest margin in the alliance. <span id="vermontNote">DISSOLVED in-game — last seen turn 187. Frozen last-verified figures below.</span></p>
+        <p class="m-desc">Logistics backbone of the group. Wound down in-game. <span id="vermontNote">BANKRUPT — wound down in-game, last seen turn 187. Frozen last-verified figures below.</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="vermont:revenue" title="₳913,280,761 per game day ≈ $862.69M">$862.69M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="vermont:marketCap" title="$9,411,005,452">$9.41B</strong></div>
-          <div><small>GROWTH</small><strong data-live="vermont:growth" title="Newly listed — insufficient tape">n/a</strong></div>
+          <div><small>REVENUE</small><strong data-live="vermont:revenue" title="₳ 913,280,761 per game day ≈ $862.69M">$862.69M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="vermont:marketCap" title="FROZEN — bankrupt T187">$9.41B</strong></div>
+          <div><small>GROWTH</small><strong>n/a</strong></div>
         </div>
         <div class="m-stats">
           <div><small>MARGIN</small><strong data-live="vermont:margin">35.82%</strong></div>
@@ -308,79 +314,83 @@
           <div><small>SECTORS</small><strong data-live="vermont:sectors">70</strong></div>
           <div><small>DIVIDEND</small><strong data-live="vermont:div">0%</strong></div>
         </div>
+        <p class="t-note">Top holder: <b>Malik Rahman</b> 100%</p>
       </article>
       <article class="member reveal">
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
-        <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp" alt="Pfizer logo" loading="lazy" onerror="this.outerHTML='PFIZER'" /></div>
+        <div class="m-logo undefined" style="--brand:#d946ef"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp" alt="Pfizer logo" loading="lazy" style="width:100%;max-width:190px;height:auto;object-fit:contain"></div>
         <h3>Pfizer</h3>
-        <p class="m-desc">US energy holding across 9 sectors. Strong margin, triple-digit tape growth. <span id="pfizerNote">Passes T-1 + T-2 ($550.73M cap, 32.74% margin).</span></p>
+        <p class="m-desc">Pharmaceutical major. Fell below the $350M entry floor this cycle. <span id="pfizerNote">Below the $350M floor ($318.84M cap, 33.29% margin) — flagged.</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="pfizer:revenue" title="₳64,637,267 per game day ≈ $54.32M">$54.32M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="pfizer:marketCap" title="$550,728,163">$550.73M</strong></div>
-          <div><small>GROWTH</small><strong data-live="pfizer:growth" data-growth="long" title="Tape t186→t216">-0.77% (t186→t216)</strong></div>
+          <div><small>REVENUE</small><strong data-live="pfizer:revenue" title="₳ 34,770,581 per game day ≈ $30.04M">$30.04M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="pfizer:marketCap" title="$318,842,621">$318.84M</strong></div>
+          <div><small>GROWTH</small><strong><span class="down" data-live="pfizer:growth" title="Split-adjusted tape t240→t267">-19.07% <span style="font-size:9px;opacity:.75">(t240→t267)</span></span></strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="pfizer:margin">32.74%</strong></div>
+          <div><small>MARGIN</small><strong data-live="pfizer:margin">33.29%</strong></div>
           <div><small>RATING</small><strong data-live="pfizer:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Ronald Reagan</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>WORKERS</small><strong data-live="pfizer:workers">25,323</strong></div>
-          <div><small>SECTORS</small><strong data-live="pfizer:sectors">11</strong></div>
-          <div><small>DIVIDEND</small><strong data-live="pfizer:div">5%</strong></div>
+          <div><small>WORKERS</small><strong data-live="pfizer:workers">9,995</strong></div>
+          <div><small>SECTORS</small><strong data-live="pfizer:sectors">10</strong></div>
+          <div><small>DIVIDEND</small><strong data-live="pfizer:div">8%</strong></div>
         </div>
+        <p class="t-note">Top holder: <b>Ronald Reagan</b> 60.8%</p>
       </article>
       <article class="member reveal">
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
-        <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac763824f4573325e5f8069-1791634076204.webp" alt="American Broadcasting Company logo" loading="lazy" onerror="this.outerHTML='ABC'" /></div>
+        <div class="m-logo undefined" style="--brand:#00ff00"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac763824f4573325e5f8069-1791634076204.webp" alt="American Broadcasting Company logo" loading="lazy" style="width:100%;max-width:190px;height:auto;object-fit:contain"></div>
         <h3>American Broadcasting Company</h3>
-        <p class="m-desc">US media network across 52 sectors. <span id="abcNote">Passes T-1 + T-2 ($30.47B cap, 44.48% margin).</span></p>
+        <p class="m-desc">Media and broadcast empire. Largest single balance sheet in the alliance. <span id="abcNote">Passes T-1 + T-2 ($23.24B cap, 27.16% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="abc:revenue" title="₳1,849,013,840 per game day ≈ $1.55B">$1.55B</strong></div>
-          <div><small>MKT CAP</small><strong data-live="abc:marketCap" title="$30,470,000,000">$30.47B</strong></div>
-          <div><small>GROWTH</small><strong data-live="abc:growth" data-growth="long" title="Tape t187→t216">+115.26% (t187→t216)</strong></div>
+          <div><small>REVENUE</small><strong data-live="abc:revenue" title="₳ 2,620,650,207 per game day ≈ $2.26B">$2.26B</strong></div>
+          <div><small>MKT CAP</small><strong data-live="abc:marketCap" title="$23,240,000,000">$23.24B</strong></div>
+          <div><small>GROWTH</small><strong><span class="down" data-live="abc:growth" title="Split-adjusted tape t237→t267">-31.01% <span style="font-size:9px;opacity:.75">(t237→t267)</span></span></strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="abc:margin">44.48%</strong></div>
-          <div><small>RATING</small><strong data-live="abc:rating">AAA</strong></div>
+          <div><small>MARGIN</small><strong data-live="abc:margin">27.16%</strong></div>
+          <div><small>RATING</small><strong data-live="abc:rating">AA</strong></div>
           <div><small>CEO</small><strong>Rat</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>WORKERS</small><strong data-live="abc:workers">777,445</strong></div>
+          <div><small>WORKERS</small><strong data-live="abc:workers">1,572,046</strong></div>
           <div><small>SECTORS</small><strong data-live="abc:sectors">52</strong></div>
           <div><small>DIVIDEND</small><strong data-live="abc:div">20%</strong></div>
         </div>
+        <p class="t-note">Top holder: <b>Rat</b> 66.7%</p>
       </article>
       <article class="member reveal">
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
-        <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac9e73e96249b1f17b71dca-1791643534845.webp" alt="Ranco Weapon Manfacturing logo" loading="lazy" onerror="this.outerHTML='RANCO'" /></div>
+        <div class="m-logo undefined" style="--brand:#ff0000"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac9e73e96249b1f17b71dca-1791643534845.webp" alt="Ranco Weapon Manfacturing logo" loading="lazy" style="width:100%;max-width:190px;height:auto;object-fit:contain"></div>
         <h3>Ranco Weapon Manfacturing</h3>
-        <p class="m-desc">JP defense manufacturer across 50 sectors. Scale is there, margin is not. <span id="rancoNote">Margin 8.94% — below the 10% floor, flagged. Market cap $9.18B holds.</span></p>
+        <p class="m-desc">Sword and Spears for everyone. Defense manufacturer running a structurally thin margin. <span id="rancoNote">Margin 4.18% — below the 10% floor, flagged.</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="ranco:revenue" title="₳516,491,415 per game day ≈ $434.03M">$434.03M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="ranco:marketCap" title="¥1,390,524,700,000 ≈ $9.18B">$9.18B</strong></div>
-          <div><small>GROWTH</small><strong data-live="ranco:growth" title="No share tape yet">n/a</strong></div>
+          <div><small>REVENUE</small><strong data-live="ranco:revenue" title="₳ 903,547,488 per game day ≈ $780.62M">$780.62M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="ranco:marketCap" title="¥1,603,568,200,000">$10.38B</strong></div>
+          <div><small>GROWTH</small><strong>n/a</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="ranco:margin">8.94%</strong></div>
+          <div><small>MARGIN</small><strong data-live="ranco:margin">4.18%</strong></div>
           <div><small>RATING</small><strong data-live="ranco:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Ranco Hashimoto</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>WORKERS</small><strong data-live="ranco:workers">183,614</strong></div>
-          <div><small>SECTORS</small><strong data-live="ranco:sectors">50</strong></div>
+          <div><small>WORKERS</small><strong data-live="ranco:workers">370,684</strong></div>
+          <div><small>SECTORS</small><strong data-live="ranco:sectors">49</strong></div>
           <div><small>DIVIDEND</small><strong data-live="ranco:div">0%</strong></div>
         </div>
+        <p class="t-note">Top holder: <b>Ranco Hashimoto</b> 100%</p>
       </article>
-      <article class="member reveal">
-        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
-        <div class="m-logo kanso">簡素<span>TECHNOLOGY</span></div>
-        <h3>簡素 (#521)</h3>
-        <p class="m-desc">JP technology holding across 6 sectors. <span id="kansoNote">Passes T-1 + T-2 ($776.94M cap, 25.45% margin).</span></p>
+      <article class="member reveal dead">
+        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot dot-dead">✕ WOUND UP</span></div>
+        <div class="m-logo undefined" style="--brand:#ec4899">簡素<span>TECHNOLOGY</span></div>
+        <h3>簡素</h3>
+        <p class="m-desc">Technology vehicle. Wound down in-game. <span id="kansoNote">BANKRUPT — wound down in-game, last seen turn 216. Frozen last-verified figures below.</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="kanso:revenue" title="₳95,782,562 per game day ≈ $80.49M">$80.49M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="kanso:marketCap" title="¥117,669,440,000 ≈ $776.94M">$776.94M</strong></div>
-          <div><small>GROWTH</small><strong data-live="kanso:growth" data-growth="long" title="Tape t194→t214">+11.80% (t194→t214)</strong></div>
+          <div><small>REVENUE</small><strong data-live="kanso:revenue" title="₳ 95,782,562 per game day ≈ $80.49M">$80.49M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="kanso:marketCap" title="FROZEN — bankrupt T216">$776.94M</strong></div>
+          <div><small>GROWTH</small><strong><span class="up" data-live="kanso:growth" title="Split-adjusted tape t194→t214">+11.80% <span style="font-size:9px;opacity:.75">(t194→t214)</span></span></strong></div>
         </div>
         <div class="m-stats">
           <div><small>MARGIN</small><strong data-live="kanso:margin">25.45%</strong></div>
@@ -392,69 +402,117 @@
           <div><small>SECTORS</small><strong data-live="kanso:sectors">6</strong></div>
           <div><small>DIVIDEND</small><strong data-live="kanso:div">5%</strong></div>
         </div>
+        <p class="t-note">Top holder: <b>Satoshi Fukuda</b> 67.5%</p>
       </article>
       <article class="member reveal">
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
-        <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ace7b48076f76a31679a279-1791917252503.webp" alt="The Organization logo" loading="lazy" onerror="this.outerHTML='ORG'" /></div>
+        <div class="m-logo undefined" style="--brand:#fef100"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ace7b48076f76a31679a279-1791917252503.webp" alt="The Organization logo" loading="lazy" style="width:100%;max-width:190px;height:auto;object-fit:contain"></div>
         <h3>The Organization</h3>
-        <p class="m-desc">JP energy outfit across 6 sectors. <span id="orgNote">Passes T-1 + T-2 ($695.73M cap, 50.15% margin).</span></p>
+        <p class="m-desc">Holds a controlling block of the alliance and wholly owns Tinky Winky. <span id="orgNote">Passes T-1 + T-2 ($1.04B cap, 38.60% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="org:revenue" title="₳81,722,924 per game day ≈ $68.67M">$68.67M</strong></div>
-          <div><small>MKT CAP</small><strong data-live="org:marketCap" title="¥105,369,776,724 ≈ $695.73M">$695.73M</strong></div>
-          <div><small>GROWTH</small><strong data-live="org:growth" title="No share tape yet">n/a</strong></div>
+          <div><small>REVENUE</small><strong data-live="org:revenue" title="₳ 218,203,335 per game day ≈ $188.52M">$188.52M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="org:marketCap" title="¥160,822,331,725">$1.04B</strong></div>
+          <div><small>GROWTH</small><strong><span class="down" data-live="org:growth" title="Split-adjusted tape t241→t265">-10.87% <span style="font-size:9px;opacity:.75">(t241→t265)</span></span></strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="org:margin">50.15%</strong></div>
+          <div><small>MARGIN</small><strong data-live="org:margin">38.60%</strong></div>
           <div><small>RATING</small><strong data-live="org:rating">AAA</strong></div>
           <div><small>CEO</small><strong>Nariyoshi Miyagi</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>WORKERS</small><strong data-live="org:workers">22,700</strong></div>
-          <div><small>SECTORS</small><strong data-live="org:sectors">6</strong></div>
+          <div><small>WORKERS</small><strong data-live="org:workers">62,702</strong></div>
+          <div><small>SECTORS</small><strong data-live="org:sectors">7</strong></div>
           <div><small>DIVIDEND</small><strong data-live="org:div">0%</strong></div>
         </div>
+        <p class="t-note">Top holder: <b>Nariyoshi Miyagi</b> 45%</p>
       </article>
       <article class="member reveal">
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
-        <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac56dd29c01603665694296-1791929558224.webp" alt="I Love Misa logo" loading="lazy" onerror="this.outerHTML='MISA'" /></div>
+        <div class="m-logo undefined" style="--brand:#0161fd"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac56dd29c01603665694296-1791929558224.webp" alt="I Love Misa logo" loading="lazy" style="width:100%;max-width:190px;height:auto;object-fit:contain"></div>
         <h3>I Love Misa</h3>
-        <p class="m-desc">JP manufacturing giant. Run by Napoleon Astrae — who also owns 75% of it. <span id="misaNote">Passes T-1 + T-2 ($33.06B cap, 28.52% margin).</span></p>
+        <p class="m-desc">I love Misa Astrae. Manufacturing scale and the largest workforce in the group. <span id="misaNote">Passes T-1 + T-2 ($28.43B cap, 11.09% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="misa:revenue" title="₳3,787,329,924 per game day ≈ $3.18B">$3.18B</strong></div>
-          <div><small>MKT CAP</small><strong data-live="misa:marketCap" title="¥5,006,922,730,000 ≈ $33.06B">$33.06B</strong></div>
-          <div><small>GROWTH</small><strong data-live="misa:growth" data-growth="long" title="Tape t201→t211">+94.56% (t201→t211)</strong></div>
+          <div><small>REVENUE</small><strong data-live="misa:revenue" title="₳ 9,420,974,093 per game day ≈ $8.14B">$8.14B</strong></div>
+          <div><small>MKT CAP</small><strong data-live="misa:marketCap" title="¥4,391,414,490,000">$28.43B</strong></div>
+          <div><small>GROWTH</small><strong><span class="down" data-live="misa:growth" title="Split-adjusted tape t239→t266">-55.77% <span style="font-size:9px;opacity:.75">(t239→t266)</span></span></strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="misa:margin">28.52%</strong></div>
+          <div><small>MARGIN</small><strong data-live="misa:margin">11.09%</strong></div>
           <div><small>RATING</small><strong data-live="misa:rating">AA</strong></div>
           <div><small>CEO</small><strong>Napoleon Astrae</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>WORKERS</small><strong data-live="misa:workers">1,324,282</strong></div>
-          <div><small>SECTORS</small><strong data-live="misa:sectors">21</strong></div>
+          <div><small>WORKERS</small><strong data-live="misa:workers">3,410,263</strong></div>
+          <div><small>SECTORS</small><strong data-live="misa:sectors">32</strong></div>
           <div><small>DIVIDEND</small><strong data-live="misa:div">20%</strong></div>
         </div>
+        <p class="t-note">Top holder: <b>Napoleon Astrae</b> 68.3%</p>
       </article>
       <article class="member reveal">
         <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
-        <div class="m-logo"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac5701a9c0160366569479b-1791899834943.webp" alt="I Love Napoleon logo" loading="lazy" onerror="this.outerHTML='NAPO'" /></div>
+        <div class="m-logo undefined" style="--brand:#4576c4"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ac5701a9c0160366569479b-1791899834943.webp" alt="I Love Napoleon logo" loading="lazy" style="width:100%;max-width:190px;height:auto;object-fit:contain"></div>
         <h3>I Love Napoleon</h3>
-        <p class="m-desc">JP agriculture holding. Run by Misa Astrae — who also owns 78.1% of it. <span id="napoleonNote">Passes T-1 + T-2 ($15.71B cap, 24.44% margin).</span></p>
+        <p class="m-desc">Agriculture and land holdings. Holds the largest market capitalisation in the alliance. <span id="napoleonNote">Passes T-1 + T-2 ($66.83B cap, 28.62% margin).</span></p>
         <div class="m-stats">
-          <div><small>REVENUE</small><strong data-live="napoleon:revenue" title="₳1,752,154,663 per game day ≈ $1.47B">$1.47B</strong></div>
-          <div><small>MKT CAP</small><strong data-live="napoleon:marketCap" title="¥2,379,807,999,662 ≈ $15.71B">$15.71B</strong></div>
-          <div><small>GROWTH</small><strong data-live="napoleon:growth" data-growth="long" title="Tape t186→t216">+197.88% (t186→t216)</strong></div>
+          <div><small>REVENUE</small><strong data-live="napoleon:revenue" title="₳ 6,666,349,886 per game day ≈ $5.76B">$5.76B</strong></div>
+          <div><small>MKT CAP</small><strong data-live="napoleon:marketCap" title="¥10,323,947,920,000">$66.83B</strong></div>
+          <div><small>GROWTH</small><strong><span class="up" data-live="napoleon:growth" title="Split-adjusted tape t238→t266">+67.72% <span style="font-size:9px;opacity:.75">(t238→t266)</span></span></strong></div>
         </div>
         <div class="m-stats">
-          <div><small>MARGIN</small><strong data-live="napoleon:margin">24.44%</strong></div>
-          <div><small>RATING</small><strong data-live="napoleon:rating">A</strong></div>
+          <div><small>MARGIN</small><strong data-live="napoleon:margin">28.62%</strong></div>
+          <div><small>RATING</small><strong data-live="napoleon:rating">AA</strong></div>
           <div><small>CEO</small><strong>Misa Astrae</strong></div>
         </div>
         <div class="m-stats">
-          <div><small>WORKERS</small><strong data-live="napoleon:workers">557,503</strong></div>
+          <div><small>WORKERS</small><strong data-live="napoleon:workers">2,481,443</strong></div>
           <div><small>SECTORS</small><strong data-live="napoleon:sectors">12</strong></div>
           <div><small>DIVIDEND</small><strong data-live="napoleon:div">0%</strong></div>
         </div>
+        <p class="t-note">Top holder: <b>Misa Astrae</b> 71.1%</p>
+      </article>
+      <article class="member reveal">
+        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
+        <div class="m-logo undefined" style="--brand:#ec4899"><img src="https://cdn.ahousedividedgame.com/corporation-logos/6ad0a0ae338ba1a1f51ca115-1792058199093.webp" alt="Vermont Retail logo" loading="lazy" style="width:100%;max-width:190px;height:auto;object-fit:contain"></div>
+        <h3>Vermont Retail</h3>
+        <p class="m-desc">Retail consolidator refounded by Malik Rahman after the loss of Vermont Logistics. <span id="vtretailNote">Margin 9.58% — below the 10% floor, flagged.</span></p>
+        <div class="m-stats">
+          <div><small>REVENUE</small><strong data-live="vtretail:revenue" title="₳ 2,856,098,387 per game day ≈ $2.47B">$2.47B</strong></div>
+          <div><small>MKT CAP</small><strong data-live="vtretail:marketCap" title="$8,752,160,000">$8.75B</strong></div>
+          <div><small>GROWTH</small><strong><span class="up" data-live="vtretail:growth" title="Split-adjusted tape t240→t268">+605.02% <span style="font-size:9px;opacity:.75">(t240→t268)</span></span></strong></div>
+        </div>
+        <div class="m-stats">
+          <div><small>MARGIN</small><strong data-live="vtretail:margin">9.58%</strong></div>
+          <div><small>RATING</small><strong data-live="vtretail:rating">AA</strong></div>
+          <div><small>CEO</small><strong>Malik Rahman</strong></div>
+        </div>
+        <div class="m-stats">
+          <div><small>WORKERS</small><strong data-live="vtretail:workers">1,113,170</strong></div>
+          <div><small>SECTORS</small><strong data-live="vtretail:sectors">78</strong></div>
+          <div><small>DIVIDEND</small><strong data-live="vtretail:div">0%</strong></div>
+        </div>
+        <p class="t-note">Top holder: <b>Malik Rahman</b> 81.7%</p>
+      </article>
+      <article class="member reveal">
+        <div class="m-top"><span class="m-role">■ MEMBER CORPORATION</span><span class="live-dot">● ACTIVE</span></div>
+        <div class="m-logo undefined" style="--brand:#f59e0b">TINKY WINKY<span>LOGISTICS</span></div>
+        <h3>Tinky Winky</h3>
+        <p class="m-desc">Logistics vehicle wholly owned by The Organization. <span id="tinkyNote">Passes T-1 + T-2 ($934.59M cap, 40.83% margin).</span></p>
+        <div class="m-stats">
+          <div><small>REVENUE</small><strong data-live="tinky:revenue" title="₳ 119,280,724 per game day ≈ $103.05M">$103.05M</strong></div>
+          <div><small>MKT CAP</small><strong data-live="tinky:marketCap" title="¥144,369,900,000">$934.59M</strong></div>
+          <div><small>GROWTH</small><strong>n/a</strong></div>
+        </div>
+        <div class="m-stats">
+          <div><small>MARGIN</small><strong data-live="tinky:margin">40.83%</strong></div>
+          <div><small>RATING</small><strong data-live="tinky:rating">AA</strong></div>
+          <div><small>CEO</small><strong>Larry Fink</strong></div>
+        </div>
+        <div class="m-stats">
+          <div><small>WORKERS</small><strong data-live="tinky:workers">48,055</strong></div>
+          <div><small>SECTORS</small><strong data-live="tinky:sectors">4</strong></div>
+          <div><small>DIVIDEND</small><strong data-live="tinky:div">0%</strong></div>
+        </div>
+        <p class="t-note">Top holder: <b>The Organization</b> 100%</p>
       </article>
     </div>
     <h3 class="table-title">Control — largest shareholders (live registers)</h3>
@@ -462,16 +520,18 @@
     <table class="control-table">
       <thead><tr><th>Corporation</th><th>Top holder</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>BlackRock Incorporated ✕</td><td data-live="blackrock:top">Larry Fink 60.3%</td><td><span class="stamp na">DISSOLVED</span></td></tr>
-        <tr><td>John Deere</td><td data-live="deere:top">Larry Fink 39.8%</td><td><span class="stamp pass">PASS</span></td></tr>
-        <tr><td>Vermont Logistics ✕</td><td data-live="vermont:top">Malik Rahman 100%</td><td><span class="stamp na">DISSOLVED</span></td></tr>
-        <tr><td>Pfizer</td><td data-live="pfizer:top">Ronald Reagan 60.8%</td><td><span class="stamp pass">PASS</span></td></tr>
-        <tr><td>American Broadcasting Company</td><td data-live="abc:top">Rat 50.1%</td><td><span class="stamp pass">PASS</span></td></tr>
+        <tr><td>BlackRock Incorporated ✕</td><td data-live="blackrock:top">Larry Fink 60.3%</td><td><span class="stamp na">BANKRUPT</span></td></tr>
+        <tr><td>Exxon Mobil <span class="was-tag">was John Deere</span></td><td data-live="deere:top">I Love Misa 54.4%</td><td><span class="stamp pass">PASS</span></td></tr>
+        <tr><td>Vermont Logistics ✕</td><td data-live="vermont:top">Malik Rahman 100%</td><td><span class="stamp na">BANKRUPT</span></td></tr>
+        <tr><td>Pfizer</td><td data-live="pfizer:top">Ronald Reagan 60.8%</td><td><span class="stamp na">BELOW FLOOR</span></td></tr>
+        <tr><td>American Broadcasting Company</td><td data-live="abc:top">Rat 66.7%</td><td><span class="stamp pass">PASS</span></td></tr>
         <tr><td>Ranco Weapon Manfacturing</td><td data-live="ranco:top">Ranco Hashimoto 100%</td><td><span class="stamp na">LOW MARGIN</span></td></tr>
-        <tr><td>簡素</td><td data-live="kanso:top">Satoshi Fukuda 67.5%</td><td><span class="stamp pass">PASS</span></td></tr>
+        <tr><td>簡素 ✕</td><td data-live="kanso:top">Satoshi Fukuda 67.5%</td><td><span class="stamp na">BANKRUPT</span></td></tr>
         <tr><td>The Organization</td><td data-live="org:top">Nariyoshi Miyagi 45%</td><td><span class="stamp pass">PASS</span></td></tr>
-        <tr><td>I Love Misa</td><td data-live="misa:top">Napoleon Astrae 74.5%</td><td><span class="stamp pass">PASS</span></td></tr>
-        <tr><td>I Love Napoleon</td><td data-live="napoleon:top">Misa Astrae 78.1%</td><td><span class="stamp pass">PASS</span></td></tr>
+        <tr><td>I Love Misa</td><td data-live="misa:top">Napoleon Astrae 68.3%</td><td><span class="stamp pass">PASS</span></td></tr>
+        <tr><td>I Love Napoleon</td><td data-live="napoleon:top">Misa Astrae 71.1%</td><td><span class="stamp pass">PASS</span></td></tr>
+        <tr><td>Vermont Retail</td><td data-live="vtretail:top">Malik Rahman 81.7%</td><td><span class="stamp na">LOW MARGIN</span></td></tr>
+        <tr><td>Tinky Winky</td><td data-live="tinky:top">The Organization 100%</td><td><span class="stamp pass">PASS</span></td></tr>
       </tbody>
     </table>
     </div>
@@ -494,7 +554,21 @@
       <div class="chart-card reveal"><h4>Sectors operated by member</h4><div id="chSectors" class="chart"></div></div>
     </div>
     <div class="chart-card reveal"><h4>Share price tape (anchor, split-adjusted, log scale)</h4><div id="chTape" class="chart"></div><div id="chTapeLegend" class="chart-legend"></div></div>
-    <div class="wip-banner" id="dataBanner">⚙ LIVE DATA (USD) — BlackRock <strong>DISSOLVED</strong> (last seen T187) · John Deere <strong>PASS</strong> ($512.06M · 22.37%) · Vermont Log. <strong>DISSOLVED</strong> (last seen T187) · Pfizer <strong>PASS</strong> ($550.73M · 32.74% · -0.77%) · ABC Media <strong>PASS</strong> ($30.47B · 44.48% · +115.26%) · Ranco Arms <strong>LOW MARGIN</strong> ($9.18B · 8.94%) · 簡素 <strong>PASS</strong> ($776.94M · 25.45% · +11.80%) · The Org. <strong>PASS</strong> ($695.73M · 50.15%) · I Love Misa <strong>PASS</strong> ($33.06B · 28.52% · +94.56%) · I Love Napoleon <strong>PASS</strong> ($15.71B · 24.44% · +197.88%) · snapshot <a href="data/live.json">data/live.json</a> · turn 216</div>
+    <div class="wip-banner" id="dataBanner">⚙ LIVE DATA (USD) — BlackRock <strong>BANKRUPT</strong> (last seen T187) · Exxon Mobil <strong>PASS</strong> ($1.30B · 13.09% · +552.13%) · Vermont Log. <strong>BANKRUPT</strong> (last seen T187) · Pfizer <strong>BELOW FLOOR</strong> ($318.84M · 33.29% · -19.07%) · ABC Media <strong>PASS</strong> ($23.24B · 27.16% · -31.01%) · Ranco Arms <strong>LOW MARGIN</strong> ($10.38B · 4.18%) · Kanso <strong>BANKRUPT</strong> (last seen T216) · The Org. <strong>PASS</strong> ($1.04B · 38.60% · -10.87%) · I Love Misa <strong>PASS</strong> ($28.43B · 11.09% · -55.77%) · I Love Napoleon <strong>PASS</strong> ($66.83B · 28.62% · +67.72%) · Vermont Retail <strong>LOW MARGIN</strong> ($8.75B · 9.58% · +605.02%) · Tinky Winky <strong>PASS</strong> ($934.59M · 40.83%) · snapshot <a href="data/live.json">data/live.json</a> · turn 269</div>
+  </div>
+</section>
+
+<!-- BANKRUPTCY WATCH -->
+<section class="section section-dark" id="bankruptcy">
+  <div class="container">
+    <p class="kicker">04 — BANKRUPTCY WATCH</p>
+    <h2 class="alarm-title"><span class="alarm-mark">&#9888;</span> Insolvency <span class="red">register.</span></h2>
+    <p class="sub">The AHD engine exposes no bankruptcy flag — terminal insolvency is a hard delete of the corporation record, so a bankrupt company simply stops resolving. Every member is re-checked on each refresh: one that goes missing is recorded here with its last-verified figures and is excluded from alliance totals, charts and rankings until it reappears.</p>
+    <div id="bankruptList" class="bankrupt-grid">
+      <p class="sub">Loading insolvency register&hellip;</p>
+    </div>
+    <div id="distressList" class="distress-strip"></div>
+    <p class="t-note" id="bankruptFoot"></p>
   </div>
 </section>
 
@@ -506,8 +580,8 @@
     <p class="sub">The Chairman speaks for Vanguard in negotiations and breaks tied alliance votes. Elected by the member corporations — one vote each, cast by Discord ballot.</p>
     <div class="grid-2">
       <div class="apply-card reveal">
-        <span class="ch-num" id="chairTag">VACANT — DISSOLVED</span>
-        <h3 id="chairName">BlackRock Incorporated</h3>
+<span class="ch-num" id="chairTag">SEAT UNFILLED — EARLY ELECTION DUE</span>
+          <h3 id="chairName">Larry Fink</h3>
         <p>Held by <strong id="chairHolder">Larry Fink</strong> · since <span id="chairSince">2026-10-14</span> · term <span id="chairTerm">1 calendar month</span></p>
         <p class="note" id="chairNote"></p>
       </div>
@@ -626,6 +700,6 @@
 </footer>
 </main>
 
-<script src="app.js?v=12"></script>
+<script src="app.js?v=13"></script>
 </body>
 </html>
