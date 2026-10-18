@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T21:31:28.508Z",
+  "updatedAt": "2026-10-18T21:46:41.031Z",
   "game": {
     "currentTurn": 293,
     "gameDateLabel": "January, Week 2, 1996",
@@ -40,7 +40,7 @@
     "workers": 797761,
     "sectorCount": 50,
     "revenueUsd": 1726460168.518339,
-    "marketCapUsd": 20982061640,
+    "marketCapUsd": 20616330000,
     "cashUsd": 9633215.741097376,
     "debtUsd": 405624000,
     "bonds": 15,
@@ -88,116 +88,76 @@
       },
       "balanceSheet": {
         "cashOnHand": 8551208.662491575,
-        "marketCapitalization": 13179741640,
+        "marketCapitalization": 12814010000,
         "totalDebt": 251467000,
         "cashOnHandUsd": 8551208.662491575,
-        "marketCapitalizationUsd": 13179741640,
+        "marketCapitalizationUsd": 12814010000,
         "totalDebtUsd": 251467000
       },
       "shareStructure": {
-        "totalShares": 1251231,
-        "publicFloat": 41722,
+        "totalShares": 1000000,
+        "publicFloat": 33345,
         "publicFloatPct": 3.3,
-        "sharePrice": 10533.42,
+        "sharePrice": 12814.01,
         "shareholders": [
           {
             "name": "William E. Spencer",
-            "shares": 1001231,
+            "shares": 800210,
             "pct": null
           },
           {
             "name": "I Love Napoleon",
-            "shares": 187030,
+            "shares": 149479,
             "pct": null
           },
           {
             "name": "Donald J. Trump",
-            "shares": 12004,
+            "shares": 9594,
             "pct": null
           },
           {
             "name": "Index Fund",
-            "shares": 4013,
+            "shares": 3207,
             "pct": null
           },
           {
             "name": "Jib's Arms Corps",
-            "shares": 2500,
+            "shares": 1998,
             "pct": null
           },
           {
             "name": "Jimmy Jibbson",
-            "shares": 1000,
+            "shares": 799,
             "pct": null
           },
           {
             "name": "Ranco Hashimoto",
-            "shares": 878,
+            "shares": 702,
             "pct": null
           },
           {
             "name": "George Cooper",
-            "shares": 558,
+            "shares": 446,
             "pct": null
           },
           {
             "name": "Coopers & Company",
-            "shares": 100,
+            "shares": 80,
             "pct": null
           },
           {
             "name": "Paddy Riot",
-            "shares": 94,
+            "shares": 75,
             "pct": null
           },
           {
             "name": "Index Fund",
-            "shares": 78,
-            "pct": null
-          },
-          {
-            "name": "National Public Party",
-            "shares": 7,
-            "pct": null
-          },
-          {
-            "name": "National Public Party",
-            "shares": 5,
-            "pct": null
-          },
-          {
-            "name": "National Public Party",
-            "shares": 2,
+            "shares": 63,
             "pct": null
           },
           {
             "name": "Misa Astrae",
             "shares": 2,
-            "pct": null
-          },
-          {
-            "name": "National Public Party",
-            "shares": 1,
-            "pct": null
-          },
-          {
-            "name": "National Public Party",
-            "shares": 1,
-            "pct": null
-          },
-          {
-            "name": "National Public Party",
-            "shares": 1,
-            "pct": null
-          },
-          {
-            "name": "National Public Party",
-            "shares": 1,
-            "pct": null
-          },
-          {
-            "name": "National Public Party",
-            "shares": 1,
             "pct": null
           }
         ]
@@ -1004,8 +964,8 @@
         "pct": 258.6,
         "fromTurn": 268,
         "toTurn": 292,
-        "fromPrice": 3176.2503,
-        "toPrice": 11389.9064,
+        "fromPrice": 3974.2229,
+        "toPrice": 14251.404,
         "trades": 51,
         "splitAdjusted": true,
         "window": "30T"
@@ -1013,211 +973,211 @@
       "tape": [
         [
           268,
-          3176.2503
+          3974.2229
         ],
         [
           268,
-          3176.6027
+          3974.6637
         ],
         [
           268,
-          3176.8185
+          3974.9338
         ],
         [
           268,
-          3176.8186
+          3974.9339
         ],
         [
           268,
-          3176.8186
+          3974.9339
         ],
         [
           269,
-          3063.7628
+          3833.4749
         ],
         [
           270,
-          2696.042
+          3373.3713
         ],
         [
           270,
-          3182.2836
+          3981.7719
         ],
         [
           271,
-          3298.1888
+          4126.7961
         ],
         [
           271,
-          2800.2197
+          3503.7216
         ],
         [
           271,
-          3253.3467
+          4070.6883
         ],
         [
           272,
-          3546.2342
+          4437.1582
         ],
         [
           272,
-          2909.4014
+          3640.3332
         ],
         [
           272,
-          3318.298
+          4151.9574
         ],
         [
           273,
-          3549.8036
+          4441.6243
         ],
         [
           274,
-          3602.7146
+          4507.8282
         ],
         [
           275,
-          4148.1465
+          5190.2895
         ],
         [
           276,
-          4636.3822
+          5801.1851
         ],
         [
           277,
-          5197.3885
+          6503.1337
         ],
         [
           278,
-          5609.6321
+          7018.9456
         ],
         [
           279,
-          6023.15
+          7536.352
         ],
         [
           280,
-          6416.0413
+          8027.9497
         ],
         [
           281,
-          7055.0418
+          8827.487
         ],
         [
           282,
-          7755.7236
+          9704.2018
         ],
         [
           282,
-          7524.724
+          9415.1679
         ],
         [
           283,
-          9283.5816
+          11615.9051
         ],
         [
           283,
-          6686.3106
+          8366.1191
         ],
         [
           283,
-          7757.2309
+          9706.0877
         ],
         [
           284,
-          7055.4443
+          8827.9906
         ],
         [
           284,
-          8040.5131
+          10060.5392
         ],
         [
           285,
-          8985.195
+          11242.5545
         ],
         [
           285,
-          8191.2083
+          10249.0938
         ],
         [
           286,
-          7851.0937
+          9823.5318
         ],
         [
           286,
-          9023.3305
+          11290.2708
         ],
         [
           287,
-          9659.6102
+          12086.4037
         ],
         [
           288,
-          9614.0765
+          12029.4305
         ],
         [
           288,
-          8730.9888
+          10924.4838
         ],
         [
           288,
-          11431.4795
+          14303.4215
         ],
         [
           289,
-          11570.1852
+          14476.9744
         ],
         [
           289,
-          11393.5696
+          14255.9875
         ],
         [
           290,
-          9936.5716
+          12432.9465
         ],
         [
           290,
-          10301.599
+          12889.6801
         ],
         [
           290,
-          9354.5317
+          11704.6801
         ],
         [
           290,
-          11565.2207
+          14470.7626
         ],
         [
           291,
-          11340.1537
+          14189.1519
         ],
         [
           291,
-          11340.1537
+          14189.1519
         ],
         [
           291,
-          9921.393
+          12413.9544
         ],
         [
           291,
-          10283.5461
+          12867.0916
         ],
         [
           292,
-          12255.4097
+          15334.3486
         ],
         [
           292,
-          10397.8718
+          13010.1395
         ],
         [
           292,
-          11389.9064
+          14251.404
         ]
       ],
       "tapeTradeCount": 51,
-      "tapeSplitCount": 1
+      "tapeSplitCount": 2
     },
     {
       "id": 978,

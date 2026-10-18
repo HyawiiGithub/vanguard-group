@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T21:31:26.970Z",
+  "updatedAt": "2026-10-18T21:46:39.490Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -182,12 +182,12 @@
       "ceo": "Braden E Peters",
       "revenue": 276282806,
       "operatingIncome": 40510343,
-      "marketCap": 1806813861,
+      "marketCap": 1810319999,
       "revenueUsd": 234884063.6963379,
       "operatingIncomeUsd": 34440195.983721465,
-      "marketCapUsd": 1806813861,
+      "marketCapUsd": 1810319999,
       "marginPct": 14.66,
-      "sharePrice": 376.19,
+      "sharePrice": 376.92,
       "totalShares": 4802929,
       "holders": [
         {
@@ -799,12 +799,12 @@
       "ceo": "Ronald Reagan",
       "revenue": 33508503,
       "operatingIncome": 11702903,
-      "marketCap": 343875719,
+      "marketCap": 347828313,
       "revenueUsd": 28487525.036288105,
       "operatingIncomeUsd": 9949317.706307298,
-      "marketCapUsd": 343875719,
+      "marketCapUsd": 347828313,
       "marginPct": 34.93,
-      "sharePrice": 2.61,
+      "sharePrice": 2.64,
       "totalShares": 131753149,
       "holders": [
         {
@@ -1628,12 +1628,12 @@
       "ceo": "Rat",
       "revenue": 2350193754,
       "operatingIncome": 653892830,
-      "marketCap": 12875448978,
+      "marketCap": 12865222252,
       "revenueUsd": 1998036241.941424,
       "operatingIncomeUsd": 555912281.8967556,
-      "marketCapUsd": 12875448978,
+      "marketCapUsd": 12865222252,
       "marginPct": 27.82,
-      "sharePrice": 12.59,
+      "sharePrice": 12.58,
       "totalShares": 1022672675,
       "holders": [
         {
@@ -2622,12 +2622,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 243510508,
       "operatingIncome": 117249059,
-      "marketCap": 465364439791,
+      "marketCap": 624329660423,
       "revenueUsd": 207022429.2994896,
       "operatingIncomeUsd": 99680236.49829182,
-      "marketCapUsd": 2886472755.0507045,
+      "marketCapUsd": 3872471553.242001,
       "marginPct": 48.15,
-      "sharePrice": 41882.8,
+      "sharePrice": 56189.67,
       "totalShares": 11111111,
       "holders": [
         {
@@ -3331,12 +3331,12 @@
       "ceo": "Misa Astrae",
       "revenue": 7345282918,
       "operatingIncome": 2933022943,
-      "marketCap": 18458122848867,
+      "marketCap": 18458366265534,
       "revenueUsd": 6244651723.926442,
       "operatingIncomeUsd": 2493533194.267733,
-      "marketCapUsd": 114488482911.50389,
+      "marketCapUsd": 114489992729.43869,
       "marginPct": 39.93,
-      "sharePrice": 16597523.83,
+      "sharePrice": 16597742.71,
       "totalShares": 1112101,
       "holders": [
         {
@@ -4282,12 +4282,12 @@
       "ceo": "Malik Rahman",
       "revenue": 2775899401,
       "operatingIncome": 439085646,
-      "marketCap": 13359860000,
+      "marketCap": 13359850000,
       "revenueUsd": 2359953343.3112383,
       "operatingIncomeUsd": 373292215.814587,
-      "marketCapUsd": 13359860000,
+      "marketCapUsd": 13359850000,
       "marginPct": 15.82,
-      "sharePrice": 13359.86,
+      "sharePrice": 13359.85,
       "totalShares": 1000000,
       "holders": [
         {
@@ -4587,27 +4587,32 @@
       "ceo": "Larry Fink",
       "revenue": 498838131,
       "operatingIncome": 190549629,
-      "marketCap": 1557856781044,
+      "marketCap": 1561381930000,
       "revenueUsd": 424091274.5614946,
       "operatingIncomeUsd": 161997309.36332518,
-      "marketCapUsd": 9662773452.939413,
+      "marketCapUsd": 9684638566.706076,
       "marginPct": 38.2,
-      "sharePrice": 78335.58,
-      "totalShares": 19886963,
+      "sharePrice": 1561381.93,
+      "totalShares": 1000000,
       "holders": [
         {
+          "name": "The Organization",
+          "shares": 502842,
+          "pct": 50.3
+        },
+        {
           "name": "I Love Misa",
-          "shares": 7449506,
+          "shares": 374593,
           "pct": 37.5
         },
         {
           "name": "Ranco Weapon Manfacturing",
-          "shares": 2158337,
+          "shares": 108530,
           "pct": 10.9
         },
         {
           "name": "Larry Fink",
-          "shares": 279120,
+          "shares": 14035,
           "pct": 1.4
         }
       ],
@@ -4626,24 +4631,24 @@
         "pct": 74.19,
         "fromTurn": 291,
         "toTurn": 292,
-        "fromPrice": 346.6135,
-        "toPrice": 603.7615,
+        "fromPrice": 6893.09,
+        "toPrice": 12006.9826,
         "trades": 3,
-        "splitAdjusted": false,
+        "splitAdjusted": true,
         "window": "30T"
       },
       "tape": [
         [
           291,
-          460.5659
+          9159.2562
         ],
         [
           291,
-          346.6135
+          6893.09
         ],
         [
           292,
-          603.7615
+          12006.9826
         ]
       ],
       "checks": {
@@ -4713,6 +4718,12 @@
       "from": "Ranco Weapon Manfacturing",
       "to": "I Love Napoleon",
       "pct": 11.6
+    },
+    {
+      "type": "owns",
+      "from": "The Organization",
+      "to": "Tinky Winky",
+      "pct": 50.3
     },
     {
       "type": "owns",
