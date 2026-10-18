@@ -208,15 +208,12 @@
   var SESSION_KEY = 'vg.threat.unlocked';
   var $ = function (s) { return document.querySelector(s); };
 
-  function b64(buf) {
-    var b = new Uint8Array(buf), s = '';
-    for (var i = 0; i < b.length; i++) s += String.fromCharCode(b[i]);
-    return btoa(s);
-  }
+  // Hex-encode the digest BYTES. (An earlier version base64-encoded the digest and then
+  // hex-encoded those characters, which can never equal a real SHA-256 hex digest.)
   function sha256(str) {
-    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(b64).then(function (h) {
-      var hex = '';
-      for (var i = 0; i < h.length; i++) hex += ('0' + h.charCodeAt(i).toString(16)).slice(-2);
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function (buf) {
+      var b = new Uint8Array(buf), hex = '';
+      for (var i = 0; i < b.length; i++) hex += ('0' + b[i].toString(16)).slice(-2);
       return hex;
     });
   }
