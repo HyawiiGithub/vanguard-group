@@ -31,6 +31,28 @@
     background:rgba(255,176,32,.09);border:1px solid rgba(255,176,32,.3);
     font:500 11.5px/1.65 Inter,Arial,sans-serif;color:#ffd489}
   .gate-warn b{color:#fff}
+  .gate-hint{margin-top:14px;font:600 11px/1.7 ui-monospace,monospace;color:var(--muted)}
+
+  /* ---- role badge + admin console ---- */
+  .role-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;
+    font:800 10px/1 Inter,Arial,sans-serif;letter-spacing:.14em;color:#fff}
+  .role-badge.admin{background:linear-gradient(90deg,#C4122E,#8f0d22)}
+  .role-badge.viewer{background:rgba(90,110,160,.35);border:1px solid rgba(150,175,235,.4);color:#cfe0ff}
+  .console{border-radius:15px;padding:19px 22px;margin-bottom:20px;
+    background:linear-gradient(150deg,rgba(196,18,46,.12),rgba(13,22,51,.94) 62%);
+    border:1px solid rgba(196,18,46,.4)}
+  .console h3{margin:0 0 4px;font-size:16px}
+  .console .lead{margin:0 0 15px;color:#c9cfe8;font:500 12.5px/1.7 Inter,Arial,sans-serif}
+  .console-grid{display:grid;gap:11px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:end}
+  .inbox-item{padding:12px 14px;border-radius:11px;background:rgba(0,0,0,.34);
+    border:1px solid rgba(255,255,255,.13);margin-bottom:9px}
+  .inbox-item .meta{font:600 10.5px/1.5 ui-monospace,monospace;color:var(--muted);margin-bottom:6px}
+  .inbox-item .body{font:600 12px/1.7 ui-monospace,monospace;color:#b9ffd6;white-space:pre-wrap;word-break:break-word}
+  .inbox-item .body.locked{color:#ff8fa8}
+  .viewer-lock{display:flex;gap:10px;align-items:center;padding:12px 15px;border-radius:11px;margin-bottom:18px;
+    background:rgba(90,110,160,.13);border:1px solid rgba(150,175,235,.34);
+    font:600 12px/1.6 Inter,Arial,sans-serif;color:#cfe0ff}
+  .viewer-lock b{color:#fff}
 
   .mx{max-width:1240px;margin:0 auto;padding:30px 20px 70px}
   .mx-head{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:24px}
@@ -145,16 +167,24 @@
     <h1>THREAT MATRIX</h1>
     <p class="gate-sub">Vanguard Group &middot; internal &middot; restricted circulation</p>
     <div class="gate-row">
-      <input id="pw" type="password" autocomplete="off" placeholder="PASSCODE" aria-label="Passcode">
+      <input id="pw" type="password" autocomplete="off" placeholder="CODE" aria-label="Access code">
       <button id="go" type="button">UNLOCK</button>
     </div>
     <p class="gate-msg" id="msg"></p>
+    <p class="gate-hint">Two tiers: the <b>admin code</b> gives full control (add corporations, read the
+      private inbox, rotate codes). The <b>viewer code</b> opens the UI read-only and cannot add anything.</p>
     <div class="gate-warn">
-      <b>What this gate actually does.</b> A browser page cannot see the visitor's IP address, so this
-      gate <b>cannot</b> enforce a real network restriction &mdash; anything enforced in client-side
-      JavaScript can be bypassed by anyone who opens the source. Treat this as a speed bump and a plain
-      warning label, not as security. For genuine source-address filtering, put an edge proxy or worker in
-      front of the site and reject requests by source address there.
+      <b>What this gate actually does.</b> A browser page cannot see the visitor's IP address, and there
+      is no server behind GitHub Pages, so this page <b>cannot</b> stop anyone who is determined &mdash; codes
+      are stored as salted PBKDF2 hashes, which hides the codes but not the fact that someone can edit
+      the page to skip the check. Treat this as access <i>tiering</i>, not as security.
+      <br><br>
+      <b>Rotating the viewer code really does revoke it</b> for everyone on their next page load. It
+      <b>cannot</b> close a tab someone has already unlocked &mdash; there is no server to tell them to. Use
+      re-locking on shared machines, and rotate if a code leaks.
+      <br><br>
+      For genuine source-address filtering, put an edge proxy or worker in front of the site and
+      reject requests by source address there.
     </div>
   </div>
 </div>
@@ -167,8 +197,45 @@
         <h1 class="mx-title">Threat Matrix</h1>
         <div class="mx-meta" id="mxMeta">loading&hellip;</div>
       </div>
-      <button class="mx-lock" id="relock" type="button">&#9670; RE-LOCK</button>
+      <div style="display:flex;gap:10px;align-items:center">
+        <span class="role-badge viewer" id="roleBadge">LOCKED</span>
+        <button class="mx-lock" id="relock" type="button">&#9670; LOG OUT</button>
+      </div>
     </div>
+
+    <div class="viewer-lock hidden" id="viewerLock">
+      <span style="font-size:17px">&#128274;</span>
+      <span><b>Viewer access.</b> You can read every dossier, but adding corporations, reading the private
+      inbox and rotating codes are admin-only. Ask the admin for an admin code if you need them.</span>
+    </div>
+
+    <section class="console hidden" id="adminConsole">
+      <h3>&#9670; ADMIN CONSOLE</h3>
+      <p class="lead">
+        Codes are PBKDF2-SHA256 (210k iterations) and only their hashes are published. The inbox is
+        sealed with AES-256-GCM under a key derived from your admin code, so its contents are unreadable
+        to anyone without it &mdash; including from the raw JSON file.
+      </p>
+      <div class="console-grid">
+        <div class="fld"><label>SEAL A MESSAGE TO THE PRIVATE INBOX</label>
+          <input id="inHint" placeholder="short label, e.g. 'new viewer code'"></div>
+        <div class="fld" style="grid-column:span 2"><label>MESSAGE (sealed with your admin code)</label>
+          <input id="inText" placeholder="e.g. New viewer code: ABCD-1234"></div>
+        <div class="fld"><label>&nbsp;</label>
+          <button class="btn" id="inSeal" type="button">SEAL MESSAGE</button></div>
+      </div>
+      <p class="add-msg" id="inMsg"></p>
+      <div style="margin-top:16px"><h5 style="margin:0 0 10px;font:800 10px/1.4 Inter,Arial,sans-serif;letter-spacing:.15em;color:var(--muted)">PRIVATE INBOX</h5>
+        <div id="inboxList"><p class="mx-meta">loading…</p></div>
+      </div>
+      <div style="margin-top:16px"><h5 style="margin:0 0 10px;font:800 10px/1.4 Inter,Arial,sans-serif;letter-spacing:.15em;color:var(--muted)">CODE MANAGEMENT</h5>
+        <div class="add-actions">
+          <button class="btn ghost sm" id="mgrOut" type="button">OPEN CODE MANAGEMENT</button>
+          <span class="mx-meta" id="mgrInfo"></span>
+        </div>
+        <pre id="mgrOutPre" style="margin-top:11px;padding:12px;border-radius:10px;background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.14);font:600 11.5px/1.7 ui-monospace,monospace;color:#b9ffd6;white-space:pre-wrap;word-break:break-all"></pre>
+      </div>
+    </section>
 
     <section class="threat">
       <h3>&#9888; GROUP THREAT ASSESSMENT</h3>
@@ -176,7 +243,7 @@
       <div class="axes" id="threatAxes"></div>
     </section>
 
-    <section class="add">
+    <section class="add" id="addSection">
       <h3>&#10133; ADD A CORPORATION</h3>
       <p class="lead">
         Type a corporation ID (the number in <code>ahousedividedgame.com/corporations/<b>ID</b></code>)
@@ -229,55 +296,131 @@
 <script>
 (function () {
   'use strict';
-  // SHA-256 of the passcode. The plaintext passcode is never stored in this file.
-  var PW_HASH = '75bc1bc63fd61e6882198b454a2a4ad321d452ae698954132d033514d502a3bb';
-  var SESSION_KEY = 'vg.thread.unlocked';
+  // ---- access control -------------------------------------------------------------
+  // Codes are NEVER stored here. data/auth.json holds only PBKDF2-SHA256 hashes plus
+  // the salt. We recompute a candidate's hash and compare against the right tier.
+  // ROLE drives the whole UI: 'admin' may add corps / read inbox / manage codes,
+  // 'viewer' is read-only.
+  var SESSION_KEY = 'vg.thread.session';
   var $ = function (s) { return document.querySelector(s); };
+  var ROLE = null;
+  var AUTH = null;
+  var PBKDF2_ITER = 210000;
   var THREAT_FLAG = {
     defense: '<span style="color:#ff8fa8">&#9679; MILITARY</span>',
     chemical_industries: '<span style="color:#ff8fa8">&#9679; BIOCHEM</span>',
     healthcare: '<span style="color:#ff8fa8">&#9679; BIOCHEM</span>'
   };
 
-  // Hex-encode the digest BYTES. (An earlier version base64-encoded the digest and then
-  // hex-encoded those characters, which can never equal a real SHA-256 hex digest.)
-  function sha256(str) {
-    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function (buf) {
-      var b = new Uint8Array(buf), hex = '';
-      for (var i = 0; i < b.length; i++) hex += ('0' + b[i].toString(16)).slice(-2);
-      return hex;
+  function b64u8(buf) {
+    var b = new Uint8Array(buf), s = '';
+    for (var i = 0; i < b.length; i++) s += String.fromCharCode(b[i]);
+    return btoa(s);
+  }
+  function unb64u8(s) {
+    var bin = atob(s), out = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+  // PBKDF2-SHA256, 32 bytes, base64 - byte-for-byte what tools/auth.mjs computes.
+  function pbkdf2(password, saltB64, iterations) {
+    var enc = new TextEncoder();
+    return crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits'])
+      .then(function (key) {
+        return crypto.subtle.deriveBits(
+          { name: 'PBKDF2', salt: unb64u8(saltB64), iterations: iterations, hash: 'SHA-256' },
+          key, 256);
+      })
+      .then(b64u8);
+  }
+  function inboxKey(saltB64, adminCode) {
+    return pbkdf2('inbox|' + adminCode, saltB64, PBKDF2_ITER).then(function (bits) {
+      return crypto.subtle.importKey('raw', unb64u8(bits), { name: 'AES-GCM' }, false, ['decrypt']);
     });
   }
+  // constant-time-ish compare so a wrong code cannot be probed a character at a time
+  function safeEq(a, b) {
+    if (typeof a !== 'string' || typeof b !== 'string' || a.length !== b.length) return false;
+    var diff = 0;
+    for (var i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+    return diff === 0;
+  }
 
-  function unlock() {
+  function setRole(role) {
+    ROLE = role;
+    var badge = $('#roleBadge');
+    badge.textContent = role === 'admin' ? 'ADMIN · FULL CONTROL' : 'VIEWER · READ ONLY';
+    badge.className = 'role-badge ' + (role === 'admin' ? 'admin' : 'viewer');
+    $('#adminConsole').classList.toggle('hidden', role !== 'admin');
+    $('#viewerLock').classList.toggle('hidden', role === 'admin');
+    // viewer must not be able to add corporations
+    $('#addSection').classList.toggle('hidden', role !== 'admin');
+    document.querySelectorAll('.viewer-blocked').forEach(function (el) { el.remove(); });
+  }
+
+  function unlock(r) {
     $('#gate').classList.add('hidden');
     $('#matrix').classList.remove('hidden');
+    setRole(r);
+    try { sessionStorage.setItem(SESSION_KEY, r); } catch (e) {}
     load();
+    if (r === 'admin') loadInbox();
   }
-  function lock() {
+  function logout() {
     try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {}
+    ROLE = null;
     $('#matrix').classList.add('hidden');
     $('#gate').classList.remove('hidden');
     $('#pw').value = '';
+    $('#inboxList').innerHTML = '';
+    $('#inMsg').textContent = '';
+    $('#mgrOutPre').textContent = '';
+    $('#aPreview').innerHTML = '';
+    $('#aOut').style.display = 'none';
+    setRole('viewer');
+    $('#pw').focus();
   }
+
   function attempt() {
     var v = $('#pw').value.trim(), msg = $('#msg');
-    if (!v) { msg.textContent = 'Enter the passcode.'; msg.classList.remove('ok'); return; }
-    sha256(v).then(function (h) {
-      if (h === PW_HASH) {
-        msg.textContent = 'ACCESS GRANTED'; msg.classList.add('ok');
-        try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
-        setTimeout(unlock, 220);
+    if (!v) { msg.textContent = 'Enter your code.'; msg.classList.remove('ok'); return; }
+    if (!AUTH) { msg.textContent = 'Loading access config…'; return; }
+    msg.textContent = 'Checking…'; msg.classList.remove('ok');
+    var salt = AUTH.salt, iter = AUTH.iterations || PBKDF2_ITER;
+    pbkdf2(v, salt, iter).then(function (h) {
+      if (safeEq(h, AUTH.admin.hash)) {
+        ADMIN_CODE = v; // in-memory only; enables inbox seal/decrypt for this tab
+        msg.textContent = 'ACCESS GRANTED — admin'; msg.classList.add('ok');
+        unlock('admin');
+      } else if (safeEq(h, AUTH.viewer.hash)) {
+        ADMIN_CODE = null;
+        msg.textContent = 'ACCESS GRANTED — viewer (read only)'; msg.classList.add('ok');
+        unlock('viewer');
       } else {
-        msg.textContent = 'ACCESS DENIED - incorrect passcode.';
+        ADMIN_CODE = null;
+        msg.textContent = 'ACCESS DENIED — code does not match any tier.';
         msg.classList.remove('ok');
         $('#pw').select();
       }
-    }).catch(function () { msg.textContent = 'Could not verify (needs a secure context).'; });
+    }).catch(function (e) {
+      msg.textContent = 'Could not verify: ' + e.message;
+    });
   }
   $('#go').addEventListener('click', attempt);
   $('#pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') attempt(); });
-  $('#relock').addEventListener('click', lock);
+  $('#relock').addEventListener('click', logout);
+
+  function loadAuth() {
+    if (location.protocol === 'file:') { $('#mxMeta').textContent = 'Open over http(s) to load data.'; return Promise.reject(); }
+    return fetch('data/auth.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (a) { AUTH = a; PBKDF2_ITER = a.iterations || PBKDF2_ITER; return a; })
+      .catch(function (e) {
+        $('#msg').textContent = 'Access config unavailable (' + e.message + ').';
+        throw e;
+      });
+  }
+  loadAuth().catch(function () {});
 
   // ---------- formatting ----------
   var fmt = function (n) {
@@ -297,6 +440,120 @@
   var kv = function (k, v, cls) {
     return '<div class="kv"><span>' + k + '</span><b class="' + (cls || '') + '">' + v + '</b></div>';
   };
+
+  // ---- private inbox (AES-256-GCM, key derived from the ADMIN code) ----
+  var INBOX = [];
+  var ADMIN_CODE = null; // held only in memory, never persisted
+  function inMsg(t, cls) {
+    var m = $('#inMsg');
+    m.textContent = t;
+    m.className = 'add-msg' + (cls ? ' ' + cls : '');
+  }
+
+  function decryptMsg(m) {
+    if (!ADMIN_CODE || !AUTH) return Promise.resolve(null);
+    return inboxKey(AUTH.salt, ADMIN_CODE)
+      .then(function (key) {
+        // WebCrypto expects the GCM auth tag APPENDED to the ciphertext; auth.json
+        // stores them separately, so concatenate before decrypting.
+        var ct = unb64u8(m.ct), tag = unb64u8(m.tag);
+        var buf = new Uint8Array(ct.length + tag.length);
+        buf.set(ct, 0);
+        buf.set(tag, ct.length);
+        return crypto.subtle.decrypt({ name: 'AES-GCM', iv: unb64u8(m.iv), tagLength: 128 }, key, buf);
+      })
+      .then(function (buf) { return new TextDecoder().decode(buf); })
+      .catch(function () { return null; }); // sealed with a different admin code
+  }
+
+  function renderInbox() {
+    var box = $('#inboxList');
+    if (!box) return;
+    if (!INBOX.length) { box.innerHTML = '<p class="mx-meta">Inbox is empty.</p>'; return; }
+    box.innerHTML = INBOX.slice().reverse().map(function (m) {
+      return '<div class="inbox-item"><div class="meta">' +
+        esc(m.at) + ' · viewer epoch ' + esc(m.epoch) + ' · sealed with admin epoch ' + esc(m.sealedWithAdminEpoch) +
+        (m.plainHint ? ' · "' + esc(m.plainHint) + '"' : '') +
+        ' · <span id="msg-' + esc(m.id) + '">decrypting…</span></div>' +
+        '<div class="body locked" data-for="' + esc(m.id) + '">• • •</div></div>';
+    }).join('');
+    INBOX.forEach(function (m) {
+      decryptMsg(m).then(function (txt) {
+        var el = document.querySelector('[data-for="' + m.id + '"]');
+        var st = document.getElementById('msg-' + m.id);
+        if (txt === null) {
+          if (el) { el.classList.remove('locked'); el.textContent = '(sealed with a different admin code — cannot decrypt)'; }
+          if (st) st.textContent = 'undecryptable';
+        } else {
+          if (el) { el.classList.remove('locked'); el.textContent = txt; }
+          if (st) st.textContent = 'decrypted';
+        }
+      });
+    });
+  }
+
+  function loadInbox() {
+    fetch('data/inbox.json?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : { messages: [] }; })
+      .then(function (d) { INBOX = d.messages || []; renderInbox(); })
+      .catch(function () { INBOX = []; renderInbox(); });
+  }
+
+  $('#inSeal').addEventListener('click', function () {
+    var text = $('#inText').value.trim();
+    if (!text) { inMsg('Nothing to seal.', 'err'); return; }
+    if (!ADMIN_CODE || !AUTH) { inMsg('Re-enter your admin code to seal.', 'err'); return; }
+    inboxKey(AUTH.salt, ADMIN_CODE).then(function (bits) {
+      return crypto.subtle.importKey('raw', unb64u8(bits), { name: 'AES-GCM' }, false, ['encrypt']);
+    }).then(function (key) {
+      var iv = crypto.getRandomValues(new Uint8Array(12));
+      return crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, new TextEncoder().encode(text))
+        .then(function (buf) {
+          var b = new Uint8Array(buf);
+          var tag = b.slice(b.length - 16), ct = b.slice(0, b.length - 16);
+          return { id: Math.random().toString(16).slice(2, 10), at: new Date().toISOString(),
+            epoch: AUTH.viewer.epoch, sealedWithAdminEpoch: AUTH.admin.epoch,
+            plainHint: $('#inHint').value.trim() || null,
+            iv: b64u8(iv), ct: b64u8(ct), tag: b64u8(tag) };
+        });
+    }).then(function (m) {
+      INBOX.push(m);
+      renderInbox();
+      $('#inText').value = ''; $('#inHint').value = '';
+      inMsg('Sealed in this browser. Commit data/inbox.json to publish it to other admins.', 'ok');
+    }).catch(function (e) { inMsg('Seal failed: ' + e.message, 'err'); });
+  });
+
+  // ---- code management: the browser cannot write to the repo, so it emits
+  //      ready-to-run commands + the resulting auth.json patch for the admin.
+  $('#mgrOut').addEventListener('click', function () {
+    var adminHash = AUTH ? AUTH.admin.hash : '';
+    var salt = AUTH ? AUTH.salt : '';
+    var pre = $('#mgrOutPre');
+    pre.textContent = [
+      '# Run these from the repo root. The browser cannot write files, so copy/paste.',
+      '',
+      '# 1) Revoke every viewer code and mint a new one (everyone holding the old',
+      '#    one is locked out on their next page load):',
+      'node tools/auth.mjs rotate-viewer',
+      '',
+      '# 2) Change the admin code (the old admin code stops working immediately, and',
+      '#    inbox messages sealed with it become unreadable):',
+      'node tools/auth.mjs set-admin',
+      '',
+      '# 3) Seal a message into the private inbox:',
+      'node tools/auth.mjs inbox --hint "new viewer code" --text "New viewer code: XXXX-XXXX"',
+      '',
+      '# 4) Commit so the site picks the changes up:',
+      'git add data/auth.json data/inbox.json',
+      'git commit -m "chore: rotate access codes"',
+      'git push',
+      '',
+      '# current salt   : ' + salt,
+      '# current admin  : epoch ' + (AUTH ? AUTH.admin.epoch : '?') + ', hash ' + adminHash.slice(0, 16) + '…',
+      '# current viewer : epoch ' + (AUTH ? AUTH.viewer.epoch : '?') + ', hash ' + (AUTH ? AUTH.viewer.hash.slice(0, 16) : '') + '…',
+    ].join('\n');
+  });
 
   // ---------- intelligence data ----------
   var DATA = null, CORPS = null, FX = null;
@@ -667,8 +924,13 @@
     if (navigator.clipboard) navigator.clipboard.writeText(full).catch(function () {});
   });
 
+  // Restore the session for this tab only. Note that a restored ADMIN session has no
+  // admin code in memory, so the inbox stays sealed until the code is re-entered.
   if (location.protocol !== 'file:') {
-    try { if (sessionStorage.getItem(SESSION_KEY) === '1') unlock(); } catch (e) {}
+    try {
+      var sess = sessionStorage.getItem(SESSION_KEY);
+      if (sess === 'admin' || sess === 'viewer') unlock(sess);
+    } catch (e) {}
   }
   $('#pw').focus();
 })();

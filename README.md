@@ -101,9 +101,9 @@ sector-derived threat axes. The raw API record is one click away under each doss
 
 ## Threat Matrix (restricted)
 
-`threat.html` is a passcode-gated internal page carrying the **Umbrella Corporation &
-Technologies** dossiers: logo, brand-coloured banner, revenue, costs, market cap, share
-price, register, bonds, credit components, every sector, and a threat matrix.
+`threat.html` is an internal page carrying the **Umbrella Corporation & Technologies**
+dossiers: logo, brand-coloured banner, revenue, costs, market cap, share price, register,
+bonds, credit components, every sector, and a threat matrix.
 
 Threat labels are set per corporation in `data/roster.json` (default
 **Biochemical Weapons Development**). Under each dossier, the capability axes are
@@ -113,10 +113,43 @@ Threat labels are set per corporation in `data/roster.json` (default
 Group is assembled by explicit entries plus `autoMatch` name patterns scanned against the
 full live register. UMBT (#824) owns 100% of UMBAR (#978); William E. Spencer holds 80% of UMBT.
 
-> **The passcode is not an IP restriction.** A browser page cannot read the visitor's IP,
-> and client-side JS can be bypassed. For a genuine source-address restriction, put an edge
-> proxy or worker in front of the site and reject requests by source address there. Passcode
-> is stored as a SHA-256 hash; plaintext lives only in `%USERPROFILE%\.ahd\thread-passcode.txt`.
+### Access tiers
+
+| Tier | Gets | Cannot |
+|---|---|---|
+| **Admin code** | Everything: add corporations, read the private inbox, rotate codes | — |
+| **Viewer code** | Read-only UI: every dossier, chart and table | Adding corps, inbox, code management |
+
+```bash
+node tools/auth.mjs init                 # mint both codes, write data/auth.json
+node tools/auth.mjs rotate-viewer        # revoke the viewer code, mint a new one
+node tools/auth.mjs set-admin            # change the admin code (needs the current one)
+node tools/auth.mjs status               # epochs + inbox count, never the codes
+node tools/auth.mjs inbox --hint "..." --text "..."   # seal a message
+```
+
+- `data/auth.json` publishes **only PBKDF2-SHA256 hashes** (210k iterations) plus the salt.
+  Codes are never stored in the repo. The admin code lives at `%USERPROFILE%\.ahd\admin-code.txt`.
+- **Private inbox** (`data/inbox.json`) is sealed with **AES-256-GCM** under a key derived
+  from the admin code, so the bodies are unreadable from the raw file. The admin console can
+  seal and decrypt them in the browser. Messages sealed under an older admin code become
+  permanently unreadable after `set-admin` — that is expected, not a bug.
+- Comparing hashes uses a constant-time comparison so a wrong code cannot be probed a
+  character at a time.
+
+### What revocation does and does not do
+
+- `rotate-viewer` **genuinely revokes** the old viewer code for everyone on their next page
+  load, because the hash in `auth.json` is replaced and the epoch increments.
+- It **cannot** close a tab someone has already unlocked. There is no server, so nothing can
+  tell an already-open page to shut itself. Use **LOG OUT** on shared machines.
+- Codes are hashes, so the codes themselves are not recoverable from the page — but anyone can
+  still edit the page and skip the check. This is access **tiering**, not security.
+- The admin code is kept in memory for the tab only, never in `sessionStorage`.
+
+> **No IP restriction is possible here.** A browser page cannot read the visitor's IP and
+> GitHub Pages has no server. For genuine source-address filtering, put an edge proxy or
+> worker in front of the site and reject requests by source address there.
 
 **Banner limitation:** the public v1 payload exposes `logoUrl` and `brandColor` but not the
 corporation hero banner (`headerImageUrl`), which is only served from the cookie-authenticated
@@ -125,8 +158,10 @@ in-game endpoint. Banners are therefore generated from brand colour; `bannerUrl`
 ## Tests
 
 ```powershell
-node test-gate.cjs     # passcode gate: real passcode unlocks, wrong one does not
-node test-intel.cjs    # every captured field reaches the rendered dossier (42 checks)
+node tools/auth.mjs status              # inspect access config
+node test-auth.cjs <admin> <viewer>     # PBKDF2 matches, tiers gate, inbox decrypts
+node test-intel.cjs                     # every captured field reaches the dossier (42)
+node test-dom.cjs                       # every $('#id') used by script exists; markup balanced
 ```
 
 ## Live data

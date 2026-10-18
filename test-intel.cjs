@@ -14,7 +14,8 @@ const check = (n, c) => checks.push([n, !!c]);
 // --- static / gate integrity ---
 check("no operator IP in file", !/81\.242\.37\.70/.test(src));
 check("no plaintext passcode", !/c46874c3a4a93e1c/.test(src));
-check("sha256 hexes digest bytes", /b\[i\]\.toString\(16\)/.test(src) && !/function b64/.test(src));
+check("auth is PBKDF2-based (no obsolete sha256 passcode)",
+  /PBKDF2/.test(src) && !/PW_HASH/.test(src) && !/function sha256/.test(src));
 check("reads data/intel.json", /data\/intel\.json/.test(src));
 check("has add-corporation panel", /id="aFetch"/.test(src) && /id="aRoster"/.test(src));
 check("add panel accepts id or name", /CORPORATION ID OR NAME/.test(src));
