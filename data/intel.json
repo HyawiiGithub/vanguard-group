@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T18:31:30.643Z",
+  "updatedAt": "2026-10-18T18:46:30.327Z",
   "game": {
     "currentTurn": 290,
     "gameDateLabel": "December, Week 3, 1995",
@@ -40,7 +40,7 @@
     "workers": 729389,
     "sectorCount": 50,
     "revenueUsd": 1557332308.1763706,
-    "marketCapUsd": 17932842135,
+    "marketCapUsd": 17990525584,
     "cashUsd": 100233635.4767936,
     "debtUsd": 405624000,
     "bonds": 15,
@@ -88,17 +88,17 @@
       },
       "balanceSheet": {
         "cashOnHand": 84683284.17620724,
-        "marketCapitalization": 10834822135,
+        "marketCapitalization": 10950135584,
         "totalDebt": 251467000,
         "cashOnHandUsd": 84683284.17620724,
-        "marketCapitalizationUsd": 10834822135,
+        "marketCapitalizationUsd": 10950135584,
         "totalDebtUsd": 251466999.99999997
       },
       "shareStructure": {
         "totalShares": 1251231,
-        "publicFloat": 226263,
-        "publicFloatPct": 18.1,
-        "sharePrice": 8659.33,
+        "publicFloat": 228763,
+        "publicFloatPct": 18.3,
+        "sharePrice": 8751.49,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -111,13 +111,13 @@
             "pct": null
           },
           {
-            "name": "Jib's Arms Corps",
-            "shares": 5000,
+            "name": "Index Fund",
+            "shares": 4005,
             "pct": null
           },
           {
-            "name": "Index Fund",
-            "shares": 4005,
+            "name": "Jib's Arms Corps",
+            "shares": 2500,
             "pct": null
           },
           {
@@ -1001,7 +1001,7 @@
         "toTurn": 290,
         "fromPrice": 3176.2503,
         "toPrice": 11565.2207,
-        "trades": 43,
+        "trades": 44,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1168,6 +1168,10 @@
         ],
         [
           290,
+          9936.5716
+        ],
+        [
+          290,
           10301.599
         ],
         [
@@ -1179,7 +1183,7 @@
           11565.2207
         ]
       ],
-      "tapeTradeCount": 43,
+      "tapeTradeCount": 44,
       "tapeSplitCount": 1
     },
     {
@@ -1221,17 +1225,17 @@
       },
       "balanceSheet": {
         "cashOnHand": 15550351.30058636,
-        "marketCapitalization": 7098020000,
+        "marketCapitalization": 7040390000,
         "totalDebt": 154157000,
         "cashOnHandUsd": 15550351.30058636,
-        "marketCapitalizationUsd": 7098020000,
+        "marketCapitalizationUsd": 7040390000,
         "totalDebtUsd": 154157000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 7098.02,
+        "sharePrice": 7040.39,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
