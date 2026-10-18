@@ -358,9 +358,10 @@
     document.querySelectorAll('.viewer-blocked').forEach(function (el) { el.remove(); });
   }
 
-  function unlock(r) {
+  function unlock(r, code) {
     $('#gate').classList.add('hidden');
     $('#matrix').classList.remove('hidden');
+    accessCode = r === 'admin' ? (code || null) : null;
     setRole(r);
     try { sessionStorage.setItem(SESSION_KEY, r); } catch (e) {}
     load();
@@ -391,7 +392,7 @@
       if (safeEq(h, AUTH.admin.hash)) {
         ADMIN_CODE = v; // in-memory only; enables inbox seal/decrypt for this tab
         msg.textContent = 'ACCESS GRANTED — admin'; msg.classList.add('ok');
-        unlock('admin');
+        unlock('admin', v);
       } else if (safeEq(h, AUTH.viewer.hash)) {
         ADMIN_CODE = null;
         msg.textContent = 'ACCESS GRANTED — viewer (read only)'; msg.classList.add('ok');
@@ -558,9 +559,16 @@
   // ---------- intelligence data ----------
   var DATA_ORIGIN = 'https://wild-night-2ce6.batuhanylz2009.workers.dev';
   var dataOrigin = 'pages';
+  // Sent only when this tab holds a code, so a gated /data/intel.json can verify it
+  // server-side. Never persisted; a restored session simply falls back to Pages.
+  var accessCode = null;
   function fetchData(name) {
     var bust = '?t=' + Date.now();
-    return fetch(DATA_ORIGIN + '/data/' + name + bust, { cache: 'no-store', mode: 'cors' })
+    var opts = { cache: 'no-store', mode: 'cors' };
+    if (name === 'intel.json' && accessCode) {
+      opts.headers = { 'X-AHD-Code': accessCode };
+    }
+    return fetch(DATA_ORIGIN + '/data/' + name + bust, opts)
       .then(function (r) {
         if (!r.ok) throw new Error('worker ' + r.status);
         return r.json().then(function (j) {

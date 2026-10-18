@@ -621,10 +621,65 @@ async function cached(name, env, ttl, fallbackKey) {
   }
 }
 
-const json = (body, extra) =>
-  new Response(JSON.stringify(body), {
-    headers: { "Content-Type": "application/json; charset=utf-8", ...CORS, ...(extra || {}) },
-  });
+// `extra` is a flat object: `status` sets the HTTP status, every other key becomes a
+// header. (An earlier version dropped `extra` entirely, so 403/404/502 were all
+// returned as HTTP 200 carrying an error body - clients checking r.ok saw success.)
+const json = (body, extra) => {
+  const o = extra || {};
+  const headers = { "Content-Type": "application/json; charset=utf-8", ...CORS };
+  let status = 200;
+  for (const k in o) {
+    if (k === "status") status = o[k];
+    else headers[k] = o[k];
+  }
+  return new Response(JSON.stringify(body), { status, headers });
+};
+
+// ---- optional server-side gate for /data/intel.json ------------------------------
+// When AUTH_SALT + ADMIN_HASH + VIEWER_HASH are all set as Worker secrets, intel is
+// only returned to a caller who can prove they hold the admin or viewer code.
+// PBKDF2 here must match tools/auth.mjs and threat.html exactly.
+const unb64ToBytes = (s) => {
+  const bin = atob(s);
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+};
+const b64FromBytes = (buf) => {
+  const b = new Uint8Array(buf);
+  let s = "";
+  for (let i = 0; i < b.length; i++) s += String.fromCharCode(b[i]);
+  return btoa(s);
+};
+function safeEq(a, b) {
+  if (typeof a !== "string" || typeof b !== "string" || a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+function gateConfigured(env) {
+  return !!(env.AUTH_SALT && env.ADMIN_HASH && env.VIEWER_HASH);
+}
+async function intelAuthorized(request, env) {
+  if (!gateConfigured(env)) return { ok: true, gated: false };
+  const code = request.headers.get("X-AHD-Code");
+  if (!code) return { ok: false, gated: true, reason: "missing X-AHD-Code header" };
+  try {
+    const enc = new TextEncoder();
+    const iterations = parseInt(env.PBKDF2_ITER || "210000", 10);
+    const base = await crypto.subtle.importKey("raw", enc.encode(code), "PBKDF2", false, ["deriveBits"]);
+    const bits = await crypto.subtle.deriveBits(
+      { name: "PBKDF2", salt: unb64ToBytes(env.AUTH_SALT), iterations, hash: "SHA-256" },
+      base, 256
+    );
+    const h = b64FromBytes(bits);
+    if (safeEq(h, env.ADMIN_HASH)) return { ok: true, gated: true, role: "admin" };
+    if (safeEq(h, env.VIEWER_HASH)) return { ok: true, gated: true, role: "viewer" };
+    return { ok: false, gated: true, reason: "code matches neither tier" };
+  } catch (e) {
+    return { ok: false, gated: true, reason: "verify failed: " + String(e.message || e) };
+  }
+}
 
 export default {
   async fetch(request, env, ctx) {
@@ -638,6 +693,9 @@ export default {
         service: "vanguard-ahd-live",
         ok: true,
         hasSecret: !!env.AHD_API_KEY,
+        intelGate: gateConfigured(env)
+          ? { active: true, iter: parseInt(env.PBKDF2_ITER || "210000", 10) }
+          : { active: false, note: "set AUTH_SALT, ADMIN_HASH, VIEWER_HASH to require X-AHD-Code on /data/intel.json" },
         cache: meta,
         endpoints: [
           "/data/live.json",
@@ -663,12 +721,30 @@ export default {
       return json({ error: "not found", endpoints: Object.keys(map).concat("/health") }, { status: 404 });
     }
 
+    let gateRole = null;
+    if (name === "intel") {
+      const verdict = await intelAuthorized(request, env);
+      if (!verdict.ok) {
+        return json(
+          {
+            error: "forbidden",
+            gated: true,
+            detail: verdict.reason,
+            hint: "Send header X-AHD-Code: <admin or viewer code>, or unset the gate secrets to serve intel publicly.",
+          },
+          { status: 403 }
+        );
+      }
+      gateRole = verdict.role || "public";
+    }
+
     try {
       const { data, age, stale, error } = await cached(name, env, ttl);
       return json(data, {
         "Cache-Control": "public, max-age=60",
         "X-Vanguard-Cache-Age": String(Math.round(age / 1000)),
         "X-Vanguard-Stale": stale ? "1" : "0",
+        ...(gateRole ? { "X-Vanguard-Gate": gateRole } : {}),
         ...(stale && error ? { "X-Vanguard-Stale-Reason": error.slice(0, 120) } : {}),
       });
     } catch (e) {

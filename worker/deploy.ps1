@@ -19,10 +19,23 @@
     Put the token and your Account ID into %USERPROFILE%\.ahd\cf.env
 #>
 [CmdletBinding()]
-param([switch]$Redeploy)
+param(
+  [switch]$Redeploy,
+  [switch]$Login,
+  [switch]$GateIntel
+)
 
 $ErrorActionPreference = 'Stop'
 Set-Location -LiteralPath $PSScriptRoot
+
+# --- simplest path: interactive browser login, no API token needed ---
+if ($Login) {
+  Write-Host "opening Cloudflare login in your browser..." -ForegroundColor Cyan
+  npx --yes wrangler@latest login
+  Write-Host ""
+  npx --yes wrangler@latest whoami
+  exit $LASTEXITCODE
+}
 
 function Read-EnvFile([string]$path) {
   if (-not (Test-Path -LiteralPath $path)) { return @{} }
@@ -36,20 +49,31 @@ function Read-EnvFile([string]$path) {
 $cf = Read-EnvFile "$env:USERPROFILE\.ahd\cf.env"
 $ahd = Read-EnvFile "$env:USERPROFILE\.ahd\key.env"
 
+# Credentials can come from cf.env OR from a prior `wrangler login`.
+$haveOAuth = $false
 if (-not $cf.CLOUDFLARE_API_TOKEN) {
-  Write-Host "CLOUDFLARE_API_TOKEN not set." -ForegroundColor Red
-  Write-Host "Create one at dash.cloudflare.com > My Profile > API Tokens, then write:" -ForegroundColor Yellow
-  Write-Host "  CLOUDFLARE_API_TOKEN=...`n  CLOUDFLARE_ACCOUNT_ID=..." -ForegroundColor Yellow
-  Write-Host "to $env:USERPROFILE\.ahd\cf.env" -ForegroundColor Yellow
+  Write-Host "no API token file; checking for an existing wrangler login..." -ForegroundColor DarkGray
+  $who = npx --yes wrangler@latest whoami 2>&1 | Out-String
+  $haveOAuth = ($who -match 'Account ID') -or ($who -notmatch 'not authenticated')
+}
+if (-not $haveOAuth) {
+  Write-Host "Not authenticated with Cloudflare." -ForegroundColor Red
+  Write-Host "Run this once in your own terminal - it opens a browser, no token needed:" -ForegroundColor Yellow
+  Write-Host "    npx wrangler login" -ForegroundColor Yellow
+  Write-Host "or set CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID in $env:USERPROFILE\.ahd\cf.env" -ForegroundColor Yellow
   exit 1
+}
+if ($cf.CLOUDFLARE_API_TOKEN) {
+  $env:CLOUDFLARE_API_TOKEN = $cf.CLOUDFLARE_API_TOKEN
+  $env:CLOUDFLARE_ACCOUNT_ID = $cf.CLOUDFLARE_ACCOUNT_ID
+  Write-Host "using API token from cf.env" -ForegroundColor DarkGray
+} else {
+  Write-Host "using wrangler OAuth session" -ForegroundColor DarkGray
 }
 if (-not $ahd.AHD_API_KEY) {
   Write-Host "AHD_API_KEY not set in $env:USERPROFILE\.ahd\key.env" -ForegroundColor Red
   exit 1
 }
-
-$env:CLOUDFLARE_API_TOKEN = $cf.CLOUDFLARE_API_TOKEN
-$env:CLOUDFLARE_ACCOUNT_ID = $cf.CLOUDFLARE_ACCOUNT_ID
 
 Write-Host "installing/using wrangler..." -ForegroundColor Cyan
 npx --yes wrangler@latest --version
@@ -79,6 +103,29 @@ if (-not $Redeploy -or ((Get-Content $toml -Raw) -match 'PASTE_YOUR_KV_NAMESPACE
 Write-Host "setting AHD_API_KEY secret..." -ForegroundColor Cyan
 $ahd.AHD_API_KEY | npx --yes wrangler@latest secret put AHD_API_KEY
 if ($LASTEXITCODE -ne 0) { Write-Host "secret put failed" -ForegroundColor Red; exit 1 }
+
+# --- optional: gate /data/intel.json behind the access codes ---
+# PBKDF2 here must match tools/auth.mjs and threat.html exactly.
+if ($GateIntel) {
+  $authPath = Join-Path $PSScriptRoot '..\data\auth.json'
+  if (-not (Test-Path -LiteralPath $authPath)) {
+    Write-Host "data/auth.json not found - run: node tools/auth.mjs init" -ForegroundColor Red
+    exit 1
+  }
+  $a = Get-Content -LiteralPath $authPath -Raw | ConvertFrom-Json
+  Write-Host "sealing access hashes into the Worker..." -ForegroundColor Cyan
+  $a.salt       | npx --yes wrangler@latest secret put AUTH_SALT
+  if ($LASTEXITCODE -ne 0) { Write-Host "AUTH_SALT failed" -ForegroundColor Red; exit 1 }
+  $a.admin.hash | npx --yes wrangler@latest secret put ADMIN_HASH
+  if ($LASTEXITCODE -ne 0) { Write-Host "ADMIN_HASH failed" -ForegroundColor Red; exit 1 }
+  $a.viewer.hash| npx --yes wrangler@latest secret put VIEWER_HASH
+  if ($LASTEXITCODE -ne 0) { Write-Host "VIEWER_HASH failed" -ForegroundColor Red; exit 1 }
+  Write-Host "intel gate armed: /data/intel.json now requires X-AHD-Code" -ForegroundColor Green
+  Write-Host "NOTE: remove data/intel.json from git for the gate to mean anything," -ForegroundColor Yellow
+  Write-Host "      otherwise it stays readable straight from GitHub Pages." -ForegroundColor Yellow
+} else {
+  Write-Host "skipping intel gate (pass -GateIntel to arm it)" -ForegroundColor DarkGray
+}
 
 Write-Host "deploying..." -ForegroundColor Cyan
 npx --yes wrangler@latest deploy
