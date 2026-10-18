@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>THREAD MATRIX — Vanguard Group (restricted)</title>
+<title>THREAT MATRIX — Vanguard Group (restricted)</title>
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="description" content="Restricted internal threat matrix.">
 <link rel="stylesheet" href="styles.css?v=13">
@@ -146,7 +146,7 @@
 <!-- ================= PASSCODE GATE ================= -->
 <div class="gate" id="gate">
   <div class="gate-card">
-    <h1>THREAD MATRIX</h1>
+    <h1>THREAT MATRIX</h1>
     <p class="gate-sub">Vanguard Group &middot; internal &middot; restricted circulation</p>
     <div class="gate-row">
       <input id="pw" type="password" inputmode="text" autocomplete="off" placeholder="PASSCODE" aria-label="Passcode">
@@ -155,11 +155,11 @@
     <p class="gate-msg" id="msg"></p>
     <div class="gate-warn">
       <b>What this gate actually does.</b> A browser page cannot see your IP address, so this
-      page <b>cannot</b> enforce a real <code>81.242.37.70</code> restriction — anything enforced in
-      client-side JavaScript can be bypassed by anyone who opens the source. Treat this as a
-      speed bump and a plain warning label, not as security. For genuine IP filtering, put a
-      Cloudflare Worker in front of the site and reject any request whose
-      <code>CF-Connecting-IP</code> is not <code>81.242.37.70</code>.
+      gate <b>cannot</b> enforce a real network restriction — anything enforced in client-side
+      JavaScript can be bypassed by anyone who opens the source. Treat this as a speed bump and a
+      plain warning label, not as security. For genuine IP filtering, put a Cloudflare Worker in
+      front of the site and reject any request whose <code>CF-Connecting-IP</code> is not on an
+      allowlist.
     </div>
   </div>
 </div>
@@ -170,7 +170,7 @@
     <div class="mx-head">
       <div>
         <span class="mx-tag">◈ COUNTER-THREAT ASSESSMENT</span>
-        <h1 class="mx-title">Thread Matrix — <span style="color:#ff8fa8">Umbrella Corporation &amp; Technologies</span></h1>
+        <h1 class="mx-title">Threat Matrix — <span style="color:#ff8fa8">Umbrella Corporation &amp; Technologies</span></h1>
         <div class="mx-meta" id="mxMeta">loading…</div>
       </div>
       <button class="mx-lock" id="relock" type="button">◈ RE-LOCK</button>
@@ -205,7 +205,7 @@
   'use strict';
   // SHA-256 of the passcode. The plaintext passcode is never stored in this file.
   var PW_HASH = '75bc1bc63fd61e6882198b454a2a4ad321d452ae698954132d033514d502a3bb';
-  var SESSION_KEY = 'vg.thread.unlocked';
+  var SESSION_KEY = 'vg.threat.unlocked';
   var $ = function (s) { return document.querySelector(s); };
 
   function b64(buf) {
@@ -297,8 +297,8 @@
   }
 
   function paint() {
-    var d = DATA, t = d.thread, g = d.group;
-    $('#mxMeta').textContent = 'thread ' + t.classification + ' · turn ' + d.game.currentTurn +
+    var d = DATA, t = d.threat, g = d.group;
+    $('#mxMeta').textContent = 'threat ' + t.classification + ' · turn ' + d.game.currentTurn +
       ' (' + d.game.gameDateLabel + ') · snapshot ' + new Date(d.updatedAt).toISOString().slice(0, 16).replace('T', ' ') + 'Z · ' +
       g.count + ' registered corporations';
     $('#threatBasis').textContent = t.basis + ' ' + t.bannerNote;

@@ -61,9 +61,9 @@ Register-ScheduledTask -TaskName 'Vanguard AHD Snapshot Refresh' ...      # re-r
 The script skips the commit when nothing changed. To restore the GitHub Actions route,
 check billing first, then re-enable `.github/workflows/refresh-ahd.yml`.
 
-## Thread Matrix (restricted)
+## Threat Matrix (restricted)
 
-`thread.html` is a passcode-gated internal page carrying the **Umbrella Corporation &
+`threat.html` is a passcode-gated internal page carrying the **Umbrella Corporation &
 Technologies** dossier: logo, brand-coloured banner, revenue, market cap, share price,
 share register, sector footprint, and a threat matrix rating **Military Weapons
 Development** (from `defense` sectors) and **Biochemical Weapons Development** (from
@@ -75,8 +75,8 @@ no tag or "umbrella" concept. UMBT (#824) owns 100% of UAR (#978); William E. Sp
 80% of UMBT.
 
 > **The passcode is not an IP restriction.** A browser page cannot read the visitor's IP,
-> and client-side JS can be bypassed. For a real `81.242.37.70` restriction, put a Cloudflare
-> Worker in front of the site and reject any request whose `CF-Connecting-IP` does not match.
+> and client-side JS can be bypassed. For a genuine source-address restriction, put an edge
+> proxy or worker in front of the site and reject requests by source address there.
 > Passcode is stored as a SHA-256 hash; plaintext lives only in
 > `%USERPROFILE%\.ahd\thread-passcode.txt`.
 
