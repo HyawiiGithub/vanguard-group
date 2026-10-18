@@ -19,3 +19,6 @@ scratch/
 # os
 .DS_Store
 Thumbs.db
+# wrangler local dev state (miniflare cache, account ids)
+.wrangler/
+
