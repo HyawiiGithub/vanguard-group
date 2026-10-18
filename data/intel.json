@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T22:16:28.459Z",
+  "updatedAt": "2026-10-18T22:31:28.194Z",
   "game": {
     "currentTurn": 294,
     "gameDateLabel": "January, Week 3, 1996",
@@ -39,8 +39,8 @@
     "corporations": 2,
     "workers": 804944,
     "sectorCount": 50,
-    "revenueUsd": 1664580258.3921816,
-    "marketCapUsd": 18812430000,
+    "revenueUsd": 1665977637.4826646,
+    "marketCapUsd": 18887310000,
     "cashUsd": 24310375.17859481,
     "debtUsd": 405624000,
     "bonds": 15,
@@ -77,28 +77,28 @@
       "note": "Parent group. Automated nuclear, pharmaceutical and bio-engineering, laboratory-grade chemical manufacturing. Holds 100% of #978.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 1420002699,
-        "operatingIncome": 358809458,
-        "operatingCosts": 1061193242,
+        "totalRevenue": 1418664589,
+        "operatingIncome": 358660034,
+        "operatingCosts": 1060004556,
         "dividendRate": 0,
-        "revenueUsd": 1200415369.7667058,
-        "operatingIncomeUsd": 303323640.5143349,
-        "operatingCostsUsd": 897091730.0977322,
-        "marginPct": 25.27
+        "revenueUsd": 1201812748.2697463,
+        "operatingIncomeUsd": 303836583.00789565,
+        "operatingCostsUsd": 897976166.1089944,
+        "marginPct": 25.28
       },
       "balanceSheet": {
         "cashOnHand": 18921084.312209006,
-        "marketCapitalization": 12087290000,
+        "marketCapitalization": 12154930000,
         "totalDebt": 251467000,
         "cashOnHandUsd": 18921084.312209006,
-        "marketCapitalizationUsd": 12087290000,
+        "marketCapitalizationUsd": 12154930000,
         "totalDebtUsd": 251467000
       },
       "shareStructure": {
         "totalShares": 1000000,
-        "publicFloat": 33345,
-        "publicFloatPct": 3.3,
-        "sharePrice": 12087.29,
+        "publicFloat": 31407,
+        "publicFloatPct": 3.1,
+        "sharePrice": 12154.93,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -107,7 +107,7 @@
           },
           {
             "name": "I Love Napoleon",
-            "shares": 149479,
+            "shares": 150618,
             "pct": null
           },
           {
@@ -123,6 +123,11 @@
           {
             "name": "Jib's Arms Corps",
             "shares": 1998,
+            "pct": null
+          },
+          {
+            "name": "Misa Astrae",
+            "shares": 801,
             "pct": null
           },
           {
@@ -153,11 +158,6 @@
           {
             "name": "Index Fund",
             "shares": 63,
-            "pct": null
-          },
-          {
-            "name": "Misa Astrae",
-            "shares": 2,
             "pct": null
           }
         ]
@@ -961,12 +961,12 @@
         }
       },
       "growth": {
-        "pct": 258.6,
+        "pct": 240.16,
         "fromTurn": 268,
-        "toTurn": 292,
+        "toTurn": 294,
         "fromPrice": 3974.2229,
-        "toPrice": 14251.404,
-        "trades": 51,
+        "toPrice": 13518.6955,
+        "trades": 53,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1174,9 +1174,17 @@
         [
           292,
           14251.404
+        ],
+        [
+          294,
+          13518.7234
+        ],
+        [
+          294,
+          13518.6955
         ]
       ],
-      "tapeTradeCount": 51,
+      "tapeTradeCount": 53,
       "tapeSplitCount": 2
     },
     {
@@ -1207,28 +1215,28 @@
       "note": "Wholly-owned research subsidiary. Defence and frontier research programmes.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 549072772,
-        "operatingIncome": 155194629,
-        "operatingCosts": 393878143,
+        "totalRevenue": 547917546,
+        "operatingIncome": 154868106,
+        "operatingCosts": 393049440,
         "dividendRate": 0,
-        "revenueUsd": 464164888.6254759,
-        "operatingIncomeUsd": 131195537.92963722,
-        "operatingCostsUsd": 332969350.69583863,
+        "revenueUsd": 464164889.2129182,
+        "operatingIncomeUsd": 131195538.06751879,
+        "operatingCostsUsd": 332969351.14539945,
         "marginPct": 28.26
       },
       "balanceSheet": {
         "cashOnHand": 5389290.866385803,
-        "marketCapitalization": 6725140000,
+        "marketCapitalization": 6732380000,
         "totalDebt": 154157000,
         "cashOnHandUsd": 5389290.866385803,
-        "marketCapitalizationUsd": 6725140000,
+        "marketCapitalizationUsd": 6732380000,
         "totalDebtUsd": 154157000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 6725.14,
+        "sharePrice": 6732.38,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
