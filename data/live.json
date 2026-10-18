@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-10-15T16:20:12.916Z",
+  "updatedAt": "2026-10-18T00:01:25.639Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
-    "currentTurn": 216,
-    "gameDateLabel": "June, Week 1, 1994",
+    "currentTurn": 271,
+    "gameDateLabel": "July, Week 4, 1995",
     "status": "active",
-    "nextTurnAt": "2026-10-15T17:00:00.000Z"
+    "nextTurnAt": "2026-10-18T00:00:00.000Z"
   },
   "thresholds": {
     "marketCapFloorUsd": 350000000,
     "marginFloorPct": 10
   },
-  "methodology": "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = split-adjusted tape change over trailing 30 turns (game 6M uses internal snapshots; figures converge for steady traders). Threshold checks run on USD market cap. Corps that 404 are flagged alive:false with frozen last-known figures and excluded from sums until they reappear.",
+  "methodology": "financials (revenue/income) are gross per game day (24 turns) in ANCHOR units, converted x USD anchor rate for display. balanceSheet (market cap/cash/debt) is in HOME-CURRENCY units, converted via live forex. marginPct = operatingIncome / totalRevenue * 100. growth = split-adjusted tape change over trailing 30 turns (game 6M uses internal snapshots; figures converge for steady traders). Threshold checks run on USD market cap. BANKRUPTCY: the engine exposes no bankruptcy flag - terminal insolvency is a hard delete of the corporation document, so a bankrupt corp simply stops resolving and is recorded here as alive:false + dissolved:true with its last-verified figures frozen and lastSeenTurn recorded. Corps still trading but approaching default are flagged distressed:true from bonds[].defaulted or negative cashOnHand. Dissolved corps are excluded from all alliance sums and charts until they reappear.",
   "corporations": [
     {
       "id": 498,
@@ -158,109 +158,111 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 216
+      "checkedTurn": 271,
+      "dissolved": true,
+      "memberName": "BlackRock Incorporated"
     },
     {
       "id": 853,
       "alive": true,
-      "name": "John Deere",
-      "type": "manufacturing",
+      "dissolved": false,
+      "name": "Exxon Mobil",
+      "memberName": "John Deere",
+      "type": "extraction",
+      "typeLabel": "extraction",
+      "description": "American extraction and energy company",
       "countryId": "US",
+      "headquartersState": "GA",
       "currency": "USD",
       "fxPerUsd": 1,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/853",
-      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6acb10f57f0eaca56be706cd-1791830248551.webp",
-      "brandColor": "#0c7313",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6acb10f57f0eaca56be706cd-1792201473041.webp",
+      "brandColor": "#730c0c",
       "ceo": "Braden E Peters",
-      "revenue": 110677845,
-      "operatingIncome": 24758249,
-      "marketCap": 512058742,
-      "revenueUsd": 93006957.12074569,
-      "operatingIncomeUsd": 20805332.83899542,
-      "marketCapUsd": 512058742.00000006,
-      "marginPct": 22.37,
-      "sharePrice": 174.1,
-      "totalShares": 2941176,
+      "revenue": 354868521,
+      "operatingIncome": 8573449,
+      "marketCap": 859441233,
+      "revenueUsd": 307003245.4285564,
+      "operatingIncomeUsd": 7417047.474651073,
+      "marketCapUsd": 859441233,
+      "marginPct": 2.42,
+      "sharePrice": 178.9410655684577,
+      "totalShares": 4802929,
       "holders": [
         {
-          "name": "Larry Fink",
-          "shares": 1169713,
-          "pct": 39.8
+          "name": "I Love Misa",
+          "shares": 2614257,
+          "pct": 54.4
         },
         {
           "name": "Braden E Peters",
-          "shares": 1000056,
-          "pct": 34
+          "shares": 1316003,
+          "pct": 27.4
         },
         {
-          "name": "簡素",
-          "shares": 192008,
-          "pct": 6.5
+          "name": "Nariyoshi Miyagi",
+          "shares": 163333,
+          "pct": 3.4
+        },
+        {
+          "name": "Malik Rahman",
+          "shares": 150000,
+          "pct": 3.1
+        },
+        {
+          "name": null,
+          "shares": 129565,
+          "pct": 2.7
         },
         {
           "name": "Ranco Hashimoto",
           "shares": 124746,
-          "pct": 4.2
+          "pct": 2.6
         },
         {
           "name": "Ranco Weapon Manfacturing",
           "shares": 79777,
-          "pct": 2.7
-        },
-        {
-          "name": "Index Fund",
-          "shares": 32124,
-          "pct": 1.1
+          "pct": 1.7
         },
         {
           "name": "Winston Churchill",
           "shares": 31913,
-          "pct": 1.1
+          "pct": 0.7
         },
         {
-          "name": "Index Fund",
-          "shares": 30656,
-          "pct": 1
+          "name": "The Trump Organization",
+          "shares": 30000,
+          "pct": 0.6
+        },
+        {
+          "name": "The Organization",
+          "shares": 29079,
+          "pct": 0.6
         },
         {
           "name": "caleb mercer",
           "shares": 17647,
-          "pct": 0.6
+          "pct": 0.4
+        },
+        {
+          "name": "Paddy Riot",
+          "shares": 16871,
+          "pct": 0.4
         },
         {
           "name": "Index Fund",
           "shares": 13460,
-          "pct": 0.5
+          "pct": 0.3
         },
         {
           "name": "Index Fund",
-          "shares": 11205,
-          "pct": 0.4
-        },
-        {
-          "name": "Malik Rahman",
-          "shares": 9317,
-          "pct": 0.3
+          "shares": 8910,
+          "pct": 0.2
         },
         {
           "name": "Index Fund",
           "shares": 8477,
-          "pct": 0.3
-        },
-        {
-          "name": "Matsudaira Kobayashi",
-          "shares": 7934,
-          "pct": 0.3
-        },
-        {
-          "name": "Napoleon Astrae",
-          "shares": 3718,
-          "pct": 0.1
-        },
-        {
-          "name": "Satoshi Fukuda",
-          "shares": 3375,
-          "pct": 0.1
+          "pct": 0.2
         },
         {
           "name": "Hillary Clinton",
@@ -269,26 +271,46 @@
         },
         {
           "name": "Greenbaum Group",
-          "shares": 1945,
-          "pct": 0.1
-        },
-        {
-          "name": "Gareth Evans",
-          "shares": 399,
+          "shares": 2061,
           "pct": 0
         },
         {
-          "name": "Lukas Hochburger",
-          "shares": 397,
+          "name": "George Cooper",
+          "shares": 2018,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 933,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 574,
           "pct": 0
         }
       ],
       "blackrockStakePct": 0,
-      "creditRating": "AAA",
-      "sectorCount": 14,
-      "workers": 43481,
-      "divRate": 0,
-      "growth": null,
+      "creditRating": "A",
+      "creditScore": 66,
+      "cashOnHand": 55286779.031475455,
+      "totalDebt": 25258000,
+      "defaultedBonds": 0,
+      "distress": [],
+      "distressed": false,
+      "sectorCount": 15,
+      "workers": 172413,
+      "divRate": 15,
+      "growth": {
+        "pct": 242.49,
+        "fromTurn": 242,
+        "toTurn": 272,
+        "fromPrice": 60.574,
+        "toPrice": 207.4626,
+        "trades": 47,
+        "splitAdjusted": true,
+        "window": "30T"
+      },
       "tape": [
         [
           146,
@@ -301,12 +323,389 @@
         [
           146,
           7.3789
+        ],
+        [
+          217,
+          209.5534
+        ],
+        [
+          217,
+          218.0053
+        ],
+        [
+          217,
+          218.006
+        ],
+        [
+          217,
+          218.0051
+        ],
+        [
+          217,
+          218.005
+        ],
+        [
+          218,
+          192.9121
+        ],
+        [
+          218,
+          213.1723
+        ],
+        [
+          219,
+          187.5596
+        ],
+        [
+          221,
+          202.2047
+        ],
+        [
+          221,
+          198.1731
+        ],
+        [
+          221,
+          169.6758
+        ],
+        [
+          222,
+          175.5676
+        ],
+        [
+          225,
+          111.7658
+        ],
+        [
+          225,
+          149.0285
+        ],
+        [
+          225,
+          130.0167
+        ],
+        [
+          225,
+          130.0167
+        ],
+        [
+          225,
+          126.869
+        ],
+        [
+          226,
+          114.0387
+        ],
+        [
+          227,
+          64.738
+        ],
+        [
+          227,
+          64.9591
+        ],
+        [
+          227,
+          72.3501
+        ],
+        [
+          227,
+          60.8942
+        ],
+        [
+          227,
+          65.59
+        ],
+        [
+          228,
+          41.7541
+        ],
+        [
+          228,
+          73.8192
+        ],
+        [
+          229,
+          47.8307
+        ],
+        [
+          230,
+          35.6082
+        ],
+        [
+          230,
+          38.3987
+        ],
+        [
+          230,
+          36.8311
+        ],
+        [
+          230,
+          39.5304
+        ],
+        [
+          231,
+          36.8827
+        ],
+        [
+          231,
+          39.1911
+        ],
+        [
+          232,
+          39.0011
+        ],
+        [
+          232,
+          37.0243
+        ],
+        [
+          232,
+          39.015
+        ],
+        [
+          233,
+          39.9468
+        ],
+        [
+          233,
+          39.022
+        ],
+        [
+          234,
+          40.0837
+        ],
+        [
+          235,
+          46.255
+        ],
+        [
+          235,
+          42.7897
+        ],
+        [
+          236,
+          45.0841
+        ],
+        [
+          237,
+          35.5701
+        ],
+        [
+          238,
+          40.4921
+        ],
+        [
+          239,
+          46.0653
+        ],
+        [
+          240,
+          51.5447
+        ],
+        [
+          241,
+          57.9664
+        ],
+        [
+          241,
+          55.649
+        ],
+        [
+          242,
+          60.574
+        ],
+        [
+          243,
+          64.6404
+        ],
+        [
+          244,
+          59.9282
+        ],
+        [
+          245,
+          75.4378
+        ],
+        [
+          245,
+          73.9339
+        ],
+        [
+          245,
+          58.5974
+        ],
+        [
+          245,
+          58.5973
+        ],
+        [
+          245,
+          66.7448
+        ],
+        [
+          246,
+          55.8378
+        ],
+        [
+          246,
+          58.8007
+        ],
+        [
+          247,
+          52.1546
+        ],
+        [
+          247,
+          56.0432
+        ],
+        [
+          248,
+          49.848
+        ],
+        [
+          248,
+          50.7024
+        ],
+        [
+          248,
+          52.6449
+        ],
+        [
+          249,
+          51.0536
+        ],
+        [
+          250,
+          20.271
+        ],
+        [
+          250,
+          31.6663
+        ],
+        [
+          250,
+          32.4589
+        ],
+        [
+          250,
+          44.9465
+        ],
+        [
+          251,
+          20.6242
+        ],
+        [
+          251,
+          22.9805
+        ],
+        [
+          251,
+          31.8162
+        ],
+        [
+          252,
+          27.7771
+        ],
+        [
+          252,
+          27.2233
+        ],
+        [
+          252,
+          29.2243
+        ],
+        [
+          253,
+          37.586
+        ],
+        [
+          253,
+          27.8467
+        ],
+        [
+          254,
+          37.6944
+        ],
+        [
+          255,
+          92.3573
+        ],
+        [
+          255,
+          51.0874
+        ],
+        [
+          256,
+          69.498
+        ],
+        [
+          259,
+          312.1965
+        ],
+        [
+          261,
+          432.1273
+        ],
+        [
+          261,
+          433.4172
+        ],
+        [
+          261,
+          433.4172
+        ],
+        [
+          261,
+          433.4163
+        ],
+        [
+          262,
+          401.9577
+        ],
+        [
+          262,
+          401.9589
+        ],
+        [
+          262,
+          410.1347
+        ],
+        [
+          263,
+          382.3761
+        ],
+        [
+          263,
+          378.4424
+        ],
+        [
+          264,
+          333.06
+        ],
+        [
+          264,
+          331.1128
+        ],
+        [
+          266,
+          294.0092
+        ],
+        [
+          270,
+          314.5347
+        ],
+        [
+          272,
+          207.4626
         ]
       ],
       "checks": {
         "marketCapPass": true,
-        "marginPass": true
-      }
+        "marginPass": false
+      },
+      "renamedFrom": "Exxon Mobil"
     },
     {
       "id": 964,
@@ -348,28 +747,35 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 216
+      "checkedTurn": 271,
+      "dissolved": true,
+      "memberName": "Vermont Logistics"
     },
     {
       "id": 496,
       "alive": true,
+      "dissolved": false,
       "name": "Pfizer",
+      "memberName": "Pfizer",
       "type": "energy",
+      "typeLabel": "energy",
+      "description": null,
       "countryId": "US",
+      "headquartersState": "CA",
       "currency": "USD",
       "fxPerUsd": 1,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/496",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp",
       "brandColor": "#d946ef",
       "ceo": "Ronald Reagan",
-      "revenue": 64637267,
-      "operatingIncome": 21159598,
-      "marketCap": 550728163,
-      "revenueUsd": 54317244.07239038,
-      "operatingIncomeUsd": 17781244.510843307,
-      "marketCapUsd": 550728163,
-      "marginPct": 32.74,
-      "sharePrice": 4.18,
+      "revenue": 34674998,
+      "operatingIncome": 11235488,
+      "marketCap": 327128506,
+      "revenueUsd": 29997974.71815964,
+      "operatingIncomeUsd": 9720026.082487041,
+      "marketCapUsd": 327128506,
+      "marginPct": 32.4,
+      "sharePrice": 2.4828894709991953,
       "totalShares": 131753149,
       "holders": [
         {
@@ -379,8 +785,8 @@
         },
         {
           "name": "Larry Fink",
-          "shares": 22764212,
-          "pct": 17.3
+          "shares": 6741060,
+          "pct": 5.1
         },
         {
           "name": "Index Fund",
@@ -388,9 +794,9 @@
           "pct": 4.7
         },
         {
-          "name": "簡素",
-          "shares": 3736734,
-          "pct": 2.8
+          "name": null,
+          "shares": 2521502,
+          "pct": 1.9
         },
         {
           "name": "Ranco Hashimoto",
@@ -408,28 +814,13 @@
           "pct": 1.6
         },
         {
-          "name": "Index Fund",
-          "shares": 1661220,
-          "pct": 1.3
-        },
-        {
           "name": "Ranco Weapon Manfacturing",
           "shares": 1552571,
           "pct": 1.2
         },
         {
-          "name": "Index Fund",
-          "shares": 625173,
-          "pct": 0.5
-        },
-        {
           "name": "Winston Churchill",
           "shares": 621077,
-          "pct": 0.5
-        },
-        {
-          "name": "Index Fund",
-          "shares": 596609,
           "pct": 0.5
         },
         {
@@ -443,18 +834,18 @@
           "pct": 0.2
         },
         {
-          "name": "Index Fund",
-          "shares": 218071,
+          "name": "Rhun ap Iorwerth",
+          "shares": 229147,
           "pct": 0.2
         },
         {
           "name": "Index Fund",
-          "shares": 164982,
+          "shares": 173389,
           "pct": 0.1
         },
         {
-          "name": "Matsudaira Kobayashi",
-          "shares": 154399,
+          "name": "Index Fund",
+          "shares": 164982,
           "pct": 0.1
         },
         {
@@ -463,28 +854,49 @@
           "pct": 0.1
         },
         {
-          "name": "Satoshi Fukuda",
-          "shares": 65678,
+          "name": "Hillary Clinton",
+          "shares": 50837,
           "pct": 0
         },
         {
-          "name": "Hillary Clinton",
-          "shares": 50837,
+          "name": "Index Fund",
+          "shares": 47018,
+          "pct": 0
+        },
+        {
+          "name": "Greenbaum Group",
+          "shares": 40110,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 18163,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 16555,
           "pct": 0
         }
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "sectorCount": 11,
-      "workers": 25323,
-      "divRate": 5,
+      "creditScore": 88,
+      "cashOnHand": 45861676.98078679,
+      "totalDebt": 1517000,
+      "defaultedBonds": 0,
+      "distress": [],
+      "distressed": false,
+      "sectorCount": 10,
+      "workers": 10190,
+      "divRate": 8,
       "growth": {
-        "pct": -0.77,
-        "fromTurn": 186,
-        "toTurn": 216,
-        "fromPrice": 4.4262,
-        "toPrice": 4.3922,
-        "trades": 17,
+        "pct": -18.88,
+        "fromTurn": 240,
+        "toTurn": 270,
+        "fromPrice": 3.6226,
+        "toPrice": 2.9387,
+        "trades": 14,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1016,479 +1428,874 @@
         [
           216,
           4.7558
+        ],
+        [
+          217,
+          4.3062
+        ],
+        [
+          217,
+          4.3062
+        ],
+        [
+          218,
+          4.3351
+        ],
+        [
+          218,
+          4.3062
+        ],
+        [
+          219,
+          4.263
+        ],
+        [
+          220,
+          3.7114
+        ],
+        [
+          222,
+          2.7487
+        ],
+        [
+          223,
+          2.568
+        ],
+        [
+          224,
+          2.4479
+        ],
+        [
+          225,
+          2.4343
+        ],
+        [
+          225,
+          2.3923
+        ],
+        [
+          228,
+          2.6704
+        ],
+        [
+          235,
+          3.8463
+        ],
+        [
+          235,
+          3.7942
+        ],
+        [
+          236,
+          3.7942
+        ],
+        [
+          240,
+          3.6226
+        ],
+        [
+          241,
+          3.282
+        ],
+        [
+          248,
+          3.7386
+        ],
+        [
+          250,
+          3.4801
+        ],
+        [
+          251,
+          3.5197
+        ],
+        [
+          251,
+          3.5509
+        ],
+        [
+          255,
+          3.4664
+        ],
+        [
+          255,
+          3.5712
+        ],
+        [
+          259,
+          3.3528
+        ],
+        [
+          262,
+          3.1702
+        ],
+        [
+          263,
+          3.0596
+        ],
+        [
+          264,
+          2.9793
+        ],
+        [
+          267,
+          2.9317
+        ],
+        [
+          270,
+          2.9387
         ]
       ],
       "checks": {
-        "marketCapPass": true,
+        "marketCapPass": false,
         "marginPass": true
       }
     },
     {
       "id": 645,
       "alive": true,
+      "dissolved": false,
       "name": "American Broadcasting Company",
+      "memberName": "American Broadcasting Company",
       "type": "media",
+      "typeLabel": "media",
+      "description": "",
       "countryId": "US",
+      "headquartersState": "CA",
       "currency": "USD",
       "fxPerUsd": 1,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/645",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac763824f4573325e5f8069-1791634076204.webp",
       "brandColor": "#00ff00",
       "ceo": "Rat",
-      "revenue": 1849013840,
-      "operatingIncome": 822478341,
-      "marketCap": 30470000000,
-      "revenueUsd": 1553799235.3622835,
-      "operatingIncomeUsd": 691160979.8160514,
-      "marketCapUsd": 30470000000,
-      "marginPct": 44.48,
-      "sharePrice": 30.47,
+      "revenue": 2634679976,
+      "operatingIncome": 683125429,
+      "marketCap": 22847773843,
+      "revenueUsd": 2279309815.980074,
+      "operatingIncomeUsd": 590984297.9219193,
+      "marketCapUsd": 22847773843,
+      "marginPct": 25.93,
+      "sharePrice": 22.847773842888067,
       "totalShares": 1000000000,
       "holders": [
         {
           "name": "Rat",
-          "shares": 500889640,
-          "pct": 50.1
+          "shares": 666574579,
+          "pct": 66.7
+        },
+        {
+          "name": "Crossroads Corporation",
+          "shares": 6249415,
+          "pct": 0.6
         },
         {
           "name": "Greenbaum Group",
-          "shares": 3998518,
-          "pct": 0.4
-        },
-        {
-          "name": "Larry Fink",
-          "shares": 3190958,
-          "pct": 0.3
-        },
-        {
-          "name": "Misa Astrae",
-          "shares": 2508351,
+          "shares": 3332426,
           "pct": 0.3
         },
         {
           "name": "Malik Rahman",
-          "shares": 1248268,
+          "shares": 1040244,
+          "pct": 0.1
+        },
+        {
+          "name": "Index Fund",
+          "shares": 890914,
           "pct": 0.1
         },
         {
           "name": "Isiah Rivera",
-          "shares": 998291,
+          "shares": 831925,
           "pct": 0.1
         },
         {
           "name": "Index Fund",
-          "shares": 972126,
-          "pct": 0.1
-        },
-        {
-          "name": "Index Fund",
-          "shares": 904317,
-          "pct": 0.1
-        },
-        {
-          "name": "Index Fund",
-          "shares": 805015,
-          "pct": 0.1
-        },
-        {
-          "name": "I Love Napoleon",
-          "shares": 745861,
+          "shares": 587963,
           "pct": 0.1
         },
         {
           "name": "caleb mercer",
-          "shares": 547969,
-          "pct": 0.1
-        },
-        {
-          "name": "簡素",
-          "shares": 523794,
-          "pct": 0.1
+          "shares": 456650,
+          "pct": 0
         },
         {
           "name": "Yui Takeuchi",
-          "shares": 506406,
-          "pct": 0.1
+          "shares": 422013,
+          "pct": 0
         },
         {
-          "name": "Crossroads Corporation",
-          "shares": 499152,
+          "name": "Index Fund",
+          "shares": 421656,
           "pct": 0
         },
         {
           "name": "Ranco Hashimoto",
-          "shares": 431441,
+          "shares": 359541,
           "pct": 0
         },
         {
           "name": "Osian “Osi” Morgan",
-          "shares": 399316,
+          "shares": 332770,
           "pct": 0
         },
         {
           "name": "Winston Churchill",
-          "shares": 387136,
+          "shares": 322620,
+          "pct": 0
+        },
+        {
+          "name": null,
+          "shares": 294547,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 233724,
+          "pct": 0
+        },
+        {
+          "name": "Arthur Flaco",
+          "shares": 219288,
           "pct": 0
         },
         {
           "name": "Ranco Weapon Manfacturing",
-          "shares": 217631,
+          "shares": 181363,
           "pct": 0
         },
         {
           "name": "Index Fund",
-          "shares": 197016,
+          "shares": 93558,
           "pct": 0
         },
         {
           "name": "Index Fund",
-          "shares": 121701,
+          "shares": 92935,
+          "pct": 0
+        },
+        {
+          "name": "MassMedia",
+          "shares": 70835,
           "pct": 0
         }
       ],
       "blackrockStakePct": 0,
-      "creditRating": "AAA",
+      "creditRating": "AA",
+      "creditScore": 91,
+      "cashOnHand": 1566466148.8043542,
+      "totalDebt": 92000,
+      "defaultedBonds": 0,
+      "distress": [],
+      "distressed": false,
       "sectorCount": 52,
-      "workers": 777445,
+      "workers": 1609590,
       "divRate": 20,
       "growth": {
-        "pct": 115.26,
-        "fromTurn": 187,
-        "toTurn": 216,
-        "fromPrice": 14.787,
-        "toPrice": 31.8308,
-        "trades": 28,
+        "pct": 26.26,
+        "fromTurn": 240,
+        "toTurn": 270,
+        "fromPrice": 21.0368,
+        "toPrice": 26.5609,
+        "trades": 32,
         "splitAdjusted": true,
         "window": "30T"
       },
       "tape": [
         [
           40,
-          0.0047
+          0.0056
         ],
         [
           40,
-          0.0045
+          0.0054
         ],
         [
           136,
-          7.165
+          8.598
         ],
         [
           136,
-          7.3728
+          8.8474
         ],
         [
           138,
-          7.5792
+          9.095
         ],
         [
           138,
-          7.5243
+          9.0292
         ],
         [
           138,
-          7.4284
+          8.9141
         ],
         [
           138,
-          7.4284
+          8.9141
         ],
         [
           138,
-          7.2594
+          8.7113
         ],
         [
           138,
-          7.4284
+          8.9141
         ],
         [
           139,
-          7.6933
+          9.232
         ],
         [
           139,
-          7.6933
+          9.232
         ],
         [
           139,
-          7.6933
+          9.232
         ],
         [
           140,
-          7.728
+          9.2736
         ],
         [
           140,
-          7.728
+          9.2736
         ],
         [
           140,
-          7.728
+          9.2736
         ],
         [
           140,
-          7.7418
+          9.2901
         ],
         [
           140,
-          7.7418
+          9.2901
         ],
         [
           140,
-          7.7418
+          9.2901
         ],
         [
           140,
-          7.6257
+          9.1509
         ],
         [
           141,
-          7.8005
+          9.3606
         ],
         [
           141,
-          7.8005
+          9.3606
         ],
         [
           141,
-          7.6682
+          9.2018
         ],
         [
           142,
-          7.4122
+          8.8946
         ],
         [
           142,
-          7.4311
+          8.9173
         ],
         [
           142,
-          7.4311
+          8.9173
         ],
         [
           143,
-          7.4872
+          8.9846
         ],
         [
           143,
-          7.5027
+          9.0032
         ],
         [
           144,
-          7.4136
+          8.8964
         ],
         [
           146,
-          7.463
+          8.9556
         ],
         [
           146,
-          7.6516
+          9.1819
         ],
         [
           149,
-          7.4021
+          8.8826
         ],
         [
           150,
-          7.2782
+          8.7339
         ],
         [
           151,
-          7.2788
+          8.7345
         ],
         [
           151,
-          7.3008
+          8.761
         ],
         [
           152,
-          3.5602
+          4.2723
         ],
         [
           154,
-          6.7495
+          8.0994
         ],
         [
           158,
-          6.7143
+          8.0572
         ],
         [
           160,
-          7.1849
+          8.6219
         ],
         [
           160,
-          7.1849
+          8.6219
         ],
         [
           161,
-          6.703
+          8.0436
         ],
         [
           163,
-          6.86
+          8.232
         ],
         [
           164,
-          7.0532
+          8.4638
         ],
         [
           164,
-          7.1969
+          8.6362
         ],
         [
           165,
-          7.0108
+          8.413
         ],
         [
           168,
-          7.3045
+          8.7654
         ],
         [
           176,
-          7.3869
+          8.8643
         ],
         [
           182,
-          10.0432
+          12.0518
         ],
         [
           183,
-          8.0579
+          9.6695
         ],
         [
           184,
-          8.2221
+          9.8665
         ],
         [
           184,
-          8.2221
+          9.8665
         ],
         [
           185,
-          11.7841
+          14.1409
         ],
         [
           185,
-          11.784
+          14.1408
         ],
         [
           185,
-          10.9279
+          13.1135
         ],
         [
           187,
-          15.1314
+          18.1576
         ],
         [
           187,
-          14.787
+          17.7444
         ],
         [
           192,
-          21.5523
+          25.8628
         ],
         [
           192,
-          23.4613
+          28.1535
         ],
         [
           192,
-          23.4613
+          28.1535
         ],
         [
           197,
-          29.1187
+          34.9425
         ],
         [
           197,
-          29.1186
+          34.9424
         ],
         [
           200,
-          29.9621
+          35.9546
         ],
         [
           200,
-          28.7872
+          34.5446
         ],
         [
           200,
-          29.4433
+          35.332
         ],
         [
           200,
-          29.4431
+          35.3317
         ],
         [
           200,
-          29.4427
+          35.3312
         ],
         [
           201,
-          30.5967
+          36.7161
         ],
         [
           207,
-          31.4286
+          37.7144
         ],
         [
           207,
-          31.1542
+          37.385
         ],
         [
           207,
-          34.5485
+          41.4582
         ],
         [
           207,
-          34.5485
+          41.4582
         ],
         [
           208,
-          32.0681
+          38.4818
         ],
         [
           209,
-          31.7967
+          38.156
         ],
         [
           209,
-          42.0725
+          50.4869
         ],
         [
           211,
-          32.6183
+          39.1419
         ],
         [
           212,
-          32.9246
+          39.5096
         ],
         [
           212,
-          37.4565
+          44.9477
         ],
         [
           212,
-          37.4565
+          44.9477
         ],
         [
           215,
-          37.0432
+          44.4518
         ],
         [
           215,
-          37.0432
+          44.4518
         ],
         [
           215,
-          37.1361
+          44.5633
         ],
         [
           216,
-          31.8308
+          37.4296
+        ],
+        [
+          216,
+          42.8581
+        ],
+        [
+          216,
+          43.5871
+        ],
+        [
+          216,
+          38.197
+        ],
+        [
+          217,
+          37.0879
+        ],
+        [
+          218,
+          42.0989
+        ],
+        [
+          218,
+          37.088
+        ],
+        [
+          223,
+          49.676
+        ],
+        [
+          223,
+          49.6761
+        ],
+        [
+          224,
+          49.7565
+        ],
+        [
+          225,
+          41.6316
+        ],
+        [
+          226,
+          40.8035
+        ],
+        [
+          226,
+          41.6333
+        ],
+        [
+          227,
+          39.5659
+        ],
+        [
+          227,
+          41.1809
+        ],
+        [
+          231,
+          42.8823
+        ],
+        [
+          231,
+          43.344
+        ],
+        [
+          232,
+          49.2469
+        ],
+        [
+          232,
+          49.0853
+        ],
+        [
+          232,
+          49.083
+        ],
+        [
+          232,
+          48.1071
+        ],
+        [
+          232,
+          49.0839
+        ],
+        [
+          232,
+          49.0839
+        ],
+        [
+          234,
+          48.6482
+        ],
+        [
+          234,
+          42.626
+        ],
+        [
+          235,
+          41.8564
+        ],
+        [
+          236,
+          42.2256
+        ],
+        [
+          236,
+          41.338
+        ],
+        [
+          237,
+          45.6645
+        ],
+        [
+          237,
+          40.2674
+        ],
+        [
+          238,
+          44.945
+        ],
+        [
+          238,
+          44.9449
+        ],
+        [
+          238,
+          38.9925
+        ],
+        [
+          239,
+          38.1208
+        ],
+        [
+          239,
+          38.121
+        ],
+        [
+          239,
+          37.5965
+        ],
+        [
+          240,
+          25.2522
+        ],
+        [
+          240,
+          25.2522
+        ],
+        [
+          240,
+          25.2522
+        ],
+        [
+          240,
+          21.0368
+        ],
+        [
+          241,
+          27.499
+        ],
+        [
+          242,
+          27.3948
+        ],
+        [
+          243,
+          22.3303
+        ],
+        [
+          244,
+          17.2471
+        ],
+        [
+          246,
+          8.4373
+        ],
+        [
+          247,
+          5.5365
+        ],
+        [
+          248,
+          3.472
+        ],
+        [
+          248,
+          3.472
+        ],
+        [
+          248,
+          3.5748
+        ],
+        [
+          250,
+          2.6897
+        ],
+        [
+          250,
+          2.8129
+        ],
+        [
+          250,
+          2.3351
+        ],
+        [
+          251,
+          2.7374
+        ],
+        [
+          251,
+          3.1384
+        ],
+        [
+          251,
+          2.3472
+        ],
+        [
+          252,
+          2.4677
+        ],
+        [
+          254,
+          4.2551
+        ],
+        [
+          254,
+          4.157
+        ],
+        [
+          254,
+          4.2551
+        ],
+        [
+          256,
+          7.8355
+        ],
+        [
+          259,
+          29.9114
+        ],
+        [
+          259,
+          31.1323
+        ],
+        [
+          261,
+          29.8655
+        ],
+        [
+          262,
+          27.258
+        ],
+        [
+          264,
+          36.614
+        ],
+        [
+          265,
+          46.5704
+        ],
+        [
+          267,
+          27.7797
+        ],
+        [
+          270,
+          26.5609
         ]
       ],
       "checks": {
@@ -1499,23 +2306,28 @@
     {
       "id": 767,
       "alive": true,
+      "dissolved": false,
       "name": "Ranco Weapon Manfacturing",
+      "memberName": "Ranco Weapon Manfacturing",
       "type": "defense",
+      "typeLabel": "defense",
+      "description": "Sword and Spears for everyone.",
       "countryId": "JP",
+      "headquartersState": "CHU",
       "currency": "JPY",
-      "fxPerUsd": 151.45,
+      "fxPerUsd": 154.68,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/767",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac9e73e96249b1f17b71dca-1791643534845.webp",
       "brandColor": "#ff0000",
       "ceo": "Ranco Hashimoto",
-      "revenue": 516491415,
-      "operatingIncome": 46195144,
-      "marketCap": 1390524700000,
-      "revenueUsd": 434028101.0001439,
-      "operatingIncomeUsd": 38819600.95260865,
-      "marketCapUsd": 9181247284.85671,
-      "marginPct": 8.94,
-      "sharePrice": 139052.47,
+      "revenue": 912523871,
+      "operatingIncome": 42470045,
+      "marketCap": 1338743840637,
+      "revenueUsd": 789441084.091055,
+      "operatingIncomeUsd": 36741612.391415335,
+      "marketCapUsd": 8655075858.051968,
+      "marginPct": 4.65,
+      "sharePrice": 133874.3840637124,
       "totalShares": 10000000,
       "holders": [
         {
@@ -1526,8 +2338,14 @@
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "sectorCount": 50,
-      "workers": 183614,
+      "creditScore": 87,
+      "cashOnHand": 63920104143.87886,
+      "totalDebt": 0,
+      "defaultedBonds": 0,
+      "distress": [],
+      "distressed": false,
+      "sectorCount": 49,
+      "workers": 373152,
       "divRate": 0,
       "growth": null,
       "tape": [],
@@ -1538,7 +2356,7 @@
     },
     {
       "id": 521,
-      "alive": true,
+      "alive": false,
       "name": "簡素",
       "type": "technology",
       "countryId": "JP",
@@ -1639,365 +2457,41 @@
         "splitAdjusted": true,
         "window": "30T"
       },
-      "tape": [
-        [
-          65,
-          263.7379
-        ],
-        [
-          66,
-          296.073
-        ],
-        [
-          70,
-          359.9659
-        ],
-        [
-          70,
-          337.4398
-        ],
-        [
-          71,
-          352.2166
-        ],
-        [
-          72,
-          367.2722
-        ],
-        [
-          74,
-          444.1318
-        ],
-        [
-          74,
-          404.7437
-        ],
-        [
-          75,
-          427.5049
-        ],
-        [
-          76,
-          443.3345
-        ],
-        [
-          78,
-          501.4697
-        ],
-        [
-          78,
-          490.8007
-        ],
-        [
-          79,
-          514.9266
-        ],
-        [
-          79,
-          514.9265
-        ],
-        [
-          79,
-          514.9263
-        ],
-        [
-          79,
-          503.0078
-        ],
-        [
-          80,
-          548.1511
-        ],
-        [
-          80,
-          548.1511
-        ],
-        [
-          80,
-          507.2232
-        ],
-        [
-          88,
-          750.0519
-        ],
-        [
-          96,
-          841.1614
-        ],
-        [
-          99,
-          823.0645
-        ],
-        [
-          100,
-          775.5113
-        ],
-        [
-          102,
-          748.1507
-        ],
-        [
-          106,
-          668.355
-        ],
-        [
-          108,
-          672.8578
-        ],
-        [
-          110,
-          684.3419
-        ],
-        [
-          111,
-          677.239
-        ],
-        [
-          112,
-          661.355
-        ],
-        [
-          112,
-          639.1292
-        ],
-        [
-          113,
-          612.5189
-        ],
-        [
-          114,
-          610.629
-        ],
-        [
-          118,
-          593.3798
-        ],
-        [
-          119,
-          595.9922
-        ],
-        [
-          119,
-          595.9926
-        ],
-        [
-          119,
-          589.5953
-        ],
-        [
-          120,
-          597.983
-        ],
-        [
-          120,
-          585.811
-        ],
-        [
-          122,
-          612.5945
-        ],
-        [
-          124,
-          617.3558
-        ],
-        [
-          125,
-          614.3232
-        ],
-        [
-          126,
-          608.8843
-        ],
-        [
-          127,
-          604.1989
-        ],
-        [
-          128,
-          604.6274
-        ],
-        [
-          130,
-          576.7515
-        ],
-        [
-          130,
-          583.7561
-        ],
-        [
-          130,
-          543.8234
-        ],
-        [
-          132,
-          544.1955
-        ],
-        [
-          134,
-          376.1234
-        ],
-        [
-          136,
-          504.1561
-        ],
-        [
-          138,
-          575.9448
-        ],
-        [
-          140,
-          550.9319
-        ],
-        [
-          143,
-          587.5414
-        ],
-        [
-          144,
-          670.6108
-        ],
-        [
-          144,
-          624.4065
-        ],
-        [
-          146,
-          750.9457
-        ],
-        [
-          147,
-          729.4725
-        ],
-        [
-          160,
-          1050.9939
-        ],
-        [
-          161,
-          1012.2149
-        ],
-        [
-          162,
-          1029.6075
-        ],
-        [
-          164,
-          72.843
-        ],
-        [
-          164,
-          69.2896
-        ],
-        [
-          166,
-          952.2552
-        ],
-        [
-          167,
-          934.8796
-        ],
-        [
-          168,
-          1023.0412
-        ],
-        [
-          168,
-          934.1404
-        ],
-        [
-          169,
-          1008.6527
-        ],
-        [
-          171,
-          961.5833
-        ],
-        [
-          172,
-          982.4393
-        ],
-        [
-          176,
-          970.6321
-        ],
-        [
-          178,
-          1015.1322
-        ],
-        [
-          179,
-          1014.0795
-        ],
-        [
-          180,
-          1009.0594
-        ],
-        [
-          182,
-          1062.3858
-        ],
-        [
-          183,
-          1001.1444
-        ],
-        [
-          194,
-          741.2925
-        ],
-        [
-          200,
-          860.8069
-        ],
-        [
-          204,
-          874.4062
-        ],
-        [
-          208,
-          1016.099
-        ],
-        [
-          210,
-          994.6764
-        ],
-        [
-          212,
-          836.5805
-        ],
-        [
-          212,
-          901.031
-        ],
-        [
-          214,
-          828.7681
-        ]
-      ],
+      "tape": [],
       "checks": {
         "marketCapPass": true,
         "marginPass": true
-      }
+      },
+      "dissolved": true,
+      "memberName": "簡素",
+      "lastSeenTurn": 216,
+      "checkedTurn": 271
     },
     {
       "id": 1084,
       "alive": true,
+      "dissolved": false,
       "name": "The Organization",
+      "memberName": "The Organization",
       "type": "energy",
+      "typeLabel": "energy",
+      "description": "",
       "countryId": "JP",
+      "headquartersState": "CHU",
       "currency": "JPY",
-      "fxPerUsd": 151.45,
+      "fxPerUsd": 154.68,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/1084",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ace7b48076f76a31679a279-1791917252503.webp",
       "brandColor": "#fef100",
       "ceo": "Nariyoshi Miyagi",
-      "revenue": 81722924,
-      "operatingIncome": 40985702,
-      "marketCap": 105369776724,
-      "revenueUsd": 68674995.32765532,
-      "operatingIncomeUsd": 34441901.4345433,
-      "marketCapUsd": 695727286.5797945,
-      "marginPct": 50.15,
-      "sharePrice": 9483.28,
+      "revenue": 231894918,
+      "operatingIncome": 81331388,
+      "marketCap": 167223103216,
+      "revenueUsd": 200616533.19875324,
+      "operatingIncomeUsd": 70361270.70625447,
+      "marketCapUsd": 1081109469.6537817,
+      "marginPct": 35.07,
+      "sharePrice": 15050.07943989778,
       "totalShares": 11111111,
       "holders": [
         {
@@ -2007,13 +2501,13 @@
         },
         {
           "name": "Larry Fink",
-          "shares": 3682430,
-          "pct": 33.1
+          "shares": 3049632,
+          "pct": 27.4
         },
         {
-          "name": "簡素",
-          "shares": 604469,
-          "pct": 5.4
+          "name": null,
+          "shares": 407888,
+          "pct": 3.7
         },
         {
           "name": "Ranco Hashimoto",
@@ -2026,18 +2520,8 @@
           "pct": 2.3
         },
         {
-          "name": "Index Fund",
-          "shares": 101130,
-          "pct": 0.9
-        },
-        {
           "name": "Winston Churchill",
           "shares": 100468,
-          "pct": 0.9
-        },
-        {
-          "name": "Index Fund",
-          "shares": 96510,
           "pct": 0.9
         },
         {
@@ -2052,8 +2536,8 @@
         },
         {
           "name": "Index Fund",
-          "shares": 35276,
-          "pct": 0.3
+          "shares": 42185,
+          "pct": 0.4
         },
         {
           "name": "Malik Rahman",
@@ -2062,12 +2546,12 @@
         },
         {
           "name": "Index Fund",
-          "shares": 26688,
-          "pct": 0.2
+          "shares": 28049,
+          "pct": 0.3
         },
         {
-          "name": "Matsudaira Kobayashi",
-          "shares": 24976,
+          "name": "Index Fund",
+          "shares": 26688,
           "pct": 0.2
         },
         {
@@ -2076,8 +2560,8 @@
           "pct": 0.1
         },
         {
-          "name": "Satoshi Fukuda",
-          "shares": 10624,
+          "name": "Paddy Riot",
+          "shares": 11612,
           "pct": 0.1
         },
         {
@@ -2087,8 +2571,18 @@
         },
         {
           "name": "Greenbaum Group",
-          "shares": 6124,
+          "shares": 6488,
           "pct": 0.1
+        },
+        {
+          "name": "Index Fund",
+          "shares": 2938,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 1414,
+          "pct": 0
         },
         {
           "name": "Gareth Evans",
@@ -2103,10 +2597,25 @@
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "sectorCount": 6,
-      "workers": 22700,
+      "creditScore": 91,
+      "cashOnHand": 1082837982.7325826,
+      "totalDebt": 4000845000,
+      "defaultedBonds": 0,
+      "distress": [],
+      "distressed": false,
+      "sectorCount": 7,
+      "workers": 67375,
       "divRate": 0,
-      "growth": null,
+      "growth": {
+        "pct": -3.92,
+        "fromTurn": 241,
+        "toTurn": 270,
+        "fromPrice": 112.5945,
+        "toPrice": 108.183,
+        "trades": 18,
+        "splitAdjusted": false,
+        "window": "30T"
+      },
       "tape": [
         [
           170,
@@ -2119,6 +2628,126 @@
         [
           170,
           0.0931
+        ],
+        [
+          218,
+          66.232
+        ],
+        [
+          218,
+          67.5738
+        ],
+        [
+          222,
+          72.8523
+        ],
+        [
+          222,
+          72.8523
+        ],
+        [
+          222,
+          64.8359
+        ],
+        [
+          223,
+          46.877
+        ],
+        [
+          223,
+          46.877
+        ],
+        [
+          223,
+          48.1193
+        ],
+        [
+          224,
+          39.9815
+        ],
+        [
+          225,
+          51.2832
+        ],
+        [
+          225,
+          43.441
+        ],
+        [
+          227,
+          49.676
+        ],
+        [
+          241,
+          112.5945
+        ],
+        [
+          242,
+          112.7991
+        ],
+        [
+          245,
+          137.0022
+        ],
+        [
+          246,
+          126.467
+        ],
+        [
+          247,
+          121.0892
+        ],
+        [
+          248,
+          131.4068
+        ],
+        [
+          248,
+          128.7818
+        ],
+        [
+          250,
+          144.6198
+        ],
+        [
+          252,
+          158.6693
+        ],
+        [
+          255,
+          204.5742
+        ],
+        [
+          256,
+          199.3227
+        ],
+        [
+          258,
+          207.8302
+        ],
+        [
+          262,
+          205.2639
+        ],
+        [
+          263,
+          187.9457
+        ],
+        [
+          264,
+          125.4587
+        ],
+        [
+          265,
+          100.35
+        ],
+        [
+          265,
+          100.35
+        ],
+        [
+          270,
+          108.183
         ]
       ],
       "checks": {
@@ -2129,126 +2758,1237 @@
     {
       "id": 561,
       "alive": true,
+      "dissolved": false,
       "name": "I Love Misa",
+      "memberName": "I Love Misa",
       "type": "manufacturing",
+      "typeLabel": "manufacturing",
+      "description": "I love Misa Astrae",
       "countryId": "JP",
+      "headquartersState": "HOK",
       "currency": "JPY",
-      "fxPerUsd": 151.45,
+      "fxPerUsd": 154.68,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/561",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac56dd29c01603665694296-1791929558224.webp",
       "brandColor": "#0161fd",
       "ceo": "Napoleon Astrae",
-      "revenue": 3787329924,
-      "operatingIncome": 1080090424,
-      "marketCap": 5006922730000,
-      "revenueUsd": 3182642667.496689,
-      "operatingIncomeUsd": 907642570.6653037,
-      "marketCapUsd": 33059316184.9623,
-      "marginPct": 28.52,
-      "sharePrice": 5006922.73,
+      "revenue": 10567530957,
+      "operatingIncome": 647651525,
+      "marketCap": 3495699762171,
+      "revenueUsd": 9142164232.610924,
+      "operatingIncomeUsd": 560295175.0170983,
+      "marketCapUsd": 22599952059.66218,
+      "marginPct": 6.13,
+      "sharePrice": 3495699.7621707767,
       "totalShares": 1000000,
       "holders": [
         {
           "name": "Napoleon Astrae",
-          "shares": 745300,
-          "pct": 74.5
+          "shares": 682715,
+          "pct": 68.3
         },
         {
           "name": "Ranco Weapon Manfacturing",
-          "shares": 236931,
-          "pct": 23.7
+          "shares": 215392,
+          "pct": 21.5
+        },
+        {
+          "name": "Misa Astrae",
+          "shares": 1634,
+          "pct": 0.2
         },
         {
           "name": "Ranco Hashimoto",
-          "shares": 1088,
+          "shares": 1018,
           "pct": 0.1
         },
         {
-          "name": "Index Fund",
-          "shares": 54,
+          "name": "Matsudaira Kobayashi",
+          "shares": 84,
           "pct": 0
         },
         {
-          "name": "Matsudaira Kobayashi",
-          "shares": 20,
+          "name": "Index Fund",
+          "shares": 49,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 35,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 2,
+          "pct": 0
+        },
+        {
+          "name": "Larry Fink",
+          "shares": 1,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 1,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 1,
           "pct": 0
         }
       ],
       "blackrockStakePct": 0,
       "creditRating": "AA",
-      "sectorCount": 21,
-      "workers": 1324282,
+      "creditScore": 89,
+      "cashOnHand": 29874801259.52621,
+      "totalDebt": 360056137000,
+      "defaultedBonds": 0,
+      "distress": [],
+      "distressed": false,
+      "sectorCount": 33,
+      "workers": 3906838,
       "divRate": 20,
       "growth": {
-        "pct": 94.56,
-        "fromTurn": 201,
-        "toTurn": 211,
-        "fromPrice": 19485.89,
-        "toPrice": 37910.8697,
-        "trades": 10,
+        "pct": -52.99,
+        "fromTurn": 242,
+        "toTurn": 272,
+        "fromPrice": 55634.5368,
+        "toPrice": 26156.1715,
+        "trades": 27,
         "splitAdjusted": true,
         "window": "30T"
       },
       "tape": [
         [
           131,
-          874.7765
+          962.2542
         ],
         [
           131,
-          870.8026
+          957.8829
         ],
         [
           132,
-          776.0178
+          853.6196
         ],
         [
           132,
-          731.7671
+          804.9439
         ],
         [
           132,
-          549.6059
+          604.5665
         ],
         [
           201,
-          19690.689
+          21659.7579
         ],
         [
           201,
-          20091.59
+          22100.749
         ],
         [
           201,
-          20088.8228
+          22097.7051
         ],
         [
           201,
-          20716.2003
+          22787.8203
         ],
         [
           201,
-          18589.3883
+          20448.3271
         ],
         [
           201,
-          19485.89
+          21434.479
         ],
         [
           202,
-          20633.0981
+          22696.4079
         ],
         [
           202,
-          20633.0696
+          22696.3766
         ],
         [
           202,
-          20633.0528
+          22696.3581
         ],
         [
           211,
-          37910.8697
+          41701.9567
+        ],
+        [
+          216,
+          44312.8886
+        ],
+        [
+          218,
+          44276.4119
+        ],
+        [
+          220,
+          44229.6217
+        ],
+        [
+          225,
+          42204.7703
+        ],
+        [
+          227,
+          38224.9763
+        ],
+        [
+          227,
+          38811.3304
+        ],
+        [
+          230,
+          45838.8211
+        ],
+        [
+          239,
+          50557.4307
+        ],
+        [
+          239,
+          48524.2242
+        ],
+        [
+          239,
+          48521.2232
+        ],
+        [
+          239,
+          48520.9361
+        ],
+        [
+          239,
+          48520.4021
+        ],
+        [
+          239,
+          48520.3487
+        ],
+        [
+          242,
+          55634.8939
+        ],
+        [
+          242,
+          55634.5368
+        ],
+        [
+          245,
+          50146.8737
+        ],
+        [
+          245,
+          49664.3229
+        ],
+        [
+          245,
+          50146.7789
+        ],
+        [
+          246,
+          47102.3017
+        ],
+        [
+          247,
+          41221.3404
+        ],
+        [
+          247,
+          41233.2273
+        ],
+        [
+          248,
+          39507.8143
+        ],
+        [
+          248,
+          38989.327
+        ],
+        [
+          252,
+          53460.7207
+        ],
+        [
+          255,
+          50608.1167
+        ],
+        [
+          256,
+          53860.3502
+        ],
+        [
+          256,
+          53859.3512
+        ],
+        [
+          259,
+          56016.6051
+        ],
+        [
+          261,
+          55846.9044
+        ],
+        [
+          262,
+          46326.7
+        ],
+        [
+          262,
+          47233.9493
+        ],
+        [
+          262,
+          47270.6365
+        ],
+        [
+          263,
+          42252.3645
+        ],
+        [
+          263,
+          43113.5059
+        ],
+        [
+          264,
+          33441.8097
+        ],
+        [
+          265,
+          21632
+        ],
+        [
+          266,
+          21461.5243
+        ],
+        [
+          270,
+          33312.6499
+        ],
+        [
+          271,
+          29986.3291
+        ],
+        [
+          272,
+          26156.1715
+        ]
+      ],
+      "checks": {
+        "marketCapPass": true,
+        "marginPass": false
+      }
+    },
+    {
+      "id": 565,
+      "alive": true,
+      "dissolved": false,
+      "name": "I Love Napoleon",
+      "memberName": "I Love Napoleon",
+      "type": "agriculture",
+      "typeLabel": "agriculture",
+      "description": "",
+      "countryId": "JP",
+      "headquartersState": "HOK",
+      "currency": "JPY",
+      "fxPerUsd": 154.68,
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/565",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac5701a9c0160366569479b-1791899834943.webp",
+      "brandColor": "#4576c4",
+      "ceo": "Misa Astrae",
+      "revenue": 6664772799,
+      "operatingIncome": 1527962485,
+      "marketCap": 9411178514490,
+      "revenueUsd": 5765816797.644229,
+      "operatingIncomeUsd": 1321868280.8669915,
+      "marketCapUsd": 60843950488.55813,
+      "marginPct": 22.93,
+      "sharePrice": 9411178.514490027,
+      "totalShares": 1000000,
+      "holders": [
+        {
+          "name": "Misa Astrae",
+          "shares": 710792,
+          "pct": 71.1
+        },
+        {
+          "name": "Ranco Weapon Manfacturing",
+          "shares": 128969,
+          "pct": 12.9
+        },
+        {
+          "name": "Greenbaum Group",
+          "shares": 1737,
+          "pct": 0.2
+        },
+        {
+          "name": "Index Fund",
+          "shares": 1455,
+          "pct": 0.1
+        },
+        {
+          "name": "Begum Chemicals",
+          "shares": 1452,
+          "pct": 0.1
+        },
+        {
+          "name": "Index Fund",
+          "shares": 1121,
+          "pct": 0.1
+        },
+        {
+          "name": "Ranco Hashimoto",
+          "shares": 877,
+          "pct": 0.1
+        },
+        {
+          "name": "Henry Beck",
+          "shares": 348,
+          "pct": 0
+        },
+        {
+          "name": "Ronald Reagan",
+          "shares": 160,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 128,
+          "pct": 0
+        },
+        {
+          "name": "Jimmy Jibbson",
+          "shares": 82,
+          "pct": 0
+        },
+        {
+          "name": "Jib's Arms Corps",
+          "shares": 82,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 25,
+          "pct": 0
+        },
+        {
+          "name": "Paddy Riot",
+          "shares": 7,
+          "pct": 0
+        }
+      ],
+      "blackrockStakePct": 0,
+      "creditRating": "AA",
+      "creditScore": 86,
+      "cashOnHand": 6803619740.822068,
+      "totalDebt": 160052982000,
+      "defaultedBonds": 0,
+      "distress": [],
+      "distressed": false,
+      "sectorCount": 13,
+      "workers": 2352769,
+      "divRate": 0,
+      "growth": {
+        "pct": 27.76,
+        "fromTurn": 242,
+        "toTurn": 271,
+        "fromPrice": 55655.1092,
+        "toPrice": 71105.0348,
+        "trades": 16,
+        "splitAdjusted": true,
+        "window": "30T"
+      },
+      "tape": [
+        [
+          93,
+          316.4426
+        ],
+        [
+          93,
+          365.3029
+        ],
+        [
+          94,
+          409.5591
+        ],
+        [
+          100,
+          534.6479
+        ],
+        [
+          101,
+          696.3153
+        ],
+        [
+          102,
+          567.1813
+        ],
+        [
+          103,
+          617.4505
+        ],
+        [
+          103,
+          596.4616
+        ],
+        [
+          104,
+          635.0909
+        ],
+        [
+          104,
+          626.7479
+        ],
+        [
+          106,
+          629.7228
+        ],
+        [
+          107,
+          655.2447
+        ],
+        [
+          108,
+          717.4298
+        ],
+        [
+          108,
+          682.9727
+        ],
+        [
+          110,
+          704.2264
+        ],
+        [
+          111,
+          729.2278
+        ],
+        [
+          112,
+          700.14
+        ],
+        [
+          114,
+          741.3554
+        ],
+        [
+          115,
+          767.118
+        ],
+        [
+          116,
+          827.7794
+        ],
+        [
+          116,
+          827.7797
+        ],
+        [
+          116,
+          792.85
+        ],
+        [
+          117,
+          850.3321
+        ],
+        [
+          118,
+          834.0868
+        ],
+        [
+          119,
+          983.5545
+        ],
+        [
+          119,
+          885.9771
+        ],
+        [
+          120,
+          972.0217
+        ],
+        [
+          120,
+          926.1973
+        ],
+        [
+          121,
+          1045.5559
+        ],
+        [
+          121,
+          1045.5559
+        ],
+        [
+          122,
+          1099.3229
+        ],
+        [
+          122,
+          1099.3229
+        ],
+        [
+          122,
+          1013.2691
+        ],
+        [
+          123,
+          1088.788
+        ],
+        [
+          123,
+          1059.6861
+        ],
+        [
+          124,
+          1101.0464
+        ],
+        [
+          124,
+          1101.0464
+        ],
+        [
+          124,
+          1038.3099
+        ],
+        [
+          125,
+          1135.9646
+        ],
+        [
+          125,
+          1191.4122
+        ],
+        [
+          125,
+          1191.4122
+        ],
+        [
+          126,
+          1146.0857
+        ],
+        [
+          126,
+          1099.0177
+        ],
+        [
+          127,
+          1182.3037
+        ],
+        [
+          127,
+          1182.3037
+        ],
+        [
+          127,
+          1198.8978
+        ],
+        [
+          127,
+          1182.3036
+        ],
+        [
+          127,
+          1129.572
+        ],
+        [
+          128,
+          1201.4709
+        ],
+        [
+          128,
+          1201.4716
+        ],
+        [
+          128,
+          1143.6577
+        ],
+        [
+          130,
+          1025.4909
+        ],
+        [
+          131,
+          1238.9219
+        ],
+        [
+          131,
+          1238.9219
+        ],
+        [
+          131,
+          1211.1013
+        ],
+        [
+          131,
+          1238.9219
+        ],
+        [
+          131,
+          1068.9352
+        ],
+        [
+          132,
+          1220.6429
+        ],
+        [
+          132,
+          1125.0541
+        ],
+        [
+          135,
+          1543.8819
+        ],
+        [
+          140,
+          1886.6266
+        ],
+        [
+          140,
+          1886.6267
+        ],
+        [
+          140,
+          1932.151
+        ],
+        [
+          140,
+          1730.1068
+        ],
+        [
+          142,
+          1994.0402
+        ],
+        [
+          142,
+          1954.2517
+        ],
+        [
+          142,
+          1933.0645
+        ],
+        [
+          145,
+          2205.0327
+        ],
+        [
+          151,
+          2922.2782
+        ],
+        [
+          152,
+          3193.1852
+        ],
+        [
+          152,
+          3193.183
+        ],
+        [
+          153,
+          3291.0927
+        ],
+        [
+          153,
+          3225.4056
+        ],
+        [
+          153,
+          3291.0904
+        ],
+        [
+          153,
+          3225.4032
+        ],
+        [
+          153,
+          3225.4055
+        ],
+        [
+          155,
+          3553.5112
+        ],
+        [
+          155,
+          3553.5109
+        ],
+        [
+          160,
+          3740.516
+        ],
+        [
+          161,
+          4545.2938
+        ],
+        [
+          162,
+          3984.9043
+        ],
+        [
+          162,
+          3984.9022
+        ],
+        [
+          162,
+          3984.9011
+        ],
+        [
+          162,
+          3758.0693
+        ],
+        [
+          163,
+          4049.2617
+        ],
+        [
+          163,
+          4049.2615
+        ],
+        [
+          163,
+          3820.6471
+        ],
+        [
+          164,
+          3904.2125
+        ],
+        [
+          165,
+          4173.0334
+        ],
+        [
+          165,
+          4173.0329
+        ],
+        [
+          166,
+          4244.0969
+        ],
+        [
+          166,
+          4244.0967
+        ],
+        [
+          166,
+          3877.2099
+        ],
+        [
+          167,
+          4326.9112
+        ],
+        [
+          167,
+          4326.9109
+        ],
+        [
+          168,
+          4437.043
+        ],
+        [
+          168,
+          4348.4668
+        ],
+        [
+          169,
+          4517.5178
+        ],
+        [
+          169,
+          4426.4197
+        ],
+        [
+          169,
+          4426.4213
+        ],
+        [
+          169,
+          4426.4224
+        ],
+        [
+          169,
+          4426.4239
+        ],
+        [
+          169,
+          4511.9894
+        ],
+        [
+          169,
+          4511.9892
+        ],
+        [
+          171,
+          4740.2901
+        ],
+        [
+          171,
+          4740.2895
+        ],
+        [
+          171,
+          4230.8992
+        ],
+        [
+          172,
+          4463.1699
+        ],
+        [
+          173,
+          5010.0599
+        ],
+        [
+          173,
+          4910.0398
+        ],
+        [
+          174,
+          4282.3688
+        ],
+        [
+          175,
+          4582.009
+        ],
+        [
+          175,
+          4582.0084
+        ],
+        [
+          175,
+          4305.5663
+        ],
+        [
+          176,
+          4626.924
+        ],
+        [
+          176,
+          4626.9237
+        ],
+        [
+          176,
+          4366.1479
+        ],
+        [
+          177,
+          4970.043
+        ],
+        [
+          177,
+          4970.0426
+        ],
+        [
+          179,
+          5335.4945
+        ],
+        [
+          179,
+          5335.2464
+        ],
+        [
+          179,
+          5335.2376
+        ],
+        [
+          183,
+          5906.1248
+        ],
+        [
+          184,
+          663588.7335
+        ],
+        [
+          185,
+          4676.9186
+        ],
+        [
+          186,
+          7012.4305
+        ],
+        [
+          188,
+          8203.535
+        ],
+        [
+          188,
+          8039.7833
+        ],
+        [
+          188,
+          8039.8106
+        ],
+        [
+          188,
+          8115.512
+        ],
+        [
+          188,
+          8115.504
+        ],
+        [
+          189,
+          8507.9121
+        ],
+        [
+          189,
+          8507.9096
+        ],
+        [
+          189,
+          8507.9086
+        ],
+        [
+          190,
+          10519.3457
+        ],
+        [
+          190,
+          9164.7902
+        ],
+        [
+          190,
+          9164.789
+        ],
+        [
+          191,
+          9717.3402
+        ],
+        [
+          191,
+          9717.3389
+        ],
+        [
+          192,
+          10125.8474
+        ],
+        [
+          192,
+          10332.1007
+        ],
+        [
+          193,
+          10660.7651
+        ],
+        [
+          193,
+          10555.9692
+        ],
+        [
+          193,
+          10555.9677
+        ],
+        [
+          194,
+          10973.759
+        ],
+        [
+          195,
+          11594.4983
+        ],
+        [
+          195,
+          11594.4946
+        ],
+        [
+          196,
+          11915.2821
+        ],
+        [
+          196,
+          11915.3736
+        ],
+        [
+          196,
+          12158.0701
+        ],
+        [
+          197,
+          13116.6042
+        ],
+        [
+          198,
+          13447.6383
+        ],
+        [
+          200,
+          14909.363
+        ],
+        [
+          200,
+          14909.3596
+        ],
+        [
+          201,
+          16469.0326
+        ],
+        [
+          201,
+          16466.9257
+        ],
+        [
+          204,
+          19731.2008
+        ],
+        [
+          208,
+          24530.7478
+        ],
+        [
+          209,
+          25797.6203
+        ],
+        [
+          211,
+          25734.9044
+        ],
+        [
+          212,
+          22606.3677
+        ],
+        [
+          212,
+          23799.504
+        ],
+        [
+          213,
+          20853.6297
+        ],
+        [
+          213,
+          20853.6262
+        ],
+        [
+          214,
+          21195.5278
+        ],
+        [
+          214,
+          21195.524
+        ],
+        [
+          215,
+          20725.9452
+        ],
+        [
+          215,
+          20725.9416
+        ],
+        [
+          215,
+          20785.9632
+        ],
+        [
+          216,
+          20888.6876
+        ],
+        [
+          216,
+          20888.7207
+        ],
+        [
+          217,
+          21979.9211
+        ],
+        [
+          220,
+          21882.1376
+        ],
+        [
+          226,
+          24560.0301
+        ],
+        [
+          232,
+          3942880.0707
+        ],
+        [
+          232,
+          35983.7593
+        ],
+        [
+          233,
+          29396.2236
+        ],
+        [
+          235,
+          41923.7688
+        ],
+        [
+          238,
+          43939.142
+        ],
+        [
+          239,
+          44650.8448
+        ],
+        [
+          242,
+          55655.1092
+        ],
+        [
+          245,
+          57858.8956
+        ],
+        [
+          245,
+          57858.795
+        ],
+        [
+          246,
+          58885.8625
+        ],
+        [
+          246,
+          56143.8172
+        ],
+        [
+          247,
+          53804.5458
+        ],
+        [
+          248,
+          52840.1418
+        ],
+        [
+          250,
+          52551.8964
+        ],
+        [
+          250,
+          53043.2497
+        ],
+        [
+          251,
+          50502.1261
+        ],
+        [
+          252,
+          59292.7919
+        ],
+        [
+          256,
+          76386.875
+        ],
+        [
+          259,
+          73264.6757
+        ],
+        [
+          260,
+          76479.301
+        ],
+        [
+          266,
+          73692.8189
+        ],
+        [
+          271,
+          71105.0348
         ]
       ],
       "checks": {
@@ -2257,783 +3997,312 @@
       }
     },
     {
-      "id": 565,
+      "id": 1341,
       "alive": true,
-      "name": "I Love Napoleon",
-      "type": "agriculture",
-      "countryId": "JP",
-      "currency": "JPY",
-      "fxPerUsd": 151.45,
-      "corpUrl": "https://www.ahousedividedgame.com/corporations/565",
-      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac5701a9c0160366569479b-1791899834943.webp",
-      "brandColor": "#4576c4",
-      "ceo": "Misa Astrae",
-      "revenue": 1752154663,
-      "operatingIncome": 428186377,
-      "marketCap": 2379807999662,
-      "revenueUsd": 1472404649.824503,
-      "operatingIncomeUsd": 359821895.74911267,
-      "marketCapUsd": 15713209362.895185,
-      "marginPct": 24.44,
-      "sharePrice": 2162357.05,
-      "totalShares": 1100562,
+      "dissolved": false,
+      "name": "Vermont Retail",
+      "memberName": "Vermont Retail",
+      "type": "retail",
+      "typeLabel": "retail",
+      "description": "",
+      "countryId": "US",
+      "headquartersState": "CA",
+      "currency": "USD",
+      "fxPerUsd": 1,
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/1341",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ad0a0ae338ba1a1f51ca115-1792058199093.webp",
+      "brandColor": "#ec4899",
+      "ceo": "Malik Rahman",
+      "revenue": 2856428074,
+      "operatingIncome": 227977235,
+      "marketCap": 9041636660,
+      "revenueUsd": 2471148149.686798,
+      "operatingIncomeUsd": 197227274.01010776,
+      "marketCapUsd": 9041636660,
+      "marginPct": 7.98,
+      "sharePrice": 9041.63666025715,
+      "totalShares": 1000000,
       "holders": [
         {
-          "name": "Misa Astrae",
-          "shares": 859350,
-          "pct": 78.1
+          "name": "Malik Rahman",
+          "shares": 817463,
+          "pct": 81.7
         },
         {
-          "name": "Ranco Weapon Manfacturing",
-          "shares": 157500,
-          "pct": 14.3
-        },
-        {
-          "name": "Greenbaum Group",
-          "shares": 2121,
+          "name": "Index Fund",
+          "shares": 1608,
           "pct": 0.2
         },
         {
-          "name": "Index Fund",
-          "shares": 1777,
-          "pct": 0.2
-        },
-        {
-          "name": "Ranco Hashimoto",
-          "shares": 1071,
-          "pct": 0.1
-        },
-        {
-          "name": "Henry Beck",
-          "shares": 425,
+          "name": "Monica Rayne",
+          "shares": 277,
           "pct": 0
         },
         {
-          "name": "Index Fund",
-          "shares": 213,
+          "name": "Isiah Rivera",
+          "shares": 200,
           "pct": 0
         },
         {
-          "name": "Ronald Reagan",
-          "shares": 175,
+          "name": "National Public Party",
+          "shares": 2,
           "pct": 0
         },
         {
-          "name": "Paddy Riot",
-          "shares": 9,
+          "name": "National Public Party",
+          "shares": 1,
           "pct": 0
         },
         {
-          "name": "Index Fund",
-          "shares": 4,
+          "name": "National Public Party",
+          "shares": 1,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 1,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 1,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 1,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 1,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 1,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 1,
           "pct": 0
         }
       ],
       "blackrockStakePct": 0,
       "creditRating": "AA",
-      "sectorCount": 12,
-      "workers": 557503,
+      "creditScore": 88,
+      "cashOnHand": 1279176721.8448675,
+      "totalDebt": 103286000,
+      "defaultedBonds": 0,
+      "distress": [],
+      "distressed": false,
+      "sectorCount": 78,
+      "workers": 1134056,
       "divRate": 0,
       "growth": {
-        "pct": 197.88,
-        "fromTurn": 186,
-        "toTurn": 216,
-        "fromPrice": 5742.1141,
-        "toPrice": 17104.6582,
-        "trades": 46,
+        "pct": -25.89,
+        "fromTurn": 242,
+        "toTurn": 272,
+        "fromPrice": 14144.6897,
+        "toPrice": 10482.7897,
+        "trades": 25,
         "splitAdjusted": true,
         "window": "30T"
       },
       "tape": [
         [
-          93,
-          259.1184
+          240,
+          13268.7549
         ],
         [
-          93,
-          299.1275
+          240,
+          13004.278
         ],
         [
-          94,
-          335.3666
+          240,
+          13004.295
         ],
         [
-          100,
-          437.7954
+          240,
+          13268.7824
         ],
         [
-          101,
-          570.1764
+          240,
+          1290.6341
         ],
         [
-          102,
-          464.4353
+          240,
+          1584.6788
         ],
         [
-          103,
-          505.5981
+          241,
+          15036.4681
         ],
         [
-          103,
-          488.4113
+          242,
+          14144.6897
         ],
         [
-          104,
-          520.0429
+          243,
+          13848.4908
         ],
         [
-          104,
-          513.2112
+          244,
+          17149.403
         ],
         [
-          106,
-          515.6472
+          244,
+          14982.3023
         ],
         [
-          107,
-          536.5458
+          246,
+          17241.4911
         ],
         [
-          108,
-          587.4659
+          246,
+          15735.7833
         ],
         [
-          108,
-          559.2508
+          247,
+          17110.0539
         ],
         [
-          110,
-          576.6543
+          247,
+          17458.1268
         ],
         [
-          111,
-          597.1267
+          247,
+          16062.0341
         ],
         [
-          112,
-          573.3082
+          248,
+          16255.5772
         ],
         [
-          114,
-          607.0573
+          259,
+          14518.2752
         ],
         [
-          115,
-          628.153
+          260,
+          13934.7686
         ],
         [
-          116,
-          677.8255
+          262,
+          12074.2021
         ],
         [
-          116,
-          677.8257
+          262,
+          12075.3564
         ],
         [
-          116,
-          649.2236
+          262,
+          12149.9491
         ],
         [
-          117,
-          696.2927
+          263,
+          9342.6361
         ],
         [
-          118,
-          682.9902
+          263,
+          11603.1297
         ],
         [
-          119,
-          805.3816
+          264,
+          10462.2819
         ],
         [
-          119,
-          725.4805
+          266,
+          11397.2214
         ],
         [
-          120,
-          795.938
+          266,
+          11626.4989
         ],
         [
-          120,
-          758.4148
+          267,
+          11245.797
         ],
         [
-          121,
-          856.1512
+          268,
+          11172.2544
         ],
         [
-          121,
-          856.1512
+          270,
+          11344.6335
         ],
         [
-          122,
-          900.1783
+          271,
+          10873.9113
         ],
         [
-          122,
-          900.1782
-        ],
-        [
-          122,
-          829.7133
-        ],
-        [
-          123,
-          891.5517
-        ],
-        [
-          123,
-          867.7217
-        ],
-        [
-          124,
-          901.5895
-        ],
-        [
-          124,
-          901.5895
-        ],
-        [
-          124,
-          850.2179
-        ],
-        [
-          125,
-          930.1822
-        ],
-        [
-          125,
-          975.5854
-        ],
-        [
-          125,
-          975.5854
-        ],
-        [
-          126,
-          938.4699
-        ],
-        [
-          126,
-          899.9283
-        ],
-        [
-          127,
-          968.1269
-        ],
-        [
-          127,
-          968.1269
-        ],
-        [
-          127,
-          981.715
-        ],
-        [
-          127,
-          968.1269
-        ],
-        [
-          127,
-          924.9477
-        ],
-        [
-          128,
-          983.822
-        ],
-        [
-          128,
-          983.8225
-        ],
-        [
-          128,
-          936.4817
-        ],
-        [
-          130,
-          839.7211
-        ],
-        [
-          131,
-          1014.4887
-        ],
-        [
-          131,
-          1014.4886
-        ],
-        [
-          131,
-          991.7078
-        ],
-        [
-          131,
-          1014.4886
-        ],
-        [
-          131,
-          875.2954
-        ],
-        [
-          132,
-          999.5209
-        ],
-        [
-          132,
-          921.2482
-        ],
-        [
-          135,
-          1264.2044
-        ],
-        [
-          140,
-          1544.8602
-        ],
-        [
-          140,
-          1544.8603
-        ],
-        [
-          140,
-          1582.1378
-        ],
-        [
-          140,
-          1416.6943
-        ],
-        [
-          142,
-          1632.8157
-        ],
-        [
-          142,
-          1600.235
-        ],
-        [
-          142,
-          1582.8858
-        ],
-        [
-          145,
-          1805.5865
-        ],
-        [
-          151,
-          2392.9014
-        ],
-        [
-          152,
-          2614.7331
-        ],
-        [
-          152,
-          2614.7312
-        ],
-        [
-          153,
-          2694.9044
-        ],
-        [
-          153,
-          2641.1166
-        ],
-        [
-          153,
-          2694.9025
-        ],
-        [
-          153,
-          2641.1147
-        ],
-        [
-          153,
-          2641.1166
-        ],
-        [
-          155,
-          2909.7852
-        ],
-        [
-          155,
-          2909.785
-        ],
-        [
-          160,
-          3062.9137
-        ],
-        [
-          161,
-          3721.9043
-        ],
-        [
-          162,
-          3263.0305
-        ],
-        [
-          162,
-          3263.0288
-        ],
-        [
-          162,
-          3263.0279
-        ],
-        [
-          162,
-          3077.2872
-        ],
-        [
-          163,
-          3315.7295
-        ],
-        [
-          163,
-          3315.7294
-        ],
-        [
-          163,
-          3128.5289
-        ],
-        [
-          164,
-          3196.9563
-        ],
-        [
-          165,
-          3417.0797
-        ],
-        [
-          165,
-          3417.0793
-        ],
-        [
-          166,
-          3475.2699
-        ],
-        [
-          166,
-          3475.2697
-        ],
-        [
-          166,
-          3174.8452
-        ],
-        [
-          167,
-          3543.0822
-        ],
-        [
-          167,
-          3543.082
-        ],
-        [
-          168,
-          3633.2634
-        ],
-        [
-          168,
-          3560.733
-        ],
-        [
-          169,
-          3699.16
-        ],
-        [
-          169,
-          3624.5645
-        ],
-        [
-          169,
-          3624.5659
-        ],
-        [
-          169,
-          3624.5668
-        ],
-        [
-          169,
-          3624.568
-        ],
-        [
-          169,
-          3694.6331
-        ],
-        [
-          169,
-          3694.6329
-        ],
-        [
-          171,
-          3881.5766
-        ],
-        [
-          171,
-          3881.5762
-        ],
-        [
-          171,
-          3464.463
-        ],
-        [
-          172,
-          3654.6574
-        ],
-        [
-          173,
-          4102.4771
-        ],
-        [
-          173,
-          4020.5758
-        ],
-        [
-          174,
-          3506.6088
-        ],
-        [
-          175,
-          3751.9685
-        ],
-        [
-          175,
-          3751.968
-        ],
-        [
-          175,
-          3525.604
-        ],
-        [
-          176,
-          3788.7471
-        ],
-        [
-          176,
-          3788.7468
-        ],
-        [
-          176,
-          3575.2111
-        ],
-        [
-          177,
-          4069.7093
-        ],
-        [
-          177,
-          4069.709
-        ],
-        [
-          179,
-          4368.9585
-        ],
-        [
-          179,
-          4368.7554
-        ],
-        [
-          179,
-          4368.7482
-        ],
-        [
-          183,
-          4836.218
-        ],
-        [
-          184,
-          543378.25
-        ],
-        [
-          185,
-          3829.685
-        ],
-        [
-          186,
-          5742.1141
-        ],
-        [
-          188,
-          6717.4475
-        ],
-        [
-          188,
-          6583.3598
-        ],
-        [
-          188,
-          6583.3821
-        ],
-        [
-          188,
-          6645.3701
-        ],
-        [
-          188,
-          6645.3635
-        ],
-        [
-          189,
-          6966.6861
-        ],
-        [
-          189,
-          6966.6841
-        ],
-        [
-          189,
-          6966.6832
-        ],
-        [
-          190,
-          8613.7443
-        ],
-        [
-          190,
-          7504.5693
-        ],
-        [
-          190,
-          7504.5683
-        ],
-        [
-          191,
-          7957.0237
-        ],
-        [
-          191,
-          7957.0227
-        ],
-        [
-          192,
-          8291.529
-        ],
-        [
-          192,
-          8460.4191
-        ],
-        [
-          193,
-          8729.5453
-        ],
-        [
-          193,
-          8643.7333
-        ],
-        [
-          193,
-          8643.7322
-        ],
-        [
-          194,
-          8985.8397
-        ],
-        [
-          195,
-          9494.1307
-        ],
-        [
-          195,
-          9494.1277
-        ],
-        [
-          196,
-          9756.8039
-        ],
-        [
-          196,
-          9756.8788
-        ],
-        [
-          196,
-          9955.6103
-        ],
-        [
-          197,
-          10740.504
-        ],
-        [
-          198,
-          11011.5706
-        ],
-        [
-          200,
-          12208.5008
-        ],
-        [
-          200,
-          12208.498
-        ],
-        [
-          201,
-          13485.633
-        ],
-        [
-          201,
-          13483.9077
-        ],
-        [
-          204,
-          16156.8526
-        ],
-        [
-          208,
-          20086.9517
-        ],
-        [
-          209,
-          21124.3275
-        ],
-        [
-          211,
-          21072.9727
-        ],
-        [
-          212,
-          18511.177
-        ],
-        [
-          212,
-          19488.1742
-        ],
-        [
-          213,
-          17075.9511
-        ],
-        [
-          213,
-          17075.9483
-        ],
-        [
-          214,
-          17355.9137
-        ],
-        [
-          214,
-          17355.9106
-        ],
-        [
-          215,
-          16971.397
-        ],
-        [
-          215,
-          16971.3941
-        ],
-        [
-          215,
-          17020.5426
-        ],
-        [
-          216,
-          17104.6582
-        ],
-        [
-          216,
-          17104.6854
+          272,
+          10482.7897
         ]
       ],
       "checks": {
         "marketCapPass": true,
+        "marginPass": false
+      }
+    },
+    {
+      "id": 1530,
+      "alive": true,
+      "dissolved": false,
+      "name": "Tinky Winky",
+      "memberName": "Tinky Winky",
+      "type": "logistics",
+      "typeLabel": "logistics",
+      "description": "",
+      "countryId": "JP",
+      "headquartersState": "KAN",
+      "currency": "JPY",
+      "fxPerUsd": 154.68,
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/1530",
+      "logoUrl": null,
+      "brandColor": "#f59e0b",
+      "ceo": "Larry Fink",
+      "revenue": 128485475,
+      "operatingIncome": 49076059,
+      "marketCap": 172285740899,
+      "revenueUsd": 111155133.46823357,
+      "operatingIncomeUsd": 42456595.87778234,
+      "marketCapUsd": 1113839788.8217475,
+      "marginPct": 38.2,
+      "sharePrice": 17228.574089862534,
+      "totalShares": 10000000,
+      "holders": [
+        {
+          "name": "The Organization",
+          "shares": 10000000,
+          "pct": 100
+        }
+      ],
+      "blackrockStakePct": 0,
+      "creditRating": "AA",
+      "creditScore": 79,
+      "cashOnHand": 76619525516.83368,
+      "totalDebt": 0,
+      "defaultedBonds": 0,
+      "distress": [],
+      "distressed": false,
+      "sectorCount": 4,
+      "workers": 51211,
+      "divRate": 0,
+      "growth": null,
+      "tape": [],
+      "checks": {
+        "marketCapPass": true,
         "marginPass": true
       }
+    }
+  ],
+  "renames": [
+    {
+      "id": 853,
+      "from": "Exxon Mobil",
+      "to": "Exxon Mobil",
+      "turn": 271
     }
   ],
   "ties": [
@@ -3051,45 +4320,27 @@
     },
     {
       "type": "owns",
-      "from": "簡素",
-      "to": "John Deere",
-      "pct": 6.5
+      "from": "I Love Misa",
+      "to": "Exxon Mobil",
+      "pct": 54.4
     },
     {
       "type": "owns",
       "from": "Ranco Weapon Manfacturing",
-      "to": "John Deere",
-      "pct": 2.7
+      "to": "Exxon Mobil",
+      "pct": 1.7
     },
     {
       "type": "owns",
-      "from": "簡素",
-      "to": "Pfizer",
-      "pct": 2.8
+      "from": "The Organization",
+      "to": "Exxon Mobil",
+      "pct": 0.6
     },
     {
       "type": "owns",
       "from": "Ranco Weapon Manfacturing",
       "to": "Pfizer",
       "pct": 1.2
-    },
-    {
-      "type": "owns",
-      "from": "I Love Napoleon",
-      "to": "American Broadcasting Company",
-      "pct": 0.1
-    },
-    {
-      "type": "owns",
-      "from": "簡素",
-      "to": "American Broadcasting Company",
-      "pct": 0.1
-    },
-    {
-      "type": "owns",
-      "from": "簡素",
-      "to": "The Organization",
-      "pct": 5.4
     },
     {
       "type": "owns",
@@ -3101,76 +4352,50 @@
       "type": "owns",
       "from": "Ranco Weapon Manfacturing",
       "to": "I Love Misa",
-      "pct": 23.7
+      "pct": 21.5
     },
     {
       "type": "owns",
       "from": "Ranco Weapon Manfacturing",
       "to": "I Love Napoleon",
-      "pct": 14.3
+      "pct": 12.9
     },
     {
-      "type": "backer",
-      "who": "Larry Fink",
-      "a": "BlackRock Incorporated",
-      "aPct": 60.3,
-      "b": "John Deere",
-      "bPct": 39.8
-    },
-    {
-      "type": "backer",
-      "who": "Ranco Hashimoto",
-      "a": "BlackRock Incorporated",
-      "aPct": 6.4,
-      "b": "John Deere",
-      "bPct": 4.2
-    },
-    {
-      "type": "backer",
-      "who": "Winston Churchill",
-      "a": "BlackRock Incorporated",
-      "aPct": 1.6,
-      "b": "John Deere",
-      "bPct": 1.1
+      "type": "owns",
+      "from": "The Organization",
+      "to": "Tinky Winky",
+      "pct": 100
     },
     {
       "type": "backer",
       "who": "Malik Rahman",
       "a": "BlackRock Incorporated",
       "aPct": 0.5,
-      "b": "John Deere",
-      "bPct": 0.3
+      "b": "Exxon Mobil",
+      "bPct": 3.1
     },
     {
       "type": "backer",
-      "who": "Matsudaira Kobayashi",
+      "who": "Ranco Hashimoto",
       "a": "BlackRock Incorporated",
-      "aPct": 0.4,
-      "b": "John Deere",
-      "bPct": 0.3
+      "aPct": 6.4,
+      "b": "Exxon Mobil",
+      "bPct": 2.6
     },
     {
       "type": "backer",
-      "who": "Napoleon Astrae",
+      "who": "Winston Churchill",
       "a": "BlackRock Incorporated",
-      "aPct": 0.2,
-      "b": "John Deere",
-      "bPct": 0.1
-    },
-    {
-      "type": "backer",
-      "who": "Satoshi Fukuda",
-      "a": "BlackRock Incorporated",
-      "aPct": 0.2,
-      "b": "John Deere",
-      "bPct": 0.1
+      "aPct": 1.6,
+      "b": "Exxon Mobil",
+      "bPct": 0.7
     },
     {
       "type": "backer",
       "who": "Hillary Clinton",
       "a": "BlackRock Incorporated",
       "aPct": 0.1,
-      "b": "John Deere",
+      "b": "Exxon Mobil",
       "bPct": 0.1
     },
     {
@@ -3178,23 +4403,7 @@
       "who": "Greenbaum Group",
       "a": "BlackRock Incorporated",
       "aPct": 0.1,
-      "b": "John Deere",
-      "bPct": 0.1
-    },
-    {
-      "type": "backer",
-      "who": "Gareth Evans",
-      "a": "BlackRock Incorporated",
-      "aPct": 0,
-      "b": "John Deere",
-      "bPct": 0
-    },
-    {
-      "type": "backer",
-      "who": "Lukas Hochburger",
-      "a": "BlackRock Incorporated",
-      "aPct": 0,
-      "b": "John Deere",
+      "b": "Exxon Mobil",
       "bPct": 0
     },
     {
@@ -3211,7 +4420,7 @@
       "a": "BlackRock Incorporated",
       "aPct": 60.3,
       "b": "Pfizer",
-      "bPct": 17.3
+      "bPct": 5.1
     },
     {
       "type": "backer",
@@ -3239,27 +4448,11 @@
     },
     {
       "type": "backer",
-      "who": "Matsudaira Kobayashi",
-      "a": "BlackRock Incorporated",
-      "aPct": 0.4,
-      "b": "Pfizer",
-      "bPct": 0.1
-    },
-    {
-      "type": "backer",
       "who": "Napoleon Astrae",
       "a": "BlackRock Incorporated",
       "aPct": 0.2,
       "b": "Pfizer",
       "bPct": 0.1
-    },
-    {
-      "type": "backer",
-      "who": "Satoshi Fukuda",
-      "a": "BlackRock Incorporated",
-      "aPct": 0.2,
-      "b": "Pfizer",
-      "bPct": 0
     },
     {
       "type": "backer",
@@ -3274,14 +4467,14 @@
       "who": "Greenbaum Group",
       "a": "BlackRock Incorporated",
       "aPct": 0.1,
-      "b": "American Broadcasting Company",
-      "bPct": 0.4
+      "b": "Pfizer",
+      "bPct": 0
     },
     {
       "type": "backer",
-      "who": "Larry Fink",
+      "who": "Greenbaum Group",
       "a": "BlackRock Incorporated",
-      "aPct": 60.3,
+      "aPct": 0.1,
       "b": "American Broadcasting Company",
       "bPct": 0.3
     },
@@ -3339,7 +4532,7 @@
       "a": "BlackRock Incorporated",
       "aPct": 60.3,
       "b": "The Organization",
-      "bPct": 33.1
+      "bPct": 27.4
     },
     {
       "type": "backer",
@@ -3367,23 +4560,7 @@
     },
     {
       "type": "backer",
-      "who": "Matsudaira Kobayashi",
-      "a": "BlackRock Incorporated",
-      "aPct": 0.4,
-      "b": "The Organization",
-      "bPct": 0.2
-    },
-    {
-      "type": "backer",
       "who": "Napoleon Astrae",
-      "a": "BlackRock Incorporated",
-      "aPct": 0.2,
-      "b": "The Organization",
-      "bPct": 0.1
-    },
-    {
-      "type": "backer",
-      "who": "Satoshi Fukuda",
       "a": "BlackRock Incorporated",
       "aPct": 0.2,
       "b": "The Organization",
@@ -3427,7 +4604,7 @@
       "a": "BlackRock Incorporated",
       "aPct": 0.2,
       "b": "I Love Misa",
-      "bPct": 74.5
+      "bPct": 68.3
     },
     {
       "type": "backer",
@@ -3442,6 +4619,14 @@
       "who": "Matsudaira Kobayashi",
       "a": "BlackRock Incorporated",
       "aPct": 0.4,
+      "b": "I Love Misa",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "Larry Fink",
+      "a": "BlackRock Incorporated",
+      "aPct": 60.3,
       "b": "I Love Misa",
       "bPct": 0
     },
@@ -3464,79 +4649,77 @@
     {
       "type": "backer",
       "who": "Malik Rahman",
-      "a": "John Deere",
-      "aPct": 0.3,
+      "a": "BlackRock Incorporated",
+      "aPct": 0.5,
+      "b": "Vermont Retail",
+      "bPct": 81.7
+    },
+    {
+      "type": "ceo",
+      "who": "Larry Fink",
+      "a": "BlackRock Incorporated",
+      "b": "Tinky Winky"
+    },
+    {
+      "type": "backer",
+      "who": "Malik Rahman",
+      "a": "Exxon Mobil",
+      "aPct": 3.1,
       "b": "Vermont Logistics",
       "bPct": 100
     },
     {
       "type": "backer",
-      "who": "Larry Fink",
-      "a": "John Deere",
-      "aPct": 39.8,
+      "who": null,
+      "a": "Exxon Mobil",
+      "aPct": 2.7,
       "b": "Pfizer",
-      "bPct": 17.3
+      "bPct": 1.9
     },
     {
       "type": "backer",
       "who": "Ranco Hashimoto",
-      "a": "John Deere",
-      "aPct": 4.2,
+      "a": "Exxon Mobil",
+      "aPct": 2.6,
       "b": "Pfizer",
       "bPct": 1.8
     },
     {
       "type": "backer",
       "who": "Malik Rahman",
-      "a": "John Deere",
-      "aPct": 0.3,
+      "a": "Exxon Mobil",
+      "aPct": 3.1,
       "b": "Pfizer",
       "bPct": 1.8
     },
     {
       "type": "backer",
+      "who": "Paddy Riot",
+      "a": "Exxon Mobil",
+      "aPct": 0.4,
+      "b": "Pfizer",
+      "bPct": 1.6
+    },
+    {
+      "type": "backer",
       "who": "Winston Churchill",
-      "a": "John Deere",
-      "aPct": 1.1,
+      "a": "Exxon Mobil",
+      "aPct": 0.7,
       "b": "Pfizer",
       "bPct": 0.5
     },
     {
       "type": "backer",
       "who": "caleb mercer",
-      "a": "John Deere",
-      "aPct": 0.6,
+      "a": "Exxon Mobil",
+      "aPct": 0.4,
       "b": "Pfizer",
       "bPct": 0.3
     },
     {
       "type": "backer",
-      "who": "Matsudaira Kobayashi",
-      "a": "John Deere",
-      "aPct": 0.3,
-      "b": "Pfizer",
-      "bPct": 0.1
-    },
-    {
-      "type": "backer",
-      "who": "Napoleon Astrae",
-      "a": "John Deere",
-      "aPct": 0.1,
-      "b": "Pfizer",
-      "bPct": 0.1
-    },
-    {
-      "type": "backer",
-      "who": "Satoshi Fukuda",
-      "a": "John Deere",
-      "aPct": 0.1,
-      "b": "Pfizer",
-      "bPct": 0
-    },
-    {
-      "type": "backer",
       "who": "Hillary Clinton",
-      "a": "John Deere",
+      "a": "Exxon Mobil",
       "aPct": 0.1,
       "b": "Pfizer",
       "bPct": 0
@@ -3544,143 +4727,159 @@
     {
       "type": "backer",
       "who": "Greenbaum Group",
-      "a": "John Deere",
-      "aPct": 0.1,
-      "b": "American Broadcasting Company",
-      "bPct": 0.4
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Pfizer",
+      "bPct": 0
     },
     {
       "type": "backer",
-      "who": "Larry Fink",
-      "a": "John Deere",
-      "aPct": 39.8,
+      "who": "Greenbaum Group",
+      "a": "Exxon Mobil",
+      "aPct": 0,
       "b": "American Broadcasting Company",
       "bPct": 0.3
     },
     {
       "type": "backer",
       "who": "Malik Rahman",
-      "a": "John Deere",
-      "aPct": 0.3,
+      "a": "Exxon Mobil",
+      "aPct": 3.1,
       "b": "American Broadcasting Company",
       "bPct": 0.1
     },
     {
       "type": "backer",
       "who": "caleb mercer",
-      "a": "John Deere",
-      "aPct": 0.6,
+      "a": "Exxon Mobil",
+      "aPct": 0.4,
       "b": "American Broadcasting Company",
-      "bPct": 0.1
+      "bPct": 0
     },
     {
       "type": "backer",
       "who": "Ranco Hashimoto",
-      "a": "John Deere",
-      "aPct": 4.2,
+      "a": "Exxon Mobil",
+      "aPct": 2.6,
       "b": "American Broadcasting Company",
       "bPct": 0
     },
     {
       "type": "backer",
       "who": "Winston Churchill",
-      "a": "John Deere",
-      "aPct": 1.1,
+      "a": "Exxon Mobil",
+      "aPct": 0.7,
+      "b": "American Broadcasting Company",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": null,
+      "a": "Exxon Mobil",
+      "aPct": 2.7,
       "b": "American Broadcasting Company",
       "bPct": 0
     },
     {
       "type": "backer",
       "who": "Ranco Hashimoto",
-      "a": "John Deere",
-      "aPct": 4.2,
+      "a": "Exxon Mobil",
+      "aPct": 2.6,
       "b": "Ranco Weapon Manfacturing",
       "bPct": 100
     },
     {
       "type": "backer",
-      "who": "Satoshi Fukuda",
-      "a": "John Deere",
-      "aPct": 0.1,
-      "b": "簡素",
-      "bPct": 67.5
-    },
-    {
-      "type": "backer",
       "who": "Greenbaum Group",
-      "a": "John Deere",
-      "aPct": 0.1,
+      "a": "Exxon Mobil",
+      "aPct": 0,
       "b": "簡素",
       "bPct": 0.1
     },
     {
       "type": "backer",
-      "who": "Larry Fink",
-      "a": "John Deere",
-      "aPct": 39.8,
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "簡素",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "簡素",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "簡素",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "Nariyoshi Miyagi",
+      "a": "Exxon Mobil",
+      "aPct": 3.4,
       "b": "The Organization",
-      "bPct": 33.1
+      "bPct": 45
+    },
+    {
+      "type": "backer",
+      "who": null,
+      "a": "Exxon Mobil",
+      "aPct": 2.7,
+      "b": "The Organization",
+      "bPct": 3.7
     },
     {
       "type": "backer",
       "who": "Ranco Hashimoto",
-      "a": "John Deere",
-      "aPct": 4.2,
+      "a": "Exxon Mobil",
+      "aPct": 2.6,
       "b": "The Organization",
       "bPct": 3.5
     },
     {
       "type": "backer",
       "who": "Winston Churchill",
-      "a": "John Deere",
-      "aPct": 1.1,
+      "a": "Exxon Mobil",
+      "aPct": 0.7,
       "b": "The Organization",
       "bPct": 0.9
     },
     {
       "type": "backer",
       "who": "caleb mercer",
-      "a": "John Deere",
-      "aPct": 0.6,
+      "a": "Exxon Mobil",
+      "aPct": 0.4,
       "b": "The Organization",
       "bPct": 0.5
     },
     {
       "type": "backer",
       "who": "Malik Rahman",
-      "a": "John Deere",
-      "aPct": 0.3,
+      "a": "Exxon Mobil",
+      "aPct": 3.1,
       "b": "The Organization",
       "bPct": 0.3
     },
     {
       "type": "backer",
-      "who": "Matsudaira Kobayashi",
-      "a": "John Deere",
-      "aPct": 0.3,
-      "b": "The Organization",
-      "bPct": 0.2
-    },
-    {
-      "type": "backer",
-      "who": "Napoleon Astrae",
-      "a": "John Deere",
-      "aPct": 0.1,
-      "b": "The Organization",
-      "bPct": 0.1
-    },
-    {
-      "type": "backer",
-      "who": "Satoshi Fukuda",
-      "a": "John Deere",
-      "aPct": 0.1,
+      "who": "Paddy Riot",
+      "a": "Exxon Mobil",
+      "aPct": 0.4,
       "b": "The Organization",
       "bPct": 0.1
     },
     {
       "type": "backer",
       "who": "Hillary Clinton",
-      "a": "John Deere",
+      "a": "Exxon Mobil",
       "aPct": 0.1,
       "b": "The Organization",
       "bPct": 0.1
@@ -3688,66 +4887,122 @@
     {
       "type": "backer",
       "who": "Greenbaum Group",
-      "a": "John Deere",
-      "aPct": 0.1,
+      "a": "Exxon Mobil",
+      "aPct": 0,
       "b": "The Organization",
       "bPct": 0.1
-    },
-    {
-      "type": "backer",
-      "who": "Gareth Evans",
-      "a": "John Deere",
-      "aPct": 0,
-      "b": "The Organization",
-      "bPct": 0
-    },
-    {
-      "type": "backer",
-      "who": "Lukas Hochburger",
-      "a": "John Deere",
-      "aPct": 0,
-      "b": "The Organization",
-      "bPct": 0
-    },
-    {
-      "type": "backer",
-      "who": "Napoleon Astrae",
-      "a": "John Deere",
-      "aPct": 0.1,
-      "b": "I Love Misa",
-      "bPct": 74.5
     },
     {
       "type": "backer",
       "who": "Ranco Hashimoto",
-      "a": "John Deere",
-      "aPct": 4.2,
+      "a": "Exxon Mobil",
+      "aPct": 2.6,
       "b": "I Love Misa",
       "bPct": 0.1
     },
     {
       "type": "backer",
-      "who": "Matsudaira Kobayashi",
-      "a": "John Deere",
-      "aPct": 0.3,
-      "b": "I Love Misa",
-      "bPct": 0
-    },
-    {
-      "type": "backer",
       "who": "Greenbaum Group",
-      "a": "John Deere",
-      "aPct": 0.1,
+      "a": "Exxon Mobil",
+      "aPct": 0,
       "b": "I Love Napoleon",
       "bPct": 0.2
     },
     {
       "type": "backer",
       "who": "Ranco Hashimoto",
-      "a": "John Deere",
-      "aPct": 4.2,
+      "a": "Exxon Mobil",
+      "aPct": 2.6,
       "b": "I Love Napoleon",
       "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Paddy Riot",
+      "a": "Exxon Mobil",
+      "aPct": 0.4,
+      "b": "I Love Napoleon",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "Malik Rahman",
+      "a": "Exxon Mobil",
+      "aPct": 3.1,
+      "b": "Vermont Retail",
+      "bPct": 81.7
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
     },
     {
       "type": "backer",
@@ -3774,10 +5029,24 @@
       "bPct": 0.3
     },
     {
+      "type": "ceo",
+      "who": "Malik Rahman",
+      "a": "Vermont Logistics",
+      "b": "Vermont Retail"
+    },
+    {
       "type": "backer",
-      "who": "Larry Fink",
+      "who": "Malik Rahman",
+      "a": "Vermont Logistics",
+      "aPct": 100,
+      "b": "Vermont Retail",
+      "bPct": 81.7
+    },
+    {
+      "type": "backer",
+      "who": "Greenbaum Group",
       "a": "Pfizer",
-      "aPct": 17.3,
+      "aPct": 0,
       "b": "American Broadcasting Company",
       "bPct": 0.3
     },
@@ -3795,7 +5064,7 @@
       "a": "Pfizer",
       "aPct": 0.3,
       "b": "American Broadcasting Company",
-      "bPct": 0.1
+      "bPct": 0
     },
     {
       "type": "backer",
@@ -3815,6 +5084,14 @@
     },
     {
       "type": "backer",
+      "who": null,
+      "a": "Pfizer",
+      "aPct": 1.9,
+      "b": "American Broadcasting Company",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
       "who": "Ranco Hashimoto",
       "a": "Pfizer",
       "aPct": 1.8,
@@ -3823,19 +5100,27 @@
     },
     {
       "type": "backer",
-      "who": "Satoshi Fukuda",
+      "who": "Greenbaum Group",
       "a": "Pfizer",
       "aPct": 0,
       "b": "簡素",
-      "bPct": 67.5
+      "bPct": 0.1
     },
     {
       "type": "backer",
       "who": "Larry Fink",
       "a": "Pfizer",
-      "aPct": 17.3,
+      "aPct": 5.1,
       "b": "The Organization",
-      "bPct": 33.1
+      "bPct": 27.4
+    },
+    {
+      "type": "backer",
+      "who": null,
+      "a": "Pfizer",
+      "aPct": 1.9,
+      "b": "The Organization",
+      "bPct": 3.7
     },
     {
       "type": "backer",
@@ -3871,14 +5156,6 @@
     },
     {
       "type": "backer",
-      "who": "Matsudaira Kobayashi",
-      "a": "Pfizer",
-      "aPct": 0.1,
-      "b": "The Organization",
-      "bPct": 0.2
-    },
-    {
-      "type": "backer",
       "who": "Napoleon Astrae",
       "a": "Pfizer",
       "aPct": 0.1,
@@ -3887,9 +5164,9 @@
     },
     {
       "type": "backer",
-      "who": "Satoshi Fukuda",
+      "who": "Paddy Riot",
       "a": "Pfizer",
-      "aPct": 0,
+      "aPct": 1.6,
       "b": "The Organization",
       "bPct": 0.1
     },
@@ -3903,11 +5180,19 @@
     },
     {
       "type": "backer",
+      "who": "Greenbaum Group",
+      "a": "Pfizer",
+      "aPct": 0,
+      "b": "The Organization",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
       "who": "Napoleon Astrae",
       "a": "Pfizer",
       "aPct": 0.1,
       "b": "I Love Misa",
-      "bPct": 74.5
+      "bPct": 68.3
     },
     {
       "type": "backer",
@@ -3919,11 +5204,19 @@
     },
     {
       "type": "backer",
-      "who": "Matsudaira Kobayashi",
+      "who": "Larry Fink",
       "a": "Pfizer",
-      "aPct": 0.1,
+      "aPct": 5.1,
       "b": "I Love Misa",
       "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "Greenbaum Group",
+      "a": "Pfizer",
+      "aPct": 0,
+      "b": "I Love Napoleon",
+      "bPct": 0.2
     },
     {
       "type": "backer",
@@ -3951,6 +5244,14 @@
     },
     {
       "type": "backer",
+      "who": "Malik Rahman",
+      "a": "Pfizer",
+      "aPct": 1.8,
+      "b": "Vermont Retail",
+      "bPct": 81.7
+    },
+    {
+      "type": "backer",
       "who": "Ranco Hashimoto",
       "a": "American Broadcasting Company",
       "aPct": 0,
@@ -3961,17 +5262,17 @@
       "type": "backer",
       "who": "Greenbaum Group",
       "a": "American Broadcasting Company",
-      "aPct": 0.4,
+      "aPct": 0.3,
       "b": "簡素",
       "bPct": 0.1
     },
     {
       "type": "backer",
-      "who": "Larry Fink",
+      "who": null,
       "a": "American Broadcasting Company",
-      "aPct": 0.3,
+      "aPct": 0,
       "b": "The Organization",
-      "bPct": 33.1
+      "bPct": 3.7
     },
     {
       "type": "backer",
@@ -3993,7 +5294,7 @@
       "type": "backer",
       "who": "caleb mercer",
       "a": "American Broadcasting Company",
-      "aPct": 0.1,
+      "aPct": 0,
       "b": "The Organization",
       "bPct": 0.5
     },
@@ -4009,7 +5310,7 @@
       "type": "backer",
       "who": "Greenbaum Group",
       "a": "American Broadcasting Company",
-      "aPct": 0.4,
+      "aPct": 0.3,
       "b": "The Organization",
       "bPct": 0.1
     },
@@ -4023,17 +5324,9 @@
     },
     {
       "type": "backer",
-      "who": "Misa Astrae",
-      "a": "American Broadcasting Company",
-      "aPct": 0.3,
-      "b": "I Love Napoleon",
-      "bPct": 78.1
-    },
-    {
-      "type": "backer",
       "who": "Greenbaum Group",
       "a": "American Broadcasting Company",
-      "aPct": 0.4,
+      "aPct": 0.3,
       "b": "I Love Napoleon",
       "bPct": 0.2
     },
@@ -4044,6 +5337,22 @@
       "aPct": 0,
       "b": "I Love Napoleon",
       "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Malik Rahman",
+      "a": "American Broadcasting Company",
+      "aPct": 0.1,
+      "b": "Vermont Retail",
+      "bPct": 81.7
+    },
+    {
+      "type": "backer",
+      "who": "Isiah Rivera",
+      "a": "American Broadcasting Company",
+      "aPct": 0.1,
+      "b": "Vermont Retail",
+      "bPct": 0
     },
     {
       "type": "backer",
@@ -4071,14 +5380,6 @@
     },
     {
       "type": "backer",
-      "who": "Satoshi Fukuda",
-      "a": "簡素",
-      "aPct": 67.5,
-      "b": "The Organization",
-      "bPct": 0.1
-    },
-    {
-      "type": "backer",
       "who": "Greenbaum Group",
       "a": "簡素",
       "aPct": 0.1,
@@ -4095,11 +5396,83 @@
     },
     {
       "type": "backer",
+      "who": "National Public Party",
+      "a": "簡素",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "簡素",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "簡素",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "簡素",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "簡素",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "簡素",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "簡素",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "簡素",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "National Public Party",
+      "a": "簡素",
+      "aPct": 0,
+      "b": "Vermont Retail",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
       "who": "Napoleon Astrae",
       "a": "The Organization",
       "aPct": 0.1,
       "b": "I Love Misa",
-      "bPct": 74.5
+      "bPct": 68.3
     },
     {
       "type": "backer",
@@ -4111,9 +5484,9 @@
     },
     {
       "type": "backer",
-      "who": "Matsudaira Kobayashi",
+      "who": "Larry Fink",
       "a": "The Organization",
-      "aPct": 0.2,
+      "aPct": 27.4,
       "b": "I Love Misa",
       "bPct": 0
     },
@@ -4135,6 +5508,30 @@
     },
     {
       "type": "backer",
+      "who": "Paddy Riot",
+      "a": "The Organization",
+      "aPct": 0.1,
+      "b": "I Love Napoleon",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "Malik Rahman",
+      "a": "The Organization",
+      "aPct": 0.3,
+      "b": "Vermont Retail",
+      "bPct": 81.7
+    },
+    {
+      "type": "backer",
+      "who": "Misa Astrae",
+      "a": "I Love Misa",
+      "aPct": 0.2,
+      "b": "I Love Napoleon",
+      "bPct": 71.1
+    },
+    {
+      "type": "backer",
       "who": "Ranco Hashimoto",
       "a": "I Love Misa",
       "aPct": 0.1,
@@ -4144,54 +5541,54 @@
   ],
   "forex": {
     "rates": {
-      "ATS": 11.757219495471645,
-      "BGL": 28.040339149370414,
-      "BRL": 4.673930718875902,
-      "CNY": 5.180791471930734,
-      "CSK": 27.717965760942988,
-      "ESP": 110.72061574044227,
-      "EUR": 0.7738985070612374,
-      "FIM": 4.06070574804057,
-      "FRF": 5.675038178231964,
-      "GBP": 0.46382560040620824,
-      "GRD": 210.15063098709746,
-      "HUF": 74.94429948166312,
-      "IEP": 0.5291060501642103,
-      "ITL": 1343.1758627473214,
-      "JPY": 127.27167636254774,
-      "NGN": 9.86749976759005,
-      "PLZ": 9390.746972297537,
-      "ROL": 34.794578023164895,
-      "SEK": 6.17652945450431,
-      "SUR": 2.208323766549184,
-      "TRL": 4715.72910770766,
-      "USD": 0.8403394294562357,
-      "YUD": 15.30196734309354
+      "ATS": 11.755110568817269,
+      "BGL": 28.916807712035155,
+      "BRL": 4.8612846950551525,
+      "CNY": 5.269944809630299,
+      "CSK": 28.161280617754556,
+      "ESP": 117.20608653464798,
+      "EUR": 0.8460493858869864,
+      "FIM": 4.041914880146335,
+      "FRF": 5.961008836348105,
+      "GBP": 0.5363189134327784,
+      "GRD": 207.62493907283275,
+      "HUF": 74.99539363402242,
+      "IEP": 0.6110511322168538,
+      "ITL": 1377.9623691397242,
+      "JPY": 133.8141676882527,
+      "NGN": 10.91126232632138,
+      "PLZ": 9452.45242242786,
+      "ROL": 34.555409993803956,
+      "SEK": 6.214969753564287,
+      "SUR": 2.345459068104697,
+      "TRL": 4818.1963002102,
+      "USD": 0.8651182825781168,
+      "YUD": 15.802816927623029
     },
     "perUsd": {
-      "ATS": 13.991,
-      "BGL": 33.3679,
-      "BRL": 5.562,
-      "CNY": 6.1651,
-      "CSK": 32.9842,
-      "ESP": 131.757,
-      "EUR": 0.9209,
-      "FIM": 4.8322,
-      "FRF": 6.7533,
-      "GBP": 0.552,
-      "GRD": 250.0783,
-      "HUF": 89.1834,
-      "IEP": 0.6296,
-      "ITL": 1598.373,
-      "JPY": 151.4527,
-      "NGN": 11.7423,
-      "PLZ": 11174.9451,
-      "ROL": 41.4054,
-      "SEK": 7.35,
-      "SUR": 2.6279,
-      "TRL": 5611.6956,
+      "ATS": 13.5879,
+      "BGL": 33.4253,
+      "BRL": 5.6192,
+      "CNY": 6.0916,
+      "CSK": 32.5519,
+      "ESP": 135.4798,
+      "EUR": 0.978,
+      "FIM": 4.6721,
+      "FRF": 6.8904,
+      "GBP": 0.6199,
+      "GRD": 239.996,
+      "HUF": 86.688,
+      "IEP": 0.7063,
+      "ITL": 1592.8023,
+      "JPY": 154.6773,
+      "NGN": 12.6125,
+      "PLZ": 10926.1966,
+      "ROL": 39.943,
+      "SEK": 7.184,
+      "SUR": 2.7111,
+      "TRL": 5569.4076,
       "USD": 1,
-      "YUD": 18.2093
+      "YUD": 18.2667
     },
     "countryCcy": {
       "AT": "ATS",
@@ -4223,6 +5620,6 @@
     "discord": "hyawii2.0",
     "character": "Larry Fink",
     "characterUrl": "https://www.ahousedividedgame.com/character/1",
-    "ceoOf": "Dow Inc"
+    "ceoOf": "Tinky Winky"
   }
 }
