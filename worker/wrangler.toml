@@ -1,0 +1,39 @@
+name = "wild-night-2ce6"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# --- KV namespace: create once, then paste the id printed by ---
+#     npx wrangler kv namespace create AH_DATA
+[[kv_namespaces]]
+binding = "AH_DATA"
+id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+
+# Cron: every 15 minutes, so data advances even with no visitors and no PC.
+[triggers]
+crons = ["*/15 * * * *"]
+
+[vars]
+# Seconds a cached dataset is considered fresh before a request re-fetches.
+# 300 = the site is at most 5 minutes behind even without cron.
+TTL_SECONDS = "300"
+
+# Alliance members tracked in /data/live.json (sequentialIds).
+ROSTER_IDS = "498,853,964,496,645,767,521,1084,561,565,1341,1530"
+
+# Threat-matrix dossiers served at /data/intel.json.
+INTEL_IDS = "824,978"
+
+# Per-corporation threat label. Add one line per intel id.
+THREAT_824 = "Biochemical Weapons Development"
+THREAT_978 = "Biochemical Weapons Development"
+
+# --- SECRETS (never commit these) ---
+#   npx wrangler secret put AHD_API_KEY
+# value: ahd_pub_...
+#
+# Optional: server-side gate for /data/intel.json so the threat dossiers are not
+# publicly readable even though the site is static. Set BOTH, or neither.
+#   npx wrangler secret put AUTH_SALT     -> the salt from data/auth.json
+#   npx wrangler secret put ADMIN_HASH    -> admin.hash from data/auth.json
+#   npx wrangler secret put VIEWER_HASH   -> viewer.hash from data/auth.json
+# When all three are set, callers must send X-AHD-Code: <admin or viewer code>.

@@ -143,9 +143,9 @@ function startTimer(s){
 async function loadLive(){
   let s;
   try {
-    const r = await fetch('data/live.json?t=' + Date.now(), { cache: 'no-store' });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    s = await r.json();
+    // fetchData resolves to parsed JSON (or throws) - there is no Response to test.
+    s = await fetchData('live.json');
+    if (!s || !s.game || !Array.isArray(s.corporations)) throw new Error('malformed snapshot');
   } catch {
     const stamp = $('#liveStamp'); if (stamp) stamp.textContent = 'LIVE • OFFLINE';
     const note = $('#snapNote'); if (note) note.textContent = 'Live snapshot unavailable — showing last known structure. Raw: data/live.json.';
@@ -170,6 +170,8 @@ async function loadLive(){
   if (note) note.innerHTML = 'Verified ' + esc(dateStr) + ' · Turn ' + s.game.currentTurn +
     ' (' + esc(s.game.gameDateLabel) + ') · figures in USD' + (jpy ? ', converted at live forex (¥' + jpy + '/$)' : '') +
     ' · margin = income ÷ revenue · growth from share tape · <a href="data/live.json">raw snapshot</a>';
+  // appended AFTER the note text is written, so it is not overwritten
+  stampSource();
 
   document.querySelectorAll('[data-live]').forEach(el => {
     const parts = (el.getAttribute('data-live') || '').split(':');
@@ -263,9 +265,9 @@ function renderWatchlist(){
   const box = $('#watchList');
   if (!box) return;
   if (typeof fetch !== 'function') return;
-  fetch('data/intel.json?t=' + Date.now(), { cache: 'no-store' })
-    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+  fetchData('intel.json')
     .then(d => {
+      if (!d || !d.corporations) throw new Error('bad payload');
       const list = (d.corporations || []).filter(c => c.alive !== false);
       if (!list.length) {
         box.innerHTML = '<p class="t-note" style="color:var(--muted)">No corporations in the watchlist yet. Add one via the Threat Matrix page.</p>';
@@ -306,7 +308,39 @@ function renderWatchlist(){
     });
 }
 
-// ---- Bankruptcy watch: dissolved corps + live distress signals
+// ---- data source: prefer the Cloudflare Worker (updates with the PC asleep),
+// fall back to the snapshot committed on GitHub Pages so the site never hard-fails.
+const DATA_ORIGIN = 'https://wild-night-2ce6.batuhanylz2009.workers.dev';
+let dataSource = 'pages';
+async function fetchData(name, opts) {
+  const bust = '?t=' + Date.now();
+  try {
+    const r = await fetch(DATA_ORIGIN + '/data/' + name + bust, { cache: 'no-store', mode: 'cors' });
+    if (r.ok) {
+      const age = r.headers.get && r.headers.get('X-Vanguard-Cache-Age');
+      const j = await r.json();
+      if (j && !(j.error && !j.corporations)) {
+        dataSource = 'worker';
+        if (typeof j.__meta === 'undefined' && age !== null) j.__cacheAgeSec = Number(age);
+        return j;
+      }
+    }
+  } catch (e) { /* worker unreachable or not deployed yet -> fall through */ }
+  const r2 = await fetch('data/' + name + bust, Object.assign({ cache: 'no-store' }, opts || {}));
+  if (!r2.ok) throw new Error('HTTP ' + r2.status);
+  dataSource = 'pages';
+  return r2.json();
+}
+function stampSource() {
+  const el = document.querySelector('#snapNote');
+  if (!el || !SNAP || !el.insertAdjacentHTML) return;
+  const worker = dataSource === 'worker';
+  const tag = worker
+    ? ' <b style="color:#4ade80">&#9679; LIVE VIA WORKER</b>'
+    : ' <b style="color:#ffb020">&#9679; snapshot on GitHub Pages</b>';
+  el.insertAdjacentHTML('beforeend', tag);
+}
+
 function renderBankrupt(){
   const box = $('#bankruptList');
   const foot = $('#bankruptFoot');
@@ -576,10 +610,8 @@ loadLive();
 setInterval(async () => {
   try {
     if (!SNAP) return;
-    const r = await fetch('data/live.json?t=' + Date.now(), { cache: 'no-store' });
-    if (!r.ok) return;
-    const s = await r.json();
-    if (s.updatedAt && s.updatedAt !== SNAP.updatedAt) {
+    const s = await fetchData('live.json');
+    if (s && s.updatedAt && SNAP && s.updatedAt !== SNAP.updatedAt) {
       const el = $('#turnTimer');
       if (el) el.textContent = 'NEW DATA — RELOADING...';
       setTimeout(() => location.reload(), 2000);
@@ -592,9 +624,7 @@ let CORPS = [];
 let selCorp = null;
 async function loadCorps(){
   try {
-    const r = await fetch('data/corps.json?t=' + Date.now(), { cache: 'no-store' });
-    if (!r.ok) return;
-    const j = await r.json();
+    const j = await fetchData('corps.json');
     CORPS = j.corps || [];
     const cc = $('#corpCount');
     if (cc) cc.textContent = (j.count || CORPS.length).toLocaleString('en-US');
@@ -828,8 +858,7 @@ async function renderCharts(){
   if (!SNAP) return;
   // alliance history (combined per snapshot point)
   try {
-    const r = await fetch('data/history.json?t=' + Date.now(), { cache: 'no-store' });
-    const h = r.ok ? await r.json() : { points: [] };
+    const h = await fetchData('history.json');
     const pts = (h.points || []).filter(p => p.turn != null);
     const cap = pts.map(p => [p.turn, p.corps.reduce((a, c) => a + (c.m || 0), 0)]);
     const rev = pts.map(p => [p.turn, p.corps.reduce((a, c) => a + (c.r || 0), 0)]);

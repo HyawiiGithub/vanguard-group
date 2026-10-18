@@ -556,18 +556,35 @@
   });
 
   // ---------- intelligence data ----------
+  var DATA_ORIGIN = 'https://wild-night-2ce6.batuhanylz2009.workers.dev';
+  var dataOrigin = 'pages';
+  function fetchData(name) {
+    var bust = '?t=' + Date.now();
+    return fetch(DATA_ORIGIN + '/data/' + name + bust, { cache: 'no-store', mode: 'cors' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('worker ' + r.status);
+        return r.json().then(function (j) {
+          if (j && !(j.error && !j.corporations)) { dataOrigin = 'worker'; return j; }
+          throw new Error('worker payload rejected');
+        });
+      })
+      .catch(function () {
+        dataOrigin = 'pages';
+        return fetch('data/' + name + bust, { cache: 'no-store' }).then(function (r) { return r.json(); });
+      });
+  }
   var DATA = null, CORPS = null, FX = null;
   function load() {
     if (location.protocol === 'file:') { $('#mxMeta').textContent = 'Open over http(s) to load data.'; return; }
     Promise.all([
-      fetch('data/intel.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }),
-      fetch('data/corps.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return { corps: [] }; }),
-      fetch('data/live.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return { forex: null }; })
+      fetchData('intel.json'),
+      fetchData('corps.json').catch(function () { return { corps: [] }; }),
+      fetchData('live.json').catch(function () { return { forex: null }; })
     ]).then(function (res) {
       DATA = res[0]; CORPS = res[1] || { corps: [] }; FX = (res[2] && res[2].forex) || null;
       buildThreatSelect();
       paint();
-    }).catch(function (e) { $('#mxMeta').textContent = 'Could not load data/intel.json (' + e.message + ')'; });
+    }).catch(function (e) { $('#mxMeta').textContent = 'Could not load intel data (' + e.message + ')'; });
   }
 
   function defaultThreat() {
@@ -598,7 +615,8 @@
     $('#mxMeta').textContent = 'turn ' + d.game.currentTurn + ' (' + d.game.gameDateLabel + ') · snapshot ' +
       new Date(d.updatedAt).toISOString().slice(0, 16).replace('T', ' ') + 'Z · ' +
       (t.corporations || 0) + ' tracked · ' + (t.workers || 0).toLocaleString('en-US') + ' workers · ' +
-      (t.bonds || 0) + ' bonds' + (t.defaultedBonds ? ' · ' + t.defaultedBonds + ' DEFAULTED' : '');
+      (t.bonds || 0) + ' bonds' + (t.defaultedBonds ? ' · ' + t.defaultedBonds + ' DEFAULTED' : '') +
+      ' · ' + (dataOrigin === 'worker' ? 'LIVE via Worker' : 'snapshot on Pages');
     $('#threatBasis').textContent = (d.threat && d.threat.note ? d.threat.note : '') +
       ' Labels are set per corporation in data/roster.json; the axis figures below are derived from real sector data.';
     var labels = {};

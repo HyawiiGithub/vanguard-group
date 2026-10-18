@@ -37,6 +37,17 @@ roster on ids alone silently relabels whoever inherits the id. `ROSTER` in
 - different document → **quarantined**, the stranger's figures are discarded and reported
   under `idReusedBy`
 
+## Live updates via Cloudflare Worker
+
+The site is static but the data is not: a Worker fetches the AHD API on a cron and on demand,
+caches in KV, and serves it with CORS, so data advances **with your PC off**. The page prefers
+the Worker and falls back to the snapshot committed on GitHub Pages, so the site never hard-fails.
+
+- Worker: `https://wild-night-2ce6.batuhanylz2009.workers.dev` · source `worker/worker.js`
+- Deploy guide: **`worker/README.md`** · config `worker/wrangler.toml`
+- Endpoints: `/data/live.json`, `/data/history.json`, `/data/corps.json`, `/data/intel.json`, `/health`
+- Refreshes every 15 min via cron, plus stale-while-revalidate on request (`TTL_SECONDS`)
+
 ## Auto-refresh
 
 GitHub Actions cron **is currently broken at the account level** — every job fails in ~2s
