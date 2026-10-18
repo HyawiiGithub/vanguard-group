@@ -1,0 +1,45 @@
+{
+  "comment": [
+    "ADD A CORPORATION HERE.",
+    "Only `id` is required - paste the sequentialId from the AHD site URL",
+    "(ahousedividedgame.com/corporations/824 -> id 824).",
+    "Everything else - CEO, logo, financials, share register, bonds, credit",
+    "rating, sectors, tape - is filled in automatically by tools/fetch-intel.mjs.",
+    "You never hand-enter figures; this file only says WHICH corporations to track",
+    "and how to label them.",
+    "",
+    "Fields:",
+    "  id      (required) sequentialId of the corporation",
+    "  threat  classification shown on the threat matrix",
+    "  member  true  -> also counted as a Vanguard alliance member",
+    "  alias   display override if the registered name is not what you want shown",
+    "  note    free text shown on the dossier"
+  ],
+  "threats": [
+    "Biochemical Weapons Development",
+    "Military Weapons Development",
+    "Biological Weapons Development",
+    "Nuclear Proliferation",
+    "Cyber / Information Operations",
+    "Resource Extraction Rivalry",
+    "None observed"
+  ],
+  "autoMatch": ["umbrella"],
+  "autoMatchNote": "Case-insensitive name patterns scanned against the full live corporation register on every refresh. Matches are added automatically, so a corporation that registers under a matching name shows up even if it is not listed in entries below.",
+  "entries": [
+    {
+      "id": 824,
+      "threat": "Biochemical Weapons Development",
+      "member": false,
+      "alias": "Umbrella Corporation",
+      "note": "Parent group. Automated nuclear, pharmaceutical and bio-engineering, laboratory-grade chemical manufacturing. Holds 100% of #978."
+    },
+    {
+      "id": 978,
+      "threat": "Biochemical Weapons Development",
+      "member": false,
+      "alias": null,
+      "note": "Wholly-owned research subsidiary. Defence and frontier research programmes."
+    }
+  ]
+}

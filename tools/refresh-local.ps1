@@ -43,13 +43,18 @@ Write-Host "[$(Get-Date -Format HH:mm:ss)] fetching AHD snapshot..." -Foreground
 & node tools\fetch-ahd.mjs
 if ($LASTEXITCODE -ne 0) { Write-Host "fetch failed (exit $LASTEXITCODE)" -ForegroundColor Red; exit $LASTEXITCODE }
 
+# Intel dossiers for everything listed in data/roster.json (corporations you add yourself).
+Write-Host "[$(Get-Date -Format HH:mm:ss)] fetching intel dossiers..." -ForegroundColor Cyan
+& node tools\fetch-intel.mjs
+if ($LASTEXITCODE -ne 0) { Write-Host "intel fetch failed (exit $LASTEXITCODE) - snapshot still valid" -ForegroundColor Yellow }
+
 $turnAfter = $null
 try { $turnAfter = (Get-Content data\live.json -Raw | ConvertFrom-Json).game.currentTurn } catch {}
 Write-Host "[$(Get-Date -Format HH:mm:ss)] turn $turnBefore -> $turnAfter" -ForegroundColor Cyan
 
 if ($DryRun) { Write-Host "dry run: not committing" -ForegroundColor Yellow; exit 0 }
 
-git add data/live.json data/corps.json data/history.json
+git add data/live.json data/corps.json data/history.json data/intel.json data/roster.json
 if ($LASTEXITCODE -ne 0) { Write-Host "git add failed" -ForegroundColor Red; exit 1 }
 
 # Nothing changed -> do not create an empty commit.

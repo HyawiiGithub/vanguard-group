@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=13" />
+<link rel="stylesheet" href="styles.css?v=14" />
 </head>
 <body>
 <div class="bg-grid"></div>
@@ -572,6 +572,17 @@
   </div>
 </section>
 
+<!-- ADDED / WATCHLIST -->
+<section class="section section-dark" id="watchlist">
+  <div class="container">
+    <p class="kicker">05 — WATCHLIST</p>
+    <h2>Corporations you <span class="red">added yourself.</span></h2>
+    <p class="sub">Anything you add by ID in <code>data/roster.json</code> is fetched and rendered here automatically — CEO, financials, share register, bonds, credit rating and sector footprint, all straight from the live API. Nothing on this list is hand-entered.</p>
+    <div class="watch-grid" id="watchList"><p class="sub">Loading watchlist&hellip;</p></div>
+    <p class="t-note">To add one: open the <a href="threat.html">Threat Matrix</a>, paste a corporation ID, and copy the generated roster line into <code>data/roster.json</code>. The scheduled refresher rebuilds this section within 15 minutes. Full dossiers, bonds and sector tables live on the Threat Matrix page.</p>
+  </div>
+</section>
+
 <!-- CHAIRMAN -->
 <section class="section section-dark" id="chairman">
   <div class="container">
@@ -700,6 +711,6 @@
 </footer>
 </main>
 
-<script src="app.js?v=13"></script>
+<script src="app.js?v=14"></script>
 </body>
 </html>

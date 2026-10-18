@@ -6,114 +6,106 @@
 <title>THREAT MATRIX — Vanguard Group (restricted)</title>
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="description" content="Restricted internal threat matrix.">
-<link rel="stylesheet" href="styles.css?v=13">
+<link rel="stylesheet" href="styles.css?v=14">
 <style>
-  /* ---------- passcode gate ---------- */
   .gate{min-height:100vh;display:grid;place-items:center;padding:24px}
-  .gate-card{
-    width:min(520px,100%);padding:34px 30px;border-radius:18px;text-align:center;
+  .gate-card{width:min(520px,100%);padding:34px 30px;border-radius:18px;text-align:center;
     background:linear-gradient(165deg,rgba(196,18,46,.10),rgba(13,22,51,.96) 60%);
-    border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.55);
-  }
+    border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.55)}
   .gate-card h1{margin:0 0 6px;font-size:22px;letter-spacing:-.01em}
   .gate-sub{margin:0 0 22px;color:var(--muted);font-size:13px}
   .gate-row{display:flex;gap:9px;justify-content:center}
-  .gate-row input{
-    flex:1;max-width:280px;padding:13px 15px;border-radius:10px;font:600 15px/1 ui-monospace,monospace;
-    letter-spacing:.16em;text-align:center;color:var(--text);
-    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);outline:none;
-  }
+  .gate-row input{flex:1;max-width:280px;padding:13px 15px;border-radius:10px;
+    font:600 15px/1 ui-monospace,monospace;letter-spacing:.16em;text-align:center;color:var(--text);
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);outline:none}
   .gate-row input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(196,18,46,.22)}
-  .gate-row button{
-    padding:13px 22px;border:0;border-radius:10px;cursor:pointer;
+  .gate-row button,.btn{padding:13px 22px;border:0;border-radius:10px;cursor:pointer;
     font:800 12px/1 Inter,Arial,sans-serif;letter-spacing:.1em;color:#fff;
-    background:linear-gradient(135deg,#C4122E,#8f0d22);
-  }
+    background:linear-gradient(135deg,#C4122E,#8f0d22)}
+  .btn.ghost{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:var(--muted)}
+  .btn.sm{padding:9px 14px;font-size:10.5px}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
   .gate-msg{min-height:20px;margin:14px 0 0;font:700 12px/1.4 Inter,Arial,sans-serif;color:#ff8fa8}
   .gate-msg.ok{color:#4ade80}
-  .gate-warn{
-    margin-top:24px;padding:13px 15px;border-radius:11px;text-align:left;
+  .gate-warn{margin-top:24px;padding:13px 15px;border-radius:11px;text-align:left;
     background:rgba(255,176,32,.09);border:1px solid rgba(255,176,32,.3);
-    font:500 11.5px/1.65 Inter,Arial,sans-serif;color:#ffd489;
-  }
+    font:500 11.5px/1.65 Inter,Arial,sans-serif;color:#ffd489}
   .gate-warn b{color:#fff}
 
-  /* ---------- matrix shell ---------- */
-  .mx{max-width:1180px;margin:0 auto;padding:30px 20px 70px}
-  .mx-head{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:26px}
-  .mx-tag{
-    display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border-radius:999px;
+  .mx{max-width:1240px;margin:0 auto;padding:30px 20px 70px}
+  .mx-head{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:24px}
+  .mx-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border-radius:999px;
     font:800 10px/1 Inter,Arial,sans-serif;letter-spacing:.16em;color:#fff;
-    background:linear-gradient(90deg,#ff2d55,#8f0d22);
-  }
+    background:linear-gradient(90deg,#ff2d55,#8f0d22)}
   .mx-title{font-size:27px;margin:10px 0 4px;letter-spacing:-.02em}
   .mx-meta{color:var(--muted);font:600 11.5px/1.6 ui-monospace,monospace}
-  .mx-lock{
-    padding:8px 13px;border-radius:9px;cursor:pointer;
-    font:700 11px/1 Inter,Arial,sans-serif;letter-spacing:.06em;
-    color:var(--muted);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
-  }
+  .mx-lock{padding:8px 13px;border-radius:9px;cursor:pointer;font:700 11px/1 Inter,Arial,sans-serif;
+    color:var(--muted);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14)}
   .mx-lock:hover{color:#fff;border-color:var(--red)}
 
-  /* threat banner */
-  .threat{
-    position:relative;overflow:hidden;border-radius:15px;padding:20px 22px;margin-bottom:22px;
+  .threat{position:relative;overflow:hidden;border-radius:15px;padding:20px 22px;margin-bottom:20px;
     background:linear-gradient(150deg,rgba(255,45,85,.16),rgba(13,22,51,.95) 62%);
-    border:1px solid rgba(255,45,85,.42);
-  }
-  .threat::after{
-    content:"";position:absolute;left:0;right:0;top:0;height:3px;
+    border:1px solid rgba(255,45,85,.42)}
+  .threat::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;
     background:linear-gradient(90deg,transparent,#ff2d55,#ffb020,#ff2d55,transparent);
-    background-size:220% 100%;animation:sweep 3.2s linear infinite;
-  }
+    background-size:220% 100%;animation:sweep 3.2s linear infinite}
   @keyframes sweep{0%{background-position:0 0}100%{background-position:220% 0}}
   .threat h3{margin:0 0 4px;font-size:16px;letter-spacing:.02em}
-  .threat .axes{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
-  .axis{
-    flex:1 1 230px;padding:12px 14px;border-radius:11px;
-    background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);
-  }
+  .axes{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
+  .axis{flex:1 1 240px;padding:12px 14px;border-radius:11px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12)}
   .axis small{display:block;font:800 9px/1.4 Inter,Arial,sans-serif;letter-spacing:.15em;color:var(--muted);margin-bottom:5px}
   .axis strong{display:block;font:800 14px/1.35 Inter,Arial,sans-serif;color:#fff}
   .axis .sub{margin-top:5px;font:600 11px/1.5 ui-monospace,monospace;color:#c9cfe8}
 
-  /* corp dossier */
-  .corp{
-    margin-bottom:20px;border-radius:15px;overflow:hidden;
-    background:rgba(13,22,51,.86);border:1px solid rgba(255,255,255,.1);
-  }
-  .corp-banner{
-    position:relative;height:132px;display:flex;align-items:center;gap:18px;padding:0 22px;
-    background:
-      radial-gradient(1200px 200px at 12% 0%,rgba(199,0,0,.34),transparent 62%),
-      linear-gradient(120deg,#180609,#0a1230 70%);
-    border-bottom:1px solid rgba(255,255,255,.1);
-  }
-  .corp-banner::before{
-    content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
-    background:repeating-linear-gradient(115deg,rgba(255,255,255,.045) 0 2px,transparent 2px 16px);
-  }
-  .corp-logo{
-    position:relative;flex:0 0 auto;width:78px;height:78px;border-radius:13px;
-    display:grid;place-items:center;padding:9px;
-    background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.16);
-  }
+  /* ---- add corporation ---- */
+  .add{border-radius:15px;padding:20px 22px;margin-bottom:22px;
+    background:linear-gradient(150deg,rgba(120,160,255,.10),rgba(13,22,51,.94) 60%);
+    border:1px solid rgba(120,160,255,.3)}
+  .add h3{margin:0 0 4px;font-size:16px}
+  .add .lead{margin:0 0 15px;color:#c9cfe8;font:500 12.5px/1.7 Inter,Arial,sans-serif}
+  .add-grid{display:grid;gap:11px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));align-items:end}
+  .fld{display:flex;flex-direction:column;gap:5px}
+  .fld label{font:800 9px/1.4 Inter,Arial,sans-serif;letter-spacing:.13em;color:var(--muted)}
+  .fld input,.fld select,.fld textarea{padding:10px 12px;border-radius:9px;
+    font:600 13px/1.3 Inter,Arial,sans-serif;color:var(--text);
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);outline:none;width:100%}
+  .fld textarea{min-height:64px;resize:vertical;font-size:12px}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:#5b8cff;box-shadow:0 0 0 3px rgba(91,140,255,.2)}
+  .add-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;align-items:center}
+  .add-msg{margin:12px 0 0;font:600 12px/1.6 Inter,Arial,sans-serif;color:#8fd0ff;min-height:19px}
+  .add-msg.err{color:#ff8fa8}
+  .add-msg.ok{color:#4ade80}
+  .roster-out{margin-top:13px;padding:12px 13px;border-radius:10px;display:none;
+    background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.14)}
+  .roster-out pre{margin:0;font:600 11.5px/1.6 ui-monospace,monospace;color:#b9ffd6;white-space:pre-wrap;word-break:break-all}
+  .chk{display:flex;align-items:center;gap:7px;font:600 12px/1.4 Inter,Arial,sans-serif;color:#c9cfe8;cursor:pointer}
+  .chk input{width:15px;height:15px;accent-color:var(--red)}
+
+  .corp{margin-bottom:20px;border-radius:15px;overflow:hidden;background:rgba(13,22,51,.86);border:1px solid rgba(255,255,255,.1)}
+  .corp-banner{position:relative;height:126px;display:flex;align-items:center;gap:18px;padding:0 22px;
+    background:radial-gradient(1200px 200px at 12% 0%,rgba(199,0,0,.34),transparent 62%),linear-gradient(120deg,#180609,#0a1230 70%);
+    border-bottom:1px solid rgba(255,255,255,.1)}
+  .corp-banner::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background:repeating-linear-gradient(115deg,rgba(255,255,255,.045) 0 2px,transparent 2px 16px)}
+  .corp-logo{position:relative;flex:0 0 auto;width:74px;height:74px;border-radius:13px;display:grid;
+    place-items:center;padding:9px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.16)}
   .corp-logo img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.6))}
-  .corp-logo .fallback{font:800 15px/1.15 Inter,Arial,sans-serif;color:#fff;text-align:center;letter-spacing:.04em}
-  .corp-id{position:relative}
-  .corp-id h4{margin:0 0 5px;font-size:20px;color:#fff;letter-spacing:-.01em}
+  .corp-logo .fallback{font:800 14px/1.15 Inter,Arial,sans-serif;color:#fff;text-align:center;letter-spacing:.04em}
+  .corp-id{position:relative;min-width:0}
+  .corp-id h4{margin:0 0 5px;font-size:19px;color:#fff;letter-spacing:-.01em}
   .corp-id .meta{font:600 11.5px/1.6 ui-monospace,monospace;color:#c9cfe8}
-  .corp-id .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
-  .chip{
-    padding:3px 9px;border-radius:999px;
-    font:800 9px/1.7 Inter,Arial,sans-serif;letter-spacing:.12em;
-    color:#cfe0ff;background:rgba(120,160,255,.14);border:1px solid rgba(120,160,255,.34);
-  }
+  .corp-id .meta a{color:#7aa7ff}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .chip{padding:3px 9px;border-radius:999px;font:800 9px/1.7 Inter,Arial,sans-serif;letter-spacing:.12em;
+    color:#cfe0ff;background:rgba(120,160,255,.14);border:1px solid rgba(120,160,255,.34)}
   .chip.red{color:#ffb3c1;background:rgba(255,45,85,.15);border-color:rgba(255,45,85,.42)}
   .chip.amber{color:#ffd489;background:rgba(255,176,32,.14);border-color:rgba(255,176,32,.4)}
+  .chip.green{color:#a7f3c0;background:rgba(74,222,128,.13);border-color:rgba(74,222,128,.36)}
   .corp-desc{padding:15px 22px 0;color:#c9cfe8;font:500 13px/1.7 Inter,Arial,sans-serif}
-  .mx-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));padding:16px 22px 20px}
-  .panel{border-radius:12px;padding:14px 15px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1)}
+  .corp-note{padding:9px 22px 0;color:#ffd489;font:600 11.5px/1.6 ui-monospace,monospace}
+
+  .mx-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));padding:16px 22px 20px}
+  .panel{border-radius:12px;padding:14px 15px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);min-width:0}
   .panel h5{margin:0 0 11px;font:800 10px/1.4 Inter,Arial,sans-serif;letter-spacing:.15em;color:var(--muted)}
   .kv{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
   .kv:last-child{border-bottom:0}
@@ -121,6 +113,7 @@
   .kv b{font:700 12.5px/1.5 ui-monospace,monospace;color:#eef1ff;text-align:right;word-break:break-word}
   .kv b.warn{color:#ffd489}
   .kv b.bad{color:#ff8fa8}
+  .kv b.good{color:#a7f3c0}
   .holders{display:grid;gap:7px}
   .holder{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
   .holder .nm{font:600 11.5px/1.4 Inter,Arial,sans-serif;color:#eef1ff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -128,14 +121,18 @@
   .hbar{grid-column:1/-1;height:4px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden}
   .hbar i{display:block;height:100%;background:linear-gradient(90deg,#C4122E,#ff6b6b)}
   table.mx{width:100%;border-collapse:collapse;font:500 11.5px/1.5 Inter,Arial,sans-serif}
-  table.mx th{
-    text-align:left;padding:7px 8px;font:800 9px/1.4 Inter,Arial,sans-serif;letter-spacing:.13em;
-    color:var(--muted);border-bottom:1px solid rgba(255,255,255,.12);text-transform:uppercase;
-  }
-  table.mx td{padding:7px 8px;border-bottom:1px solid rgba(255,255,255,.055);color:#dfe4f7}
+  table.mx th{text-align:left;padding:7px 8px;font:800 9px/1.4 Inter,Arial,sans-serif;letter-spacing:.12em;
+    color:var(--muted);border-bottom:1px solid rgba(255,255,255,.12);text-transform:uppercase;white-space:nowrap}
+  table.mx td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.055);color:#dfe4f7}
   table.mx td.num{text-align:right;font-family:ui-monospace,monospace;white-space:nowrap}
-  .mx-note{margin:16px 22px 20px;padding:11px 13px;border-radius:10px;background:rgba(255,176,32,.09);
+  .def{color:#ff8fa8;font-weight:800}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .mx-note{margin:0 22px 18px;padding:11px 13px;border-radius:10px;background:rgba(255,176,32,.09);
     border:1px solid rgba(255,176,32,.3);font:500 11.5px/1.65 Inter,Arial,sans-serif;color:#ffd489}
+  details.raw{margin:0 22px 18px;border-radius:10px;background:rgba(0,0,0,.34);border:1px solid rgba(255,255,255,.12)}
+  details.raw summary{cursor:pointer;padding:11px 13px;font:700 11px/1.5 Inter,Arial,sans-serif;letter-spacing:.08em;color:#9aa3c7}
+  details.raw pre{margin:0;padding:0 13px 13px;font:600 11px/1.6 ui-monospace,monospace;color:#b9ffd6;
+    white-space:pre-wrap;word-break:break-all;max-height:400px;overflow:auto}
   .mx-foot{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.09);
     color:var(--muted);font:500 11px/1.7 Inter,Arial,sans-serif}
   .hidden{display:none !important}
@@ -143,57 +140,86 @@
 </head>
 <body>
 
-<!-- ================= PASSCODE GATE ================= -->
 <div class="gate" id="gate">
   <div class="gate-card">
     <h1>THREAT MATRIX</h1>
     <p class="gate-sub">Vanguard Group &middot; internal &middot; restricted circulation</p>
     <div class="gate-row">
-      <input id="pw" type="password" inputmode="text" autocomplete="off" placeholder="PASSCODE" aria-label="Passcode">
+      <input id="pw" type="password" autocomplete="off" placeholder="PASSCODE" aria-label="Passcode">
       <button id="go" type="button">UNLOCK</button>
     </div>
     <p class="gate-msg" id="msg"></p>
     <div class="gate-warn">
-      <b>What this gate actually does.</b> A browser page cannot see your IP address, so this
-      gate <b>cannot</b> enforce a real network restriction — anything enforced in client-side
-      JavaScript can be bypassed by anyone who opens the source. Treat this as a speed bump and a
-      plain warning label, not as security. For genuine IP filtering, put a Cloudflare Worker in
-      front of the site and reject any request whose <code>CF-Connecting-IP</code> is not on an
-      allowlist.
+      <b>What this gate actually does.</b> A browser page cannot see the visitor's IP address, so this
+      gate <b>cannot</b> enforce a real network restriction &mdash; anything enforced in client-side
+      JavaScript can be bypassed by anyone who opens the source. Treat this as a speed bump and a plain
+      warning label, not as security. For genuine source-address filtering, put an edge proxy or worker in
+      front of the site and reject requests by source address there.
     </div>
   </div>
 </div>
 
-<!-- ================= MATRIX ================= -->
 <div class="hidden" id="matrix">
   <div class="mx">
     <div class="mx-head">
       <div>
-        <span class="mx-tag">◈ COUNTER-THREAT ASSESSMENT</span>
-        <h1 class="mx-title">Threat Matrix — <span style="color:#ff8fa8">Umbrella Corporation &amp; Technologies</span></h1>
-        <div class="mx-meta" id="mxMeta">loading…</div>
+        <span class="mx-tag">&#9670; COUNTER-THREAT ASSESSMENT</span>
+        <h1 class="mx-title">Threat Matrix</h1>
+        <div class="mx-meta" id="mxMeta">loading&hellip;</div>
       </div>
-      <button class="mx-lock" id="relock" type="button">◈ RE-LOCK</button>
+      <button class="mx-lock" id="relock" type="button">&#9670; RE-LOCK</button>
     </div>
 
     <section class="threat">
-      <h3>&#9888; THREAT ASSESSMENT</h3>
+      <h3>&#9888; GROUP THREAT ASSESSMENT</h3>
       <div class="mx-meta" id="threatBasis"></div>
       <div class="axes" id="threatAxes"></div>
+    </section>
+
+    <section class="add">
+      <h3>&#10133; ADD A CORPORATION</h3>
+      <p class="lead">
+        Type a corporation ID (the number in <code>ahousedividedgame.com/corporations/<b>ID</b></code>)
+        or a name. Every figure below is pulled live &mdash; CEO, logo, financials, costs, share register,
+        bonds, credit components, sectors and tape &mdash; and is <b>never</b> hand-entered.
+        To keep a corporation on this page permanently, copy the generated roster line into
+        <code>data/roster.json</code>; the scheduled refresher picks it up within 15 minutes.
+      </p>
+      <div class="add-grid">
+        <div class="fld"><label>CORPORATION ID OR NAME</label><input id="aId" placeholder="824 or Umbrella"></div>
+        <div class="fld"><label>THREAT CLASSIFICATION</label><select id="aThreat"></select></div>
+        <div class="fld"><label>ALSO A VANGUARD MEMBER?</label>
+          <label class="chk" style="padding-top:7px"><input type="checkbox" id="aMember"> count in alliance totals</label></div>
+        <div class="fld"><label>DISPLAY NAME OVERRIDE (OPTIONAL)</label><input id="aAlias" placeholder="leave blank for registered name"></div>
+      </div>
+      <div class="add-grid" style="margin-top:11px">
+        <div class="fld" style="grid-column:1/-1"><label>NOTE</label><textarea id="aNote" placeholder="optional free text shown on the dossier"></textarea></div>
+        <div class="fld"><label>YOUR AHD KEY (ONLY IF NOT ALREADY TRACKED)</label>
+          <input id="akey" placeholder="ahd_pub_..." autocomplete="off"></div>
+        <div class="fld"><label>&nbsp;</label>
+          <button class="btn" id="aFetch" type="button">FETCH DOSSIER</button></div>
+      </div>
+      <div class="add-actions">
+        <button class="btn ghost sm" id="aRoster" type="button">GENERATE ROSTER LINE</button>
+        <span class="mx-meta" id="aSrc"></span>
+      </div>
+      <p class="add-msg" id="aMsg"></p>
+      <div class="roster-out" id="aOut"><pre id="aOutPre"></pre></div>
+      <div id="aPreview"></div>
     </section>
 
     <div id="corps"></div>
 
     <div class="mx-foot">
-      <b>Source of truth.</b> Every figure on this page is read from <code>data/umbrella.json</code>,
-      generated by <code>tools/fetch-umbrella.mjs</code> against the AHD public v1 API and refreshed on
-      the same 15-minute cycle as the main site. Nothing here is hand-entered.
+      <b>Source of truth.</b> Everything on this page is read from <code>data/intel.json</code>, generated by
+      <code>tools/fetch-intel.mjs</code> from the live AHD API on the same 15-minute cycle as the main site.
+      Corporation selection lives in <code>data/roster.json</code>; names matching <code>autoMatch</code> are
+      discovered automatically on every refresh.
       <br><br>
-      <b>Banner limitation.</b> The AHD public endpoint exposes <code>logoUrl</code> and
-      <code>brandColor</code> but <b>not</b> the corporation hero banner
-      (<code>headerImageUrl</code>), which is only served from the cookie-authenticated in-game
-      endpoint. Banners here are therefore generated from each corporation's registered brand colour
-      rather than fetched, and <code>bannerUrl</code> is recorded as <code>null</code> in the data file.
+      <b>Banner limitation.</b> The AHD public endpoint exposes <code>logoUrl</code> and <code>brandColor</code>
+      but not the corporation hero banner (<code>headerImageUrl</code>), which is only served from the
+      cookie-authenticated in-game endpoint. Banner strips are therefore generated from each corporation's
+      registered brand colour, and <code>bannerUrl</code> is recorded as <code>null</code>.
       <br><br>
       <a href="index.html" style="color:#4f7bd6">&larr; Back to the Vanguard Group site</a>
     </div>
@@ -205,8 +231,13 @@
   'use strict';
   // SHA-256 of the passcode. The plaintext passcode is never stored in this file.
   var PW_HASH = '75bc1bc63fd61e6882198b454a2a4ad321d452ae698954132d033514d502a3bb';
-  var SESSION_KEY = 'vg.threat.unlocked';
+  var SESSION_KEY = 'vg.thread.unlocked';
   var $ = function (s) { return document.querySelector(s); };
+  var THREAT_FLAG = {
+    defense: '<span style="color:#ff8fa8">&#9679; MILITARY</span>',
+    chemical_industries: '<span style="color:#ff8fa8">&#9679; BIOCHEM</span>',
+    healthcare: '<span style="color:#ff8fa8">&#9679; BIOCHEM</span>'
+  };
 
   // Hex-encode the digest BYTES. (An earlier version base64-encoded the digest and then
   // hex-encoded those characters, which can never equal a real SHA-256 hex digest.)
@@ -218,46 +249,37 @@
     });
   }
 
-  var unlocked = false;
   function unlock() {
     $('#gate').classList.add('hidden');
     $('#matrix').classList.remove('hidden');
-    unlocked = true;
-    render();
+    load();
   }
   function lock() {
-    sessionStorage.removeItem(SESSION_KEY);
+    try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {}
     $('#matrix').classList.add('hidden');
     $('#gate').classList.remove('hidden');
     $('#pw').value = '';
-    unlocked = false;
   }
-
   function attempt() {
-    var v = $('#pw').value.trim();
-    var msg = $('#msg');
+    var v = $('#pw').value.trim(), msg = $('#msg');
     if (!v) { msg.textContent = 'Enter the passcode.'; msg.classList.remove('ok'); return; }
     sha256(v).then(function (h) {
       if (h === PW_HASH) {
-        msg.textContent = 'ACCESS GRANTED';
-        msg.classList.add('ok');
+        msg.textContent = 'ACCESS GRANTED'; msg.classList.add('ok');
         try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
         setTimeout(unlock, 220);
       } else {
-        msg.textContent = 'ACCESS DENIED — incorrect passcode.';
+        msg.textContent = 'ACCESS DENIED - incorrect passcode.';
         msg.classList.remove('ok');
         $('#pw').select();
       }
-    }).catch(function () {
-      msg.textContent = 'Could not verify (needs a secure context).';
-    });
+    }).catch(function () { msg.textContent = 'Could not verify (needs a secure context).'; });
   }
   $('#go').addEventListener('click', attempt);
   $('#pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') attempt(); });
   $('#relock').addEventListener('click', lock);
 
-  // ---------- rendering ----------
-  var DATA = null;
+  // ---------- formatting ----------
   var fmt = function (n) {
     if (n == null || !isFinite(n)) return 'n/a';
     var a = Math.abs(n);
@@ -266,129 +288,384 @@
         : a >= 1e3 ? '$' + (n / 1e3).toFixed(1) + 'K'
           : '$' + Math.round(n).toLocaleString('en-US');
   };
+  var num = function (n) { return n == null ? 'n/a' : Number(n).toLocaleString('en-US'); };
+  var pct = function (n) { return n == null ? 'n/a' : (Math.round(n * 100) / 100) + '%'; };
   var esc = function (t) {
     return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
       .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   };
-  var pct = function (n) { return n == null ? 'n/a' : n.toFixed(2) + '%'; };
+  var kv = function (k, v, cls) {
+    return '<div class="kv"><span>' + k + '</span><b class="' + (cls || '') + '">' + v + '</b></div>';
+  };
 
-  function axisCard(name, label, a, corps) {
-    return '<div class="axis"><small>' + label + '</small>' +
-      '<strong>' + esc(name) + '</strong>' +
-      '<div class="sub">' + a.sectorCount + ' sectors &middot; ' +
-      a.workers.toLocaleString('en-US') + ' workers<br>' +
-      'anchor revenue ' + Math.round(a.revenue).toLocaleString('en-US') + ' / game day</div></div>';
+  // ---------- intelligence data ----------
+  var DATA = null, CORPS = null, FX = null;
+  function load() {
+    if (location.protocol === 'file:') { $('#mxMeta').textContent = 'Open over http(s) to load data.'; return; }
+    Promise.all([
+      fetch('data/intel.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }),
+      fetch('data/corps.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return { corps: [] }; }),
+      fetch('data/live.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return { forex: null }; })
+    ]).then(function (res) {
+      DATA = res[0]; CORPS = res[1] || { corps: [] }; FX = (res[2] && res[2].forex) || null;
+      buildThreatSelect();
+      paint();
+    }).catch(function (e) { $('#mxMeta').textContent = 'Could not load data/intel.json (' + e.message + ')'; });
   }
 
-  function render() {
-    if (!DATA) {
-      fetch('data/umbrella.json?t=' + Date.now(), { cache: 'no-store' })
-        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-        .then(function (d) { DATA = d; paint(); })
-        .catch(function (e) {
-          $('#mxMeta').textContent = 'Could not load data/umbrella.json (' + e.message + ')';
-        });
-      return;
-    }
-    paint();
+  function defaultThreat() {
+    return (DATA && DATA.threat && DATA.threat.default) || 'Biochemical Weapons Development';
+  }
+  function buildThreatSelect() {
+    var set = (DATA.threats && DATA.threats.length ? DATA.threats.slice() : []).filter(function (t) {
+      return t !== defaultThreat();
+    });
+    set.unshift(defaultThreat());
+    var html = set.map(function (t) { return '<option value="' + esc(t) + '">' + esc(t) + '</option>'; }).join('');
+    html += '<option value="__custom">custom…</option>';
+    $('#aThreat').innerHTML = html;
+    $('#aThreat').value = defaultThreat();
+  }
+
+  function axisCard(label, a) {
+    return '<div class="axis"><small>' + label + '</small><strong>' +
+      (a.sectorCount ? a.sectorCount + ' sectors' : 'no sectors') + '</strong>' +
+      '<div class="sub">' + a.workers.toLocaleString('en-US') + ' workers &middot; ' +
+      'anchor rev ' + Math.round(a.revenue).toLocaleString('en-US') + '/day' +
+      (a.states && a.states.length ? '<br>' + esc(a.states.slice(0, 6).join(', ')) + (a.states.length > 6 ? ' +' + (a.states.length - 6) : '') : '') +
+      '</div></div>';
   }
 
   function paint() {
-    var d = DATA, t = d.threat, g = d.group;
-    $('#mxMeta').textContent = 'threat ' + t.classification + ' · turn ' + d.game.currentTurn +
-      ' (' + d.game.gameDateLabel + ') · snapshot ' + new Date(d.updatedAt).toISOString().slice(0, 16).replace('T', ' ') + 'Z · ' +
-      g.count + ' registered corporations';
-    $('#threatBasis').textContent = t.basis + ' ' + t.bannerNote;
-
-    $('#threatAxes').innerHTML =
-      axisCard(t.threat.primary, 'PRIMARY THREAT', g.threatAxes.military) +
-      axisCard(t.threat.secondary, 'SECONDARY THREAT', g.threatAxes.biochemical);
-
-    $('#corps').innerHTML = d.corporations.map(function (c) {
-      var logo = c.logoUrl
-        ? '<img src="' + esc(c.logoUrl) + '" alt="' + esc(c.name) + '">'
-        : '<span class="fallback">' + esc(c.name.split(' ')[0]) + '</span>';
-      var brand = esc(c.brandColor || '#c70000');
-
-      var kv = function (k, v, cls) {
-        return '<div class="kv"><span>' + k + '</span><b class="' + (cls || '') + '">' + v + '</b></div>';
-      };
-
-      var holders = c.shareholders.slice(0, 8).map(function (h) {
-        return '<div class="holder"><span class="nm">' + esc(h.name || 'unknown') + '</span>' +
-          '<span class="pc">' + h.pct + '%</span>' +
-          '<span class="hbar"><i style="width:' + Math.max(1, Math.min(100, h.pct)) + '%"></i></span></div>';
-      }).join('');
-
-      var rows = Object.keys(c.sectorsByType).sort(function (a, b) {
-        return c.sectorsByType[b].revenue - c.sectorsByType[a].revenue;
-      }).map(function (k) {
-        var v = c.sectorsByType[k];
-        var flag = THREAT_FLAG[k] || '';
-        return '<tr><td>' + esc(k) + (flag ? ' ' + flag : '') + '</td>' +
-          '<td class="num">' + v.sectorCount + '</td>' +
-          '<td class="num">' + v.workers.toLocaleString('en-US') + '</td>' +
-          '<td class="num">' + Math.round(v.revenue).toLocaleString('en-US') + '</td></tr>';
-      }).join('');
-
-      var liquid = c.cashOnHand != null && c.marketCapUsd ? (c.cashOnHand / c.marketCapUsd) * 100 : null;
-      var liqCls = liquid == null ? '' : liquid < 0.2 ? 'bad' : liquid < 1 ? 'warn' : '';
-
-      return '<article class="corp">' +
-        '<div class="corp-banner" style="box-shadow:inset 0 -1px 0 ' + brand + '33">' +
-          '<div class="corp-logo">' + logo + '</div>' +
-          '<div class="corp-id"><h4>' + esc(c.name) + '</h4>' +
-            '<div class="meta">CORP #' + c.id + ' · ' + esc(c.typeLabel || c.type || '') + ' · HQ ' +
-              esc(c.headquartersState || c.countryId || '?') + ' · CEO ' + esc(c.ceo || 'vacant') + '</div>' +
-            '<div class="tags">' +
-              '<span class="chip">MARKET CAP ' + fmt(c.marketCapUsd) + '</span>' +
-              '<span class="chip">REV ' + fmt(c.revenueUsd) + '/DAY</span>' +
-              '<span class="chip">MARGIN ' + pct(c.marginPct) + '</span>' +
-              '<span class="chip">WORKERS ' + (c.workers || 0).toLocaleString('en-US') + '</span>' +
-              (c.creditRating ? '<span class="chip">RATING ' + esc(c.creditRating) + '</span>' : '') +
-              (c.publicFloatPct != null ? '<span class="chip">FLOAT ' + c.publicFloatPct + '%</span>' : '') +
-              (c.threatAxes.military.sectorCount ? '<span class="chip red">DEFENSE ×' + c.threatAxes.military.sectorCount + '</span>' : '') +
-              (c.threatAxes.biochemical.sectorCount ? '<span class="chip red">CHEM/HEALTH ×' + c.threatAxes.biochemical.sectorCount + '</span>' : '') +
-              (c.defaultedBonds ? '<span class="chip amber">BOND DEFAULT</span>' : '') +
-            '</div>' +
-          '</div>' +
-        '</div>' +
-        (c.description ? '<p class="corp-desc">' + esc(c.description) + '</p>' : '') +
-        '<div class="mx-grid">' +
-          '<div class="panel"><h5>FINANCIALS (USD)</h5>' +
-            kv('Revenue / game day', fmt(c.revenueUsd)) +
-            kv('Operating income', c.operatingIncome == null ? 'n/a' : '$' + Math.round(c.operatingIncome * (c.revenueUsd && c.revenue ? c.revenueUsd / c.revenue : 1)).toLocaleString('en-US')) +
-            kv('Operating margin', pct(c.marginPct), c.marginPct != null && c.marginPct < 10 ? 'bad' : '') +
-            kv('Market cap', fmt(c.marketCapUsd)) +
-            kv('Cash on hand', fmt(c.cashOnHand), liqCls) +
-            kv('Total debt', fmt(c.totalDebt)) +
-            kv('Cash / market cap', pct(liquid), liqCls) +
-            kv('Dividend rate', c.dividendRate != null ? c.dividendRate + '%' : '—') +
-            kv('Local figures', c.currency + ' · anchor ' + Math.round(c.revenue || 0).toLocaleString('en-US') + '/day') +
-          '</div>' +
-          '<div class="panel"><h5>SHARE REGISTER</h5>' +
-            kv('Share price', c.sharePrice == null ? 'n/a' : '$' + Number(c.sharePrice).toLocaleString('en-US')) +
-            kv('Total shares', c.totalShares == null ? 'n/a' : Number(c.totalShares).toLocaleString('en-US')) +
-            kv('Public float', c.publicFloatPct == null ? 'n/a' : c.publicFloatPct + '%') +
-            kv('Credit rating', esc(c.creditRating || 'n/a') + (c.creditScore != null ? ' (' + c.creditScore + ')' : '')) +
-            '<div style="height:9px"></div>' + (holders || '<span class="kv"><span>no register</span></span>') +
-          '</div>' +
-          '<div class="panel"><h5>SECTOR FOOTPRINT</h5>' +
-            '<table class="mx"><thead><tr><th>Type</th><th style="text-align:right">#</th>' +
-              '<th style="text-align:right">Workers</th><th style="text-align:right">Anchor rev/day</th></tr></thead>' +
-              '<tbody>' + rows + '</tbody></table>' +
-          '</div>' +
-        '</div>' +
-        (c.bannerUrl ? '' : '<p class="mx-note">Hero banner unavailable from the public API for this corporation — the banner strip above is generated from its registered brand colour ' + brand + ' instead of a fetched image.</p>') +
-      '</article>';
+    var d = DATA, t = d.totals || {};
+    $('#mxMeta').textContent = 'turn ' + d.game.currentTurn + ' (' + d.game.gameDateLabel + ') · snapshot ' +
+      new Date(d.updatedAt).toISOString().slice(0, 16).replace('T', ' ') + 'Z · ' +
+      (t.corporations || 0) + ' tracked · ' + (t.workers || 0).toLocaleString('en-US') + ' workers · ' +
+      (t.bonds || 0) + ' bonds' + (t.defaultedBonds ? ' · ' + t.defaultedBonds + ' DEFAULTED' : '');
+    $('#threatBasis').textContent = (d.threat && d.threat.note ? d.threat.note : '') +
+      ' Labels are set per corporation in data/roster.json; the axis figures below are derived from real sector data.';
+    var labels = {};
+    (d.corporations || []).forEach(function (c) { if (c.threat) labels[c.threat] = (labels[c.threat] || 0) + 1; });
+    var stated = Object.keys(labels).map(function (k) {
+      return '<div class="axis"><small>STATED THREAT</small><strong>' + esc(k) + '</strong>' +
+        '<div class="sub">' + labels[k] + ' of ' + (d.corporations || []).length + ' tracked corporation' +
+        (labels[k] > 1 ? 's' : '') + '<br>label set in data/roster.json</div></div>';
     }).join('');
+    $('#threatAxes').innerHTML = stated +
+      axisCard('BIOCHEMICAL CAPABILITY (sector-derived)', { sectorCount: t.biochemicalSectors || 0, workers: 0, revenue: 0, states: [] }) +
+      axisCard('MILITARY CAPABILITY (sector-derived)', { sectorCount: t.militarySectors || 0, workers: 0, revenue: 0, states: [] });
+    $('#corps').innerHTML = (d.corporations || []).map(dossier).join('');
   }
 
-  var THREAT_FLAG = {
-    defense: '<span style="color:#ff8fa8">&#9679; MILITARY</span>',
-    chemical_industries: '<span style="color:#ff8fa8">&#9679; BIOCHEM</span>',
-    healthcare: '<span style="color:#ff8fa8">&#9679; BIOCHEM</span>'
-  };
+  function dossier(c) {
+    if (c.alive === false) {
+      return '<article class="corp"><div class="corp-banner"><div class="corp-logo"><span class="fallback">?</span></div>' +
+        '<div class="corp-id"><h4>' + esc(c.displayName) + '</h4>' +
+        '<div class="meta">CORP #' + c.id + ' · UNAVAILABLE — ' + esc(c.error || 'not found') + '</div></div></div>' +
+        '<p class="mx-note">No dossier: the API did not return this corporation. It may have dissolved.</p></article>';
+    }
+    var f = c.financials || {}, bs = c.balanceSheet || {}, ss = c.shareStructure || {},
+      cr = c.creditRating || {}, ax = c.threatAxes || {};
+    var logo = c.logoUrl ? '<img src="' + esc(c.logoUrl) + '" alt="' + esc(c.name) + '">'
+      : '<span class="fallback">' + esc((c.name || '?').split(' ')[0]) + '</span>';
+    var brand = esc(c.brandColor || '#c70000');
+
+    var liq = bs.cashOnHandUsd != null && bs.marketCapitalizationUsd ? (bs.cashOnHandUsd / bs.marketCapitalizationUsd) * 100 : null;
+    var liqCls = liq == null ? '' : liq < 0.2 ? 'bad' : liq < 1 ? 'warn' : 'good';
+
+    var holders = (ss.shareholders || []).map(function (h) {
+      return '<div class="holder"><span class="nm">' + esc(h.name || 'unknown') + '</span>' +
+        '<span class="pc">' + pct(h.pct) + '</span>' +
+        '<span class="hbar"><i style="width:' + Math.max(1, Math.min(100, h.pct || 0)) + '%"></i></span></div>';
+    }).join('');
+
+    var comp = cr.components || {};
+    var bonds = (c.bonds || []).map(function (b) {
+      return '<tr><td>' + pct(b.couponRate) + '</td><td>' + esc(b.maturityLabel || '—') + '</td>' +
+        '<td class="num">' + num(b.totalIssued) + '</td><td class="num">' + num(b.marketPrice) + '</td>' +
+        '<td class="num">' + num(b.turnsRemaining) + '</td><td class="num">' + (b.yieldToMaturity == null ? '—' : num(b.yieldToMaturity)) + '</td>' +
+        '<td class="num">' + num(b.holders) + '</td>' +
+        '<td class="num">' + (b.defaulted ? '<span class="def">DEFAULTED</span>' : 'ok') + '</td></tr>';
+    }).join('');
+
+    var types = Object.keys(c.sectorsByType || {}).sort(function (a, b) {
+      return (c.sectorsByType[b].revenue || 0) - (c.sectorsByType[a].revenue || 0);
+    }).map(function (k) {
+      var v = c.sectorsByType[k];
+      return '<tr><td>' + esc(k) + (THREAT_FLAG[k] || '') + '</td><td class="num">' + v.sectorCount + '</td>' +
+        '<td class="num">' + num(v.workers) + '</td><td class="num">' + num(Math.round(v.revenue)) + '</td>' +
+        '<td class="num">' + (v.avgProfitMargin == null ? '—' : v.avgProfitMargin) + '</td>' +
+        '<td class="num">' + (v.avgGrowth == null ? '—' : v.avgGrowth) + '</td></tr>';
+    }).join('');
+
+    var allSec = (c.sectors || []).slice().sort(function (a, b) { return (b.revenue || 0) - (a.revenue || 0); })
+      .map(function (s) {
+        return '<tr><td>' + esc(s.sectorType) + (THREAT_FLAG[s.sectorType] || '') + '</td>' +
+          '<td>' + esc(s.stateName || s.stateId || '—') + '</td>' +
+          '<td class="num">' + num(Math.round(s.revenue || 0)) + '</td>' +
+          '<td class="num">' + (s.profitMargin == null ? '—' : s.profitMargin) + '</td>' +
+          '<td class="num">' + (s.currentGrowthRate == null ? '—' : s.currentGrowthRate) + '</td>' +
+          '<td class="num">' + num(s.workers) + '</td></tr>';
+      }).join('');
+
+    return '<article class="corp">' +
+      '<div class="corp-banner"><div class="corp-logo">' + logo + '</div>' +
+      '<div class="corp-id"><h4>' + esc(c.displayName) + '</h4>' +
+      '<div class="meta">CORP #' + c.id + (c.ticker ? ' · ' + esc(c.ticker) : '') + ' · ' +
+        esc(c.typeLabel || c.type || '') + ' · HQ ' + esc(c.headquartersState || c.countryId || '?') +
+        ' · CEO ' + (c.ceo && c.ceo.profileUrl
+          ? '<a href="' + esc(c.ceo.profileUrl) + '" target="_blank" rel="noopener">' + esc(c.ceo.name || 'vacant') + '</a>'
+          : esc((c.ceo && c.ceo.name) || 'vacant')) +
+        (c.corpUrl ? ' · <a href="' + esc(c.corpUrl) + '" target="_blank" rel="noopener">open corp page</a>' : '') +
+      '</div>' +
+      '<div class="tags">' +
+        (c.threat ? '<span class="chip red">THREAT: ' + esc(c.threat) + '</span>' : '<span class="chip">no threat label</span>') +
+        '<span class="chip">MCAP ' + fmt(bs.marketCapitalizationUsd) + '</span>' +
+        '<span class="chip">REV ' + fmt(f.revenueUsd) + '/DAY</span>' +
+        '<span class="chip">MARGIN ' + pct(f.marginPct) + '</span>' +
+        '<span class="chip">WORKERS ' + num(c.workers) + '</span>' +
+        '<span class="chip">SECTORS ' + num(c.sectorCount) + '</span>' +
+        (cr.rating ? '<span class="chip green">RATING ' + esc(cr.rating) + ' · ' + num(cr.compositeScore) + '</span>' : '') +
+        (c.defaultedBonds ? '<span class="chip amber">DEFAULTED BONDS ' + c.defaultedBonds + '</span>' : '') +
+        '<span class="chip">' + (c.source === 'autoMatch' ? 'AUTO-MATCHED' : 'ROSTER') + '</span>' +
+      '</div></div></div>' +
+      (c.description ? '<p class="corp-desc">' + esc(c.description) + '</p>' : '') +
+      (c.note ? '<p class="corp-note">▸ ' + esc(c.note) + '</p>' : '') +
+
+      '<div class="mx-grid">' +
+        '<div class="panel"><h5>FINANCIALS — PER GAME DAY (USD)</h5>' +
+          kv('Revenue', fmt(f.revenueUsd)) +
+          kv('Operating income', fmt(f.operatingIncomeUsd)) +
+          kv('Operating costs', fmt(f.operatingCostsUsd)) +
+          kv('Operating margin', pct(f.marginPct), f.marginPct != null && f.marginPct < 10 ? 'bad' : '') +
+          kv('Dividend rate', f.dividendRate != null ? pct(f.dividendRate) : '—') +
+          kv('Anchor revenue', num(f.totalRevenue)) +
+          kv('Local currency', esc(c.currency || '—')) +
+        '</div>' +
+
+        '<div class="panel"><h5>BALANCE SHEET (USD)</h5>' +
+          kv('Market capitalisation', fmt(bs.marketCapitalizationUsd)) +
+          kv('Cash on hand', fmt(bs.cashOnHandUsd), liqCls) +
+          kv('Total debt', fmt(bs.totalDebtUsd)) +
+          kv('Cash / market cap', pct(liq), liqCls) +
+          kv('Local market cap', c.currency + ' ' + num(bs.marketCapitalization)) +
+          kv('Local cash', c.currency + ' ' + num(Math.round(bs.cashOnHand || 0))) +
+        '</div>' +
+
+        '<div class="panel"><h5>EQUITY &amp; SHARE REGISTER</h5>' +
+          kv('Share price', c.currency + ' ' + num(ss.sharePrice)) +
+          kv('Total shares', num(ss.totalShares)) +
+          kv('Public float', num(ss.publicFloat) + ' (' + pct(ss.publicFloatPct) + ')') +
+          kv('Tape growth 30T', c.growth ? (c.growth.pct >= 0 ? '+' : '') + c.growth.pct + '%' : 'n/a',
+            c.growth ? (c.growth.pct >= 0 ? 'good' : 'bad') : '') +
+          (c.growth ? kv('Growth window', 't' + c.growth.fromTurn + ' → t' + c.growth.toTurn + ' · ' + c.growth.trades + ' trades' + (c.growth.splitAdjusted ? ' · split-adj' : '')) : '') +
+          kv('Tape points', num(c.tapeTradeCount) + ' trades, ' + c.tapeSplitCount + ' splits') +
+          '<div style="height:9px"></div>' + (holders || '<div class="kv"><span>no register</span></div>') +
+        '</div>' +
+
+        '<div class="panel"><h5>CREDIT RATING</h5>' +
+          kv('Rating', esc(cr.rating || 'n/a')) +
+          kv('Composite score', num(cr.compositeScore)) +
+          kv('Snapshot turn', num(cr.snapshotTurn)) +
+          '<div style="height:6px"></div>' +
+          kv('Debt / equity', num(comp.debtToEquity)) +
+          kv('Interest coverage', num(comp.interestCoverage)) +
+          kv('Profitability', num(comp.profitability)) +
+          kv('Liquidity', num(comp.liquidity)) +
+        '</div>' +
+
+        '<div class="panel" style="grid-column:1/-1"><h5>THREAT AXES — DERIVED FROM SECTOR DATA</h5>' +
+          '<div class="axes">' +
+            axisCard('BIOCHEMICAL · ' + (ax.biochemical ? ax.biochemical.sectorTypes.join(', ') : ''), ax.biochemical || { sectorCount: 0, workers: 0, revenue: 0, states: [] }) +
+            axisCard('MILITARY · ' + (ax.military ? ax.military.sectorTypes.join(', ') : ''), ax.military || { sectorCount: 0, workers: 0, revenue: 0, states: [] }) +
+          '</div>' +
+        '</div>' +
+
+        '<div class="panel" style="grid-column:1/-1"><h5>BONDS (' + (c.bonds || []).length + ')</h5>' +
+          ((c.bonds || []).length
+            ? '<div class="scroll"><table class="mx"><thead><tr><th>Coupon</th><th>Maturity</th><th style="text-align:right">Issued</th>' +
+              '<th style="text-align:right">Mkt price</th><th style="text-align:right">Turns left</th><th style="text-align:right">YTM</th>' +
+              '<th style="text-align:right">Holders</th><th style="text-align:right">Status</th></tr></thead><tbody>' + bonds + '</tbody></table></div>'
+            : '<div class="kv"><span>no bonds issued</span></div>') +
+        '</div>' +
+
+        '<div class="panel" style="grid-column:1/-1"><h5>SECTOR FOOTPRINT BY TYPE</h5>' +
+          '<div class="scroll"><table class="mx"><thead><tr><th>Type</th><th style="text-align:right">#</th>' +
+          '<th style="text-align:right">Workers</th><th style="text-align:right">Anchor rev/day</th>' +
+          '<th style="text-align:right">Avg margin</th><th style="text-align:right">Avg growth</th></tr></thead>' +
+          '<tbody>' + types + '</tbody></table></div>' +
+        '</div>' +
+
+        '<div class="panel" style="grid-column:1/-1"><h5>ALL SECTORS (' + (c.sectors || []).length + ')</h5>' +
+          '<div class="scroll"><table class="mx"><thead><tr><th>Type</th><th>State</th>' +
+          '<th style="text-align:right">Anchor rev</th><th style="text-align:right">Margin</th>' +
+          '<th style="text-align:right">Growth</th><th style="text-align:right">Workers</th></tr></thead>' +
+          '<tbody>' + allSec + '</tbody></table></div>' +
+        '</div>' +
+      '</div>' +
+
+      (c.bannerUrl ? '' : '<p class="mx-note">Hero banner unavailable from the public API — the strip above is generated from its registered brand colour ' + brand + ' instead of a fetched image.</p>') +
+      '<details class="raw"><summary>RAW API RECORD (every field returned by the AHD public endpoint)</summary><pre>' +
+        esc(JSON.stringify(c, null, 2)) + '</pre></details>' +
+    '</article>';
+  }
+
+  // ---------- add corporation ----------
+  var picked = null;
+  function say(t, cls) {
+    var m = $('#aMsg');
+    m.textContent = t;
+    m.className = 'add-msg' + (cls ? ' ' + cls : '');
+  }
+  function key() {
+    var inp = $('#akey');
+    var k = (inp && inp.value.trim()) || '';
+    if (!k) { try { k = sessionStorage.getItem('ahd_key') || ''; } catch (e) {} }
+    return k;
+  }
+  function findByName(nm) {
+    var q = nm.toLowerCase();
+    return (CORPS.corps || []).filter(function (c) { return (c.name || '').toLowerCase().indexOf(q) >= 0; }).slice(0, 8);
+  }
+  function normLive(c) {
+    // map a raw public-v1 response onto the same shape the dossiers render from
+    var fx = (FX && FX.countryCcy && FX.rates) ? FX : { countryCcy: {}, rates: {} };
+    var ccy = (fx.countryCcy && fx.countryCcy[c.countryId]) || 'USD';
+    var usd = fx.rates && fx.rates.USD != null ? fx.rates.USD : 1;
+    var ccyR = fx.rates && fx.rates[ccy] != null ? fx.rates[ccy] : (ccy === 'USD' ? usd : null);
+    var toU = function (v) { return (v == null || !ccyR) ? null : (v / ccyR) * usd; };
+    var sectors = Array.isArray(c.sectors) ? c.sectors : [];
+    var byType = {};
+    sectors.forEach(function (s) {
+      var t = s.sectorType || 'unknown';
+      byType[t] = byType[t] || { sectorCount: 0, workers: 0, revenue: 0, states: [], avgProfitMargin: 0, avgGrowth: 0, _n: 0 };
+      byType[t].sectorCount++; byType[t].workers += s.workers || 0; byType[t].revenue += s.revenue || 0;
+      byType[t]._m = (byType[t]._m || 0) + (s.profitMargin || 0);
+      byType[t]._g = (byType[t]._g || 0) + (s.currentGrowthRate || 0);
+      byType[t]._n++;
+      if (s.stateName && byType[t].states.indexOf(s.stateName) < 0) byType[t].states.push(s.stateName);
+    });
+    Object.keys(byType).forEach(function (k) {
+      var v = byType[k];
+      v.avgProfitMargin = v._n ? Math.round(v._m / v._n * 100) / 100 : null;
+      v.avgGrowth = v._n ? Math.round(v._g / v._n * 100) / 100 : null;
+      delete v._m; delete v._g; delete v._n;
+    });
+    var axes = {};
+    var AX = { biochemical: ['chemical_industries', 'healthcare'], military: ['defense'] };
+    Object.keys(AX).forEach(function (axis) {
+      var hit = sectors.filter(function (s) { return AX[axis].indexOf(s.sectorType) >= 0; });
+      axes[axis] = {
+        sectorTypes: AX[axis], sectorCount: hit.length,
+        workers: hit.reduce(function (a, s) { return a + (s.workers || 0); }, 0),
+        revenue: hit.reduce(function (a, s) { return a + (s.revenue || 0); }, 0),
+        states: hit.map(function (s) { return s.stateName; }).filter(Boolean).filter(function (v, i, a) { return a.indexOf(v) === i; }),
+      };
+    });
+    var rev = c.financials && c.financials.totalRevenue;
+    return {
+      id: c.sequentialId, name: c.name, displayName: c.name, description: c.description || null,
+      type: c.type, typeLabel: c.typeLabel || c.type, countryId: c.countryId,
+      headquartersState: c.headquartersState || null, currency: ccy, ticker: null,
+      corpUrl: c.corpUrl, logoUrl: c.logoUrl || null, brandColor: c.brandColor || null, bannerUrl: null,
+      ceo: { name: (c.ceo && c.ceo.name) || null, profileUrl: (c.ceo && c.ceo.profileUrl) || null },
+      threat: $('#aThreat').value === '__custom' ? '' : $('#aThreat').value,
+      member: $('#aMember').checked, note: $('#aNote').value.trim() || null, source: 'preview',
+      financials: {
+        totalRevenue: rev, operatingIncome: c.financials && c.financials.operatingIncome,
+        operatingCosts: c.financials && c.financials.operatingCosts,
+        dividendRate: c.financials && c.financials.dividendRate,
+        revenueUsd: rev == null ? null : rev * usd,
+        operatingIncomeUsd: (c.financials && c.financials.operatingIncome) == null ? null : c.financials.operatingIncome * usd,
+        operatingCostsUsd: (c.financials && c.financials.operatingCosts) == null ? null : c.financials.operatingCosts * usd,
+        marginPct: rev ? Math.round((c.financials.operatingIncome / rev) * 10000) / 100 : null,
+      },
+      balanceSheet: {
+        cashOnHand: c.balanceSheet && c.balanceSheet.cashOnHand,
+        marketCapitalization: c.balanceSheet && c.balanceSheet.marketCapitalization,
+        totalDebt: c.balanceSheet && c.balanceSheet.totalDebt,
+        cashOnHandUsd: toU(c.balanceSheet && c.balanceSheet.cashOnHand),
+        marketCapitalizationUsd: toU(c.balanceSheet && c.balanceSheet.marketCapitalization),
+        totalDebtUsd: toU(c.balanceSheet && c.balanceSheet.totalDebt),
+      },
+      shareStructure: {
+        totalShares: c.shareStructure && c.shareStructure.totalShares,
+        publicFloat: c.shareStructure && c.shareStructure.publicFloat,
+        publicFloatPct: c.shareStructure && c.shareStructure.publicFloatPct,
+        sharePrice: c.shareStructure && c.shareStructure.sharePrice,
+        shareholders: ((c.shareStructure && c.shareStructure.shareholders) || []).map(function (h) {
+          return { name: h.name, shares: h.shares, pct: h.percentage };
+        }),
+      },
+      creditRating: c.creditRating || {},
+      bonds: c.bonds || [],
+      defaultedBonds: (c.bonds || []).filter(function (b) { return b.defaulted; }).length,
+      sectors: sectors, sectorsByType: byType, sectorCount: sectors.length,
+      workers: sectors.reduce(function (a, s) { return a + (s.workers || 0); }, 0),
+      threatAxes: axes, growth: null, tape: [], tapeTradeCount: 0, tapeSplitCount: 0,
+    };
+  }
+
+  $('#aFetch').addEventListener('click', function () {
+    var raw = $('#aId').value.trim();
+    if (!raw) { say('Enter a corporation ID or name.', 'err'); return; }
+    var isId = /^\d+$/.test(raw);
+    var local = null;
+    if (isId) {
+      local = (DATA.corporations || []).filter(function (c) { return String(c.id) === raw; })[0] || null;
+    } else {
+      var hits = findByName(raw);
+      if (hits.length === 1) local = (DATA.corporations || []).filter(function (c) { return c.id === hits[0].id; })[0] || null;
+      else if (hits.length > 1) {
+        say('Multiple matches — paste the numeric ID: ' + hits.map(function (h) { return '#' + h.id + ' ' + h.name; }).join(' · '), 'err');
+        return;
+      }
+    }
+    if (local) {
+      picked = local;
+      $('#aSrc').textContent = 'source: verified snapshot (turn ' + DATA.game.currentTurn + ')';
+      $('#aPreview').innerHTML = dossier(local);
+      say('Loaded #' + local.id + ' ' + local.name + ' from the verified snapshot.', 'ok');
+      return;
+    }
+    var k = key();
+    if (!k || k.indexOf('ahd_') !== 0) {
+      say('Not on this page yet — paste your AHD key (ahd_pub_…) to pull it live. It stays in this browser tab.', 'err');
+      return;
+    }
+    say('Pulling #' + raw + ' from the game API…');
+    fetch('https://ahousedividedgame.com/api/public/v1/corporation?id=' + encodeURIComponent(raw), { headers: { 'X-API-Key': k } })
+      .then(function (r) {
+        if (r.status === 401) throw new Error('key rejected (401) — check Settings → API Keys');
+        if (!r.ok) throw new Error('game API error ' + r.status);
+        return r.json();
+      })
+      .then(function (c) {
+        if (!c || !c.name) throw new Error('not found — may have dissolved');
+        try { sessionStorage.setItem('ahd_key', k); } catch (e) {}
+        picked = normLive(c);
+        $('#aSrc').textContent = 'source: live API pull (not yet in the snapshot)';
+        $('#aPreview').innerHTML = dossier(picked);
+        say('Fetched #' + picked.id + ' ' + picked.name + ' live.', 'ok');
+      })
+      .catch(function (e) { say('Could not fetch: ' + e.message, 'err'); });
+  });
+
+  $('#aRoster').addEventListener('click', function () {
+    if (!picked) { say('Fetch a corporation first.', 'err'); return; }
+    var threat = $('#aThreat').value === '__custom' ? '' : $('#aThreat').value;
+    var entry = { id: picked.id, threat: threat, member: $('#aMember').checked };
+    var alias = $('#aAlias').value.trim();
+    if (alias) entry.alias = alias;
+    var note = $('#aNote').value.trim();
+    if (note) entry.note = note;
+    var text = JSON.stringify(entry, null, 2).replace(/\n/g, '\n    ');
+    var full = '    ' + text;
+    $('#aOutPre').textContent = '    ' + text;
+    $('#aOut').style.display = 'block';
+    say('Paste this into data/roster.json → entries[]. The refresher adds it within 15 minutes.', 'ok');
+    if (navigator.clipboard) navigator.clipboard.writeText(full).catch(function () {});
+  });
 
   if (location.protocol !== 'file:') {
     try { if (sessionStorage.getItem(SESSION_KEY) === '1') unlock(); } catch (e) {}

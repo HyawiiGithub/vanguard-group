@@ -156,6 +156,7 @@ async function loadLive(){
   renderTies();
   renderChair();
   renderBankrupt();
+  renderWatchlist();
   renderCharts();
   const upd = new Date(s.updatedAt);
   const dateStr = upd.toISOString().slice(0, 10);
@@ -254,6 +255,55 @@ async function loadLive(){
     }).join(' · ');
     banner.innerHTML = '⚙ LIVE DATA (USD) — ' + seg + ' · snapshot <a href="data/live.json">data/live.json</a> · turn ' + s.game.currentTurn;
   }
+}
+
+// ---- Watchlist: corporations added by hand in data/roster.json
+// Rendered straight from data/intel.json so adding a roster entry needs no HTML edits.
+function renderWatchlist(){
+  const box = $('#watchList');
+  if (!box) return;
+  if (typeof fetch !== 'function') return;
+  fetch('data/intel.json?t=' + Date.now(), { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)))
+    .then(d => {
+      const list = (d.corporations || []).filter(c => c.alive !== false);
+      if (!list.length) {
+        box.innerHTML = '<p class="t-note" style="color:var(--muted)">No corporations in the watchlist yet. Add one via the Threat Matrix page.</p>';
+        return;
+      }
+      box.innerHTML = list.map(c => {
+        const f = c.financials || {}, bs = c.balanceSheet || {};
+        const liq = bs.cashOnHandUsd != null && bs.marketCapitalizationUsd ? (bs.cashOnHandUsd / bs.marketCapitalizationUsd) * 100 : null;
+        const liqCls = liq == null ? '' : liq < 0.2 ? 'bad' : liq < 1 ? 'warn' : '';
+        const k = (label, val, cls) => '<div><small>' + label + '</small><strong class="' + (cls || '') + '">' + val + '</strong></div>';
+        const logo = c.logoUrl
+          ? '<img src="' + esc(c.logoUrl) + '" alt="" loading="lazy">'
+          : esc((c.name || '?').split(' ')[0].slice(0, 10));
+        const ax = c.threatAxes || {};
+        return '<article class="watch-card reveal">' +
+          '<div class="watch-top"><div class="watch-logo">' + logo + '</div>' +
+            '<div class="watch-id"><h4>' + esc(c.displayName || c.name) + '</h4>' +
+            '<div class="sub">#' + c.id + (c.ticker ? ' · ' + esc(c.ticker) : '') + ' · ' + esc(c.typeLabel || c.type || '') +
+            ' · ' + esc((c.ceo && c.ceo.name) || 'n/a') + '</div></div></div>' +
+          (c.threat ? '<span class="watch-threat">&#9888; ' + esc(c.threat) + '</span>' : '') +
+          '<div class="watch-kv">' +
+            k('MKT CAP', fmtCompact(bs.marketCapitalizationUsd)) +
+            k('REV / DAY', fmtCompact(f.revenueUsd)) +
+            k('MARGIN', f.marginPct != null ? f.marginPct.toFixed(2) + '%' : '—', f.marginPct != null && f.marginPct < 10 ? 'bad' : '') +
+            k('WORKERS', c.workers != null ? Number(c.workers).toLocaleString('en-US') : '—') +
+            k('SECTORS', c.sectorCount != null ? String(c.sectorCount) : '—') +
+            k('CASH / MCAP', liq != null ? liq.toFixed(1) + '%' : '—', liqCls) +
+          '</div>' +
+          '<div class="watch-axis">biochemical <b>' + ((ax.biochemical && ax.biochemical.sectorCount) || 0) + '</b> sectors · ' +
+            ((ax.biochemical && ax.biochemical.workers) || 0).toLocaleString('en-US') + ' workers · military <b>' +
+            ((ax.military && ax.military.sectorCount) || 0) + '</b> sectors</div>' +
+          (c.corpUrl ? '<a class="watch-link" href="' + esc(c.corpUrl) + '" target="_blank" rel="noopener">Open corp page &rarr;</a>' : '') +
+        '</article>';
+      }).join('');
+    })
+    .catch(e => {
+      box.innerHTML = '<p class="t-note" style="color:var(--muted)">Watchlist unavailable (' + esc(e.message) + ').</p>';
+    });
 }
 
 // ---- Bankruptcy watch: dissolved corps + live distress signals
