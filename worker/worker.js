@@ -76,18 +76,56 @@ const CORS = {
   "Access-Control-Max-Age": "86400",
 };
 
+// The AHD API rate-limits and tells us how long to wait in the 429 body
+// ({"retryAfterSeconds":4}). Honour it rather than guessing, otherwise every
+// corporation in the roster lands in the "could not verify" state each cycle.
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const j = async (path, key) => {
-  const r = await fetch(BASE + path, { headers: { "X-API-Key": key } });
-  if (!r.ok) throw new Error(`${path} -> ${r.status}`);
-  return r.json();
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const r = await fetch(BASE + path, { headers: { "X-API-Key": key } });
+    if (r.ok) return r.json();
+    let body = "";
+    try { body = (await r.text()).slice(0, 200); } catch {}
+    const retryable = r.status === 429 || r.status >= 500;
+    if (retryable && attempt < 2) {
+      let waitMs = 1200 * (attempt + 1);
+      const m = /"retryAfterSeconds"\s*:\s*(\d+)/.exec(body);
+      if (m) waitMs = Math.min(15000, (Number(m[1]) + 1) * 1000);
+      await sleep(waitMs);
+      continue;
+    }
+    throw new Error(`${path} -> ${r.status} ${body}`);
+  }
 };
 
-async function tapeFor(id, key) {
-  const entries = [];
-  for (let pg = 1; pg <= 12; pg++) {
-    const r = await j(`/api/public/v1/corporation/shares/history?id=${id}&pageSize=100&page=${pg}`, key);
+// Cloudflare enforces a hard subrequest cap per invocation (50 on the free plan).
+// A cold refresh of the full roster needs ~160 requests, which silently pushed every
+// corporation into the "unreachable -> freeze last-known" branch and marked the whole
+// alliance bankrupt. Everything below therefore runs against an explicit budget.
+const SUBREQUEST_BUDGET = 44;
+function makeBudget(limit = SUBREQUEST_BUDGET) {
+  let left = limit;
+  return {
+    spend(n = 1) { left -= n; return left; },
+    get left() { return left; },
+    ok(min = 1) { return left >= min; },
+  };
+}
+
+async function tapeFor(id, key, budget) {
+  // Only the trailing 30 turns matter for growth, so fetch the FIRST page (to learn
+  // pageCount) and then the NEWEST two pages rather than walking the whole tape.
+  const base = `/api/public/v1/corporation/shares/history?id=${id}&pageSize=100&page=`;
+  const first = await j(base + "1", key);
+  budget && budget.spend(1);
+  const entries = [...(first.entries || [])];
+  const pageCount = first.pageCount || 1;
+  for (let p = pageCount; p >= Math.max(1, pageCount - 1); p--) {
+    if (p === 1) break;
+    if (budget && !budget.ok(1)) break; // keep whatever we already have
+    const r = await j(base + p, key);
+    budget && budget.spend(1);
     entries.push(...(r.entries || []));
-    if (pg >= (r.pageCount || 1)) break;
   }
   const splits = entries
     .filter((e) => e.kind === "stock_split" || e.kind === "reverse_split")
@@ -124,7 +162,7 @@ async function tapeFor(id, key) {
       };
     }
   }
-  return { series, growth };
+  return { series, growth, partial: budget ? !budget.ok(1) : false };
 }
 
 function rowsFromSectors(sectors) {
@@ -165,7 +203,7 @@ function axesFromSectors(sectors) {
 }
 
 /** Build one corporation record. Returns null when it no longer resolves. */
-async function buildCorp(id, key, prev, ctx) {
+async function buildCorp(id, key, prev, ctx, budget) {
   const c = await j(`/api/public/v1/corporation?id=${id}`, key);
   if (!c || !c.name) return null;
 
@@ -186,7 +224,8 @@ async function buildCorp(id, key, prev, ctx) {
   const toUSD = (v, c) => (v == null || !ctx.rates[c] || !usdRate ? null : (v / ctx.rates[c]) * usdRate);
   const anchorToUSD = (v) => (v == null || !usdRate ? null : v * usdRate);
 
-  const tape = await tapeFor(id, key);
+  const tape = await tapeFor(id, key, budget);
+  budget && budget.spend(1); // the corporation fetch itself
   const sectors = Array.isArray(c.sectors) ? c.sectors : [];
   const defaultedBonds = (c.bonds || []).filter((b) => b && b.defaulted);
 
@@ -272,9 +311,13 @@ async function buildCorp(id, key, prev, ctx) {
 async function refreshAll(env) {
   const key = env.AHD_API_KEY;
   if (!key) throw new Error("AHD_API_KEY secret is not set");
+  const budget = makeBudget(parseInt(env.SUBREQUEST_BUDGET || "44", 10));
+  const errors = [];
 
   const game = await j("/api/public/v1/game", key);
+  budget.spend(1);
   const forex = await j("/api/public/v1/forex", key);
+  budget.spend(1);
   const rates = {};
   const countryCcy = {};
   for (const c of forex.currencies || []) rates[c.currencyCode] = c.rate;
@@ -295,18 +338,51 @@ async function refreshAll(env) {
   const rosterIds = parseIds(env.ROSTER_IDS || DEFAULT_ROSTER);
   const prevById = new Map(((prev && prev.corporations) || []).map((c) => [c.id, c]));
 
+  // Per-corp cache so a refresh only spends subrequests on stale entries, and so a
+  // budget shortfall degrades to "reuse last good" instead of "mark as bankrupt".
+  const CORP_TTL = 10 * 60 * 1000;
+  const cachedCorps = new Map();
+  for (const id of rosterIds) {
+    let c = null;
+    try {
+      const raw = JSON.parse(await env.AH_DATA.get("corp:" + id, "json"));
+      if (raw && raw.__at && Date.now() - new Date(raw.__at).getTime() < CORP_TTL) {
+        const { __at, ...rest } = raw;
+        c = rest;
+      }
+    } catch {}
+    if (c) cachedCorps.set(id, c);
+  }
+
   const corporations = [];
   const renames = [];
   for (const id of rosterIds) {
+    if (cachedCorps.has(id)) {
+      const c = cachedCorps.get(id);
+      corporations.push(c);
+      if (c.renamedFrom) renames.push({ id, from: c.renamedFrom, to: c.name, turn: c.gameTurn || game.currentTurn });
+      continue;
+    }
+    // Reserve enough headroom that a failed corp can still be recorded.
+    if (!budget.ok(5)) {
+      errors.push(`#${id} deferred: subrequest budget exhausted`);
+      const p = prevById.get(id);
+      if (p) corporations.push({ ...p, checkedTurn: game.currentTurn, deferred: true });
+      continue;
+    }
     try {
-      const rec = await buildCorp(id, key, prevById.get(id), ctx);
+      const rec = await buildCorp(id, key, prevById.get(id), ctx, budget);
       if (rec) {
+        rec.gameTurn = game.currentTurn;
         if (rec.renamedFrom) renames.push({ id, from: rec.renamedFrom, to: rec.name, turn: game.currentTurn });
         corporations.push(rec);
+        await env.AH_DATA.put("corp:" + id, JSON.stringify({ __at: new Date().toISOString(), ...rec }));
       }
     } catch (e) {
+      const msg = String(e.message || e);
+      errors.push(`#${id}: ${msg}`);
       const p = prevById.get(id);
-      const gone = /\b404\b|not found/i.test(String(e.message || e));
+      const gone = /\b404\b|not found/i.test(msg);
       const frozen = p || {
         id,
         name: EXPECTED[id] || "Unknown #" + id,
@@ -324,17 +400,21 @@ async function refreshAll(env) {
         defaultedBonds: 0, bonds: [], distress: [], distressed: false,
         sectorCount: null, workers: null, divRate: null, sectorsByType: {}, growth: null,
       };
+      // A 404 is a genuine dissolution. Anything else (429, 5xx, timeout) is a
+      // transport failure and must NEVER be reported as bankruptcy: keep the last
+      // known liveness and flag it stale so the site can say "could not verify"
+      // instead of declaring the company bankrupt.
+      const keepAlive = gone ? false : frozen.alive !== false;
       corporations.push({
         ...frozen,
-        alive: false,
+        alive: keepAlive,
         dissolved: gone ? true : frozen.dissolved ?? false,
+        stale: !gone,
+        fetchError: gone ? null : msg.slice(0, 160),
         lastSeenTurn: frozen.lastSeenTurn ?? (prev && prev.game ? prev.game.currentTurn : null),
         checkedTurn: game.currentTurn,
         tape: [],
-        checks: {
-          marketCapPass: false,
-          marginPass: false,
-        },
+        checks: frozen.checks ?? { marketCapPass: false, marginPass: false },
       });
     }
   }
@@ -365,6 +445,12 @@ async function refreshAll(env) {
     updatedAt: new Date().toISOString(),
     source: "cloudflare-worker /api/public/v1",
     displayCurrency: "USD",
+    diagnostics: {
+      subrequestsUsed: SUBREQUEST_BUDGET - budget.left,
+      subrequestBudget: SUBREQUEST_BUDGET,
+      deferred: errors.filter((e) => /deferred/.test(e)),
+      errors,
+    },
     game: {
       currentTurn: game.currentTurn,
       gameDateLabel: game.gameDateLabel,
@@ -408,18 +494,44 @@ async function refreshAll(env) {
   }
   if (hist.points.length > 3000) hist.points = hist.points.slice(-3000);
 
-  // corporation directory
+  // corporation directory - rebuilt occasionally, not on every refresh
   let corps = { count: 0, corps: [] };
-  try {
-    const dir = await j("/api/public/v1/corporations", key);
-    corps = {
-      updatedAt: new Date().toISOString(),
-      count: (dir.corporations || []).length,
-      corps: (dir.corporations || []).map((c) => ({
-        id: c.sequentialId, name: c.name, type: c.type, country: c.countryId,
-      })),
-    };
-  } catch {}
+  const corpsDiag = { fetched: false, reason: "" };
+  const dirAt = await env.AH_DATA.get("corps_meta", "json").catch(() => null);
+  const dirFresh = dirAt && Date.now() - new Date(dirAt.at || 0).getTime() < 6 * 60 * 60 * 1000;
+  if (dirFresh) {
+    try { corps = JSON.parse(await env.AH_DATA.get("corps", "json")) || corps; } catch {}
+    corpsDiag.reason = "fresh (skipped fetch)";
+  } else if (!budget.ok(1)) {
+    // Previously this branch did not exist, so an exhausted budget silently left the
+    // directory empty and the empty result got cached.
+    corpsDiag.reason = "SKIPPED: subrequest budget exhausted";
+    errors.push("corps.json " + corpsDiag.reason);
+  } else {
+    try {
+      const res = await fetch(BASE + "/api/public/v1/corporations", { headers: { "X-API-Key": key } });
+      budget.spend(1);
+      const text = await res.text();
+      corpsDiag.fetched = true;
+      corpsDiag.status = res.status;
+      corpsDiag.bytes = text.length;
+      corpsDiag.head = text.slice(0, 160);
+      if (!res.ok) throw new Error(`corps list -> ${res.status} ${text.slice(0, 120)}`);
+      const dir = JSON.parse(text);
+      if (!Array.isArray(dir.corporations)) throw new Error("corps list had no corporations array");
+      corps = {
+        updatedAt: new Date().toISOString(),
+        count: dir.corporations.length,
+        corps: dir.corporations.map((c) => ({
+          id: c.sequentialId, name: c.name, type: c.type, country: c.countryId,
+        })),
+      };
+      await env.AH_DATA.put("corps_meta", JSON.stringify({ at: new Date().toISOString() }));
+    } catch (e) {
+      errors.push("corps.json: " + String(e.message || e));
+      try { corps = JSON.parse(await env.AH_DATA.get("corps", "json")) || corps; } catch {}
+    }
+  }
 
   // intel dossiers for the threat matrix
   const intelIds = parseIds(env.INTEL_IDS || DEFAULT_INTEL);
@@ -428,8 +540,18 @@ async function refreshAll(env) {
     const threatFor = async (id) => (env["THREAT_" + id]) || "Biochemical Weapons Development";
     const list = [];
     for (const id of intelIds) {
+      if (!budget.ok(2)) {
+        errors.push(`intel #${id} deferred: subrequest budget exhausted`);
+        try {
+          const prior = JSON.parse(await env.AH_DATA.get("intel", "json"));
+          const hit = ((prior && prior.corporations) || []).find((x) => x.id === id);
+          if (hit) list.push(hit);
+        } catch {}
+        continue;
+      }
       try {
         const c = await j(`/api/public/v1/corporation?id=${id}`, key);
+        budget.spend(1);
         if (!c || !c.name) continue;
         const ccy = countryCcy[c.countryId] || "USD";
         const toUSD = (v) => (v == null || !rates[ccy] || !rates["USD"] ? null : (v / rates[ccy]) * rates["USD"]);
@@ -442,6 +564,7 @@ async function refreshAll(env) {
           const sr = await fetch(BASE + "/api/corporations/search?q=" + encodeURIComponent(c.name), {
             headers: { "X-API-Key": key },
           });
+          budget.spend(1);
           if (sr.ok) {
             const hit = ((await sr.json()).results || []).find((x) => Number(x.sequentialId) === id);
             if (hit) ticker = hit.ticker || null;
@@ -557,7 +680,7 @@ async function refreshAll(env) {
     };
   } catch {}
 
-  return { live, hist, corps, intel };
+  return { live, hist, corps, intel, errors, corpsDiag, budgetUsed: SUBREQUEST_BUDGET - budget.left };
 }
 
 /**
@@ -590,7 +713,36 @@ async function doRefresh(env, ttl) {
   if (inflight) return inflight;
   inflight = (async () => {
     const data = await refreshAll(env);
-    const meta = { at: new Date().toISOString(), turn: data.live.game.currentTurn };
+    // Never persist a degraded dataset. A 429/5xx storm once cached an EMPTY
+    // corps.json and intel, and because those keys looked fresh the Worker then
+    // served emptiness until the TTL expired. Keep the last known-good instead.
+    const keepGood = async (key, next, isHealthy) => {
+      if (isHealthy(next)) return next;
+      const prev = await env.AH_DATA.get(key, "json").catch(() => null);
+      if (prev && isHealthy(prev)) {
+        data.degraded = data.degraded || [];
+        data.degraded.push(key + ": refresh degraded, kept previous good copy");
+        return prev;
+      }
+      return next;
+    };
+    data.corps = await keepGood("corps", data.corps, (v) => v && v.count > 0);
+    data.intel = await keepGood("intel", data.intel, (v) => v && v.totals && v.totals.corporations > 0);
+    data.live = await keepGood(
+      "live",
+      data.live,
+      (v) => v && Array.isArray(v.corporations) && v.corporations.length > 0 &&
+             v.corporations.filter((c) => c.alive !== false).length > 0
+    );
+
+    const meta = {
+      at: new Date().toISOString(),
+      turn: data.live.game.currentTurn,
+      subrequestsUsed: data.budgetUsed,
+      errors: (data.errors || []).slice(0, 12),
+      degraded: data.degraded || [],
+      corpsDiag: data.corpsDiag || null,
+    };
     await Promise.all([
       env.AH_DATA.put("live", JSON.stringify(data.live)),
       env.AH_DATA.put("history", JSON.stringify(data.hist)),
@@ -697,6 +849,7 @@ export default {
           ? { active: true, iter: parseInt(env.PBKDF2_ITER || "210000", 10) }
           : { active: false, note: "set AUTH_SALT, ADMIN_HASH, VIEWER_HASH to require X-AHD-Code on /data/intel.json" },
         cache: meta,
+        degraded: (meta && meta.degraded) || [],
         endpoints: [
           "/data/live.json",
           "/data/history.json",

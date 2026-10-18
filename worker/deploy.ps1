@@ -85,7 +85,8 @@ if (-not $Redeploy -or ((Get-Content $toml -Raw) -match 'PASTE_YOUR_KV_NAMESPACE
   Write-Host "creating KV namespace AH_DATA..." -ForegroundColor Cyan
   $out = npx --yes wrangler@latest kv namespace create AH_DATA 2>&1 | Out-String
   if ($LASTEXITCODE -ne 0) { Write-Host $out -ForegroundColor Red; exit 1 }
-  if ($out -match '"id"\s*:\s*"([0-9a-f]{32})"') {
+  # wrangler prints TOML: id = "..."  (older/JSON output uses "id": "...")
+  if ($out -match 'id\s*[=:]\s*"([0-9a-f]{32})"') {
     $id = $matches[1]
     (Get-Content $toml -Raw).Replace('PASTE_YOUR_KV_NAMESPACE_ID_HERE', $id) |
       Set-Content -LiteralPath $toml -NoNewline

@@ -6,7 +6,7 @@ compatibility_date = "2024-11-01"
 #     npx wrangler kv namespace create AH_DATA
 [[kv_namespaces]]
 binding = "AH_DATA"
-id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+id = "b6d09ed7eb3e4d45aaf0bf4c8d59c005"
 
 # Cron: every 15 minutes, so data advances even with no visitors and no PC.
 [triggers]
