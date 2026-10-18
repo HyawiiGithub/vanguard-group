@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T17:31:40.697Z",
+  "updatedAt": "2026-10-18T17:46:33.418Z",
   "game": {
     "currentTurn": 289,
     "gameDateLabel": "December, Week 2, 1995",
@@ -40,8 +40,8 @@
     "workers": 686854,
     "sectorCount": 49,
     "revenueUsd": 1466414055.6817358,
-    "marketCapUsd": 19317180690,
-    "cashUsd": 128494271.51557742,
+    "marketCapUsd": 19255307317,
+    "cashUsd": 129427401.42557743,
     "debtUsd": 405624000,
     "bonds": 15,
     "defaultedBonds": 0,
@@ -87,18 +87,18 @@
         "marginPct": 28.4
       },
       "balanceSheet": {
-        "cashOnHand": 120055839.95338142,
-        "marketCapitalization": 12393580690,
+        "cashOnHand": 120988969.86338142,
+        "marketCapitalization": 12331707317,
         "totalDebt": 251467000,
-        "cashOnHandUsd": 120055839.9533814,
-        "marketCapitalizationUsd": 12393580690,
+        "cashOnHandUsd": 120988969.86338142,
+        "marketCapitalizationUsd": 12331707317,
         "totalDebtUsd": 251467000
       },
       "shareStructure": {
         "totalShares": 1251231,
-        "publicFloat": 230367,
+        "publicFloat": 230273,
         "publicFloatPct": 18.4,
-        "sharePrice": 9905.11,
+        "sharePrice": 9855.66,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -133,6 +133,11 @@
           {
             "name": "Coopers & Company",
             "shares": 100,
+            "pct": null
+          },
+          {
+            "name": "Paddy Riot",
+            "shares": 94,
             "pct": null
           },
           {
@@ -966,7 +971,7 @@
         "toTurn": 289,
         "fromPrice": 3176.2503,
         "toPrice": 11393.5696,
-        "trades": 39,
+        "trades": 40,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1125,10 +1130,14 @@
         ],
         [
           289,
+          11570.1852
+        ],
+        [
+          289,
           11393.5696
         ]
       ],
-      "tapeTradeCount": 39,
+      "tapeTradeCount": 40,
       "tapeSplitCount": 1
     },
     {
