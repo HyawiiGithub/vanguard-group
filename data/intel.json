@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-19T18:16:31.355Z",
+  "updatedAt": "2026-10-19T18:31:31.854Z",
   "game": {
     "currentTurn": 314,
     "gameDateLabel": "June, Week 3, 1996",
@@ -36,14 +36,14 @@
     "note": "Threat labels are set in data/roster.json. The axis breakdown under each dossier is derived from real sector data, not asserted."
   },
   "totals": {
-    "corporations": 2,
+    "corporations": 3,
     "workers": 1004456,
     "sectorCount": 51,
-    "revenueUsd": 2358061828.207658,
-    "marketCapUsd": 22772150000,
-    "cashUsd": 106065300.44276987,
-    "debtUsd": 520799000,
-    "bonds": 16,
+    "revenueUsd": 2360538502.7181287,
+    "marketCapUsd": 22728170000,
+    "cashUsd": 406457109.4427699,
+    "debtUsd": 821728000,
+    "bonds": 17,
     "defaultedBonds": 0,
     "biochemicalSectors": 17,
     "militarySectors": 2
@@ -77,28 +77,28 @@
       "note": "Parent group. Automated nuclear, pharmaceutical and bio-engineering, laboratory-grade chemical manufacturing. Holds 100% of #978.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 2151398720,
-        "operatingIncome": 623356404,
-        "operatingCosts": 1528042316,
+        "totalRevenue": 2145425601,
+        "operatingIncome": 626964319,
+        "operatingCosts": 1518461281,
         "dividendRate": 0,
-        "revenueUsd": 1926186318.5263596,
-        "operatingIncomeUsd": 558102301.4416361,
-        "operatingCostsUsd": 1368084017.0847235,
-        "marginPct": 28.97
+        "revenueUsd": 1928662993.1959622,
+        "operatingIncomeUsd": 563619115.7344207,
+        "operatingCostsUsd": 1365043876.5625763,
+        "marginPct": 29.22
       },
       "balanceSheet": {
-        "cashOnHand": 82328209.20273897,
-        "marketCapitalization": 18910260000,
-        "totalDebt": 251467000,
-        "cashOnHandUsd": 82328209.20273897,
-        "marketCapitalizationUsd": 18910260000,
-        "totalDebtUsd": 251466999.99999997
+        "cashOnHand": 287720018.202739,
+        "marketCapitalization": 18854790000,
+        "totalDebt": 552396000,
+        "cashOnHandUsd": 287720018.202739,
+        "marketCapitalizationUsd": 18854790000,
+        "totalDebtUsd": 552396000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 8346,
         "publicFloatPct": 0.8,
-        "sharePrice": 18910.26,
+        "sharePrice": 18854.79,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -311,6 +311,17 @@
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
+          "defaulted": false
+        },
+        {
+          "id": "6ad6608f8fc4f5e101ffa984",
+          "couponRate": 2,
+          "maturityLabel": null,
+          "totalIssued": 300929000,
+          "marketPrice": 1,
+          "turnsRemaining": 0,
+          "yieldToMaturity": null,
+          "holders": 0,
           "defaulted": false
         }
       ],
@@ -735,16 +746,6 @@
           "currentGrowthRate": 0,
           "workers": 1466,
           "mediaDiscriminator": null
-        },
-        {
-          "stateId": "MA",
-          "stateName": "Massachusetts",
-          "sectorType": "manufacturing",
-          "revenue": 149637080.0622649,
-          "profitMargin": 35,
-          "currentGrowthRate": 0,
-          "workers": 1,
-          "mediaDiscriminator": null
         }
       ],
       "sectorsByType": {
@@ -843,20 +844,10 @@
           ],
           "avgProfitMargin": 35,
           "avgGrowth": 0
-        },
-        "manufacturing": {
-          "sectorCount": 1,
-          "workers": 1,
-          "revenue": 149637080.0622649,
-          "states": [
-            "Massachusetts"
-          ],
-          "avgProfitMargin": 35,
-          "avgGrowth": 0
         }
       },
-      "sectorCount": 43,
-      "workers": 748338,
+      "sectorCount": 42,
+      "workers": 748337,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
@@ -1331,28 +1322,28 @@
       "note": "Wholly-owned research subsidiary. Defence and frontier research programmes.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 482370999,
-        "operatingIncome": 139482022,
-        "operatingCosts": 342888978,
+        "totalRevenue": 480414037,
+        "operatingIncome": 138916148,
+        "operatingCosts": 341497889,
         "dividendRate": 0,
-        "revenueUsd": 431875509.681298,
-        "operatingIncomeUsd": 124880785.676396,
-        "operatingCostsUsd": 306994724.9002202,
+        "revenueUsd": 431875509.52216667,
+        "operatingIncomeUsd": 124880785.27638175,
+        "operatingCostsUsd": 306994724.24578494,
         "marginPct": 28.92
       },
       "balanceSheet": {
         "cashOnHand": 23737091.240030903,
-        "marketCapitalization": 3861890000,
+        "marketCapitalization": 3872380000,
         "totalDebt": 269332000,
         "cashOnHandUsd": 23737091.240030903,
-        "marketCapitalizationUsd": 3861890000,
+        "marketCapitalizationUsd": 3872380000.0000005,
         "totalDebtUsd": 269332000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 3861.89,
+        "sharePrice": 3872.38,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
@@ -1607,6 +1598,126 @@
       "tape": [],
       "tapeTradeCount": 0,
       "tapeSplitCount": 1
+    },
+    {
+      "id": 1827,
+      "mongoId": "6ad660098fc4f5e101ffa925",
+      "name": "Umbrella Heavy Systems",
+      "displayName": "Umbrella Heavy Systems",
+      "alias": null,
+      "description": null,
+      "type": "manufacturing",
+      "typeLabel": "manufacturing",
+      "industryModel": null,
+      "mediaDiscriminator": null,
+      "countryId": "US",
+      "headquartersState": "NY",
+      "currency": "USD",
+      "ticker": "UMBHS",
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/1827",
+      "logoUrl": null,
+      "brandColor": "#f59e0b",
+      "bannerUrl": null,
+      "ceo": {
+        "name": null,
+        "profileUrl": null
+      },
+      "threat": null,
+      "member": false,
+      "note": null,
+      "source": "autoMatch",
+      "financials": {
+        "totalRevenue": 0,
+        "operatingIncome": -5409781,
+        "operatingCosts": 5409781,
+        "dividendRate": 0,
+        "revenueUsd": 0,
+        "operatingIncomeUsd": -4863204.956224741,
+        "operatingCostsUsd": 4863204.956224741,
+        "marginPct": null
+      },
+      "balanceSheet": {
+        "cashOnHand": 95000000,
+        "marketCapitalization": 1000000,
+        "totalDebt": 0,
+        "cashOnHandUsd": 95000000,
+        "marketCapitalizationUsd": 999999.9999999999,
+        "totalDebtUsd": 0
+      },
+      "shareStructure": {
+        "totalShares": 10000000,
+        "publicFloat": 0,
+        "publicFloatPct": 0,
+        "sharePrice": 0.1,
+        "shareholders": [
+          {
+            "name": "Umbrella Technologies",
+            "shares": 10000000,
+            "pct": null
+          }
+        ]
+      },
+      "creditRating": {
+        "rating": null,
+        "compositeScore": null,
+        "snapshotTurn": null,
+        "components": null
+      },
+      "bonds": [],
+      "defaultedBonds": 0,
+      "sectors": [
+        {
+          "stateId": "MA",
+          "stateName": "Massachusetts",
+          "sectorType": "manufacturing",
+          "revenue": 149637080,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 1,
+          "mediaDiscriminator": null
+        }
+      ],
+      "sectorsByType": {
+        "manufacturing": {
+          "sectorCount": 1,
+          "workers": 1,
+          "revenue": 149637080,
+          "states": [
+            "Massachusetts"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
+        }
+      },
+      "sectorCount": 1,
+      "workers": 1,
+      "threatAxes": {
+        "biochemical": {
+          "sectorTypes": [
+            "chemical_industries",
+            "healthcare"
+          ],
+          "sectorCount": 0,
+          "workers": 0,
+          "revenue": 0,
+          "states": [],
+          "sectorDetail": []
+        },
+        "military": {
+          "sectorTypes": [
+            "defense"
+          ],
+          "sectorCount": 0,
+          "workers": 0,
+          "revenue": 0,
+          "states": [],
+          "sectorDetail": []
+        }
+      },
+      "growth": null,
+      "tape": [],
+      "tapeTradeCount": 0,
+      "tapeSplitCount": 0
     }
   ]
 }
