@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-19T17:31:28.061Z",
+  "updatedAt": "2026-10-19T17:46:27.109Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -2625,12 +2625,12 @@
       "ceo": "Ranco Hashimoto",
       "revenue": 855795034,
       "operatingIncome": 186190302,
-      "marketCap": 3385185600000,
+      "marketCap": 3389380200000,
       "revenueUsd": 761755126.0903229,
       "operatingIncomeUsd": 165730591.25370586,
-      "marketCapUsd": 25307734162.340626,
+      "marketCapUsd": 25339093099.267853,
       "marginPct": 21.76,
-      "sharePrice": 338518.56,
+      "sharePrice": 338938.02,
       "totalShares": 10000000,
       "holders": [
         {
@@ -2810,8 +2810,8 @@
         },
         {
           "name": "Larry Fink",
-          "shares": 1858794,
-          "pct": 16.7
+          "shares": 1290719,
+          "pct": 11.6
         },
         {
           "name": null,
@@ -2911,12 +2911,12 @@
       "workers": 95489,
       "divRate": 0,
       "growth": {
-        "pct": 48.12,
+        "pct": 49.22,
         "fromTurn": 285,
-        "toTurn": 312,
+        "toTurn": 313,
         "fromPrice": 270.4706,
-        "toPrice": 400.6158,
-        "trades": 30,
+        "toPrice": 403.5852,
+        "trades": 31,
         "splitAdjusted": false,
         "window": "30T"
       },
@@ -3180,6 +3180,10 @@
         [
           312,
           399.0127
+        ],
+        [
+          313,
+          403.5852
         ]
       ],
       "checks": {
@@ -3607,12 +3611,12 @@
       "ceo": "Misa Astrae",
       "revenue": 10587309504,
       "operatingIncome": 3252211399,
-      "marketCap": 14455898396407,
+      "marketCap": 14455952855993,
       "revenueUsd": 9423912228.704044,
       "operatingIncomeUsd": 2894838840.952693,
-      "marketCapUsd": 108072666294.59682,
+      "marketCapUsd": 108073073435.85521,
       "marginPct": 30.72,
-      "sharePrice": 12998727.99,
+      "sharePrice": 12998776.96,
       "totalShares": 1112101,
       "holders": [
         {
@@ -4589,12 +4593,12 @@
       "ceo": "Malik Rahman",
       "revenue": 2478881590,
       "operatingIncome": 433911250,
-      "marketCap": 13248660000,
+      "marketCap": 13247720000,
       "revenueUsd": 2206487164.7215357,
       "operatingIncomeUsd": 386230470.87669784,
-      "marketCapUsd": 13248660000,
+      "marketCapUsd": 13247720000,
       "marginPct": 17.5,
-      "sharePrice": 13248.66,
+      "sharePrice": 13247.72,
       "totalShares": 1000000,
       "holders": [
         {
@@ -4926,12 +4930,12 @@
       "ceo": "Larry Fink",
       "revenue": 1158159537,
       "operatingIncome": 182415144,
-      "marketCap": 2057971124000,
+      "marketCap": 2057947661000,
       "revenueUsd": 1030893998.08336,
       "operatingIncomeUsd": 162370270.33099657,
-      "marketCapUsd": 15385444780.329132,
+      "marketCapUsd": 15385269370.340782,
       "marginPct": 15.75,
-      "sharePrice": 1870882.84,
+      "sharePrice": 1870861.51,
       "totalShares": 1100000,
       "holders": [
         {
@@ -4951,8 +4955,8 @@
         },
         {
           "name": "Larry Fink",
-          "shares": 30155,
-          "pct": 2.7
+          "shares": 44788,
+          "pct": 4.1
         },
         {
           "name": "Index Fund",
@@ -4977,12 +4981,12 @@
       "workers": 648526,
       "divRate": 20,
       "growth": {
-        "pct": 120.31,
+        "pct": 127.47,
         "fromTurn": 291,
         "toTurn": 313,
         "fromPrice": 6893.09,
-        "toPrice": 15186.3924,
-        "trades": 34,
+        "toPrice": 15680.0148,
+        "trades": 35,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -5118,6 +5122,10 @@
         [
           312,
           14906.8813
+        ],
+        [
+          313,
+          15680.0148
         ],
         [
           313,
@@ -5376,7 +5384,7 @@
       "a": "BlackRock Incorporated",
       "aPct": 60.3,
       "b": "The Organization",
-      "bPct": 16.7
+      "bPct": 11.6
     },
     {
       "type": "backer",
@@ -5510,7 +5518,7 @@
       "a": "BlackRock Incorporated",
       "aPct": 60.3,
       "b": "Tinky Winky",
-      "bPct": 2.7
+      "bPct": 4.1
     },
     {
       "type": "backer",
@@ -6044,7 +6052,7 @@
       "a": "Pfizer",
       "aPct": 5.1,
       "b": "The Organization",
-      "bPct": 16.7
+      "bPct": 11.6
     },
     {
       "type": "backer",
@@ -6300,7 +6308,7 @@
       "a": "Pfizer",
       "aPct": 5.1,
       "b": "Tinky Winky",
-      "bPct": 2.7
+      "bPct": 4.1
     },
     {
       "type": "backer",
@@ -6602,7 +6610,7 @@
       "type": "backer",
       "who": "Larry Fink",
       "a": "The Organization",
-      "aPct": 16.7,
+      "aPct": 11.6,
       "b": "I Love Misa",
       "bPct": 0
     },
@@ -6642,9 +6650,9 @@
       "type": "backer",
       "who": "Larry Fink",
       "a": "The Organization",
-      "aPct": 16.7,
+      "aPct": 11.6,
       "b": "Tinky Winky",
-      "bPct": 2.7
+      "bPct": 4.1
     },
     {
       "type": "backer",
@@ -6668,7 +6676,7 @@
       "a": "I Love Misa",
       "aPct": 0,
       "b": "Tinky Winky",
-      "bPct": 2.7
+      "bPct": 4.1
     },
     {
       "type": "backer",
