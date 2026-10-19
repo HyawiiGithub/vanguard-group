@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-19T15:01:30.872Z",
+  "updatedAt": "2026-10-19T15:16:30.116Z",
   "game": {
-    "currentTurn": 310,
-    "gameDateLabel": "May, Week 3, 1996",
+    "currentTurn": 311,
+    "gameDateLabel": "May, Week 4, 1996",
     "status": "active",
-    "nextTurnAt": "2026-10-19T15:00:00.000Z"
+    "nextTurnAt": "2026-10-19T16:00:00.000Z"
   },
   "roster": {
     "threats": [
@@ -39,9 +39,9 @@
     "corporations": 2,
     "workers": 974561,
     "sectorCount": 51,
-    "revenueUsd": 2129218052.9305248,
-    "marketCapUsd": 15318313535,
-    "cashUsd": 101602206.89879224,
+    "revenueUsd": 2132879429.5655155,
+    "marketCapUsd": 17726180000,
+    "cashUsd": 101861484.6904589,
     "debtUsd": 520799000,
     "bonds": 16,
     "defaultedBonds": 0,
@@ -77,28 +77,28 @@
       "note": "Parent group. Automated nuclear, pharmaceutical and bio-engineering, laboratory-grade chemical manufacturing. Holds 100% of #978.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 2021356445,
-        "operatingIncome": 523940999,
-        "operatingCosts": 1497415446,
+        "totalRevenue": 2014175452,
+        "operatingIncome": 522277559,
+        "operatingCosts": 1491897893,
         "dividendRate": 0,
-        "revenueUsd": 1758679684.918927,
-        "operatingIncomeUsd": 455854479.95414186,
-        "operatingCostsUsd": 1302825204.9647853,
-        "marginPct": 25.92
+        "revenueUsd": 1762341061.4285939,
+        "operatingIncomeUsd": 456976668.429973,
+        "operatingCostsUsd": 1305364392.9986207,
+        "marginPct": 25.93
       },
       "balanceSheet": {
-        "cashOnHand": 88460075.55862041,
-        "marketCapitalization": 13138961938,
+        "cashOnHand": 88813655.24612041,
+        "marketCapitalization": 15325840000,
         "totalDebt": 251467000,
-        "cashOnHandUsd": 88460075.55862041,
-        "marketCapitalizationUsd": 13138961938,
-        "totalDebtUsd": 251466999.99999997
+        "cashOnHandUsd": 88813655.24612041,
+        "marketCapitalizationUsd": 15325840000,
+        "totalDebtUsd": 251467000
       },
       "shareStructure": {
         "totalShares": 1000000,
-        "publicFloat": 8071,
+        "publicFloat": 8069,
         "publicFloatPct": 0.8,
-        "sharePrice": 13138.961937925147,
+        "sharePrice": 15325.84,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -189,6 +189,16 @@
             "name": "National Public Party",
             "shares": 1,
             "pct": null
+          },
+          {
+            "name": "National Public Party",
+            "shares": 1,
+            "pct": null
+          },
+          {
+            "name": "National Public Party",
+            "shares": 1,
+            "pct": null
           }
         ]
       },
@@ -220,7 +230,7 @@
           "couponRate": 10,
           "maturityLabel": null,
           "totalIssued": 1000,
-          "marketPrice": 1.0971,
+          "marketPrice": 1.0957,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -231,7 +241,7 @@
           "couponRate": 7.25,
           "maturityLabel": null,
           "totalIssued": 1000,
-          "marketPrice": 1.0838,
+          "marketPrice": 1.083,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -253,7 +263,7 @@
           "couponRate": 4.25,
           "maturityLabel": null,
           "totalIssued": 1000,
-          "marketPrice": 1.033,
+          "marketPrice": 1.0328,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -264,7 +274,7 @@
           "couponRate": 2.5,
           "maturityLabel": null,
           "totalIssued": 2000,
-          "marketPrice": 0.9857,
+          "marketPrice": 0.9858,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -275,7 +285,7 @@
           "couponRate": 1.5,
           "maturityLabel": null,
           "totalIssued": 1711000,
-          "marketPrice": 0.9915,
+          "marketPrice": 0.9918,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -286,7 +296,7 @@
           "couponRate": 2.5,
           "maturityLabel": null,
           "totalIssued": 5000,
-          "marketPrice": 0.9819,
+          "marketPrice": 0.982,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -1309,28 +1319,28 @@
       "note": "Wholly-owned research subsidiary. Defence and frontier research programmes.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 425882055,
-        "operatingIncome": 78687674,
-        "operatingCosts": 347194381,
+        "totalRevenue": 423487429,
+        "operatingIncome": 78245234,
+        "operatingCosts": 345242196,
         "dividendRate": 0,
-        "revenueUsd": 370538368.0115979,
-        "operatingIncomeUsd": 68462152.7586755,
-        "operatingCostsUsd": 302076215.25292236,
+        "revenueUsd": 370538368.1369215,
+        "operatingIncomeUsd": 68462153.38508092,
+        "operatingCostsUsd": 302076215.6268096,
         "marginPct": 18.48
       },
       "balanceSheet": {
-        "cashOnHand": 13142131.340171827,
-        "marketCapitalization": 2179351597,
+        "cashOnHand": 13047829.444338493,
+        "marketCapitalization": 2400340000,
         "totalDebt": 269332000,
-        "cashOnHandUsd": 13142131.340171827,
-        "marketCapitalizationUsd": 2179351597,
+        "cashOnHandUsd": 13047829.444338493,
+        "marketCapitalizationUsd": 2400340000,
         "totalDebtUsd": 269332000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 2179.351596529539,
+        "sharePrice": 2400.34,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
@@ -1411,7 +1421,7 @@
           "couponRate": 2.5,
           "maturityLabel": null,
           "totalIssued": 100306000,
-          "marketPrice": 0.9252,
+          "marketPrice": 0.9255,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -1422,7 +1432,7 @@
           "couponRate": 1.5,
           "maturityLabel": null,
           "totalIssued": 115175000,
-          "marketPrice": 0.9466,
+          "marketPrice": 0.9472,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
