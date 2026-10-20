@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-20T19:01:31.026Z",
+  "updatedAt": "2026-10-20T19:16:29.589Z",
   "game": {
-    "currentTurn": 338,
-    "gameDateLabel": "December, Week 3, 1996",
+    "currentTurn": 339,
+    "gameDateLabel": "December, Week 4, 1996",
     "status": "active",
-    "nextTurnAt": "2026-10-20T19:00:00.000Z"
+    "nextTurnAt": "2026-10-20T20:00:00.000Z"
   },
   "roster": {
     "threats": [
@@ -39,9 +39,9 @@
     "corporations": 3,
     "workers": 1768824,
     "sectorCount": 49,
-    "revenueUsd": 4347517158.648102,
-    "marketCapUsd": 45009974437,
-    "cashUsd": 151824705.90886098,
+    "revenueUsd": 4348018541.848559,
+    "marketCapUsd": 51067720000,
+    "cashUsd": 152676164.13802764,
     "debtUsd": 520802000,
     "bonds": 17,
     "defaultedBonds": 0,
@@ -77,28 +77,28 @@
       "note": "Parent group. Automated nuclear, pharmaceutical and bio-engineering, laboratory-grade chemical manufacturing. Holds 100% of #978.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 3639063622,
-        "operatingIncome": 1193321513,
-        "operatingCosts": 2445742109,
+        "totalRevenue": 3630882546,
+        "operatingIncome": 1190722461,
+        "operatingCosts": 2440160085,
         "dividendRate": 0,
-        "revenueUsd": 3452799114.20491,
-        "operatingIncomeUsd": 1132241667.3725479,
-        "operatingCostsUsd": 2320557446.832362,
+        "revenueUsd": 3453300497.243571,
+        "operatingIncomeUsd": 1132485673.8151255,
+        "operatingCostsUsd": 2320814823.4284453,
         "marginPct": 32.79
       },
       "balanceSheet": {
-        "cashOnHand": 93512880.12786156,
-        "marketCapitalization": 36661187624,
+        "cashOnHand": 94458799.25286156,
+        "marketCapitalization": 41486860000,
         "totalDebt": 251470000,
-        "cashOnHandUsd": 93512880.12786156,
-        "marketCapitalizationUsd": 36661187624,
+        "cashOnHandUsd": 94458799.25286156,
+        "marketCapitalizationUsd": 41486860000,
         "totalDebtUsd": 251470000
       },
       "shareStructure": {
         "totalShares": 1000000,
-        "publicFloat": 13754,
+        "publicFloat": 13753,
         "publicFloatPct": 1.4,
-        "sharePrice": 36661.18762400776,
+        "sharePrice": 41486.86,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -137,7 +137,7 @@
           },
           {
             "name": "Index Fund",
-            "shares": 701,
+            "shares": 702,
             "pct": null
           },
           {
@@ -225,7 +225,7 @@
           "couponRate": 10,
           "maturityLabel": null,
           "totalIssued": 1000,
-          "marketPrice": 1.0626,
+          "marketPrice": 1.0611,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -236,7 +236,7 @@
           "couponRate": 7.25,
           "maturityLabel": null,
           "totalIssued": 1000,
-          "marketPrice": 1.0681,
+          "marketPrice": 1.0672,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -258,7 +258,7 @@
           "couponRate": 4.25,
           "maturityLabel": null,
           "totalIssued": 1000,
-          "marketPrice": 1.0371,
+          "marketPrice": 1.0368,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -313,7 +313,7 @@
           "couponRate": 2,
           "maturityLabel": null,
           "totalIssued": 3000,
-          "marketPrice": 0.9927,
+          "marketPrice": 0.9928,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -869,12 +869,12 @@
         }
       },
       "growth": {
-        "pct": 190.85,
-        "fromTurn": 307,
-        "toTurn": 337,
-        "fromPrice": 13557.5459,
-        "toPrice": 39431.5289,
-        "trades": 16,
+        "pct": 132.76,
+        "fromTurn": 312,
+        "toTurn": 339,
+        "fromPrice": 16660.0241,
+        "toPrice": 38778.0896,
+        "trades": 13,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1202,9 +1202,13 @@
         [
           337,
           39431.5289
+        ],
+        [
+          339,
+          38778.0896
         ]
       ],
-      "tapeTradeCount": 81,
+      "tapeTradeCount": 82,
       "tapeSplitCount": 2
     },
     {
@@ -1235,28 +1239,28 @@
       "note": "Wholly-owned research subsidiary. Defence and frontier research programmes.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 637015635,
-        "operatingIncome": 108131866,
-        "operatingCosts": 528883769,
+        "totalRevenue": 635491263,
+        "operatingIncome": 107873108,
+        "operatingCosts": 527618155,
         "dividendRate": 0,
-        "revenueUsd": 604410158.417032,
-        "operatingIncomeUsd": 102597165.07427526,
-        "operatingCostsUsd": 501812993.34275675,
+        "revenueUsd": 604410158.3317493,
+        "operatingIncomeUsd": 102597165.5034664,
+        "operatingCostsUsd": 501812992.8282829,
         "marginPct": 16.97
       },
       "balanceSheet": {
-        "cashOnHand": 39008967.336036205,
-        "marketCapitalization": 4453141099,
+        "cashOnHand": 38914333.44020287,
+        "marketCapitalization": 5147860000,
         "totalDebt": 269332000,
-        "cashOnHandUsd": 39008967.336036205,
-        "marketCapitalizationUsd": 4453141099,
+        "cashOnHandUsd": 38914333.44020287,
+        "marketCapitalizationUsd": 5147860000,
         "totalDebtUsd": 269332000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 4453.141099448439,
+        "sharePrice": 5147.86,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
@@ -1348,7 +1352,7 @@
           "couponRate": 1.5,
           "maturityLabel": null,
           "totalIssued": 115175000,
-          "marketPrice": 0.9872,
+          "marketPrice": 0.9874,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -1558,28 +1562,28 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 305968819,
-        "operatingIncome": 140999721,
-        "operatingCosts": 164969098,
+        "totalRevenue": 305236639,
+        "operatingIncome": 140662310,
+        "operatingCosts": 164574329,
         "dividendRate": 10,
-        "revenueUsd": 290307886.02616036,
-        "operatingIncomeUsd": 133782687.62016699,
-        "operatingCostsUsd": 156525198.4059934,
+        "revenueUsd": 290307886.27323896,
+        "operatingIncomeUsd": 133782687.51809669,
+        "operatingCostsUsd": 156525198.75514227,
         "marginPct": 46.08
       },
       "balanceSheet": {
-        "cashOnHand": 19302858.444963224,
-        "marketCapitalization": 3895645714,
+        "cashOnHand": 19303031.444963224,
+        "marketCapitalization": 4433000000,
         "totalDebt": 0,
-        "cashOnHandUsd": 19302858.444963224,
-        "marketCapitalizationUsd": 3895645714,
+        "cashOnHandUsd": 19303031.444963224,
+        "marketCapitalizationUsd": 4433000000,
         "totalDebtUsd": 0
       },
       "shareStructure": {
         "totalShares": 10000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 389.5645714298127,
+        "sharePrice": 443.3,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
