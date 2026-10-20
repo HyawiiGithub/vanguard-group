@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T12:31:47.604Z",
+  "updatedAt": "2026-10-20T12:46:52.925Z",
   "game": {
     "currentTurn": 332,
     "gameDateLabel": "November, Week 1, 1996",
@@ -37,16 +37,16 @@
   },
   "totals": {
     "corporations": 3,
-    "workers": 1722643,
-    "sectorCount": 48,
-    "revenueUsd": 4288203420.4861093,
-    "marketCapUsd": 58587650000,
-    "cashUsd": 222396155.7746422,
+    "workers": 1723143,
+    "sectorCount": 49,
+    "revenueUsd": 4288226489.6380024,
+    "marketCapUsd": 58366060000,
+    "cashUsd": 24330032.001721557,
     "debtUsd": 520802000,
     "bonds": 17,
     "defaultedBonds": 0,
     "biochemicalSectors": 15,
-    "militarySectors": 2
+    "militarySectors": 3
   },
   "corporations": [
     {
@@ -1251,28 +1251,28 @@
       "note": "Wholly-owned research subsidiary. Defence and frontier research programmes.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 937302018,
-        "operatingIncome": 407546727,
-        "operatingCosts": 529755292,
+        "totalRevenue": 937326244,
+        "operatingIncome": 407555206,
+        "operatingCosts": 529771038,
         "dividendRate": 0,
-        "revenueUsd": 892543656.5270041,
-        "operatingIncomeUsd": 388085418.506154,
-        "operatingCostsUsd": 504458238.97309774,
+        "revenueUsd": 892566725.6788973,
+        "operatingIncomeUsd": 388093492.6140919,
+        "operatingCostsUsd": 504473233.06480545,
         "marginPct": 43.48
       },
       "balanceSheet": {
-        "cashOnHand": 198218543.41422507,
-        "marketCapitalization": 13903710000,
+        "cashOnHand": 152419.64130443335,
+        "marketCapitalization": 13682120000,
         "totalDebt": 269332000,
-        "cashOnHandUsd": 198218543.41422507,
-        "marketCapitalizationUsd": 13903710000,
+        "cashOnHandUsd": 152419.64130443335,
+        "marketCapitalizationUsd": 13682120000,
         "totalDebtUsd": 269332000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 13903.71,
+        "sharePrice": 13682.12,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
@@ -1452,6 +1452,16 @@
           "currentGrowthRate": 0,
           "workers": 102933,
           "mediaDiscriminator": null
+        },
+        {
+          "stateId": "TX",
+          "stateName": "Texas",
+          "sectorType": "defense",
+          "revenue": 23069,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 500,
+          "mediaDiscriminator": null
         }
       ],
       "sectorsByType": {
@@ -1471,19 +1481,20 @@
           "avgGrowth": 0
         },
         "defense": {
-          "sectorCount": 2,
-          "workers": 153179,
-          "revenue": 251164704.31387657,
+          "sectorCount": 3,
+          "workers": 153679,
+          "revenue": 251187773.31387657,
           "states": [
             "Illinois",
-            "Kentucky"
+            "Kentucky",
+            "Texas"
           ],
           "avgProfitMargin": 35,
           "avgGrowth": 0
         }
       },
-      "sectorCount": 8,
-      "workers": 435564,
+      "sectorCount": 9,
+      "workers": 436064,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
@@ -1500,12 +1511,13 @@
           "sectorTypes": [
             "defense"
           ],
-          "sectorCount": 2,
-          "workers": 153179,
-          "revenue": 251164704.31387657,
+          "sectorCount": 3,
+          "workers": 153679,
+          "revenue": 251187773.31387657,
           "states": [
             "Illinois",
-            "Kentucky"
+            "Kentucky",
+            "Texas"
           ],
           "sectorDetail": [
             {
@@ -1519,6 +1531,12 @@
               "stateName": "Kentucky",
               "revenue": 166894718.1428374,
               "workers": 102933
+            },
+            {
+              "sectorType": "defense",
+              "stateName": "Texas",
+              "revenue": 23069,
+              "workers": 500
             }
           ]
         }
