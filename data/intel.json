@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-20T15:01:51.127Z",
+  "updatedAt": "2026-10-20T15:16:30.127Z",
   "game": {
-    "currentTurn": 334,
-    "gameDateLabel": "November, Week 3, 1996",
+    "currentTurn": 335,
+    "gameDateLabel": "November, Week 4, 1996",
     "status": "active",
-    "nextTurnAt": "2026-10-20T15:00:00.000Z"
+    "nextTurnAt": "2026-10-20T16:00:00.000Z"
   },
   "roster": {
     "threats": [
@@ -36,12 +36,12 @@
     "note": "Threat labels are set in data/roster.json. The axis breakdown under each dossier is derived from real sector data, not asserted."
   },
   "totals": {
-    "corporations": 2,
-    "workers": 1637860,
-    "sectorCount": 45,
-    "revenueUsd": 4023899487.524876,
-    "marketCapUsd": 46702232881,
-    "cashUsd": 67821831.0858371,
+    "corporations": 3,
+    "workers": 1736973,
+    "sectorCount": 48,
+    "revenueUsd": 4284591931.0252013,
+    "marketCapUsd": 57263710000,
+    "cashUsd": 87352008.87949158,
     "debtUsd": 520802000,
     "bonds": 17,
     "defaultedBonds": 0,
@@ -77,28 +77,28 @@
       "note": "Parent group. Automated nuclear, pharmaceutical and bio-engineering, laboratory-grade chemical manufacturing. Holds 100% of #978.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 3517222865,
-        "operatingIncome": 1331700756,
-        "operatingCosts": 2185522109,
+        "totalRevenue": 3502173717,
+        "operatingIncome": 1329053748,
+        "operatingCosts": 2173119969,
         "dividendRate": 0,
-        "revenueUsd": 3354833202.82323,
-        "operatingIncomeUsd": 1270216328.032883,
-        "operatingCostsUsd": 2084616874.7903469,
-        "marginPct": 37.86
+        "revenueUsd": 3338804209.1979704,
+        "operatingIncomeUsd": 1267056007.6825392,
+        "operatingCostsUsd": 2071748201.5154312,
+        "marginPct": 37.95
       },
       "balanceSheet": {
-        "cashOnHand": 43955617.563876666,
-        "marketCapitalization": 39460182106,
+        "cashOnHand": 51611954.001376666,
+        "marketCapitalization": 45432280000,
         "totalDebt": 251470000,
-        "cashOnHandUsd": 43955617.563876666,
-        "marketCapitalizationUsd": 39460182106,
+        "cashOnHandUsd": 51611954.001376666,
+        "marketCapitalizationUsd": 45432280000,
         "totalDebtUsd": 251470000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 12581,
         "publicFloatPct": 1.3,
-        "sharePrice": 39460.18210613608,
+        "sharePrice": 45432.28,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -225,7 +225,7 @@
           "couponRate": 10,
           "maturityLabel": null,
           "totalIssued": 1000,
-          "marketPrice": 1.0687,
+          "marketPrice": 1.0671,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -236,7 +236,7 @@
           "couponRate": 7.25,
           "maturityLabel": null,
           "totalIssued": 1000,
-          "marketPrice": 1.0719,
+          "marketPrice": 1.071,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -258,7 +258,7 @@
           "couponRate": 4.25,
           "maturityLabel": null,
           "totalIssued": 1000,
-          "marketPrice": 1.0385,
+          "marketPrice": 1.0382,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -280,7 +280,7 @@
           "couponRate": 1.5,
           "maturityLabel": null,
           "totalIssued": 1711000,
-          "marketPrice": 0.9992,
+          "marketPrice": 0.9994,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -302,7 +302,7 @@
           "couponRate": 3,
           "maturityLabel": null,
           "totalIssued": 249692000,
-          "marketPrice": 1.0186,
+          "marketPrice": 1.0185,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -313,7 +313,7 @@
           "couponRate": 2,
           "maturityLabel": null,
           "totalIssued": 3000,
-          "marketPrice": 0.9923,
+          "marketPrice": 0.9924,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -500,16 +500,6 @@
           "profitMargin": 35,
           "currentGrowthRate": 0,
           "workers": 60339,
-          "mediaDiscriminator": null
-        },
-        {
-          "stateId": "IL",
-          "stateName": "Illinois",
-          "sectorType": "logistics",
-          "revenue": 10788138.333513014,
-          "profitMargin": 35,
-          "currentGrowthRate": 0,
-          "workers": 6367,
           "mediaDiscriminator": null
         },
         {
@@ -745,20 +735,10 @@
           ],
           "avgProfitMargin": 35,
           "avgGrowth": 0
-        },
-        "logistics": {
-          "sectorCount": 1,
-          "workers": 6367,
-          "revenue": 10788138.333513014,
-          "states": [
-            "Illinois"
-          ],
-          "avgProfitMargin": 35,
-          "avgGrowth": 0
         }
       },
-      "sectorCount": 36,
-      "workers": 1214319,
+      "sectorCount": 35,
+      "workers": 1207952,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
@@ -1251,28 +1231,28 @@
       "note": "Wholly-owned research subsidiary. Defence and frontier research programmes.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 701452231,
-        "operatingIncome": 164898200,
-        "operatingCosts": 536554032,
+        "totalRevenue": 701804063,
+        "operatingIncome": 164980909,
+        "operatingCosts": 536823154,
         "dividendRate": 0,
-        "revenueUsd": 669066284.7016463,
-        "operatingIncomeUsd": 157284874.36800098,
-        "operatingCostsUsd": 511781411.28747547,
+        "revenueUsd": 669066285.376568,
+        "operatingIncomeUsd": 157284874.45744467,
+        "operatingCostsUsd": 511781410.91912323,
         "marginPct": 23.51
       },
       "balanceSheet": {
-        "cashOnHand": 23866213.521960422,
-        "marketCapitalization": 7242050775,
+        "cashOnHand": 23777978.62612709,
+        "marketCapitalization": 7844730000,
         "totalDebt": 269332000,
-        "cashOnHandUsd": 23866213.521960422,
-        "marketCapitalizationUsd": 7242050775,
+        "cashOnHandUsd": 23777978.62612709,
+        "marketCapitalizationUsd": 7844730000,
         "totalDebtUsd": 269332000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 7242.050775123588,
+        "sharePrice": 7844.73,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
@@ -1364,7 +1344,7 @@
           "couponRate": 1.5,
           "maturityLabel": null,
           "totalIssued": 115175000,
-          "marketPrice": 0.9864,
+          "marketPrice": 0.9866,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
@@ -1548,14 +1528,170 @@
     },
     {
       "id": 1827,
-      "displayName": "Unknown #1827",
-      "name": null,
+      "mongoId": "6ad660098fc4f5e101ffa925",
+      "name": "Umbrella Heavy Systems",
+      "displayName": "Umbrella Heavy Systems",
+      "alias": null,
+      "description": null,
+      "type": "manufacturing",
+      "typeLabel": "manufacturing",
+      "industryModel": null,
+      "mediaDiscriminator": null,
+      "countryId": "US",
+      "headquartersState": "NY",
+      "currency": "USD",
+      "ticker": "UMBHS",
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/1827",
+      "logoUrl": null,
+      "brandColor": "#f59e0b",
+      "bannerUrl": null,
+      "ceo": {
+        "name": null,
+        "profileUrl": null
+      },
       "threat": null,
       "member": false,
       "note": null,
       "source": "autoMatch",
-      "alive": false,
-      "error": "/api/public/v1/corporation?id=1827 -> 429"
+      "financials": {
+        "totalRevenue": 290261567,
+        "operatingIncome": 129647686,
+        "operatingCosts": 160613881,
+        "dividendRate": 10,
+        "revenueUsd": 276721436.45066327,
+        "operatingIncomeUsd": 123599876.73609075,
+        "operatingCostsUsd": 153121559.71457252,
+        "marginPct": 44.67
+      },
+      "balanceSheet": {
+        "cashOnHand": 11962076.251987824,
+        "marketCapitalization": 3986700000,
+        "totalDebt": 0,
+        "cashOnHandUsd": 11962076.251987824,
+        "marketCapitalizationUsd": 3986700000,
+        "totalDebtUsd": 0
+      },
+      "shareStructure": {
+        "totalShares": 10000000,
+        "publicFloat": 0,
+        "publicFloatPct": 0,
+        "sharePrice": 398.67,
+        "shareholders": [
+          {
+            "name": "Umbrella Technologies",
+            "shares": 10000000,
+            "pct": null
+          }
+        ]
+      },
+      "creditRating": {
+        "rating": "AAA",
+        "compositeScore": 92,
+        "snapshotTurn": 335,
+        "components": {
+          "debtToEquity": 100,
+          "interestCoverage": 100,
+          "profitability": 69,
+          "liquidity": 100
+        }
+      },
+      "bonds": [],
+      "defaultedBonds": 0,
+      "sectors": [
+        {
+          "stateId": "MA",
+          "stateName": "Massachusetts",
+          "sectorType": "manufacturing",
+          "revenue": 170390744.10242584,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 104645,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "NY",
+          "stateName": "New York",
+          "sectorType": "manufacturing",
+          "revenue": 1117033.4458357487,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 676,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "PA",
+          "stateName": "Pennsylvania",
+          "sectorType": "media",
+          "revenue": 11161.38985120835,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 5,
+          "mediaDiscriminator": "entertainment"
+        },
+        {
+          "stateId": "VA",
+          "stateName": "Virginia",
+          "sectorType": "manufacturing",
+          "revenue": 266213.19481806457,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 154,
+          "mediaDiscriminator": null
+        }
+      ],
+      "sectorsByType": {
+        "manufacturing": {
+          "sectorCount": 3,
+          "workers": 105475,
+          "revenue": 171773990.74307966,
+          "states": [
+            "Massachusetts",
+            "New York",
+            "Virginia"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
+        },
+        "media": {
+          "sectorCount": 1,
+          "workers": 5,
+          "revenue": 11161.38985120835,
+          "states": [
+            "Pennsylvania"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
+        }
+      },
+      "sectorCount": 4,
+      "workers": 105480,
+      "threatAxes": {
+        "biochemical": {
+          "sectorTypes": [
+            "chemical_industries",
+            "healthcare"
+          ],
+          "sectorCount": 0,
+          "workers": 0,
+          "revenue": 0,
+          "states": [],
+          "sectorDetail": []
+        },
+        "military": {
+          "sectorTypes": [
+            "defense"
+          ],
+          "sectorCount": 0,
+          "workers": 0,
+          "revenue": 0,
+          "states": [],
+          "sectorDetail": []
+        }
+      },
+      "growth": null,
+      "tape": [],
+      "tapeTradeCount": 0,
+      "tapeSplitCount": 0
     }
   ]
 }
