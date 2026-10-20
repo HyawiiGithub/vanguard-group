@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T11:31:29.233Z",
+  "updatedAt": "2026-10-20T11:46:45.694Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -2836,12 +2836,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 395142571,
       "operatingIncome": 164133085,
-      "marketCap": 1212242210100,
+      "marketCap": 1212287654544,
       "revenueUsd": 375002034.18902814,
       "operatingIncomeUsd": 155767171.82599053,
-      "marketCapUsd": 9550637829.907475,
+      "marketCapUsd": 9550995863.49384,
       "marginPct": 41.54,
-      "sharePrice": 109101.8,
+      "sharePrice": 109105.89,
       "totalShares": 11111111,
       "holders": [
         {
@@ -3305,12 +3305,12 @@
       "ceo": "Napoleon Astrae",
       "revenue": 10654496561,
       "operatingIncome": 2768754099,
-      "marketCap": 10527278730000,
+      "marketCap": 10536026710000,
       "revenueUsd": 10111433636.531673,
       "operatingIncomeUsd": 2627629861.9674916,
-      "marketCapUsd": 82939057596.76888,
+      "marketCapUsd": 83007978467.5546,
       "marginPct": 25.99,
-      "sharePrice": 10527278.73,
+      "sharePrice": 10536026.71,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3697,7 +3697,7 @@
       "alive": true,
       "dissolved": false,
       "name": "NERV",
-      "memberName": "NERV",
+      "memberName": "I Love Napoleon",
       "formerly": null,
       "type": "agriculture",
       "typeLabel": "agriculture",
@@ -3712,12 +3712,12 @@
       "ceo": "Misa Astrae",
       "revenue": 11518837531,
       "operatingIncome": 4588364058,
-      "marketCap": 18085456972289,
+      "marketCap": 18085435587502,
       "revenueUsd": 10931718884.872879,
       "operatingIncomeUsd": 4354493748.91531,
-      "marketCapUsd": 142486087426.75162,
+      "marketCapUsd": 142485918946.9264,
       "marginPct": 39.83,
-      "sharePrice": 16212376.29,
+      "sharePrice": 16212357.12,
       "totalShares": 1115534,
       "holders": [
         {
@@ -4692,7 +4692,8 @@
       "checks": {
         "marketCapPass": true,
         "marginPass": true
-      }
+      },
+      "renamedFrom": "NERV"
     },
     {
       "id": 1341,
@@ -4714,12 +4715,12 @@
       "ceo": "Malik Rahman",
       "revenue": 3265866357,
       "operatingIncome": 579346279,
-      "marketCap": 20357460000,
+      "marketCap": 20357110000,
       "revenueUsd": 3099404157.251664,
       "operatingIncomeUsd": 549816823.2671752,
-      "marketCapUsd": 20357460000,
+      "marketCapUsd": 20357110000,
       "marginPct": 17.74,
-      "sharePrice": 20357.46,
+      "sharePrice": 20357.11,
       "totalShares": 1000000,
       "holders": [
         {
@@ -5063,12 +5064,12 @@
       "ceo": "Larry Fink",
       "revenue": 1816735560,
       "operatingIncome": 757094931,
-      "marketCap": 4475603220000,
+      "marketCap": 4472853231000,
       "revenueUsd": 1724135996.9375286,
       "operatingIncomeUsd": 718505572.509427,
-      "marketCapUsd": 35260994105.34599,
+      "marketCapUsd": 35239328345.18981,
       "marginPct": 41.67,
-      "sharePrice": 4068730.2,
+      "sharePrice": 4066230.21,
       "totalShares": 1100000,
       "holders": [
         {
@@ -5105,7 +5106,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 90,
-      "cashOnHand": 1265124750436.6833,
+      "cashOnHand": 1262511135594.3787,
       "totalDebt": 0,
       "defaultedBonds": 0,
       "distress": [],
@@ -5384,7 +5385,7 @@
     },
     {
       "id": 565,
-      "from": "I Love Napoleon",
+      "from": "NERV",
       "to": "NERV",
       "turn": 331
     }
