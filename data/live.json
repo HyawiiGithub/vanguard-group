@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T19:31:34.310Z",
+  "updatedAt": "2026-10-20T19:46:27.769Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -303,12 +303,12 @@
       "workers": 175847,
       "divRate": 15,
       "growth": {
-        "pct": 87.45,
+        "pct": 97.98,
         "fromTurn": 309,
-        "toTurn": 338,
+        "toTurn": 339,
         "fromPrice": 220.429,
-        "toPrice": 413.1968,
-        "trades": 10,
+        "toPrice": 436.4164,
+        "trades": 11,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -824,6 +824,10 @@
         [
           338,
           413.1968
+        ],
+        [
+          339,
+          436.4164
         ]
       ],
       "checks": {
@@ -1016,12 +1020,12 @@
       "workers": 10489,
       "divRate": 8,
       "growth": {
-        "pct": 31.64,
+        "pct": 44.02,
         "fromTurn": 312,
         "toTurn": 339,
         "fromPrice": 2.8209,
-        "toPrice": 3.7134,
-        "trades": 8,
+        "toPrice": 4.0627,
+        "trades": 9,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1757,6 +1761,10 @@
         [
           338,
           6.2724
+        ],
+        [
+          339,
+          4.0627
         ],
         [
           339,
@@ -2880,12 +2888,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 625264388,
       "operatingIncome": 275810073,
-      "marketCap": 1557300428871,
+      "marketCap": 1557366651093,
       "revenueUsd": 594923295.6266633,
       "operatingIncomeUsd": 262426328.35854167,
-      "marketCapUsd": 11869028151.40428,
+      "marketCapUsd": 11869532866.74539,
       "marginPct": 44.11,
-      "sharePrice": 140157.04,
+      "sharePrice": 140163,
       "totalShares": 11111111,
       "holders": [
         {
@@ -3373,12 +3381,12 @@
       "ceo": "Napoleon Astrae",
       "revenue": 10974888834,
       "operatingIncome": 1919658743,
-      "marketCap": 8606195560000,
+      "marketCap": 8606223090000,
       "revenueUsd": 10442329932.053556,
       "operatingIncomeUsd": 1826506878.9814045,
-      "marketCapUsd": 65592467249.3569,
+      "marketCapUsd": 65592677070.364426,
       "marginPct": 17.49,
-      "sharePrice": 8606195.56,
+      "sharePrice": 8606223.09,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3789,12 +3797,12 @@
       "ceo": "Misa Astrae",
       "revenue": 8504405797,
       "operatingIncome": 1057291977,
-      "marketCap": 7470837831895,
+      "marketCap": 7470492005200,
       "revenueUsd": 8091727629.461188,
       "operatingIncomeUsd": 1005986650.5566448,
-      "marketCapUsd": 56939292443.15584,
+      "marketCapUsd": 56936656711.02454,
       "marginPct": 12.43,
-      "sharePrice": 6697095.59,
+      "sharePrice": 6696785.58,
       "totalShares": 1115534,
       "holders": [
         {
