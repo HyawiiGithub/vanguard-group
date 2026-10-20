@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T20:31:44.031Z",
+  "updatedAt": "2026-10-20T20:46:31.060Z",
   "game": {
     "currentTurn": 340,
     "gameDateLabel": "January, Week 1, 1997",
@@ -40,10 +40,10 @@
     "workers": 1773584,
     "sectorCount": 49,
     "revenueUsd": 4364123202.158471,
-    "marketCapUsd": 51002910000,
-    "cashUsd": 66379758.62008088,
-    "debtUsd": 520802000,
-    "bonds": 17,
+    "marketCapUsd": 50826580000,
+    "cashUsd": 590863401.5850923,
+    "debtUsd": 1222344000,
+    "bonds": 18,
     "defaultedBonds": 0,
     "biochemicalSectors": 15,
     "militarySectors": 3
@@ -87,18 +87,18 @@
         "marginPct": 32.19
       },
       "balanceSheet": {
-        "cashOnHand": 1916930.5093879625,
-        "marketCapitalization": 41369580000,
-        "totalDebt": 251470000,
-        "cashOnHandUsd": 1916930.5093879625,
-        "marketCapitalizationUsd": 41369580000,
-        "totalDebtUsd": 251470000
+        "cashOnHand": 351400573.47439945,
+        "marketCapitalization": 40997460000,
+        "totalDebt": 953012000,
+        "cashOnHandUsd": 351400573.47439945,
+        "marketCapitalizationUsd": 40997460000,
+        "totalDebtUsd": 953012000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 13753,
         "publicFloatPct": 1.4,
-        "sharePrice": 41369.58,
+        "sharePrice": 40997.46,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -317,6 +317,17 @@
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
+          "defaulted": false
+        },
+        {
+          "id": "6ad7d087fc49f5a3e00d0ae1",
+          "couponRate": 2.5,
+          "maturityLabel": null,
+          "totalIssued": 701542000,
+          "marketPrice": 1,
+          "turnsRemaining": 0,
+          "yieldToMaturity": null,
+          "holders": 0,
           "defaulted": false
         }
       ],
@@ -1249,18 +1260,18 @@
         "marginPct": 18.81
       },
       "balanceSheet": {
-        "cashOnHand": 42644014.03321857,
-        "marketCapitalization": 5165330000,
+        "cashOnHand": 217644014.03321856,
+        "marketCapitalization": 5361120000,
         "totalDebt": 269332000,
-        "cashOnHandUsd": 42644014.03321857,
-        "marketCapitalizationUsd": 5165330000,
+        "cashOnHandUsd": 217644014.03321856,
+        "marketCapitalizationUsd": 5361120000,
         "totalDebtUsd": 269332000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 5165.33,
+        "sharePrice": 5361.12,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
