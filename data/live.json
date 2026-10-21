@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T00:31:26.382Z",
+  "updatedAt": "2026-10-21T00:46:26.245Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -2892,12 +2892,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 689171809,
       "operatingIncome": 342750545,
-      "marketCap": 2030859868580,
+      "marketCap": 2030862424136,
       "revenueUsd": 656250511.3742744,
       "operatingIncomeUsd": 326377570.13949656,
-      "marketCapUsd": 15353901175.23987,
+      "marketCapUsd": 15353920495.998962,
       "marginPct": 49.73,
-      "sharePrice": 182777.39,
+      "sharePrice": 182777.62,
       "totalShares": 11111111,
       "holders": [
         {
@@ -3393,18 +3393,18 @@
       "ceo": "Napoleon Astrae",
       "revenue": 13940247500,
       "operatingIncome": 3175502755,
-      "marketCap": 10904689240000,
+      "marketCap": 10968154300000,
       "revenueUsd": 13274330770.77439,
       "operatingIncomeUsd": 3023811014.3579116,
-      "marketCapUsd": 82442675404.64531,
+      "marketCapUsd": 82922490026.22331,
       "marginPct": 22.78,
-      "sharePrice": 10904689.24,
+      "sharePrice": 10968154.3,
       "totalShares": 1000000,
       "holders": [
         {
           "name": "Napoleon Astrae",
-          "shares": 644789,
-          "pct": 64.5
+          "shares": 645573,
+          "pct": 64.6
         },
         {
           "name": "Ranco Hashimoto",
@@ -3464,12 +3464,12 @@
       "workers": 4143864,
       "divRate": 20,
       "growth": {
-        "pct": -6.61,
+        "pct": -17.35,
         "fromTurn": 323,
         "toTurn": 344,
         "fromPrice": 104060.891,
-        "toPrice": 97180.6965,
-        "trades": 6,
+        "toPrice": 86004.3835,
+        "trades": 7,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -3784,6 +3784,10 @@
         ],
         [
           344,
+          86004.3835
+        ],
+        [
+          344,
           97180.6965
         ]
       ],
@@ -3813,12 +3817,12 @@
       "ceo": "Misa Astrae",
       "revenue": 11075833079,
       "operatingIncome": 3041110000,
-      "marketCap": 11495084346603,
+      "marketCap": 11494992281582,
       "revenueUsd": 10546747599.175018,
       "operatingIncomeUsd": 2895838115.521959,
-      "marketCapUsd": 86906237003.04645,
+      "marketCapUsd": 86905540964.26208,
       "marginPct": 27.46,
-      "sharePrice": 10304557.59,
+      "sharePrice": 10304475.06,
       "totalShares": 1115534,
       "holders": [
         {
@@ -4840,12 +4844,12 @@
       "ceo": "Malik Rahman",
       "revenue": 3553838827,
       "operatingIncome": 714201338,
-      "marketCap": 26060480000,
+      "marketCap": 26060470000,
       "revenueUsd": 3384074213.576112,
       "operatingIncomeUsd": 680084395.7427326,
-      "marketCapUsd": 26060480000,
+      "marketCapUsd": 26060470000,
       "marginPct": 20.1,
-      "sharePrice": 26060.48,
+      "sharePrice": 26060.47,
       "totalShares": 1000000,
       "holders": [
         {
@@ -5864,7 +5868,7 @@
       "a": "BlackRock Incorporated",
       "aPct": 0.2,
       "b": "Arasaka Corporation",
-      "bPct": 64.5
+      "bPct": 64.6
     },
     {
       "type": "backer",
@@ -6588,7 +6592,7 @@
       "a": "Pfizer",
       "aPct": 0.1,
       "b": "Arasaka Corporation",
-      "bPct": 64.5
+      "bPct": 64.6
     },
     {
       "type": "backer",
@@ -7068,7 +7072,7 @@
       "a": "The Organization",
       "aPct": 0.1,
       "b": "Arasaka Corporation",
-      "bPct": 64.5
+      "bPct": 64.6
     },
     {
       "type": "backer",
