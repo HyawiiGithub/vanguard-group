@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-22T16:31:47.703Z",
+  "updatedAt": "2026-10-22T16:46:42.689Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
-    "currentTurn": 370,
-    "gameDateLabel": "August, Week 3, 1997",
+    "currentTurn": 371,
+    "gameDateLabel": "August, Week 4, 1997",
     "status": "paused",
-    "nextTurnAt": null
+    "nextTurnAt": "2026-10-22T17:00:00.000Z"
   },
   "thresholds": {
     "marketCapFloorUsd": 350000000,
@@ -158,7 +158,7 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 370,
+      "checkedTurn": 371,
       "dissolved": true,
       "memberName": "BlackRock Incorporated"
     },
@@ -308,7 +308,7 @@
         "toTurn": 371,
         "fromPrice": 723.1312,
         "toPrice": 820.259,
-        "trades": 16,
+        "trades": 17,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -887,6 +887,10 @@
         ],
         [
           370,
+          816.9853
+        ],
+        [
+          370,
           851.2416
         ],
         [
@@ -939,7 +943,7 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 370,
+      "checkedTurn": 371,
       "dissolved": true,
       "memberName": "Vermont Logistics"
     },
@@ -1023,7 +1027,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 447681,
+          "shares": 447682,
           "pct": 0.3
         },
         {
@@ -1084,12 +1088,12 @@
       "workers": 8203,
       "divRate": 8,
       "growth": {
-        "pct": -19.79,
+        "pct": -18.95,
         "fromTurn": 348,
         "toTurn": 371,
         "fromPrice": 4.4841,
-        "toPrice": 3.5966,
-        "trades": 13,
+        "toPrice": 3.6344,
+        "trades": 14,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1884,6 +1888,10 @@
         ],
         [
           371,
+          3.6344
+        ],
+        [
+          371,
           3.5966
         ]
       ],
@@ -2048,7 +2056,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 366,
-      "checkedTurn": 370
+      "checkedTurn": 371
     },
     {
       "id": 767,
@@ -2102,7 +2110,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 314,
-      "checkedTurn": 370
+      "checkedTurn": 371
     },
     {
       "id": 521,
@@ -2215,7 +2223,7 @@
       "dissolved": true,
       "memberName": "簡素",
       "lastSeenTurn": 216,
-      "checkedTurn": 370
+      "checkedTurn": 371
     },
     {
       "id": 1084,
@@ -2834,7 +2842,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 17,
+          "shares": 22,
           "pct": 0
         },
         {
@@ -2860,12 +2868,12 @@
       "workers": 3918018,
       "divRate": 0,
       "growth": {
-        "pct": -33.84,
+        "pct": -42.02,
         "fromTurn": 344,
-        "toTurn": 368,
+        "toTurn": 371,
         "fromPrice": 97180.6965,
-        "toPrice": 64295.1201,
-        "trades": 6,
+        "toPrice": 56349.9244,
+        "trades": 7,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -3201,6 +3209,10 @@
         [
           368,
           64295.1201
+        ],
+        [
+          371,
+          56349.9244
         ]
       ],
       "checks": {
@@ -3294,17 +3306,17 @@
         },
         {
           "name": "Index Fund",
+          "shares": 32,
+          "pct": 0
+        },
+        {
+          "name": "Index Fund",
           "shares": 28,
           "pct": 0
         },
         {
           "name": "Matsudaira Kobayashi",
           "shares": 22,
-          "pct": 0
-        },
-        {
-          "name": "Index Fund",
-          "shares": 10,
           "pct": 0
         },
         {
@@ -3325,12 +3337,12 @@
       "workers": 3535920,
       "divRate": 0,
       "growth": {
-        "pct": 10.81,
-        "fromTurn": 338,
-        "toTurn": 368,
-        "fromPrice": 88762.5511,
-        "toPrice": 98357.5096,
-        "trades": 9,
+        "pct": -58.29,
+        "fromTurn": 344,
+        "toTurn": 371,
+        "fromPrice": 91767.558,
+        "toPrice": 38278.7275,
+        "trades": 8,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -4262,6 +4274,10 @@
         [
           368,
           98357.5096
+        ],
+        [
+          371,
+          38278.7275
         ]
       ],
       "checks": {
@@ -4305,8 +4321,8 @@
         },
         {
           "name": "Index Fund",
-          "shares": 4361,
-          "pct": 0.4
+          "shares": 6809,
+          "pct": 0.7
         },
         {
           "name": "Index Fund",
@@ -4411,12 +4427,12 @@
       "workers": 1192766,
       "divRate": 0,
       "growth": {
-        "pct": -60.14,
+        "pct": -59.7,
         "fromTurn": 349,
         "toTurn": 371,
         "fromPrice": 23431.9097,
-        "toPrice": 9340.7994,
-        "trades": 8,
+        "toPrice": 9443.4616,
+        "trades": 9,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -4647,6 +4663,10 @@
         ],
         [
           371,
+          9443.4616
+        ],
+        [
+          371,
           9340.7994
         ]
       ],
@@ -4717,7 +4737,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 89,
-      "cashOnHand": 1443413192509.3096,
+      "cashOnHand": 1443413718937.6782,
       "totalDebt": 0,
       "defaultedBonds": 0,
       "distress": [],
@@ -5052,13 +5072,13 @@
       "id": 561,
       "from": "Arasaka Corporation",
       "to": "Arasaka Corporation",
-      "turn": 370
+      "turn": 371
     },
     {
       "id": 565,
       "from": "NERV",
       "to": "NERV",
-      "turn": 370
+      "turn": 371
     }
   ],
   "ties": [
