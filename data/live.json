@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T17:46:32.154Z",
+  "updatedAt": "2026-10-22T18:01:36.134Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -294,7 +294,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 91,
-      "cashOnHand": 26114048.85821525,
+      "cashOnHand": 25025704.004048582,
       "totalDebt": 25258000,
       "defaultedBonds": 0,
       "distress": [],
@@ -303,12 +303,12 @@
       "workers": 201868,
       "divRate": 15,
       "growth": {
-        "pct": 13.43,
+        "pct": 11.48,
         "fromTurn": 346,
-        "toTurn": 371,
+        "toTurn": 372,
         "fromPrice": 723.1312,
-        "toPrice": 820.259,
-        "trades": 17,
+        "toPrice": 806.1153,
+        "trades": 18,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -896,6 +896,10 @@
         [
           371,
           820.259
+        ],
+        [
+          372,
+          806.1153
         ]
       ],
       "checks": {
@@ -1079,7 +1083,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 89,
-      "cashOnHand": 76630159.14889683,
+      "cashOnHand": 76696955.14889683,
       "totalDebt": 1517000,
       "defaultedBonds": 0,
       "distress": [],
@@ -2290,7 +2294,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 42559,
+          "shares": 42591,
           "pct": 0.4
         },
         {
@@ -2357,7 +2361,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 94,
-      "cashOnHand": 34212589141.98536,
+      "cashOnHand": 34571800327.434456,
       "totalDebt": 4000845000,
       "defaultedBonds": 0,
       "distress": [],
@@ -2366,12 +2370,12 @@
       "workers": 268454,
       "divRate": 0,
       "growth": {
-        "pct": 12.07,
+        "pct": 7.8,
         "fromTurn": 346,
-        "toTurn": 371,
+        "toTurn": 372,
         "fromPrice": 1339.7764,
-        "toPrice": 1501.5279,
-        "trades": 14,
+        "toPrice": 1444.3073,
+        "trades": 15,
         "splitAdjusted": false,
         "window": "30T"
       },
@@ -2775,6 +2779,10 @@
         [
           371,
           1501.5279
+        ],
+        [
+          372,
+          1444.3073
         ]
       ],
       "checks": {
@@ -2859,7 +2867,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 89,
-      "cashOnHand": 128486081460.71384,
+      "cashOnHand": 130260087667.12349,
       "totalDebt": 509821914000,
       "defaultedBonds": 0,
       "distress": [],
@@ -3261,7 +3269,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 1654,
+          "shares": 1655,
           "pct": 0.1
         },
         {
@@ -3328,7 +3336,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AA",
       "creditScore": 77,
-      "cashOnHand": 333635303692.586,
+      "cashOnHand": 333356268202.2371,
       "totalDebt": 1067846648000,
       "defaultedBonds": 0,
       "distress": [],
@@ -3337,12 +3345,12 @@
       "workers": 3559179,
       "divRate": 0,
       "growth": {
-        "pct": -58.29,
+        "pct": -72.89,
         "fromTurn": 344,
-        "toTurn": 371,
+        "toTurn": 372,
         "fromPrice": 91767.558,
-        "toPrice": 38278.7275,
-        "trades": 8,
+        "toPrice": 24881.3481,
+        "trades": 9,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -4278,6 +4286,10 @@
         [
           371,
           38278.7275
+        ],
+        [
+          372,
+          24881.3481
         ]
       ],
       "checks": {
@@ -4418,7 +4430,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AA",
       "creditScore": 89,
-      "cashOnHand": 733742290.7181402,
+      "cashOnHand": 733416703.3400701,
       "totalDebt": 103286000,
       "defaultedBonds": 0,
       "distress": [],
@@ -4725,7 +4737,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 2,
+          "shares": 3,
           "pct": 0
         },
         {
@@ -4737,7 +4749,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 89,
-      "cashOnHand": 1447088806401.7744,
+      "cashOnHand": 1447089108731.6482,
       "totalDebt": 0,
       "defaultedBonds": 0,
       "distress": [],
@@ -4746,12 +4758,12 @@
       "workers": 1001845,
       "divRate": 20,
       "growth": {
-        "pct": -15.57,
+        "pct": -19.44,
         "fromTurn": 361,
-        "toTurn": 371,
+        "toTurn": 372,
         "fromPrice": 49406.8073,
-        "toPrice": 41715.6141,
-        "trades": 3,
+        "toPrice": 39804.3492,
+        "trades": 4,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -5059,6 +5071,10 @@
         [
           371,
           41715.6141
+        ],
+        [
+          372,
+          39804.3492
         ]
       ],
       "checks": {
