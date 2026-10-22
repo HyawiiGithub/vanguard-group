@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-21T22:31:28.535Z",
+  "updatedAt": "2026-10-22T14:00:28.780Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
-    "currentTurn": 366,
-    "gameDateLabel": "July, Week 3, 1997",
-    "status": "active",
-    "nextTurnAt": "2026-10-21T23:00:00.000Z"
+    "currentTurn": 370,
+    "gameDateLabel": "August, Week 3, 1997",
+    "status": "paused",
+    "nextTurnAt": "2026-10-22T12:00:00.000Z"
   },
   "thresholds": {
     "marketCapFloorUsd": 350000000,
@@ -158,7 +158,7 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 366,
+      "checkedTurn": 370,
       "dissolved": true,
       "memberName": "BlackRock Incorporated"
     },
@@ -180,14 +180,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6acb10f57f0eaca56be706cd-1792201473041.webp",
       "brandColor": "#730c0c",
       "ceo": "Braden E Peters",
-      "revenue": 566888617,
-      "operatingIncome": 163139029,
-      "marketCap": 4942117882,
-      "revenueUsd": 586260025.5276147,
-      "operatingIncomeUsd": 168713726.89088634,
-      "marketCapUsd": 4942117882,
-      "marginPct": 28.78,
-      "sharePrice": 1028.98,
+      "revenue": 531498870,
+      "operatingIncome": 109526298,
+      "marketCap": 4300440999,
+      "revenueUsd": 550791452.1317171,
+      "operatingIncomeUsd": 113501932.22806133,
+      "marketCapUsd": 4300440999,
+      "marginPct": 20.61,
+      "sharePrice": 895.3788404766182,
       "totalShares": 4802929,
       "holders": [
         {
@@ -247,11 +247,6 @@
         },
         {
           "name": "Index Fund",
-          "shares": 13460,
-          "pct": 0.3
-        },
-        {
-          "name": "Index Fund",
           "shares": 8477,
           "pct": 0.2
         },
@@ -289,25 +284,30 @@
           "name": "Lukas Hochburger",
           "shares": 397,
           "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 361,
+          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "creditScore": 93,
-      "cashOnHand": 8415205.970584413,
+      "creditScore": 90,
+      "cashOnHand": 20387801.288897038,
       "totalDebt": 25258000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 15,
-      "workers": 204469,
+      "workers": 202437,
       "divRate": 15,
       "growth": {
-        "pct": 202.14,
-        "fromTurn": 336,
-        "toTurn": 366,
-        "fromPrice": 336.5897,
-        "toPrice": 1016.9829,
+        "pct": 17.72,
+        "fromTurn": 346,
+        "toTurn": 370,
+        "fromPrice": 723.1312,
+        "toPrice": 851.2416,
         "trades": 15,
         "splitAdjusted": true,
         "window": "30T"
@@ -871,7 +871,23 @@
         ],
         [
           366,
+          1015.0964
+        ],
+        [
+          366,
           1016.9829
+        ],
+        [
+          367,
+          1004.2927
+        ],
+        [
+          368,
+          957.6418
+        ],
+        [
+          370,
+          851.2416
         ]
       ],
       "checks": {
@@ -919,7 +935,7 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 366,
+      "checkedTurn": 370,
       "dissolved": true,
       "memberName": "Vermont Logistics"
     },
@@ -941,14 +957,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp",
       "brandColor": "#d946ef",
       "ceo": "Ronald Reagan",
-      "revenue": 30275886,
-      "operatingIncome": 12964561,
-      "marketCap": 596841765,
-      "revenueUsd": 31310457.057971146,
-      "operatingIncomeUsd": 13407578.90507143,
-      "marketCapUsd": 596841765,
-      "marginPct": 42.82,
-      "sharePrice": 4.53,
+      "revenue": 29543620,
+      "operatingIncome": 10769825,
+      "marketCap": 507933763,
+      "revenueUsd": 30616007.445185423,
+      "operatingIncomeUsd": 11160752.892954353,
+      "marketCapUsd": 507933763,
+      "marginPct": 36.45,
+      "sharePrice": 3.8551925815100114,
       "totalShares": 131753149,
       "holders": [
         {
@@ -963,7 +979,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 5690355,
+          "shares": 5715518,
           "pct": 4.3
         },
         {
@@ -988,13 +1004,13 @@
         },
         {
           "name": "Index Fund",
-          "shares": 2117180,
-          "pct": 1.6
+          "shares": 2285875,
+          "pct": 1.7
         },
         {
           "name": "Index Fund",
-          "shares": 2072529,
-          "pct": 1.6
+          "shares": 1201115,
+          "pct": 0.9
         },
         {
           "name": "Winston Churchill",
@@ -1010,11 +1026,6 @@
           "name": "caleb mercer",
           "shares": 343442,
           "pct": 0.3
-        },
-        {
-          "name": "Index Fund",
-          "shares": 281620,
-          "pct": 0.2
         },
         {
           "name": "Rhun ap Iorwerth",
@@ -1048,6 +1059,11 @@
         },
         {
           "name": "National Public Party",
+          "shares": 8152,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
           "shares": 8015,
           "pct": 0
         }
@@ -1055,21 +1071,21 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 89,
-      "cashOnHand": 74795275.4020971,
+      "cashOnHand": 76091531.88116986,
       "totalDebt": 1517000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 10,
-      "workers": 8216,
+      "workers": 8196,
       "divRate": 8,
       "growth": {
-        "pct": -35.93,
-        "fromTurn": 338,
-        "toTurn": 366,
-        "fromPrice": 6.2724,
-        "toPrice": 4.0189,
-        "trades": 8,
+        "pct": -17.54,
+        "fromTurn": 348,
+        "toTurn": 370,
+        "fromPrice": 4.4841,
+        "toPrice": 3.6974,
+        "trades": 12,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1832,7 +1848,35 @@
         ],
         [
           366,
+          4.0369
+        ],
+        [
+          366,
+          4.0369
+        ],
+        [
+          366,
           4.0189
+        ],
+        [
+          367,
+          4.1188
+        ],
+        [
+          367,
+          4.1188
+        ],
+        [
+          367,
+          4.029
+        ],
+        [
+          368,
+          3.9184
+        ],
+        [
+          370,
+          3.6974
         ]
       ],
       "checks": {
@@ -1842,8 +1886,8 @@
     },
     {
       "id": 645,
-      "alive": true,
-      "dissolved": false,
+      "alive": false,
+      "dissolved": true,
       "name": "American Broadcasting Company",
       "memberName": "American Broadcasting Company",
       "formerly": null,
@@ -1990,820 +2034,13 @@
         "splitAdjusted": true,
         "window": "30T"
       },
-      "tape": [
-        [
-          40,
-          0.0057
-        ],
-        [
-          40,
-          0.0055
-        ],
-        [
-          136,
-          8.7929
-        ],
-        [
-          136,
-          9.048
-        ],
-        [
-          138,
-          9.3012
-        ],
-        [
-          138,
-          9.2339
-        ],
-        [
-          138,
-          9.1162
-        ],
-        [
-          138,
-          9.1162
-        ],
-        [
-          138,
-          8.9088
-        ],
-        [
-          138,
-          9.1162
-        ],
-        [
-          139,
-          9.4413
-        ],
-        [
-          139,
-          9.4413
-        ],
-        [
-          139,
-          9.4413
-        ],
-        [
-          140,
-          9.4839
-        ],
-        [
-          140,
-          9.4839
-        ],
-        [
-          140,
-          9.4839
-        ],
-        [
-          140,
-          9.5008
-        ],
-        [
-          140,
-          9.5008
-        ],
-        [
-          140,
-          9.5008
-        ],
-        [
-          140,
-          9.3583
-        ],
-        [
-          141,
-          9.5729
-        ],
-        [
-          141,
-          9.5729
-        ],
-        [
-          141,
-          9.4104
-        ],
-        [
-          142,
-          9.0963
-        ],
-        [
-          142,
-          9.1194
-        ],
-        [
-          142,
-          9.1194
-        ],
-        [
-          143,
-          9.1883
-        ],
-        [
-          143,
-          9.2073
-        ],
-        [
-          144,
-          9.0981
-        ],
-        [
-          146,
-          9.1587
-        ],
-        [
-          146,
-          9.3901
-        ],
-        [
-          149,
-          9.0839
-        ],
-        [
-          150,
-          8.9319
-        ],
-        [
-          151,
-          8.9326
-        ],
-        [
-          151,
-          8.9597
-        ],
-        [
-          152,
-          4.3691
-        ],
-        [
-          154,
-          8.283
-        ],
-        [
-          158,
-          8.2399
-        ],
-        [
-          160,
-          8.8173
-        ],
-        [
-          160,
-          8.8173
-        ],
-        [
-          161,
-          8.226
-        ],
-        [
-          163,
-          8.4186
-        ],
-        [
-          164,
-          8.6557
-        ],
-        [
-          164,
-          8.832
-        ],
-        [
-          165,
-          8.6037
-        ],
-        [
-          168,
-          8.9642
-        ],
-        [
-          176,
-          9.0653
-        ],
-        [
-          182,
-          12.3251
-        ],
-        [
-          183,
-          9.8887
-        ],
-        [
-          184,
-          10.0902
-        ],
-        [
-          184,
-          10.0902
-        ],
-        [
-          185,
-          14.4615
-        ],
-        [
-          185,
-          14.4614
-        ],
-        [
-          185,
-          13.4108
-        ],
-        [
-          187,
-          18.5693
-        ],
-        [
-          187,
-          18.1467
-        ],
-        [
-          192,
-          26.4491
-        ],
-        [
-          192,
-          28.7918
-        ],
-        [
-          192,
-          28.7918
-        ],
-        [
-          197,
-          35.7347
-        ],
-        [
-          197,
-          35.7346
-        ],
-        [
-          200,
-          36.7698
-        ],
-        [
-          200,
-          35.3278
-        ],
-        [
-          200,
-          36.1331
-        ],
-        [
-          200,
-          36.1328
-        ],
-        [
-          200,
-          36.1322
-        ],
-        [
-          201,
-          37.5485
-        ],
-        [
-          207,
-          38.5694
-        ],
-        [
-          207,
-          38.2326
-        ],
-        [
-          207,
-          42.3982
-        ],
-        [
-          207,
-          42.3982
-        ],
-        [
-          208,
-          39.3543
-        ],
-        [
-          209,
-          39.0211
-        ],
-        [
-          209,
-          51.6316
-        ],
-        [
-          211,
-          40.0294
-        ],
-        [
-          212,
-          40.4054
-        ],
-        [
-          212,
-          45.9668
-        ],
-        [
-          212,
-          45.9668
-        ],
-        [
-          215,
-          45.4597
-        ],
-        [
-          215,
-          45.4597
-        ],
-        [
-          215,
-          45.5737
-        ],
-        [
-          216,
-          38.2782
-        ],
-        [
-          216,
-          43.8298
-        ],
-        [
-          216,
-          44.5754
-        ],
-        [
-          216,
-          39.063
-        ],
-        [
-          217,
-          37.9287
-        ],
-        [
-          218,
-          43.0533
-        ],
-        [
-          218,
-          37.9289
-        ],
-        [
-          223,
-          50.8023
-        ],
-        [
-          223,
-          50.8024
-        ],
-        [
-          224,
-          50.8846
-        ],
-        [
-          225,
-          42.5755
-        ],
-        [
-          226,
-          41.7286
-        ],
-        [
-          226,
-          42.5773
-        ],
-        [
-          227,
-          40.463
-        ],
-        [
-          227,
-          42.1145
-        ],
-        [
-          231,
-          43.8546
-        ],
-        [
-          231,
-          44.3268
-        ],
-        [
-          232,
-          50.3635
-        ],
-        [
-          232,
-          50.1981
-        ],
-        [
-          232,
-          50.1958
-        ],
-        [
-          232,
-          49.1978
-        ],
-        [
-          232,
-          50.1968
-        ],
-        [
-          232,
-          50.1968
-        ],
-        [
-          234,
-          49.7512
-        ],
-        [
-          234,
-          43.5925
-        ],
-        [
-          235,
-          42.8054
-        ],
-        [
-          236,
-          43.183
-        ],
-        [
-          236,
-          42.2753
-        ],
-        [
-          237,
-          46.6998
-        ],
-        [
-          237,
-          41.1803
-        ],
-        [
-          238,
-          45.9641
-        ],
-        [
-          238,
-          45.9639
-        ],
-        [
-          238,
-          39.8765
-        ],
-        [
-          239,
-          38.9851
-        ],
-        [
-          239,
-          38.9853
-        ],
-        [
-          239,
-          38.4489
-        ],
-        [
-          240,
-          25.8247
-        ],
-        [
-          240,
-          25.8247
-        ],
-        [
-          240,
-          25.8247
-        ],
-        [
-          240,
-          21.5138
-        ],
-        [
-          241,
-          28.1224
-        ],
-        [
-          242,
-          28.0159
-        ],
-        [
-          243,
-          22.8366
-        ],
-        [
-          244,
-          17.6382
-        ],
-        [
-          246,
-          8.6286
-        ],
-        [
-          247,
-          5.662
-        ],
-        [
-          248,
-          3.5507
-        ],
-        [
-          248,
-          3.5507
-        ],
-        [
-          248,
-          3.6558
-        ],
-        [
-          250,
-          2.7506
-        ],
-        [
-          250,
-          2.8767
-        ],
-        [
-          250,
-          2.3881
-        ],
-        [
-          251,
-          2.7995
-        ],
-        [
-          251,
-          3.2096
-        ],
-        [
-          251,
-          2.4004
-        ],
-        [
-          252,
-          2.5237
-        ],
-        [
-          254,
-          4.3515
-        ],
-        [
-          254,
-          4.2513
-        ],
-        [
-          254,
-          4.3515
-        ],
-        [
-          256,
-          8.0131
-        ],
-        [
-          259,
-          30.5896
-        ],
-        [
-          259,
-          31.8381
-        ],
-        [
-          261,
-          30.5426
-        ],
-        [
-          262,
-          27.876
-        ],
-        [
-          264,
-          37.4441
-        ],
-        [
-          265,
-          47.6263
-        ],
-        [
-          267,
-          28.4096
-        ],
-        [
-          270,
-          27.1631
-        ],
-        [
-          274,
-          28.6857
-        ],
-        [
-          278,
-          36.0558
-        ],
-        [
-          279,
-          35.3679
-        ],
-        [
-          282,
-          26.5643
-        ],
-        [
-          282,
-          26.5643
-        ],
-        [
-          283,
-          17.8609
-        ],
-        [
-          284,
-          21.4143
-        ],
-        [
-          284,
-          19.8171
-        ],
-        [
-          284,
-          19.8201
-        ],
-        [
-          284,
-          20.2233
-        ],
-        [
-          284,
-          18.0465
-        ],
-        [
-          284,
-          18.015
-        ],
-        [
-          285,
-          17.0122
-        ],
-        [
-          287,
-          17.0627
-        ],
-        [
-          288,
-          16.9356
-        ],
-        [
-          290,
-          15.7634
-        ],
-        [
-          291,
-          15.3629
-        ],
-        [
-          292,
-          13.5549
-        ],
-        [
-          292,
-          14.4566
-        ],
-        [
-          294,
-          13.2526
-        ],
-        [
-          295,
-          14.1593
-        ],
-        [
-          296,
-          12.1639
-        ],
-        [
-          296,
-          12.1643
-        ],
-        [
-          296,
-          13.0533
-        ],
-        [
-          298,
-          8.8832
-        ],
-        [
-          302,
-          14.3821
-        ],
-        [
-          303,
-          13.0795
-        ],
-        [
-          304,
-          12.659
-        ],
-        [
-          305,
-          12.5933
-        ],
-        [
-          307,
-          10.9365
-        ],
-        [
-          308,
-          13.6206
-        ],
-        [
-          312,
-          21.4843
-        ],
-        [
-          320,
-          72.9585
-        ],
-        [
-          324,
-          69.2211
-        ],
-        [
-          326,
-          63.3863
-        ],
-        [
-          327,
-          57.6697
-        ],
-        [
-          327,
-          59.9215
-        ],
-        [
-          327,
-          64.6643
-        ],
-        [
-          331,
-          56.2264
-        ],
-        [
-          335,
-          65.2809
-        ],
-        [
-          336,
-          58.869
-        ],
-        [
-          338,
-          63.6011
-        ],
-        [
-          338,
-          63.6011
-        ],
-        [
-          339,
-          60.8581
-        ],
-        [
-          346,
-          64.4102
-        ],
-        [
-          347,
-          52.2091
-        ],
-        [
-          347,
-          53.2666
-        ],
-        [
-          348,
-          51.2991
-        ],
-        [
-          356,
-          53.7164
-        ],
-        [
-          363,
-          44.9386
-        ],
-        [
-          364,
-          49.9459
-        ],
-        [
-          364,
-          44.4882
-        ],
-        [
-          366,
-          44.1979
-        ]
-      ],
+      "tape": [],
       "checks": {
         "marketCapPass": true,
         "marginPass": true
-      }
+      },
+      "lastSeenTurn": 366,
+      "checkedTurn": 370
     },
     {
       "id": 767,
@@ -2857,7 +2094,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 314,
-      "checkedTurn": 366
+      "checkedTurn": 370
     },
     {
       "id": 521,
@@ -2970,7 +2207,7 @@
       "dissolved": true,
       "memberName": "簡素",
       "lastSeenTurn": 216,
-      "checkedTurn": 366
+      "checkedTurn": 370
     },
     {
       "id": 1084,
@@ -2985,19 +2222,19 @@
       "countryId": "JP",
       "headquartersState": "CHU",
       "currency": "JPY",
-      "fxPerUsd": 117.95,
+      "fxPerUsd": 118.27,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/1084",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ace7b48076f76a31679a279-1791917252503.webp",
       "brandColor": "#fef100",
       "ceo": "Nariyoshi Miyagi",
-      "revenue": 952441738,
-      "operatingIncome": 432461955,
-      "marketCap": 3018015636487,
-      "revenueUsd": 984988057.4219497,
-      "operatingIncomeUsd": 447239808.97648215,
-      "marketCapUsd": 25588114558.088593,
-      "marginPct": 45.41,
-      "sharePrice": 271621.41,
+      "revenue": 951131683,
+      "operatingIncome": 356341252,
+      "marketCap": 2136029663348,
+      "revenueUsd": 985656283.4236205,
+      "operatingIncomeUsd": 369275885.08986694,
+      "marketCapUsd": 18060261730.34949,
+      "marginPct": 37.46,
+      "sharePrice": 192242.6716237066,
       "totalShares": 11111111,
       "holders": [
         {
@@ -3037,7 +2274,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 42472,
+          "shares": 42528,
           "pct": 0.4
         },
         {
@@ -3048,6 +2285,11 @@
         {
           "name": "Index Fund",
           "shares": 26688,
+          "pct": 0.2
+        },
+        {
+          "name": "Index Fund",
+          "shares": 22767,
           "pct": 0.2
         },
         {
@@ -3066,11 +2308,6 @@
           "pct": 0.1
         },
         {
-          "name": "Index Fund",
-          "shares": 1383,
-          "pct": 0
-        },
-        {
           "name": "Gareth Evans",
           "shares": 1257,
           "pct": 0
@@ -3086,13 +2323,13 @@
           "pct": 0
         },
         {
-          "name": "Index Fund",
-          "shares": 401,
+          "name": "Braden E Peters",
+          "shares": 176,
           "pct": 0
         },
         {
-          "name": "Braden E Peters",
-          "shares": 176,
+          "name": "Index Fund",
+          "shares": 104,
           "pct": 0
         },
         {
@@ -3103,21 +2340,21 @@
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "creditScore": 94,
-      "cashOnHand": 23110822170.97461,
+      "creditScore": 93,
+      "cashOnHand": 30650313446.35342,
       "totalDebt": 4000845000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 9,
-      "workers": 251694,
+      "workers": 262764,
       "divRate": 0,
       "growth": {
-        "pct": 86.9,
-        "fromTurn": 336,
-        "toTurn": 366,
-        "fromPrice": 910.926,
-        "toPrice": 1702.5099,
+        "pct": 59.38,
+        "fromTurn": 340,
+        "toTurn": 370,
+        "fromPrice": 949.4147,
+        "toPrice": 1513.1358,
         "trades": 14,
         "splitAdjusted": false,
         "window": "30T"
@@ -3497,7 +2734,27 @@
         ],
         [
           366,
+          1827.0244
+        ],
+        [
+          366,
           1702.5099
+        ],
+        [
+          367,
+          1864.517
+        ],
+        [
+          367,
+          1703.7526
+        ],
+        [
+          368,
+          1647.3968
+        ],
+        [
+          370,
+          1513.1358
         ]
       ],
       "checks": {
@@ -3518,19 +2775,19 @@
       "countryId": "JP",
       "headquartersState": "HOK",
       "currency": "JPY",
-      "fxPerUsd": 117.95,
+      "fxPerUsd": 118.27,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/561",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac56dd29c01603665694296-1792466396628.webp",
       "brandColor": "#e32400",
       "ceo": "Napoleon Astrae",
-      "revenue": 13888241578,
-      "operatingIncome": 1824034312,
-      "marketCap": 10586066890000,
-      "revenueUsd": 14362822991.825851,
-      "operatingIncomeUsd": 1886364217.3227215,
-      "marketCapUsd": 89753508572.34546,
-      "marginPct": 13.13,
-      "sharePrice": 10586066.89,
+      "revenue": 13617898559,
+      "operatingIncome": 1241403460,
+      "marketCap": 7010900290638,
+      "revenueUsd": 14112207091.416822,
+      "operatingIncomeUsd": 1286464474.3548334,
+      "marketCapUsd": 59277591686.55186,
+      "marginPct": 9.12,
+      "sharePrice": 7010900.290638383,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3560,7 +2817,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 29,
+          "shares": 43,
           "pct": 0
         },
         {
@@ -3581,22 +2838,22 @@
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "creditScore": 88,
-      "cashOnHand": 96752024538.95195,
+      "creditScore": 87,
+      "cashOnHand": 118202043378.74207,
       "totalDebt": 509821914000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 50,
-      "workers": 4040307,
+      "workers": 3925750,
       "divRate": 0,
       "growth": {
-        "pct": -12.63,
-        "fromTurn": 334,
-        "toTurn": 361,
-        "fromPrice": 99275.6577,
-        "toPrice": 86733.1694,
-        "trades": 5,
+        "pct": -33.84,
+        "fromTurn": 344,
+        "toTurn": 368,
+        "fromPrice": 97180.6965,
+        "toPrice": 64295.1201,
+        "trades": 6,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -3924,11 +3181,19 @@
         [
           361,
           86733.1694
+        ],
+        [
+          367,
+          71415.4023
+        ],
+        [
+          368,
+          64295.1201
         ]
       ],
       "checks": {
         "marketCapPass": true,
-        "marginPass": true
+        "marginPass": false
       },
       "renamedFrom": "Arasaka Corporation"
     },
@@ -3945,19 +3210,19 @@
       "countryId": "JP",
       "headquartersState": "HOK",
       "currency": "JPY",
-      "fxPerUsd": 117.95,
+      "fxPerUsd": 118.27,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/565",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac5701a9c0160366569479b-1792479647850.webp",
       "brandColor": "#4576c4",
       "ceo": "Misa Astrae",
-      "revenue": 10895613632,
-      "operatingIncome": 2772478731,
-      "marketCap": 16807906328061,
-      "revenueUsd": 11267932596.422812,
-      "operatingIncomeUsd": 2867218361.540727,
-      "marketCapUsd": 142505104150.0459,
-      "marginPct": 25.45,
-      "sharePrice": 15067139.44,
+      "revenue": 8379821193,
+      "operatingIncome": -421920994,
+      "marketCap": 8101031783258,
+      "revenueUsd": 8683995665.873396,
+      "operatingIncomeUsd": -437236069.7024953,
+      "marketCapUsd": 68494720275.65339,
+      "marginPct": -5.03,
+      "sharePrice": 7262021.402537246,
       "totalShares": 1115534,
       "holders": [
         {
@@ -3976,11 +3241,6 @@
           "pct": 0.1
         },
         {
-          "name": "Index Fund",
-          "shares": 1335,
-          "pct": 0.1
-        },
-        {
           "name": "Greenbaum Group",
           "shares": 1237,
           "pct": 0.1
@@ -3988,6 +3248,16 @@
         {
           "name": "Begum Chemicals",
           "shares": 952,
+          "pct": 0.1
+        },
+        {
+          "name": "Index Fund",
+          "shares": 936,
+          "pct": 0.1
+        },
+        {
+          "name": "Index Fund",
+          "shares": 872,
           "pct": 0.1
         },
         {
@@ -4012,7 +3282,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 31,
+          "shares": 28,
           "pct": 0
         },
         {
@@ -4024,26 +3294,31 @@
           "name": "Index Fund",
           "shares": 10,
           "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 2,
+          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
-      "creditRating": "AAA",
-      "creditScore": 90,
-      "cashOnHand": 307036608141.6391,
+      "creditRating": "A",
+      "creditScore": 63,
+      "cashOnHand": 330668059440.4417,
       "totalDebt": 1067846648000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 26,
-      "workers": 3135229,
+      "workers": 3566670,
       "divRate": 0,
       "growth": {
-        "pct": -20.39,
-        "fromTurn": 333,
-        "toTurn": 362,
-        "fromPrice": 141115.45,
-        "toPrice": 112348.193,
-        "trades": 7,
+        "pct": 10.81,
+        "fromTurn": 338,
+        "toTurn": 368,
+        "fromPrice": 88762.5511,
+        "toPrice": 98357.5096,
+        "trades": 9,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -4955,11 +4230,31 @@
         [
           362,
           112348.193
+        ],
+        [
+          366,
+          106322.0423
+        ],
+        [
+          366,
+          106324.65
+        ],
+        [
+          367,
+          108508.9916
+        ],
+        [
+          367,
+          108503.0543
+        ],
+        [
+          368,
+          98357.5096
         ]
       ],
       "checks": {
         "marketCapPass": true,
-        "marginPass": true
+        "marginPass": false
       },
       "renamedFrom": "NERV"
     },
@@ -4981,14 +4276,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ad0a0ae338ba1a1f51ca115-1792058199093.webp",
       "brandColor": "#ec4899",
       "ceo": "Malik Rahman",
-      "revenue": 3995681032,
-      "operatingIncome": 415572971,
-      "marketCap": 19587690000,
-      "revenueUsd": 4132219264.1954665,
-      "operatingIncomeUsd": 429773703.8298066,
-      "marketCapUsd": 19587690000,
-      "marginPct": 10.4,
-      "sharePrice": 19587.69,
+      "revenue": 3904746338,
+      "operatingIncome": 220307221,
+      "marketCap": 10456567345,
+      "revenueUsd": 4046482555.4813023,
+      "operatingIncomeUsd": 228304030.39181083,
+      "marketCapUsd": 10456567345,
+      "marginPct": 5.64,
+      "sharePrice": 10456.567345248986,
       "totalShares": 1000000,
       "holders": [
         {
@@ -5002,6 +4297,11 @@
           "pct": 0.4
         },
         {
+          "name": "Index Fund",
+          "shares": 2049,
+          "pct": 0.2
+        },
+        {
           "name": "Begum Chemicals",
           "shares": 2007,
           "pct": 0.2
@@ -5013,7 +4313,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 789,
+          "shares": 1057,
           "pct": 0.1
         },
         {
@@ -5085,31 +4385,26 @@
           "name": "National Public Party",
           "shares": 1,
           "pct": 0
-        },
-        {
-          "name": "National Public Party",
-          "shares": 1,
-          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
       "creditRating": "AA",
-      "creditScore": 90,
-      "cashOnHand": 701867516.160342,
+      "creditScore": 88,
+      "cashOnHand": 723902795.450167,
       "totalDebt": 103286000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 100,
-      "workers": 1220603,
+      "workers": 1200441,
       "divRate": 0,
       "growth": {
-        "pct": -5.85,
-        "fromTurn": 336,
-        "toTurn": 362,
-        "fromPrice": 18480.109,
-        "toPrice": 17398.5,
-        "trades": 5,
+        "pct": -57.35,
+        "fromTurn": 349,
+        "toTurn": 370,
+        "fromPrice": 23431.9097,
+        "toPrice": 9993.8805,
+        "trades": 7,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -5325,11 +4620,23 @@
         [
           362,
           17398.5
+        ],
+        [
+          367,
+          16356.1668
+        ],
+        [
+          368,
+          13242.4981
+        ],
+        [
+          370,
+          9993.8805
         ]
       ],
       "checks": {
         "marketCapPass": true,
-        "marginPass": true
+        "marginPass": false
       }
     },
     {
@@ -5345,19 +4652,19 @@
       "countryId": "JP",
       "headquartersState": "KAN",
       "currency": "JPY",
-      "fxPerUsd": 117.95,
+      "fxPerUsd": 118.27,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/1530",
       "logoUrl": null,
       "brandColor": "#f59e0b",
       "ceo": "Larry Fink",
-      "revenue": 2940226175,
-      "operatingIncome": 1176391765,
-      "marketCap": 7999280047000,
-      "revenueUsd": 3040697979.674658,
-      "operatingIncomeUsd": 1216590782.5582175,
-      "marketCapUsd": 67821548619.65042,
-      "marginPct": 40.01,
-      "sharePrice": 7272072.77,
+      "revenue": 2863367977,
+      "operatingIncome": 938899841,
+      "marketCap": 6039921050320,
+      "revenueUsd": 2967303780.0424433,
+      "operatingIncomeUsd": 972980444.5880163,
+      "marketCapUsd": 51067902694.03434,
+      "marginPct": 32.79,
+      "sharePrice": 5490837.31847296,
       "totalShares": 1100000,
       "holders": [
         {
@@ -5384,26 +4691,31 @@
           "name": "National Public Party",
           "shares": 1,
           "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 1,
+          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "creditScore": 91,
-      "cashOnHand": 1422656010854.9475,
+      "creditScore": 90,
+      "cashOnHand": 1439907181940.7976,
       "totalDebt": 0,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 58,
-      "workers": 958740,
+      "workers": 976333,
       "divRate": 20,
       "growth": {
-        "pct": 57,
-        "fromTurn": 331,
-        "toTurn": 361,
-        "fromPrice": 31468.8989,
-        "toPrice": 49406.8073,
-        "trades": 15,
+        "pct": 53.17,
+        "fromTurn": 340,
+        "toTurn": 370,
+        "fromPrice": 28441.1398,
+        "toPrice": 43562.0246,
+        "trades": 3,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -5703,6 +5015,10 @@
         [
           361,
           49406.8073
+        ],
+        [
+          370,
+          43562.0246
         ]
       ],
       "checks": {
@@ -5716,13 +5032,13 @@
       "id": 561,
       "from": "Arasaka Corporation",
       "to": "Arasaka Corporation",
-      "turn": 366
+      "turn": 370
     },
     {
       "id": 565,
       "from": "NERV",
       "to": "NERV",
-      "turn": 366
+      "turn": 370
     }
   ],
   "ties": [
@@ -6184,6 +5500,14 @@
     },
     {
       "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "Pfizer",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
       "who": "Greenbaum Group",
       "a": "Exxon Mobil",
       "aPct": 0,
@@ -6421,14 +5745,6 @@
       "aPct": 3.1,
       "b": "Vermont Retail",
       "bPct": 81.7
-    },
-    {
-      "type": "backer",
-      "who": "National Public Party",
-      "a": "Exxon Mobil",
-      "aPct": 0,
-      "b": "Vermont Retail",
-      "bPct": 0
     },
     {
       "type": "backer",
@@ -6894,14 +6210,6 @@
     },
     {
       "type": "backer",
-      "who": "National Public Party",
-      "a": "Pfizer",
-      "aPct": 0,
-      "b": "Vermont Retail",
-      "bPct": 0
-    },
-    {
-      "type": "backer",
       "who": "Ranco Hashimoto",
       "a": "Pfizer",
       "aPct": 3,
@@ -7201,14 +6509,6 @@
       "who": "National Public Party",
       "a": "簡素",
       "aPct": 0,
-      "b": "Vermont Retail",
-      "bPct": 0
-    },
-    {
-      "type": "backer",
-      "who": "National Public Party",
-      "a": "簡素",
-      "aPct": 0,
       "b": "Tinky Winky",
       "bPct": 0
     },
@@ -7267,14 +6567,6 @@
       "aPct": 0.3,
       "b": "Vermont Retail",
       "bPct": 81.7
-    },
-    {
-      "type": "backer",
-      "who": "National Public Party",
-      "a": "The Organization",
-      "aPct": 0,
-      "b": "Vermont Retail",
-      "bPct": 0
     },
     {
       "type": "backer",
@@ -7447,54 +6739,54 @@
   ],
   "forex": {
     "rates": {
-      "ATS": 11.691027927091323,
-      "BGL": 28.05967526335928,
-      "BRL": 4.825502181561207,
-      "CNY": 5.191980457677606,
-      "CSK": 27.96181101765256,
-      "ESP": 120.5150731622397,
-      "EUR": 0.8233400453809477,
-      "FIM": 4.026881891140826,
-      "FRF": 6.165709122145898,
-      "GBP": 0.53495701968877,
-      "GRD": 206.29486274429024,
-      "HUF": 74.51795911507386,
-      "IEP": 0.5641820623092915,
-      "ITL": 1435.2422127860277,
-      "JPY": 121.97638138255512,
-      "NGN": 10.091784476743133,
-      "PLZ": 9349.407799254881,
-      "ROL": 34.5612827421597,
-      "SEK": 5.896544082894244,
-      "SUR": 2.3471513211332242,
-      "TRL": 4863.4297866898305,
-      "USD": 1.034171454403387,
-      "YUD": 15.709557813968708
+      "ATS": 11.72888274018906,
+      "BGL": 27.931960433095636,
+      "BRL": 4.828078406606654,
+      "CNY": 5.204099046666284,
+      "CSK": 27.867379717906996,
+      "ESP": 121.2317380061482,
+      "EUR": 0.8140354264729821,
+      "FIM": 4.054946352677014,
+      "FRF": 6.113211371397645,
+      "GBP": 0.5277734320789815,
+      "GRD": 206.7649004848466,
+      "HUF": 74.69027063098194,
+      "IEP": 0.5608695345964878,
+      "ITL": 1429.6152460823596,
+      "JPY": 122.56545614732089,
+      "NGN": 10.06116817259252,
+      "PLZ": 9335.875168681838,
+      "ROL": 34.65623446291623,
+      "SEK": 5.952928890956349,
+      "SUR": 2.3602828174386525,
+      "TRL": 4838.505427613479,
+      "USD": 1.0362984443066023,
+      "YUD": 15.76732585056259
     },
     "perUsd": {
-      "ATS": 11.3047,
-      "BGL": 27.1325,
-      "BRL": 4.6661,
-      "CNY": 5.0204,
-      "CSK": 27.0379,
-      "ESP": 116.533,
-      "EUR": 0.7961,
-      "FIM": 3.8938,
-      "FRF": 5.962,
-      "GBP": 0.5173,
-      "GRD": 199.4784,
-      "HUF": 72.0557,
-      "IEP": 0.5455,
-      "ITL": 1387.8184,
-      "JPY": 117.946,
-      "NGN": 9.7583,
-      "PLZ": 9040.4814,
-      "ROL": 33.4193,
-      "SEK": 5.7017,
-      "SUR": 2.2696,
-      "TRL": 4702.7306,
+      "ATS": 11.3181,
+      "BGL": 26.9536,
+      "BRL": 4.659,
+      "CNY": 5.0218,
+      "CSK": 26.8913,
+      "ESP": 116.9854,
+      "EUR": 0.7855,
+      "FIM": 3.9129,
+      "FRF": 5.8991,
+      "GBP": 0.5093,
+      "GRD": 199.5225,
+      "HUF": 72.0741,
+      "IEP": 0.5412,
+      "ITL": 1379.5401,
+      "JPY": 118.2724,
+      "NGN": 9.7088,
+      "PLZ": 9008.8673,
+      "ROL": 33.4423,
+      "SEK": 5.7444,
+      "SUR": 2.2776,
+      "TRL": 4669.027,
       "USD": 1,
-      "YUD": 15.1905
+      "YUD": 15.215
     },
     "countryCcy": {
       "AT": "ATS",
