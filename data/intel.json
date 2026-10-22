@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T20:31:37.958Z",
+  "updatedAt": "2026-10-22T20:46:42.817Z",
   "game": {
     "currentTurn": 373,
     "gameDateLabel": "September, Week 2, 1997",
@@ -40,9 +40,9 @@
     "workers": 1992408,
     "sectorCount": 53,
     "revenueUsd": 6519068200.89697,
-    "marketCapUsd": 54697750000,
-    "cashUsd": 386174080.8375447,
-    "debtUsd": 972654000,
+    "marketCapUsd": 54703870000,
+    "cashUsd": 192214080.83754462,
+    "debtUsd": 772654000,
     "bonds": 18,
     "defaultedBonds": 0,
     "biochemicalSectors": 15,
@@ -87,18 +87,18 @@
         "marginPct": 29.13
       },
       "balanceSheet": {
-        "cashOnHand": 209438084.62438336,
-        "marketCapitalization": 43807070000,
-        "totalDebt": 703322000,
-        "cashOnHandUsd": 209438084.6243834,
-        "marketCapitalizationUsd": 43807070000,
-        "totalDebtUsd": 703322000
+        "cashOnHand": 15478084.62438336,
+        "marketCapitalization": 43813190000,
+        "totalDebt": 503322000,
+        "cashOnHandUsd": 15478084.62438336,
+        "marketCapitalizationUsd": 43813190000,
+        "totalDebtUsd": 503322000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 43807.07,
+        "sharePrice": 43813.19,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -313,7 +313,7 @@
           "id": "6ad7d087fc49f5a3e00d0ae1",
           "couponRate": 2.5,
           "maturityLabel": null,
-          "totalIssued": 701542000,
+          "totalIssued": 501542000,
           "marketPrice": 0.9416,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
