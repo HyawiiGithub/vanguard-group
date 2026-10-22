@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T14:01:52.183Z",
+  "updatedAt": "2026-10-22T14:16:46.276Z",
   "game": {
     "currentTurn": 370,
     "gameDateLabel": "August, Week 3, 1997",
@@ -36,12 +36,12 @@
     "note": "Threat labels are set in data/roster.json. The axis breakdown under each dossier is derived from real sector data, not asserted."
   },
   "totals": {
-    "corporations": 2,
-    "workers": 1898964,
-    "sectorCount": 44,
-    "revenueUsd": 6338459241.206196,
-    "marketCapUsd": 45890782338,
-    "cashUsd": 776963038.8788756,
+    "corporations": 3,
+    "workers": 1989057,
+    "sectorCount": 52,
+    "revenueUsd": 6717964819.960625,
+    "marketCapUsd": 49876035852,
+    "cashUsd": 781618123.3577989,
     "debtUsd": 972654000,
     "bonds": 18,
     "defaultedBonds": 0,
@@ -1557,14 +1557,223 @@
     },
     {
       "id": 1827,
-      "displayName": "Unknown #1827",
-      "name": null,
+      "mongoId": "6ad660098fc4f5e101ffa925",
+      "name": "Umbrella Heavy Systems",
+      "displayName": "Umbrella Heavy Systems",
+      "alias": null,
+      "description": null,
+      "type": "manufacturing",
+      "typeLabel": "manufacturing",
+      "industryModel": null,
+      "mediaDiscriminator": null,
+      "countryId": "US",
+      "headquartersState": "NY",
+      "currency": "USD",
+      "ticker": "UMBHS",
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/1827",
+      "logoUrl": null,
+      "brandColor": "#f59e0b",
+      "bannerUrl": null,
+      "ceo": {
+        "name": null,
+        "profileUrl": null
+      },
       "threat": null,
       "member": false,
       "note": null,
       "source": "autoMatch",
-      "alive": false,
-      "error": "fetch failed"
+      "financials": {
+        "totalRevenue": 366212630,
+        "operatingIncome": 130676027,
+        "operatingCosts": 235536604,
+        "dividendRate": 6,
+        "revenueUsd": 379505578.75442934,
+        "operatingIncomeUsd": 135419363.48826757,
+        "operatingCostsUsd": 244086216.30246025,
+        "marginPct": 35.68
+      },
+      "balanceSheet": {
+        "cashOnHand": 4655084.478923332,
+        "marketCapitalization": 3985253514,
+        "totalDebt": 0,
+        "cashOnHandUsd": 4655084.478923332,
+        "marketCapitalizationUsd": 3985253514,
+        "totalDebtUsd": 0
+      },
+      "shareStructure": {
+        "totalShares": 10000000,
+        "publicFloat": 0,
+        "publicFloatPct": 0,
+        "sharePrice": 398.5253514031384,
+        "shareholders": [
+          {
+            "name": "Umbrella Technologies",
+            "shares": 10000000,
+            "pct": null
+          }
+        ]
+      },
+      "creditRating": {
+        "rating": "AAA",
+        "compositeScore": 91,
+        "snapshotTurn": 370,
+        "components": {
+          "debtToEquity": 100,
+          "interestCoverage": 100,
+          "profitability": 65,
+          "liquidity": 100
+        }
+      },
+      "bonds": [],
+      "defaultedBonds": 0,
+      "sectors": [
+        {
+          "stateId": "PA",
+          "stateName": "Pennsylvania",
+          "sectorType": "media",
+          "revenue": 31996.417556292887,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 13,
+          "mediaDiscriminator": "entertainment"
+        },
+        {
+          "stateId": "VA",
+          "stateName": "Virginia",
+          "sectorType": "manufacturing",
+          "revenue": 3829776.778095146,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 1663,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "NC",
+          "stateName": "North Carolina",
+          "sectorType": "manufacturing",
+          "revenue": 4155747.457275456,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 1798,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "GA",
+          "stateName": "Georgia",
+          "sectorType": "manufacturing",
+          "revenue": 2563670.7497842386,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 1161,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "PA",
+          "stateName": "Pennsylvania",
+          "sectorType": "manufacturing",
+          "revenue": 3914716.263824072,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 1569,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "MA",
+          "stateName": "Massachusetts",
+          "sectorType": "manufacturing",
+          "revenue": 231932636.20410177,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 80209,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "NY",
+          "stateName": "New York",
+          "sectorType": "manufacturing",
+          "revenue": 8828397.989072265,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 3419,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "PA",
+          "stateName": "Pennsylvania",
+          "sectorType": "real_estate",
+          "revenue": 803765.6595508223,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 261,
+          "mediaDiscriminator": null
+        }
+      ],
+      "sectorsByType": {
+        "media": {
+          "sectorCount": 1,
+          "workers": 13,
+          "revenue": 31996.417556292887,
+          "states": [
+            "Pennsylvania"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
+        },
+        "manufacturing": {
+          "sectorCount": 6,
+          "workers": 89819,
+          "revenue": 255224945.44215295,
+          "states": [
+            "Virginia",
+            "North Carolina",
+            "Georgia",
+            "Pennsylvania",
+            "Massachusetts",
+            "New York"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
+        },
+        "real_estate": {
+          "sectorCount": 1,
+          "workers": 261,
+          "revenue": 803765.6595508223,
+          "states": [
+            "Pennsylvania"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
+        }
+      },
+      "sectorCount": 8,
+      "workers": 90093,
+      "threatAxes": {
+        "biochemical": {
+          "sectorTypes": [
+            "chemical_industries",
+            "healthcare"
+          ],
+          "sectorCount": 0,
+          "workers": 0,
+          "revenue": 0,
+          "states": [],
+          "sectorDetail": []
+        },
+        "military": {
+          "sectorTypes": [
+            "defense"
+          ],
+          "sectorCount": 0,
+          "workers": 0,
+          "revenue": 0,
+          "states": [],
+          "sectorDetail": []
+        }
+      },
+      "growth": null,
+      "tape": [],
+      "tapeTradeCount": 0,
+      "tapeSplitCount": 0
     }
   ]
 }
