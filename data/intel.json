@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T17:31:48.897Z",
+  "updatedAt": "2026-10-23T17:46:40.831Z",
   "game": {
     "currentTurn": 388,
     "gameDateLabel": "January, Week 1, 1998",
@@ -37,11 +37,11 @@
   },
   "totals": {
     "corporations": 3,
-    "workers": 2029565,
-    "sectorCount": 55,
-    "revenueUsd": 6496021050.010504,
-    "marketCapUsd": 61895820000,
-    "cashUsd": 281820406.95963293,
+    "workers": 2030065,
+    "sectorCount": 56,
+    "revenueUsd": 6496043102.095524,
+    "marketCapUsd": 61688843326,
+    "cashUsd": 118287791.34019436,
     "debtUsd": 772654000,
     "bonds": 18,
     "defaultedBonds": 0,
@@ -77,32 +77,32 @@
       "note": "Parent group. Automated nuclear, pharmaceutical and bio-engineering, laboratory-grade chemical manufacturing. Holds 100% of #978.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 5117702712,
-        "operatingIncome": 1689541541,
-        "operatingCosts": 3428161170,
+        "totalRevenue": 5117725212,
+        "operatingIncome": 1689549416,
+        "operatingCosts": 3428175795,
         "dividendRate": 0,
-        "revenueUsd": 5015822902.842744,
-        "operatingIncomeUsd": 1655907275.891805,
-        "operatingCostsUsd": 3359915625.970846,
+        "revenueUsd": 5015844954.927764,
+        "operatingIncomeUsd": 1655914994.1215622,
+        "operatingCostsUsd": 3359929959.8261094,
         "marginPct": 33.01
       },
       "balanceSheet": {
-        "cashOnHand": 167653668.400602,
-        "marketCapitalization": 50228000000,
+        "cashOnHand": 4121052.781163454,
+        "marketCapitalization": 50021023326,
         "totalDebt": 503322000,
-        "cashOnHandUsd": 167653668.400602,
-        "marketCapitalizationUsd": 50228000000,
+        "cashOnHandUsd": 4121052.7811634545,
+        "marketCapitalizationUsd": 50021023326,
         "totalDebtUsd": 503322000
       },
       "shareStructure": {
-        "totalShares": 1000000,
+        "totalShares": 1004388,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 50228,
+        "sharePrice": 49802.49,
         "shareholders": [
           {
             "name": "William E. Spencer",
-            "shares": 800210,
+            "shares": 804598,
             "pct": null
           },
           {
@@ -672,6 +672,16 @@
           "currentGrowthRate": 0,
           "workers": 14291,
           "mediaDiscriminator": null
+        },
+        {
+          "stateId": "CT",
+          "stateName": "Connecticut",
+          "sectorType": "telecommunications",
+          "revenue": 22052,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 500,
+          "mediaDiscriminator": null
         }
       ],
       "sectorsByType": {
@@ -736,10 +746,20 @@
           ],
           "avgProfitMargin": 35,
           "avgGrowth": 0
+        },
+        "telecommunications": {
+          "sectorCount": 1,
+          "workers": 500,
+          "revenue": 22052,
+          "states": [
+            "Connecticut"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
         }
       },
-      "sectorCount": 35,
-      "workers": 1483708,
+      "sectorCount": 36,
+      "workers": 1484208,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
@@ -870,12 +890,12 @@
         }
       },
       "growth": {
-        "pct": 28,
-        "fromTurn": 337,
-        "toTurn": 363,
-        "fromPrice": 39431.5289,
-        "toPrice": 50473.738,
-        "trades": 7,
+        "pct": 3.11,
+        "fromTurn": 361,
+        "toTurn": 388,
+        "fromPrice": 51090.0807,
+        "toPrice": 52677.3715,
+        "trades": 4,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1227,9 +1247,13 @@
         [
           363,
           50473.738
+        ],
+        [
+          388,
+          52677.3715
         ]
       ],
-      "tapeTradeCount": 87,
+      "tapeTradeCount": 88,
       "tapeSplitCount": 2
     },
     {
