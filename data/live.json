@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-23T16:01:32.426Z",
+  "updatedAt": "2026-10-23T16:16:32.597Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
-    "currentTurn": 386,
-    "gameDateLabel": "December, Week 3, 1997",
+    "currentTurn": 387,
+    "gameDateLabel": "December, Week 4, 1997",
     "status": "active",
-    "nextTurnAt": "2026-10-23T16:00:00.000Z"
+    "nextTurnAt": "2026-10-23T17:00:00.000Z"
   },
   "thresholds": {
     "marketCapFloorUsd": 350000000,
@@ -158,7 +158,7 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 386,
+      "checkedTurn": 387,
       "dissolved": true,
       "memberName": "BlackRock Incorporated"
     },
@@ -180,14 +180,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6acb10f57f0eaca56be706cd-1792201473041.webp",
       "brandColor": "#730c0c",
       "ceo": "Braden E Peters",
-      "revenue": 578698309,
-      "operatingIncome": 148593345,
-      "marketCap": 4695775654,
-      "revenueUsd": 570929759.4068063,
-      "operatingIncomeUsd": 146598601.36260146,
-      "marketCapUsd": 4695775654,
-      "marginPct": 25.68,
-      "sharePrice": 977.69,
+      "revenue": 578661221,
+      "operatingIncome": 149091336,
+      "marketCap": 4663596030,
+      "revenueUsd": 569858836.125359,
+      "operatingIncomeUsd": 146823412.60489416,
+      "marketCapUsd": 4663596030,
+      "marginPct": 25.76,
+      "sharePrice": 970.99,
       "totalShares": 4802929,
       "holders": [
         {
@@ -261,6 +261,11 @@
           "pct": 0
         },
         {
+          "name": "Index Fund",
+          "shares": 577,
+          "pct": 0
+        },
+        {
           "name": "National Public Party",
           "shares": 574,
           "pct": 0
@@ -268,11 +273,6 @@
         {
           "name": "National Public Party",
           "shares": 523,
-          "pct": 0
-        },
-        {
-          "name": "Index Fund",
-          "shares": 521,
           "pct": 0
         },
         {
@@ -294,21 +294,21 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 93,
-      "cashOnHand": 54531128.483243726,
+      "cashOnHand": 58928622.82833735,
       "totalDebt": 25258000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 15,
-      "workers": 249981,
+      "workers": 252490,
       "divRate": 15,
       "growth": {
-        "pct": -22.57,
+        "pct": -22.68,
         "fromTurn": 361,
-        "toTurn": 386,
+        "toTurn": 387,
         "fromPrice": 1111.0485,
-        "toPrice": 860.2803,
-        "trades": 25,
+        "toPrice": 859.0787,
+        "trades": 26,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -944,6 +944,10 @@
         [
           386,
           860.2803
+        ],
+        [
+          387,
+          859.0787
         ]
       ],
       "checks": {
@@ -991,7 +995,7 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 386,
+      "checkedTurn": 387,
       "dissolved": true,
       "memberName": "Vermont Logistics"
     },
@@ -1013,14 +1017,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp",
       "brandColor": "#d946ef",
       "ceo": "Ronald Reagan",
-      "revenue": 38590867,
-      "operatingIncome": 2633143,
-      "marketCap": 466406147,
-      "revenueUsd": 38072816.29988323,
-      "operatingIncomeUsd": 2597795.217462293,
-      "marketCapUsd": 466406147,
-      "marginPct": 6.82,
-      "sharePrice": 3.54,
+      "revenue": 40212769,
+      "operatingIncome": 2393574,
+      "marketCap": 584983982,
+      "revenueUsd": 39601066.92499085,
+      "operatingIncomeUsd": 2357163.8193808054,
+      "marketCapUsd": 584983982,
+      "marginPct": 5.95,
+      "sharePrice": 4.44,
       "totalShares": 131753149,
       "holders": [
         {
@@ -1045,7 +1049,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 3652954,
+          "shares": 3668489,
           "pct": 2.8
         },
         {
@@ -1125,23 +1129,23 @@
         }
       ],
       "blackrockStakePct": 0,
-      "creditRating": "AAA",
-      "creditScore": 85,
-      "cashOnHand": 46090906.57860561,
+      "creditRating": "AA",
+      "creditScore": 84,
+      "cashOnHand": 46161400.603996895,
       "totalDebt": 1517000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 13,
-      "workers": 35199,
+      "workers": 31230,
       "divRate": 8,
       "growth": {
-        "pct": -25.76,
+        "pct": -31.11,
         "fromTurn": 362,
-        "toTurn": 386,
+        "toTurn": 387,
         "fromPrice": 4.3125,
-        "toPrice": 3.2016,
-        "trades": 21,
+        "toPrice": 2.9707,
+        "trades": 22,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1973,6 +1977,10 @@
         [
           386,
           3.2016
+        ],
+        [
+          387,
+          2.9707
         ]
       ],
       "checks": {
@@ -2136,7 +2144,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 366,
-      "checkedTurn": 386
+      "checkedTurn": 387
     },
     {
       "id": 767,
@@ -2190,7 +2198,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 314,
-      "checkedTurn": 386
+      "checkedTurn": 387
     },
     {
       "id": 521,
@@ -2303,7 +2311,7 @@
       "dissolved": true,
       "memberName": "簡素",
       "lastSeenTurn": 216,
-      "checkedTurn": 386
+      "checkedTurn": 387
     },
     {
       "id": 1084,
@@ -2318,19 +2326,19 @@
       "countryId": "JP",
       "headquartersState": "CHU",
       "currency": "JPY",
-      "fxPerUsd": 119.78,
+      "fxPerUsd": 119.76,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/1084",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ace7b48076f76a31679a279-1791917252503.webp",
       "brandColor": "#fef100",
       "ceo": "Nariyoshi Miyagi",
-      "revenue": 1306472727,
-      "operatingIncome": 590511317,
-      "marketCap": 3015055636516,
-      "revenueUsd": 1288934403.4659417,
-      "operatingIncomeUsd": 582584187.4748011,
-      "marketCapUsd": 25171292058.02805,
-      "marginPct": 45.2,
-      "sharePrice": 271355.01,
+      "revenue": 1372159955,
+      "operatingIncome": 649837183,
+      "marketCap": 3091753413527,
+      "revenueUsd": 1351287154.8275483,
+      "operatingIncomeUsd": 639952095.174807,
+      "marketCapUsd": 25817102142.654007,
+      "marginPct": 47.36,
+      "sharePrice": 278257.81,
       "totalShares": 11111111,
       "holders": [
         {
@@ -2370,7 +2378,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 39296,
+          "shares": 39320,
           "pct": 0.4
         },
         {
@@ -2437,21 +2445,21 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 94,
-      "cashOnHand": 35322336744.867096,
+      "cashOnHand": 38213631398.168274,
       "totalDebt": 4000845000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 9,
-      "workers": 345273,
+      "workers": 351338,
       "divRate": 0,
       "growth": {
-        "pct": 5.11,
+        "pct": 8.24,
         "fromTurn": 361,
-        "toTurn": 386,
+        "toTurn": 387,
         "fromPrice": 1813.519,
-        "toPrice": 1906.2056,
-        "trades": 27,
+        "toPrice": 1962.8836,
+        "trades": 28,
         "splitAdjusted": false,
         "window": "30T"
       },
@@ -2915,6 +2923,10 @@
         [
           386,
           1906.2056
+        ],
+        [
+          387,
+          1962.8836
         ]
       ],
       "checks": {
@@ -2935,19 +2947,19 @@
       "countryId": "JP",
       "headquartersState": "HOK",
       "currency": "JPY",
-      "fxPerUsd": 119.78,
+      "fxPerUsd": 119.76,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/561",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac56dd29c01603665694296-1792466396628.webp",
       "brandColor": "#c5003c",
       "ceo": "Napoleon Astrae",
-      "revenue": 12108120909,
-      "operatingIncome": 2575594981,
-      "marketCap": 9904492090000,
-      "revenueUsd": 11945579328.526932,
-      "operatingIncomeUsd": 2541019733.3611145,
-      "marketCapUsd": 82687980966.05061,
-      "marginPct": 21.27,
-      "sharePrice": 9904492.09,
+      "revenue": 12235229914,
+      "operatingIncome": 2665587832,
+      "marketCap": 9882628680000,
+      "revenueUsd": 12049112028.74301,
+      "operatingIncomeUsd": 2625039875.5050483,
+      "marketCapUsd": 82523021710.97896,
+      "marginPct": 21.79,
+      "sharePrice": 9882628.68,
       "totalShares": 1000000,
       "holders": [
         {
@@ -2998,14 +3010,14 @@
       ],
       "blackrockStakePct": 0,
       "creditRating": "AA",
-      "creditScore": 81,
-      "cashOnHand": 27871129741.453545,
+      "creditScore": 83,
+      "cashOnHand": 35487787372.14928,
       "totalDebt": 676563527000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 53,
-      "workers": 3578646,
+      "workers": 3614716,
       "divRate": 0,
       "growth": {
         "pct": -9.89,
@@ -3390,19 +3402,19 @@
       "countryId": "JP",
       "headquartersState": "HOK",
       "currency": "JPY",
-      "fxPerUsd": 119.78,
+      "fxPerUsd": 119.76,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/565",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac5701a9c0160366569479b-1792479647850.webp",
       "brandColor": "#4576c4",
       "ceo": "Misa Astrae",
-      "revenue": 14156277448,
-      "operatingIncome": 4145096568,
-      "marketCap": 18881418179998,
-      "revenueUsd": 13966241047.859426,
-      "operatingIncomeUsd": 4089452050.370893,
-      "marketCapUsd": 157632146393.0531,
-      "marginPct": 29.28,
-      "sharePrice": 16925901.12,
+      "revenue": 14132412452,
+      "operatingIncome": 4202338453,
+      "marketCap": 18680686537863,
+      "revenueUsd": 13917435313.226652,
+      "operatingIncomeUsd": 4138414002.744141,
+      "marketCapUsd": 155989539894.36554,
+      "marginPct": 29.74,
+      "sharePrice": 16745958.92,
       "totalShares": 1115534,
       "holders": [
         {
@@ -3503,14 +3515,14 @@
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "creditScore": 92,
-      "cashOnHand": 482697048291.4441,
+      "creditScore": 93,
+      "cashOnHand": 499081776032.7795,
       "totalDebt": 1067846648000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 26,
-      "workers": 4090639,
+      "workers": 4091668,
       "divRate": 0,
       "growth": {
         "pct": 12.71,
@@ -4520,14 +4532,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ad0a0ae338ba1a1f51ca115-1792058199093.webp",
       "brandColor": "#ec4899",
       "ceo": "Malik Rahman",
-      "revenue": 3669057548,
-      "operatingIncome": 954319067,
-      "marketCap": 32946950000,
-      "revenueUsd": 3619803463.309181,
-      "operatingIncomeUsd": 941508117.1761949,
-      "marketCapUsd": 32946950000,
-      "marginPct": 26.01,
-      "sharePrice": 32946.95,
+      "revenue": 3654398400,
+      "operatingIncome": 959975927,
+      "marketCap": 32228340000,
+      "revenueUsd": 3598809015.3398657,
+      "operatingIncomeUsd": 945373120.9484015,
+      "marketCapUsd": 32228340000,
+      "marginPct": 26.27,
+      "sharePrice": 32228.34,
       "totalShares": 1000000,
       "holders": [
         {
@@ -4587,7 +4599,7 @@
         },
         {
           "name": "National Public Party",
-          "shares": 2,
+          "shares": 5,
           "pct": 0
         },
         {
@@ -4597,7 +4609,7 @@
         },
         {
           "name": "National Public Party",
-          "shares": 1,
+          "shares": 2,
           "pct": 0
         },
         {
@@ -4634,13 +4646,13 @@
       "blackrockStakePct": 0,
       "creditRating": "AA",
       "creditScore": 92,
-      "cashOnHand": 1056668750.1291808,
+      "cashOnHand": 1082129714.208201,
       "totalDebt": 103286000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 100,
-      "workers": 1184750,
+      "workers": 1184935,
       "divRate": 5,
       "growth": {
         "pct": 28.37,
@@ -4936,19 +4948,19 @@
       "countryId": "JP",
       "headquartersState": "KAN",
       "currency": "JPY",
-      "fxPerUsd": 119.78,
+      "fxPerUsd": 119.76,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/1530",
       "logoUrl": null,
       "brandColor": "#f59e0b",
       "ceo": "Larry Fink",
-      "revenue": 2767220218,
-      "operatingIncome": 1071181620,
-      "marketCap": 6265305475000,
-      "revenueUsd": 2730072558.9097757,
-      "operatingIncomeUsd": 1056801886.3652719,
-      "marketCapUsd": 52306110717.81801,
-      "marginPct": 38.71,
-      "sharePrice": 5695732.25,
+      "revenue": 2727901061,
+      "operatingIncome": 1053366726,
+      "marketCap": 6222809428000,
+      "revenueUsd": 2686405218.2383795,
+      "operatingIncomeUsd": 1037343292.9446987,
+      "marketCapUsd": 51962393221.28702,
+      "marginPct": 38.61,
+      "sharePrice": 5657099.48,
       "totalShares": 1100000,
       "holders": [
         {
@@ -4973,7 +4985,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 2120,
+          "shares": 2121,
           "pct": 0.2
         },
         {
@@ -4985,21 +4997,21 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 90,
-      "cashOnHand": 1456178263516.9275,
+      "cashOnHand": 1460437879012.8616,
       "totalDebt": 0,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 58,
-      "workers": 942224,
+      "workers": 946978,
       "divRate": 20,
       "growth": {
-        "pct": -13.66,
+        "pct": -14.92,
         "fromTurn": 361,
-        "toTurn": 386,
+        "toTurn": 387,
         "fromPrice": 49406.8073,
-        "toPrice": 42658.9534,
-        "trades": 12,
+        "toPrice": 42035.8223,
+        "trades": 13,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -5343,6 +5355,10 @@
         [
           386,
           42658.9534
+        ],
+        [
+          387,
+          42035.8223
         ]
       ],
       "checks": {
@@ -5356,13 +5372,13 @@
       "id": 561,
       "from": "Arasaka Corporation",
       "to": "Arasaka Corporation",
-      "turn": 386
+      "turn": 387
     },
     {
       "id": 565,
       "from": "NERV",
       "to": "NERV",
-      "turn": 386
+      "turn": 387
     }
   ],
   "ties": [
@@ -7039,54 +7055,54 @@
   ],
   "forex": {
     "rates": {
-      "ATS": 11.717533266335082,
-      "BGL": 27.865692248751085,
-      "BRL": 4.874234008932509,
-      "CNY": 5.1032896640742855,
-      "CSK": 27.98609049518635,
-      "ESP": 121.5076923731076,
-      "EUR": 0.792344479141913,
-      "FIM": 4.04290182627176,
-      "FRF": 6.062208146799174,
-      "GBP": 0.5158298098065482,
-      "GRD": 211.04421340670797,
-      "HUF": 73.48045137172801,
-      "IEP": 0.568062035611142,
-      "ITL": 1402.1092459309373,
-      "JPY": 118.1735519808787,
-      "NGN": 10.051097085021627,
-      "PLZ": 9353.488782487124,
-      "ROL": 34.35047326747328,
-      "SEK": 6.062839367501708,
-      "SUR": 2.311475997018401,
-      "TRL": 4972.097891541475,
-      "USD": 0.9865758211621218,
-      "YUD": 15.701643216064305
+      "ATS": 11.692782371075765,
+      "BGL": 27.939542765818647,
+      "BRL": 4.877749153589203,
+      "CNY": 5.09400259457244,
+      "CSK": 27.939767547706147,
+      "ESP": 121.07398712421147,
+      "EUR": 0.79224858051286,
+      "FIM": 4.057657191339285,
+      "FRF": 6.072586942741893,
+      "GBP": 0.5152939235981916,
+      "GRD": 210.79613227931,
+      "HUF": 73.44212562335785,
+      "IEP": 0.5687141199909327,
+      "ITL": 1404.5848558990554,
+      "JPY": 117.93433530068303,
+      "NGN": 10.03001823094212,
+      "PLZ": 9340.798097528752,
+      "ROL": 34.22535408520878,
+      "SEK": 6.074613986017217,
+      "SUR": 2.3187638032072746,
+      "TRL": 4962.082585288187,
+      "USD": 0.9847883622485895,
+      "YUD": 15.666566149094097
     },
     "perUsd": {
-      "ATS": 11.877,
-      "BGL": 28.2449,
-      "BRL": 4.9406,
+      "ATS": 11.8734,
+      "BGL": 28.3711,
+      "BRL": 4.9531,
       "CNY": 5.1727,
-      "CSK": 28.3669,
-      "ESP": 123.161,
-      "EUR": 0.8031,
-      "FIM": 4.0979,
-      "FRF": 6.1447,
-      "GBP": 0.5228,
-      "GRD": 213.9159,
-      "HUF": 74.4803,
-      "IEP": 0.5758,
-      "ITL": 1421.1875,
-      "JPY": 119.7815,
-      "NGN": 10.1879,
-      "PLZ": 9480.7602,
-      "ROL": 34.8179,
-      "SEK": 6.1453,
-      "SUR": 2.3429,
-      "TRL": 5039.7524,
+      "CSK": 28.3713,
+      "ESP": 122.9442,
+      "EUR": 0.8045,
+      "FIM": 4.1203,
+      "FRF": 6.1664,
+      "GBP": 0.5233,
+      "GRD": 214.0522,
+      "HUF": 74.5766,
+      "IEP": 0.5775,
+      "ITL": 1426.2809,
+      "JPY": 119.756,
+      "NGN": 10.1849,
+      "PLZ": 9485.0817,
+      "ROL": 34.754,
+      "SEK": 6.1684,
+      "SUR": 2.3546,
+      "TRL": 5038.7299,
       "USD": 1,
-      "YUD": 15.9153
+      "YUD": 15.9086
     },
     "countryCcy": {
       "AT": "ATS",
