@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T16:31:33.307Z",
+  "updatedAt": "2026-10-24T16:46:34.716Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -241,6 +241,11 @@
           "pct": 0.4
         },
         {
+          "name": "Philipp Navratil",
+          "shares": 13495,
+          "pct": 0.3
+        },
+        {
           "name": "Index Fund",
           "shares": 8477,
           "pct": 0.2
@@ -284,11 +289,6 @@
           "name": "National Public Party",
           "shares": 217,
           "pct": 0
-        },
-        {
-          "name": "National Public Party",
-          "shares": 200,
-          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
@@ -303,12 +303,12 @@
       "workers": 269958,
       "divRate": 15,
       "growth": {
-        "pct": -8.91,
-        "fromTurn": 375,
-        "toTurn": 405,
-        "fromPrice": 756.7067,
-        "toPrice": 689.271,
-        "trades": 16,
+        "pct": -13.13,
+        "fromTurn": 378,
+        "toTurn": 407,
+        "fromPrice": 784.2203,
+        "toPrice": 681.2684,
+        "trades": 15,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -972,6 +972,10 @@
         [
           405,
           689.271
+        ],
+        [
+          407,
+          681.2684
         ]
       ],
       "checks": {
@@ -2373,12 +2377,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 1546308500,
       "operatingIncome": 733643883,
-      "marketCap": 3687776074233,
+      "marketCap": 4272073735057,
       "revenueUsd": 1517105479.6376762,
       "operatingIncomeUsd": 719788551.2509063,
-      "marketCapUsd": 30712400933.098457,
+      "marketCapUsd": 35578527200.60253,
       "marginPct": 47.44,
-      "sharePrice": 331899.85,
+      "sharePrice": 384486.64,
       "totalShares": 11111111,
       "holders": [
         {
@@ -2395,6 +2399,11 @@
           "name": "Larry Fink",
           "shares": 1290719,
           "pct": 11.6
+        },
+        {
+          "name": "NERV",
+          "shares": 471835,
+          "pct": 4.2
         },
         {
           "name": null,
@@ -2475,11 +2484,6 @@
           "name": "National Public Party",
           "shares": 33,
           "pct": 0
-        },
-        {
-          "name": "National Public Party",
-          "shares": 25,
-          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
@@ -2494,12 +2498,12 @@
       "workers": 407450,
       "divRate": 0,
       "growth": {
-        "pct": 57.99,
-        "fromTurn": 375,
-        "toTurn": 405,
-        "fromPrice": 1563.4428,
-        "toPrice": 2470.0424,
-        "trades": 20,
+        "pct": 66.17,
+        "fromTurn": 378,
+        "toTurn": 407,
+        "fromPrice": 1693.1072,
+        "toPrice": 2813.381,
+        "trades": 19,
         "splitAdjusted": false,
         "window": "30T"
       },
@@ -3003,6 +3007,10 @@
         [
           405,
           2470.0424
+        ],
+        [
+          407,
+          2813.381
         ]
       ],
       "checks": {
@@ -3030,12 +3038,12 @@
       "ceo": "Napoleon Astrae",
       "revenue": 13141249154,
       "operatingIncome": 3001732583,
-      "marketCap": 11038936180000,
+      "marketCap": 11039365320000,
       "revenueUsd": 12893068298.34886,
       "operatingIncomeUsd": 2945042952.3450565,
-      "marketCapUsd": 91934061887.30148,
+      "marketCapUsd": 91937635835.25037,
       "marginPct": 22.84,
-      "sharePrice": 11038936.18,
+      "sharePrice": 11039365.32,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3487,12 +3495,12 @@
       "ceo": "Misa Astrae",
       "revenue": 13870887545,
       "operatingIncome": 4539595063,
-      "marketCap": 20860158625033,
+      "marketCap": 20891727891418,
       "revenueUsd": 13608927003.865978,
       "operatingIncomeUsd": 4453861920.44695,
-      "marketCapUsd": 173726805078.1239,
+      "marketCapUsd": 173989719080.18448,
       "marginPct": 32.73,
-      "sharePrice": 18699706.71,
+      "sharePrice": 18728006.4,
       "totalShares": 1115534,
       "holders": [
         {
@@ -3518,6 +3526,11 @@
         {
           "name": "Greenbaum Group",
           "shares": 1237,
+          "pct": 0.1
+        },
+        {
+          "name": "Philipp Navratil",
+          "shares": 1205,
           "pct": 0.1
         },
         {
@@ -3589,18 +3602,13 @@
           "name": "Index Fund",
           "shares": 12,
           "pct": 0
-        },
-        {
-          "name": "Index Fund",
-          "shares": 11,
-          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 85,
-      "cashOnHand": 17827566344.548798,
-      "totalDebt": 1067846648000,
+      "cashOnHand": 267204.2067871094,
+      "totalDebt": 1180472668000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
@@ -3608,11 +3616,11 @@
       "workers": 3779882,
       "divRate": 0,
       "growth": {
-        "pct": 152.22,
-        "fromTurn": 376,
-        "toTurn": 406,
-        "fromPrice": 58227.5189,
-        "toPrice": 146864.0971,
+        "pct": 38.78,
+        "fromTurn": 381,
+        "toTurn": 407,
+        "fromPrice": 114210.7968,
+        "toPrice": 158499.5972,
         "trades": 13,
         "splitAdjusted": true,
         "window": "30T"
@@ -4613,6 +4621,10 @@
         [
           406,
           146864.0971
+        ],
+        [
+          407,
+          158499.5972
         ]
       ],
       "checks": {
@@ -4641,12 +4653,12 @@
       "ceo": "Malik Rahman",
       "revenue": 3363736461,
       "operatingIncome": 800217679,
-      "marketCap": 28569870000,
+      "marketCap": 28538750000,
       "revenueUsd": 3300210156.6667614,
       "operatingIncomeUsd": 785105058.7342972,
-      "marketCapUsd": 28569870000,
+      "marketCapUsd": 28538750000,
       "marginPct": 23.79,
-      "sharePrice": 28569.87,
+      "sharePrice": 28538.75,
       "totalShares": 1000000,
       "holders": [
         {
@@ -5551,6 +5563,12 @@
     {
       "type": "owns",
       "from": "NERV",
+      "to": "The Organization",
+      "pct": 4.2
+    },
+    {
+      "type": "owns",
+      "from": "NERV",
       "to": "Arasaka Corporation",
       "pct": 6.5
     },
@@ -6218,14 +6236,6 @@
     },
     {
       "type": "backer",
-      "who": "National Public Party",
-      "a": "Exxon Mobil",
-      "aPct": 0,
-      "b": "The Organization",
-      "bPct": 0
-    },
-    {
-      "type": "backer",
       "who": "Ranco Hashimoto",
       "a": "Exxon Mobil",
       "aPct": 4.3,
@@ -6245,6 +6255,14 @@
       "who": "Greenbaum Group",
       "a": "Exxon Mobil",
       "aPct": 0,
+      "b": "NERV",
+      "bPct": 0.1
+    },
+    {
+      "type": "backer",
+      "who": "Philipp Navratil",
+      "a": "Exxon Mobil",
+      "aPct": 0.3,
       "b": "NERV",
       "bPct": 0.1
     },
@@ -6557,14 +6575,6 @@
       "aPct": 0,
       "b": "The Organization",
       "bPct": 0.1
-    },
-    {
-      "type": "backer",
-      "who": "National Public Party",
-      "a": "Pfizer",
-      "aPct": 0,
-      "b": "The Organization",
-      "bPct": 0
     },
     {
       "type": "backer",
@@ -6917,14 +6927,6 @@
       "aPct": 0.1,
       "b": "The Organization",
       "bPct": 1.7
-    },
-    {
-      "type": "backer",
-      "who": "National Public Party",
-      "a": "簡素",
-      "aPct": 0,
-      "b": "The Organization",
-      "bPct": 0
     },
     {
       "type": "backer",
