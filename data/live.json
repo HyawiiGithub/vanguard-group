@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-24T00:16:33.533Z",
+  "updatedAt": "2026-10-24T09:46:34.354Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
-    "currentTurn": 395,
-    "gameDateLabel": "February, Week 4, 1998",
+    "currentTurn": 400,
+    "gameDateLabel": "April, Week 1, 1998",
     "status": "active",
-    "nextTurnAt": "2026-10-24T01:00:00.000Z"
+    "nextTurnAt": "2026-10-24T10:00:00.000Z"
   },
   "thresholds": {
     "marketCapFloorUsd": 350000000,
@@ -158,7 +158,7 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 395,
+      "checkedTurn": 400,
       "dissolved": true,
       "memberName": "BlackRock Incorporated"
     },
@@ -180,14 +180,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6acb10f57f0eaca56be706cd-1792201473041.webp",
       "brandColor": "#730c0c",
       "ceo": "Braden E Peters",
-      "revenue": 580146898,
-      "operatingIncome": 135812891,
-      "marketCap": 4497558774,
-      "revenueUsd": 560745132.9751383,
-      "operatingIncomeUsd": 131270921.01341023,
-      "marketCapUsd": 4497558774,
-      "marginPct": 23.41,
-      "sharePrice": 936.42,
+      "revenue": 558304800,
+      "operatingIncome": 120751254,
+      "marketCap": 3855070962,
+      "revenueUsd": 538941475.664032,
+      "operatingIncomeUsd": 116563316.34448127,
+      "marketCapUsd": 3855070962,
+      "marginPct": 21.63,
+      "sharePrice": 802.65,
       "totalShares": 4802929,
       "holders": [
         {
@@ -231,7 +231,7 @@
           "pct": 0.6
         },
         {
-          "name": "caleb mercer",
+          "name": "Leo the Ledger",
           "shares": 17647,
           "pct": 0.4
         },
@@ -262,7 +262,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 633,
+          "shares": 750,
           "pct": 0
         },
         {
@@ -286,29 +286,29 @@
           "pct": 0
         },
         {
-          "name": "National Public Party",
-          "shares": 361,
+          "name": "Toni Cipriani",
+          "shares": 333,
           "pct": 0
         }
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "creditScore": 92,
-      "cashOnHand": 39338200.88119926,
+      "creditScore": 91,
+      "cashOnHand": 57060739.71512278,
       "totalDebt": 25258000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 15,
-      "workers": 270405,
+      "workers": 268711,
       "divRate": 15,
       "growth": {
-        "pct": -22.55,
-        "fromTurn": 361,
-        "toTurn": 388,
-        "fromPrice": 1111.0485,
-        "toPrice": 860.5171,
-        "trades": 27,
+        "pct": -15.8,
+        "fromTurn": 368,
+        "toTurn": 398,
+        "fromPrice": 957.6418,
+        "toPrice": 806.3562,
+        "trades": 20,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -952,6 +952,14 @@
         [
           388,
           860.5171
+        ],
+        [
+          396,
+          842.6665
+        ],
+        [
+          398,
+          806.3562
         ]
       ],
       "checks": {
@@ -999,7 +1007,7 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 395,
+      "checkedTurn": 400,
       "dissolved": true,
       "memberName": "Vermont Logistics"
     },
@@ -1021,14 +1029,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac3d92fc6e9f850d9777824-1791899727311.webp",
       "brandColor": "#d946ef",
       "ceo": "Ronald Reagan",
-      "revenue": 24828344,
-      "operatingIncome": 10118644,
-      "marketCap": 488804183,
-      "revenueUsd": 23998013.44423025,
-      "operatingIncomeUsd": 9780247.71806689,
-      "marketCapUsd": 488804183,
-      "marginPct": 40.75,
-      "sharePrice": 3.71,
+      "revenue": 23790514,
+      "operatingIncome": 9476222,
+      "marketCap": 457183427,
+      "revenueUsd": 22965402.987697426,
+      "operatingIncomeUsd": 9147564.320421327,
+      "marketCapUsd": 457183427,
+      "marginPct": 39.83,
+      "sharePrice": 3.47,
       "totalShares": 131753149,
       "holders": [
         {
@@ -1087,7 +1095,7 @@
           "pct": 0.3
         },
         {
-          "name": "caleb mercer",
+          "name": "Leo the Ledger",
           "shares": 343442,
           "pct": 0.3
         },
@@ -1135,21 +1143,21 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 89,
-      "cashOnHand": 48579756.23522986,
+      "cashOnHand": 49978673.397395425,
       "totalDebt": 1517000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 12,
-      "workers": 7355,
+      "workers": 7095,
       "divRate": 8,
       "growth": {
-        "pct": -31.11,
-        "fromTurn": 362,
-        "toTurn": 387,
-        "fromPrice": 4.3125,
-        "toPrice": 2.9707,
-        "trades": 22,
+        "pct": -4.11,
+        "fromTurn": 366,
+        "toTurn": 395,
+        "fromPrice": 4.0189,
+        "toPrice": 3.8537,
+        "trades": 20,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1985,6 +1993,10 @@
         [
           387,
           2.9707
+        ],
+        [
+          395,
+          3.8537
         ]
       ],
       "checks": {
@@ -2148,7 +2160,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 366,
-      "checkedTurn": 395
+      "checkedTurn": 400
     },
     {
       "id": 767,
@@ -2202,7 +2214,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 314,
-      "checkedTurn": 395
+      "checkedTurn": 400
     },
     {
       "id": 521,
@@ -2315,7 +2327,7 @@
       "dissolved": true,
       "memberName": "簡素",
       "lastSeenTurn": 216,
-      "checkedTurn": 395
+      "checkedTurn": 400
     },
     {
       "id": 1084,
@@ -2330,19 +2342,19 @@
       "countryId": "JP",
       "headquartersState": "CHU",
       "currency": "JPY",
-      "fxPerUsd": 119.03,
+      "fxPerUsd": 119.52,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/1084",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ace7b48076f76a31679a279-1791917252503.webp",
       "brandColor": "#fef100",
       "ceo": "Nariyoshi Miyagi",
-      "revenue": 1493404785,
-      "operatingIncome": 708648971,
-      "marketCap": 3117594302157,
-      "revenueUsd": 1443461074.4924345,
-      "operatingIncomeUsd": 684949730.5699459,
-      "marketCapUsd": 26190866468.872997,
-      "marginPct": 47.45,
-      "sharePrice": 280583.49,
+      "revenue": 1522494609,
+      "operatingIncome": 724697880,
+      "marketCap": 3299537855894,
+      "revenueUsd": 1469690913.0370963,
+      "operatingIncomeUsd": 699563652.0728383,
+      "marketCapUsd": 27607392146.57637,
+      "marginPct": 47.6,
+      "sharePrice": 296958.41,
       "totalShares": 11111111,
       "holders": [
         {
@@ -2376,7 +2388,7 @@
           "pct": 0.9
         },
         {
-          "name": "caleb mercer",
+          "name": "Leo the Ledger",
           "shares": 55557,
           "pct": 0.5
         },
@@ -2449,21 +2461,21 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 94,
-      "cashOnHand": 62244343628.84698,
+      "cashOnHand": 77909316868.04721,
       "totalDebt": 4000845000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 9,
-      "workers": 382564,
+      "workers": 394774,
       "divRate": 0,
       "growth": {
-        "pct": 20.33,
-        "fromTurn": 364,
-        "toTurn": 394,
-        "fromPrice": 1814.3748,
-        "toPrice": 2183.1991,
-        "trades": 31,
+        "pct": 42.31,
+        "fromTurn": 368,
+        "toTurn": 398,
+        "fromPrice": 1647.3968,
+        "toPrice": 2344.3595,
+        "trades": 27,
         "splitAdjusted": false,
         "window": "30T"
       },
@@ -2959,6 +2971,10 @@
         [
           394,
           2183.1991
+        ],
+        [
+          398,
+          2344.3595
         ]
       ],
       "checks": {
@@ -2979,19 +2995,19 @@
       "countryId": "JP",
       "headquartersState": "HOK",
       "currency": "JPY",
-      "fxPerUsd": 119.03,
+      "fxPerUsd": 119.52,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/561",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac56dd29c01603665694296-1792466396628.webp",
       "brandColor": "#c5003c",
       "ceo": "Napoleon Astrae",
-      "revenue": 12342243537,
-      "operatingIncome": 2567218317,
-      "marketCap": 9479211760000,
-      "revenueUsd": 11929483751.831776,
-      "operatingIncomeUsd": 2481363222.840805,
-      "marketCapUsd": 79634726450.63486,
-      "marginPct": 20.8,
-      "sharePrice": 9479211.76,
+      "revenue": 12890084708,
+      "operatingIncome": 2918472865,
+      "marketCap": 10316399200000,
+      "revenueUsd": 12443026235.78356,
+      "operatingIncomeUsd": 2817253357.9301763,
+      "marketCapUsd": 86317808945.9618,
+      "marginPct": 22.64,
+      "sharePrice": 10316399.2,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3038,13 +3054,13 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 90,
-      "cashOnHand": 93806413260.13895,
+      "cashOnHand": 69966965997.27469,
       "totalDebt": 676563527000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
-      "sectorCount": 53,
-      "workers": 3680602,
+      "sectorCount": 58,
+      "workers": 3855497,
       "divRate": 0,
       "growth": {
         "pct": -0.06,
@@ -3437,19 +3453,19 @@
       "countryId": "JP",
       "headquartersState": "HOK",
       "currency": "JPY",
-      "fxPerUsd": 119.03,
+      "fxPerUsd": 119.52,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/565",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac5701a9c0160366569479b-1792479647850.webp",
       "brandColor": "#4576c4",
       "ceo": "Misa Astrae",
-      "revenue": 14293721590,
-      "operatingIncome": 4338771274,
-      "marketCap": 19013607776532,
-      "revenueUsd": 13815698819.256903,
-      "operatingIncomeUsd": 4193670402.0571012,
-      "marketCapUsd": 159733055074.59088,
-      "marginPct": 30.35,
-      "sharePrice": 17044400.06,
+      "revenue": 13949898818,
+      "operatingIncome": 4312280300,
+      "marketCap": 19709346933196,
+      "revenueUsd": 13466083498.363003,
+      "operatingIncomeUsd": 4162720271.0041804,
+      "marketCapUsd": 164909054995.5929,
+      "marginPct": 30.91,
+      "sharePrice": 17668082.67,
       "totalShares": 1115534,
       "holders": [
         {
@@ -3464,8 +3480,8 @@
         },
         {
           "name": "Arasaka Corporation",
-          "shares": 67312,
-          "pct": 6
+          "shares": 57312,
+          "pct": 5.1
         },
         {
           "name": "Index Fund",
@@ -3508,6 +3524,11 @@
           "pct": 0
         },
         {
+          "name": "Victor Castiglione",
+          "shares": 91,
+          "pct": 0
+        },
+        {
           "name": "Jimmy Jibbson",
           "shares": 82,
           "pct": 0
@@ -3539,7 +3560,7 @@
         },
         {
           "name": "Index Fund",
-          "shares": 14,
+          "shares": 13,
           "pct": 0
         },
         {
@@ -3550,21 +3571,21 @@
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "creditScore": 93,
-      "cashOnHand": 611777025915.0112,
+      "creditScore": 92,
+      "cashOnHand": 693962242467.7872,
       "totalDebt": 1067846648000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 26,
-      "workers": 4007943,
+      "workers": 3855795,
       "divRate": 0,
       "growth": {
-        "pct": 12.71,
-        "fromTurn": 362,
-        "toTurn": 384,
-        "fromPrice": 112348.193,
-        "toPrice": 126629.044,
+        "pct": 18.3,
+        "fromTurn": 367,
+        "toTurn": 397,
+        "fromPrice": 108503.0543,
+        "toPrice": 128358.59,
         "trades": 17,
         "splitAdjusted": true,
         "window": "30T"
@@ -4541,6 +4562,18 @@
         [
           384,
           126627.2588
+        ],
+        [
+          395,
+          147149.749
+        ],
+        [
+          397,
+          128358.59
+        ],
+        [
+          397,
+          141911.3458
         ]
       ],
       "checks": {
@@ -4567,14 +4600,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ad0a0ae338ba1a1f51ca115-1792058199093.webp",
       "brandColor": "#ec4899",
       "ceo": "Malik Rahman",
-      "revenue": 3575718128,
-      "operatingIncome": 927052824,
-      "marketCap": 30809310000,
-      "revenueUsd": 3456135927.088888,
-      "operatingIncomeUsd": 896049536.5242088,
-      "marketCapUsd": 30809310000,
-      "marginPct": 25.93,
-      "sharePrice": 30809.31,
+      "revenue": 3497945425,
+      "operatingIncome": 875749375,
+      "marketCap": 29799690000,
+      "revenueUsd": 3376628445.862815,
+      "operatingIncomeUsd": 845376325.7531617,
+      "marketCapUsd": 29799690000,
+      "marginPct": 25.04,
+      "sharePrice": 29799.69,
       "totalShares": 1000000,
       "holders": [
         {
@@ -4681,13 +4714,13 @@
       "blackrockStakePct": 0,
       "creditRating": "AA",
       "creditScore": 92,
-      "cashOnHand": 1280462094.3619983,
+      "cashOnHand": 1396140316.3616474,
       "totalDebt": 103286000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 100,
-      "workers": 1167214,
+      "workers": 1151295,
       "divRate": 5,
       "growth": {
         "pct": 58.84,
@@ -4987,19 +5020,19 @@
       "countryId": "JP",
       "headquartersState": "KAN",
       "currency": "JPY",
-      "fxPerUsd": 119.03,
+      "fxPerUsd": 119.52,
       "corpUrl": "https://www.ahousedividedgame.com/corporations/1530",
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ad2915ad37227d6867c5181-1792783824896.webp",
       "brandColor": "#f59e0b",
       "ceo": "Larry Fink",
-      "revenue": 2669120110,
-      "operatingIncome": 1010262981,
-      "marketCap": 6073001121000,
-      "revenueUsd": 2579857129.579215,
-      "operatingIncomeUsd": 976476908.8202633,
-      "marketCapUsd": 51019198141.13678,
-      "marginPct": 37.85,
-      "sharePrice": 5520910.11,
+      "revenue": 2819835878,
+      "operatingIncome": 1237118707,
+      "marketCap": 6813860471000,
+      "revenueUsd": 2722037333.764104,
+      "operatingIncomeUsd": 1194212518.9003556,
+      "marketCapUsd": 57011898717.55054,
+      "marginPct": 43.87,
+      "sharePrice": 6194418.61,
       "totalShares": 1100000,
       "holders": [
         {
@@ -5030,14 +5063,14 @@
       ],
       "blackrockStakePct": 0,
       "creditRating": "AAA",
-      "creditScore": 90,
-      "cashOnHand": 1494137553824.5671,
+      "creditScore": 91,
+      "cashOnHand": 1517771821966.966,
       "totalDebt": 0,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
       "sectorCount": 58,
-      "workers": 928470,
+      "workers": 921572,
       "divRate": 20,
       "growth": {
         "pct": -3.97,
@@ -5414,13 +5447,13 @@
       "id": 561,
       "from": "Arasaka Corporation",
       "to": "Arasaka Corporation",
-      "turn": 395
+      "turn": 400
     },
     {
       "id": 565,
       "from": "NERV",
       "to": "NERV",
-      "turn": 395
+      "turn": 400
     }
   ],
   "ties": [
@@ -5452,7 +5485,7 @@
       "type": "owns",
       "from": "Arasaka Corporation",
       "to": "NERV",
-      "pct": 6
+      "pct": 5.1
     },
     {
       "type": "owns",
@@ -5842,7 +5875,7 @@
     },
     {
       "type": "backer",
-      "who": "caleb mercer",
+      "who": "Leo the Ledger",
       "a": "Exxon Mobil",
       "aPct": 0.4,
       "b": "Pfizer",
@@ -5914,17 +5947,17 @@
     },
     {
       "type": "backer",
-      "who": "caleb mercer",
+      "who": null,
       "a": "Exxon Mobil",
-      "aPct": 0.4,
+      "aPct": 2.7,
       "b": "American Broadcasting Company",
       "bPct": 0
     },
     {
       "type": "backer",
-      "who": null,
+      "who": "Toni Cipriani",
       "a": "Exxon Mobil",
-      "aPct": 2.7,
+      "aPct": 0,
       "b": "American Broadcasting Company",
       "bPct": 0
     },
@@ -6026,7 +6059,7 @@
     },
     {
       "type": "backer",
-      "who": "caleb mercer",
+      "who": "Leo the Ledger",
       "a": "Exxon Mobil",
       "aPct": 0.4,
       "b": "The Organization",
@@ -6067,6 +6100,14 @@
     {
       "type": "backer",
       "who": "Lukas Hochburger",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "The Organization",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
+      "who": "Toni Cipriani",
       "a": "Exxon Mobil",
       "aPct": 0,
       "b": "The Organization",
@@ -6304,14 +6345,6 @@
     },
     {
       "type": "backer",
-      "who": "caleb mercer",
-      "a": "Pfizer",
-      "aPct": 0.3,
-      "b": "American Broadcasting Company",
-      "bPct": 0
-    },
-    {
-      "type": "backer",
       "who": null,
       "a": "Pfizer",
       "aPct": 1.9,
@@ -6400,7 +6433,7 @@
     },
     {
       "type": "backer",
-      "who": "caleb mercer",
+      "who": "Leo the Ledger",
       "a": "Pfizer",
       "aPct": 0.3,
       "b": "The Organization",
@@ -6661,14 +6694,6 @@
       "aPct": 0.9,
       "b": "The Organization",
       "bPct": 1.7
-    },
-    {
-      "type": "backer",
-      "who": "caleb mercer",
-      "a": "American Broadcasting Company",
-      "aPct": 0,
-      "b": "The Organization",
-      "bPct": 0.5
     },
     {
       "type": "backer",
@@ -7137,54 +7162,54 @@
   ],
   "forex": {
     "rates": {
-      "ATS": 11.648649567357834,
-      "BGL": 28.250748141075317,
-      "BRL": 4.767880260044374,
-      "CNY": 4.991449120530502,
-      "CSK": 27.594474922092576,
-      "ESP": 121.57397150596319,
-      "EUR": 0.7824884308150649,
-      "FIM": 4.067773728672239,
-      "FRF": 6.091808620785875,
-      "GBP": 0.5077982379997148,
-      "GRD": 211.69904375375188,
-      "HUF": 73.6150726262043,
-      "IEP": 0.5712212834115817,
-      "ITL": 1435.4883725929692,
-      "JPY": 115.05282082563957,
-      "NGN": 10.005634922394261,
-      "PLZ": 9425.696104683086,
-      "ROL": 34.046931943682694,
-      "SEK": 6.075886702011493,
-      "SUR": 2.2606275931676145,
-      "TRL": 4967.846150622633,
-      "USD": 0.9665571511426719,
-      "YUD": 15.755340300595302
+      "ATS": 11.628031179765713,
+      "BGL": 28.277820624731074,
+      "BRL": 4.883304349645842,
+      "CNY": 4.993639614271857,
+      "CSK": 27.731772618028366,
+      "ESP": 121.12912497226401,
+      "EUR": 0.7791863743137186,
+      "FIM": 4.025234394025508,
+      "FRF": 6.205208211885888,
+      "GBP": 0.5067499461054641,
+      "GRD": 212.9622295437172,
+      "HUF": 73.50759518200441,
+      "IEP": 0.5735166582178904,
+      "ITL": 1445.1446521156035,
+      "JPY": 115.3713505882754,
+      "NGN": 9.853752236576224,
+      "PLZ": 9466.023140064188,
+      "ROL": 34.27956055625949,
+      "SEK": 6.024676698461638,
+      "SUR": 2.2508020180236743,
+      "TRL": 4964.978761690982,
+      "USD": 0.9653176466762099,
+      "YUD": 15.795870313848292
     },
     "perUsd": {
-      "ATS": 12.0517,
-      "BGL": 29.2282,
-      "BRL": 4.9328,
-      "CNY": 5.1642,
-      "CSK": 28.5492,
-      "ESP": 125.7804,
-      "EUR": 0.8096,
-      "FIM": 4.2085,
-      "FRF": 6.3026,
-      "GBP": 0.5254,
-      "GRD": 219.0238,
-      "HUF": 76.1622,
-      "IEP": 0.591,
-      "ITL": 1485.1562,
-      "JPY": 119.0336,
-      "NGN": 10.3518,
-      "PLZ": 9751.8249,
-      "ROL": 35.225,
-      "SEK": 6.2861,
-      "SUR": 2.3388,
-      "TRL": 5139.7335,
+      "ATS": 12.0458,
+      "BGL": 29.2938,
+      "BRL": 5.0588,
+      "CNY": 5.1731,
+      "CSK": 28.7281,
+      "ESP": 125.4811,
+      "EUR": 0.8072,
+      "FIM": 4.1699,
+      "FRF": 6.4282,
+      "GBP": 0.525,
+      "GRD": 220.6136,
+      "HUF": 76.1486,
+      "IEP": 0.5941,
+      "ITL": 1497.0664,
+      "JPY": 119.5165,
+      "NGN": 10.2078,
+      "PLZ": 9806.1225,
+      "ROL": 35.5112,
+      "SEK": 6.2411,
+      "SUR": 2.3317,
+      "TRL": 5143.3627,
       "USD": 1,
-      "YUD": 16.3005
+      "YUD": 16.3634
     },
     "countryCcy": {
       "AT": "ATS",
