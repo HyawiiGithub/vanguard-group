@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T22:46:35.462Z",
+  "updatedAt": "2026-10-24T23:01:38.527Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -3546,13 +3546,13 @@
           "pct": 0.1
         },
         {
-          "name": "Nariyoshi Miyagi",
-          "shares": 968,
+          "name": "Begum Chemicals",
+          "shares": 985,
           "pct": 0.1
         },
         {
-          "name": "Begum Chemicals",
-          "shares": 952,
+          "name": "Nariyoshi Miyagi",
+          "shares": 968,
           "pct": 0.1
         },
         {
@@ -3628,12 +3628,12 @@
       "workers": 3792410,
       "divRate": 0,
       "growth": {
-        "pct": 28.19,
+        "pct": 28.23,
         "fromTurn": 382,
         "toTurn": 412,
         "fromPrice": 124740.9679,
-        "toPrice": 159900.8237,
-        "trades": 13,
+        "toPrice": 159950.8746,
+        "trades": 14,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -4641,6 +4641,10 @@
         [
           408,
           144967.9948
+        ],
+        [
+          412,
+          159950.8746
         ],
         [
           412,
