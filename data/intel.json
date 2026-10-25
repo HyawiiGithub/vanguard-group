@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T16:46:46.429Z",
+  "updatedAt": "2026-10-25T17:02:53.846Z",
   "game": {
     "currentTurn": 426,
     "gameDateLabel": "October, Week 3, 1998",
@@ -37,11 +37,11 @@
   },
   "totals": {
     "corporations": 3,
-    "workers": 2875662,
+    "workers": 2882158,
     "sectorCount": 56,
-    "revenueUsd": 9184921884.76013,
-    "marketCapUsd": 51965857722,
-    "cashUsd": 314786821.4689693,
+    "revenueUsd": 9191886236.916697,
+    "marketCapUsd": 55624205536,
+    "cashUsd": 371650418.9359037,
     "debtUsd": 1774931000,
     "bonds": 19,
     "defaultedBonds": 0,
@@ -77,28 +77,28 @@
       "note": "Parent group. Automated nuclear, pharmaceutical and bio-engineering, laboratory-grade chemical manufacturing. Holds 100% of #978.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 7301354607,
-        "operatingIncome": 1679502235,
-        "operatingCosts": 5621852372,
+        "totalRevenue": 7328621004,
+        "operatingIncome": 1683545015,
+        "operatingCosts": 5645075988,
         "dividendRate": 0,
-        "revenueUsd": 7608018325.924483,
-        "operatingIncomeUsd": 1750042898.8972578,
-        "operatingCostsUsd": 5857975427.0272255,
-        "marginPct": 23
+        "revenueUsd": 7633610311.702382,
+        "operatingIncomeUsd": 1753607749.6304843,
+        "operatingCostsUsd": 5880002561.030281,
+        "marginPct": 22.97
       },
       "balanceSheet": {
-        "cashOnHand": 111573500.542494,
-        "marketCapitalization": 44592657722,
+        "cashOnHand": 164854496.9782926,
+        "marketCapitalization": 47735223228,
         "totalDebt": 1505599000,
-        "cashOnHandUsd": 111573500.542494,
-        "marketCapitalizationUsd": 44592657722,
+        "cashOnHandUsd": 164854496.9782926,
+        "marketCapitalizationUsd": 47735223228,
         "totalDebtUsd": 1505599000
       },
       "shareStructure": {
         "totalShares": 1004388,
         "publicFloat": 4367,
         "publicFloatPct": 0.4,
-        "sharePrice": 44397.84,
+        "sharePrice": 47526.6761731018,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -189,8 +189,8 @@
       },
       "creditRating": {
         "rating": "AA",
-        "compositeScore": 92,
-        "snapshotTurn": 426,
+        "compositeScore": 93,
+        "snapshotTurn": 427,
         "components": {
           "debtToEquity": 98,
           "interestCoverage": 100,
@@ -338,87 +338,87 @@
           "stateId": "GA",
           "stateName": "Georgia",
           "sectorType": "energy",
-          "revenue": 156279679.3548584,
+          "revenue": 156242365.0477043,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 74232,
+          "workers": 75775,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NY",
           "stateName": "New York",
           "sectorType": "energy",
-          "revenue": 184900446.09613326,
+          "revenue": 184856298.11690113,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 57457,
+          "workers": 56730,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IN",
           "stateName": "Indiana",
           "sectorType": "energy",
-          "revenue": 251734873.1037335,
+          "revenue": 251674767.32149,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 111114,
+          "workers": 113001,
           "mediaDiscriminator": null
         },
         {
           "stateId": "OH",
           "stateName": "Ohio",
           "sectorType": "chemical_industries",
-          "revenue": 102439146.96170536,
+          "revenue": 102414687.95455797,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 53504,
+          "workers": 53396,
           "mediaDiscriminator": null
         },
         {
           "stateId": "TX",
           "stateName": "Texas",
           "sectorType": "energy",
-          "revenue": 161077222.0809156,
+          "revenue": 167598080.86465573,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 77581,
+          "workers": 79388,
           "mediaDiscriminator": null
         },
         {
           "stateId": "OR",
           "stateName": "Oregon",
           "sectorType": "energy",
-          "revenue": 89984717.16458945,
+          "revenue": 89963231.85447545,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 40649,
+          "workers": 40693,
           "mediaDiscriminator": null
         },
         {
           "stateId": "KNS",
           "stateName": "Kansai",
           "sectorType": "chemical_industries",
-          "revenue": 14990219657.744476,
+          "revenue": 14942603857.101501,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 44837,
+          "workers": 44804,
           "mediaDiscriminator": null
         },
         {
           "stateId": "WA",
           "stateName": "Washington",
           "sectorType": "energy",
-          "revenue": 162951583.4523097,
+          "revenue": 162700869.6381002,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 60847,
+          "workers": 62084,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NY",
           "stateName": "New York",
           "sectorType": "healthcare",
-          "revenue": 10427408.622465495,
+          "revenue": 10424918.90960093,
           "profitMargin": 35,
           "currentGrowthRate": 0,
           "workers": 1,
@@ -428,267 +428,267 @@
           "stateId": "TX",
           "stateName": "Texas",
           "sectorType": "chemical_industries",
-          "revenue": 350394812.97398853,
+          "revenue": 358709115.34274495,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 166323,
+          "workers": 169913,
           "mediaDiscriminator": null
         },
         {
           "stateId": "MN",
           "stateName": "Minnesota",
           "sectorType": "energy",
-          "revenue": 316627864.57201725,
+          "revenue": 316552264.53597313,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 55143,
+          "workers": 56255,
           "mediaDiscriminator": null
         },
         {
           "stateId": "AL",
           "stateName": "Alabama",
           "sectorType": "energy",
-          "revenue": 77117934.27039267,
+          "revenue": 77099521.11329934,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 44511,
+          "workers": 44544,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IL",
           "stateName": "Illinois",
           "sectorType": "chemical_industries",
-          "revenue": 171845373.2627674,
+          "revenue": 171804342.39383158,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 60171,
+          "workers": 58951,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NY",
           "stateName": "New York",
           "sectorType": "chemical_industries",
-          "revenue": 599660765.9698783,
+          "revenue": 599517587.2399113,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 186342,
+          "workers": 183984,
           "mediaDiscriminator": null
         },
         {
           "stateId": "AZ",
           "stateName": "Arizona",
           "sectorType": "energy",
-          "revenue": 359019410.55696696,
+          "revenue": 358933688.8520396,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 80242,
+          "workers": 80311,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IL",
           "stateName": "Illinois",
           "sectorType": "energy",
-          "revenue": 249993754.6206071,
+          "revenue": 249934064.55862957,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 87534,
+          "workers": 85760,
           "mediaDiscriminator": null
         },
         {
           "stateId": "OH",
           "stateName": "Ohio",
           "sectorType": "energy",
-          "revenue": 178658125.04255158,
+          "revenue": 178615467.5186756,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 93314,
+          "workers": 93124,
           "mediaDiscriminator": null
         },
         {
           "stateId": "CA",
           "stateName": "California",
           "sectorType": "energy",
-          "revenue": 371138848.5636956,
+          "revenue": 371050233.1464558,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 144790,
+          "workers": 144662,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NC",
           "stateName": "North Carolina",
           "sectorType": "chemical_industries",
-          "revenue": 438809738.5371285,
+          "revenue": 453438237.1963502,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 183304,
+          "workers": 186905,
           "mediaDiscriminator": null
         },
         {
           "stateId": "FR_SOU",
           "stateName": "Southwest",
           "sectorType": "energy",
-          "revenue": 26081113.18399053,
+          "revenue": 26039715.41953283,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 2002,
+          "workers": 2013,
           "mediaDiscriminator": null
         },
         {
           "stateId": "HE",
           "stateName": "Hessen",
           "sectorType": "energy",
-          "revenue": 65118064.04762134,
+          "revenue": 64970353.55060683,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 31158,
+          "workers": 31143,
           "mediaDiscriminator": null
         },
         {
           "stateId": "CT",
           "stateName": "Connecticut",
           "sectorType": "chemical_industries",
-          "revenue": 289001280.76439136,
+          "revenue": 288932277.02313155,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 78688,
+          "workers": 78733,
           "mediaDiscriminator": null
         },
         {
           "stateId": "FR_ARA",
           "stateName": "Auvergne-Rhône-Alpes",
           "sectorType": "energy",
-          "revenue": 680970101.2601056,
+          "revenue": 679889217.9536369,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 54479,
+          "workers": 54448,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IT_NW",
           "stateName": "Northwest",
           "sectorType": "chemical_industries",
-          "revenue": 39757550820.68867,
+          "revenue": 39635378416.64545,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 13814,
+          "workers": 13807,
           "mediaDiscriminator": null
         },
         {
           "stateId": "FR_MED",
           "stateName": "Mediterranean",
           "sectorType": "energy",
-          "revenue": 516110489.6157163,
+          "revenue": 515291282.9993218,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 41215,
+          "workers": 41192,
           "mediaDiscriminator": null
         },
         {
           "stateId": "SHI",
           "stateName": "Shikoku",
           "sectorType": "energy",
-          "revenue": 13498039922.999062,
+          "revenue": 13455163968.36204,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 13596,
+          "workers": 13746,
           "mediaDiscriminator": null
         },
         {
           "stateId": "HE",
           "stateName": "Hessen",
           "sectorType": "chemical_industries",
-          "revenue": 115595976.35506193,
+          "revenue": 115333764.33494113,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 55311,
+          "workers": 55285,
           "mediaDiscriminator": null
         },
         {
           "stateId": "BW",
           "stateName": "Baden-Württemberg",
           "sectorType": "chemical_industries",
-          "revenue": 101918085.45052001,
+          "revenue": 112229903.60293718,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 61240,
+          "workers": 67556,
           "mediaDiscriminator": null
         },
         {
           "stateId": "KYU",
           "stateName": "Kyushu & Okinawa",
           "sectorType": "chemical_industries",
-          "revenue": 10055957171.07387,
+          "revenue": 10024014847.154367,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 25233,
+          "workers": 25861,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NI",
           "stateName": "Niedersachsen",
           "sectorType": "energy",
-          "revenue": 56582397.44624428,
+          "revenue": 56454048.82023252,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 33384,
+          "workers": 33367,
           "mediaDiscriminator": null
         },
         {
           "stateId": "MA",
           "stateName": "Massachusetts",
           "sectorType": "chemical_industries",
-          "revenue": 212220690.7681165,
+          "revenue": 212170019.63753533,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 81348,
+          "workers": 79533,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NC",
           "stateName": "North Carolina",
           "sectorType": "energy",
-          "revenue": 168232365.52672786,
+          "revenue": 168192197.32196546,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 70276,
+          "workers": 69328,
           "mediaDiscriminator": null
         },
         {
           "stateId": "AZ",
           "stateName": "Arizona",
           "sectorType": "chemical_industries",
-          "revenue": 45652138.14022823,
+          "revenue": 45641237.952104986,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 10204,
+          "workers": 10212,
           "mediaDiscriminator": null
         },
         {
           "stateId": "CO",
           "stateName": "Colorado",
           "sectorType": "energy",
-          "revenue": 91123221.75038266,
+          "revenue": 91101464.60384062,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 37542,
+          "workers": 37573,
           "mediaDiscriminator": null
         },
         {
           "stateId": "PA",
           "stateName": "Pennsylvania",
           "sectorType": "chemical_industries",
-          "revenue": 236604752.99187607,
+          "revenue": 236548259.7711086,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 57715,
+          "workers": 57700,
           "mediaDiscriminator": null
         },
         {
           "stateId": "CT",
           "stateName": "Connecticut",
           "sectorType": "telecommunications",
-          "revenue": 98686020.61436948,
+          "revenue": 102309710.09706032,
           "profitMargin": 35,
           "currentGrowthRate": 0,
           "workers": 1,
@@ -698,8 +698,8 @@
       "sectorsByType": {
         "energy": {
           "sectorCount": 20,
-          "workers": 1211066,
-          "revenue": 17661742134.708622,
+          "workers": 1215137,
+          "revenue": 17622323101.599575,
           "states": [
             "Georgia",
             "New York",
@@ -727,8 +727,8 @@
         },
         "chemical_industries": {
           "sectorCount": 14,
-          "workers": 1078034,
-          "revenue": 67467870411.682686,
+          "workers": 1086640,
+          "revenue": 67298736553.350464,
           "states": [
             "Ohio",
             "Kansai",
@@ -751,7 +751,7 @@
         "healthcare": {
           "sectorCount": 1,
           "workers": 1,
-          "revenue": 10427408.622465495,
+          "revenue": 10424918.90960093,
           "states": [
             "New York"
           ],
@@ -761,7 +761,7 @@
         "telecommunications": {
           "sectorCount": 1,
           "workers": 1,
-          "revenue": 98686020.61436948,
+          "revenue": 102309710.09706032,
           "states": [
             "Connecticut"
           ],
@@ -770,7 +770,7 @@
         }
       },
       "sectorCount": 36,
-      "workers": 2289102,
+      "workers": 2301779,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
@@ -778,8 +778,8 @@
             "healthcare"
           ],
           "sectorCount": 15,
-          "workers": 1078035,
-          "revenue": 67478297820.305145,
+          "workers": 1086641,
+          "revenue": 67309161472.26006,
           "states": [
             "Ohio",
             "Kansai",
@@ -800,92 +800,92 @@
             {
               "sectorType": "chemical_industries",
               "stateName": "Ohio",
-              "revenue": 102439146.96170536,
-              "workers": 53504
+              "revenue": 102414687.95455797,
+              "workers": 53396
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Kansai",
-              "revenue": 14990219657.744476,
-              "workers": 44837
+              "revenue": 14942603857.101501,
+              "workers": 44804
             },
             {
               "sectorType": "healthcare",
               "stateName": "New York",
-              "revenue": 10427408.622465495,
+              "revenue": 10424918.90960093,
               "workers": 1
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Texas",
-              "revenue": 350394812.97398853,
-              "workers": 166323
+              "revenue": 358709115.34274495,
+              "workers": 169913
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Illinois",
-              "revenue": 171845373.2627674,
-              "workers": 60171
+              "revenue": 171804342.39383158,
+              "workers": 58951
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "New York",
-              "revenue": 599660765.9698783,
-              "workers": 186342
+              "revenue": 599517587.2399113,
+              "workers": 183984
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "North Carolina",
-              "revenue": 438809738.5371285,
-              "workers": 183304
+              "revenue": 453438237.1963502,
+              "workers": 186905
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Connecticut",
-              "revenue": 289001280.76439136,
-              "workers": 78688
+              "revenue": 288932277.02313155,
+              "workers": 78733
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Northwest",
-              "revenue": 39757550820.68867,
-              "workers": 13814
+              "revenue": 39635378416.64545,
+              "workers": 13807
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Hessen",
-              "revenue": 115595976.35506193,
-              "workers": 55311
+              "revenue": 115333764.33494113,
+              "workers": 55285
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Baden-Württemberg",
-              "revenue": 101918085.45052001,
-              "workers": 61240
+              "revenue": 112229903.60293718,
+              "workers": 67556
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Kyushu & Okinawa",
-              "revenue": 10055957171.07387,
-              "workers": 25233
+              "revenue": 10024014847.154367,
+              "workers": 25861
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Massachusetts",
-              "revenue": 212220690.7681165,
-              "workers": 81348
+              "revenue": 212170019.63753533,
+              "workers": 79533
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Arizona",
-              "revenue": 45652138.14022823,
-              "workers": 10204
+              "revenue": 45641237.952104986,
+              "workers": 10212
             },
             {
               "sectorType": "chemical_industries",
               "stateName": "Pennsylvania",
-              "revenue": 236604752.99187607,
-              "workers": 57715
+              "revenue": 236548259.7711086,
+              "workers": 57700
             }
           ]
         },
@@ -1303,28 +1303,28 @@
       "note": "Wholly-owned research subsidiary. Defence and frontier research programmes.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 1171383886,
-        "operatingIncome": 99867142,
-        "operatingCosts": 1071516744,
+        "totalRevenue": 1161285240,
+        "operatingIncome": 102815540,
+        "operatingCosts": 1058469699,
         "dividendRate": 0,
-        "revenueUsd": 1220583104.241582,
-        "operatingIncomeUsd": 104061655.32150309,
-        "operatingCostsUsd": 1116521448.9200788,
-        "marginPct": 8.53
+        "revenueUsd": 1209613510.9256327,
+        "operatingIncomeUsd": 107094331.37815033,
+        "operatingCostsUsd": 1102519178.5058663,
+        "marginPct": 8.85
       },
       "balanceSheet": {
-        "cashOnHand": 173392601.38193363,
-        "marketCapitalization": 3490800000,
+        "cashOnHand": 176922625.29255468,
+        "marketCapitalization": 3820221134,
         "totalDebt": 269332000,
-        "cashOnHandUsd": 173392601.38193363,
-        "marketCapitalizationUsd": 3490800000,
+        "cashOnHandUsd": 176922625.29255468,
+        "marketCapitalizationUsd": 3820221133.9999995,
         "totalDebtUsd": 269332000
       },
       "shareStructure": {
         "totalShares": 1000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 3490.8,
+        "sharePrice": 3820.2211340736076,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
@@ -1336,7 +1336,7 @@
       "creditRating": {
         "rating": "AAA",
         "compositeScore": 91,
-        "snapshotTurn": 426,
+        "snapshotTurn": 427,
         "components": {
           "debtToEquity": 100,
           "interestCoverage": 100,
@@ -1429,98 +1429,98 @@
           "stateId": "IL",
           "stateName": "Illinois",
           "sectorType": "defense",
-          "revenue": 297911890.5133068,
+          "revenue": 297840759.2195048,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 104312,
+          "workers": 102198,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NC",
           "stateName": "North Carolina",
           "sectorType": "technology",
-          "revenue": 158035557.8324394,
+          "revenue": 157997824.2808313,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 52813,
+          "workers": 52101,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NJ",
           "stateName": "New Jersey",
           "sectorType": "technology",
-          "revenue": 4929109.691937792,
+          "revenue": 4927932.7870849,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 2447,
+          "workers": 2449,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IL",
           "stateName": "Illinois",
           "sectorType": "technology",
-          "revenue": 178978300.93119404,
+          "revenue": 178935566.96013373,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 5013,
+          "workers": 4912,
           "mediaDiscriminator": null
         },
         {
           "stateId": "TN",
           "stateName": "Tennessee",
           "sectorType": "technology",
-          "revenue": 51280066.1657251,
+          "revenue": 51267822.21854215,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 29256,
+          "workers": 29277,
           "mediaDiscriminator": null
         },
         {
           "stateId": "KY",
           "stateName": "Kentucky",
           "sectorType": "defense",
-          "revenue": 395944061.55193055,
+          "revenue": 395849523.48793155,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 137862,
+          "workers": 137810,
           "mediaDiscriminator": null
         },
         {
           "stateId": "TX",
           "stateName": "Texas",
           "sectorType": "defense",
-          "revenue": 371383923.93785703,
+          "revenue": 371295250.00489837,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 143097,
+          "workers": 140700,
           "mediaDiscriminator": null
         },
         {
           "stateId": "OH",
           "stateName": "Ohio",
           "sectorType": "technology",
-          "revenue": 20996050.598482896,
+          "revenue": 20991037.451000836,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 7090,
+          "workers": 7085,
           "mediaDiscriminator": null
         },
         {
           "stateId": "MI",
           "stateName": "Michigan",
           "sectorType": "technology",
-          "revenue": 20604718.94748759,
+          "revenue": 20599799.236781728,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 8053,
+          "workers": 8047,
           "mediaDiscriminator": null
         }
       ],
       "sectorsByType": {
         "defense": {
           "sectorCount": 3,
-          "workers": 385271,
-          "revenue": 1065239876.0030943,
+          "workers": 380708,
+          "revenue": 1064985532.7123346,
           "states": [
             "Illinois",
             "Kentucky",
@@ -1531,8 +1531,8 @@
         },
         "technology": {
           "sectorCount": 6,
-          "workers": 104672,
-          "revenue": 434823804.16726685,
+          "workers": 103871,
+          "revenue": 434719982.93437463,
           "states": [
             "North Carolina",
             "New Jersey",
@@ -1546,7 +1546,7 @@
         }
       },
       "sectorCount": 9,
-      "workers": 489943,
+      "workers": 484579,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
@@ -1564,8 +1564,8 @@
             "defense"
           ],
           "sectorCount": 3,
-          "workers": 385271,
-          "revenue": 1065239876.0030943,
+          "workers": 380708,
+          "revenue": 1064985532.7123346,
           "states": [
             "Illinois",
             "Kentucky",
@@ -1575,20 +1575,20 @@
             {
               "sectorType": "defense",
               "stateName": "Illinois",
-              "revenue": 297911890.5133068,
-              "workers": 104312
+              "revenue": 297840759.2195048,
+              "workers": 102198
             },
             {
               "sectorType": "defense",
               "stateName": "Kentucky",
-              "revenue": 395944061.55193055,
-              "workers": 137862
+              "revenue": 395849523.48793155,
+              "workers": 137810
             },
             {
               "sectorType": "defense",
               "stateName": "Texas",
-              "revenue": 371383923.93785703,
-              "workers": 143097
+              "revenue": 371295250.00489837,
+              "workers": 140700
             }
           ]
         }
@@ -1626,28 +1626,28 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 341957903,
-        "operatingIncome": 149471185,
-        "operatingCosts": 192486718,
+        "totalRevenue": 334732137,
+        "operatingIncome": 144630973,
+        "operatingCosts": 190101164,
         "dividendRate": 10,
-        "revenueUsd": 356320454.5940645,
-        "operatingIncomeUsd": 155749114.49820626,
-        "operatingCostsUsd": 200571340.0958582,
-        "marginPct": 43.71
+        "revenueUsd": 348662414.2886806,
+        "operatingIncomeUsd": 150649963.51724955,
+        "operatingCostsUsd": 198012450.77143106,
+        "marginPct": 43.21
       },
       "balanceSheet": {
-        "cashOnHand": 29820719.544541635,
-        "marketCapitalization": 3882400000,
+        "cashOnHand": 29873296.665056434,
+        "marketCapitalization": 4068761174,
         "totalDebt": 0,
-        "cashOnHandUsd": 29820719.544541635,
-        "marketCapitalizationUsd": 3882400000,
+        "cashOnHandUsd": 29873296.665056434,
+        "marketCapitalizationUsd": 4068761174,
         "totalDebtUsd": 0
       },
       "shareStructure": {
         "totalShares": 10000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 388.24,
+        "sharePrice": 406.8761173936652,
         "shareholders": [
           {
             "name": "Umbrella Technologies",
@@ -1658,12 +1658,12 @@
       },
       "creditRating": {
         "rating": "AAA",
-        "compositeScore": 92,
-        "snapshotTurn": 426,
+        "compositeScore": 91,
+        "snapshotTurn": 427,
         "components": {
           "debtToEquity": 100,
           "interestCoverage": 100,
-          "profitability": 67,
+          "profitability": 64,
           "liquidity": 100
         }
       },
@@ -1674,7 +1674,7 @@
           "stateId": "PA",
           "stateName": "Pennsylvania",
           "sectorType": "media",
-          "revenue": 121181.04290630306,
+          "revenue": 121152.10896764304,
           "profitMargin": 35,
           "currentGrowthRate": 0,
           "workers": 36,
@@ -1684,67 +1684,67 @@
           "stateId": "VA",
           "stateName": "Virginia",
           "sectorType": "manufacturing",
-          "revenue": 7083470.583992715,
+          "revenue": 7390285.45454056,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 3492,
+          "workers": 3648,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NC",
           "stateName": "North Carolina",
           "sectorType": "manufacturing",
-          "revenue": 9618792.202826692,
+          "revenue": 9860293.777653603,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 2893,
+          "workers": 2926,
           "mediaDiscriminator": null
         },
         {
           "stateId": "GA",
           "stateName": "Georgia",
           "sectorType": "manufacturing",
-          "revenue": 10661613.785377475,
+          "revenue": 11068504.08139393,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 4817,
+          "workers": 5012,
           "mediaDiscriminator": null
         },
         {
           "stateId": "PA",
           "stateName": "Pennsylvania",
           "sectorType": "manufacturing",
-          "revenue": 44419232.99541065,
+          "revenue": 45156567.45963826,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 13002,
+          "workers": 13217,
           "mediaDiscriminator": null
         },
         {
           "stateId": "MA",
           "stateName": "Massachusetts",
           "sectorType": "manufacturing",
-          "revenue": 234088559.41901335,
+          "revenue": 234032666.9802556,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 64606,
+          "workers": 63165,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NY",
           "stateName": "New York",
           "sectorType": "manufacturing",
-          "revenue": 16547551.206766756,
+          "revenue": 16887957.24963266,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 3702,
+          "workers": 3731,
           "mediaDiscriminator": null
         },
         {
           "stateId": "PA",
           "stateName": "Pennsylvania",
           "sectorType": "real_estate",
-          "revenue": 7380659.173563057,
+          "revenue": 7378896.921525305,
           "profitMargin": 35,
           "currentGrowthRate": 0,
           "workers": 2000,
@@ -1754,38 +1754,38 @@
           "stateId": "IL",
           "stateName": "Illinois",
           "sectorType": "manufacturing",
-          "revenue": 3203166.5747426148,
+          "revenue": 3359589.8223065087,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 808,
+          "workers": 830,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IN",
           "stateName": "Indiana",
           "sectorType": "media",
-          "revenue": 1788873.7060575162,
+          "revenue": 1788446.583457807,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 738,
+          "workers": 722,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IL",
           "stateName": "Illinois",
           "sectorType": "media",
-          "revenue": 2075681.4386763345,
+          "revenue": 2075185.8360805486,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 523,
+          "workers": 513,
           "mediaDiscriminator": null
         }
       ],
       "sectorsByType": {
         "media": {
           "sectorCount": 3,
-          "workers": 1297,
-          "revenue": 3985736.187640154,
+          "workers": 1271,
+          "revenue": 3984784.5285059987,
           "states": [
             "Pennsylvania",
             "Indiana",
@@ -1796,8 +1796,8 @@
         },
         "manufacturing": {
           "sectorCount": 7,
-          "workers": 93320,
-          "revenue": 325622386.7681303,
+          "workers": 92529,
+          "revenue": 327755864.82542115,
           "states": [
             "Virginia",
             "North Carolina",
@@ -1813,7 +1813,7 @@
         "real_estate": {
           "sectorCount": 1,
           "workers": 2000,
-          "revenue": 7380659.173563057,
+          "revenue": 7378896.921525305,
           "states": [
             "Pennsylvania"
           ],
@@ -1822,7 +1822,7 @@
         }
       },
       "sectorCount": 11,
-      "workers": 96617,
+      "workers": 95800,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
