@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T07:31:53.046Z",
+  "updatedAt": "2026-10-25T07:46:52.287Z",
   "game": {
     "currentTurn": 417,
     "gameDateLabel": "August, Week 2, 1998",
@@ -96,8 +96,8 @@
       },
       "shareStructure": {
         "totalShares": 1004388,
-        "publicFloat": 0,
-        "publicFloatPct": 0,
+        "publicFloat": 4367,
+        "publicFloatPct": 0.4,
         "sharePrice": 44980.85,
         "shareholders": [
           {
@@ -107,7 +107,7 @@
           },
           {
             "name": "NERV",
-            "shares": 182567,
+            "shares": 178200,
             "pct": null
           },
           {
@@ -901,12 +901,12 @@
         }
       },
       "growth": {
-        "pct": 3.11,
-        "fromTurn": 361,
-        "toTurn": 388,
-        "fromPrice": 51090.0807,
-        "toPrice": 52677.3715,
-        "trades": 4,
+        "pct": -10.13,
+        "fromTurn": 388,
+        "toTurn": 417,
+        "fromPrice": 52677.3715,
+        "toPrice": 47339.559,
+        "trades": 3,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -1262,9 +1262,17 @@
         [
           388,
           52677.3715
+        ],
+        [
+          417,
+          47338.1827
+        ],
+        [
+          417,
+          47339.559
         ]
       ],
-      "tapeTradeCount": 88,
+      "tapeTradeCount": 90,
       "tapeSplitCount": 2
     },
     {
