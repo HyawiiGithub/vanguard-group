@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T18:32:37.624Z",
+  "updatedAt": "2026-10-26T18:47:50.757Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -182,12 +182,12 @@
       "ceo": "Braden E Peters",
       "revenue": 576348195,
       "operatingIncome": 131744682,
-      "marketCap": 4105927944,
+      "marketCap": 4155878405,
       "revenueUsd": 587169552.3785151,
       "operatingIncomeUsd": 134218284.41431975,
-      "marketCapUsd": 4105927944,
+      "marketCapUsd": 4155878405.0000005,
       "marginPct": 22.86,
-      "sharePrice": 854.88,
+      "sharePrice": 865.28,
       "totalShares": 4802929,
       "holders": [
         {
@@ -1055,12 +1055,12 @@
       "ceo": "Ronald Reagan",
       "revenue": 66488955,
       "operatingIncome": 10858045,
-      "marketCap": 550527236,
+      "marketCap": 557790129,
       "revenueUsd": 67737333.58437122,
       "operatingIncomeUsd": 11061912.707743926,
-      "marketCapUsd": 550527236,
+      "marketCapUsd": 557790128.9999999,
       "marginPct": 16.33,
-      "sharePrice": 3.79,
+      "sharePrice": 3.84,
       "totalShares": 145257846,
       "holders": [
         {
@@ -2437,12 +2437,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 2709643166,
       "operatingIncome": 1033716915,
-      "marketCap": 4223612624431,
+      "marketCap": 4274999179472,
       "revenueUsd": 2760518691.111234,
       "operatingIncomeUsd": 1053125703.4068607,
-      "marketCapUsd": 37302230667.168465,
+      "marketCapUsd": 37756068009.69435,
       "marginPct": 38.15,
-      "sharePrice": 380125.14,
+      "sharePrice": 384749.93,
       "totalShares": 11111111,
       "holders": [
         {
@@ -3652,12 +3652,12 @@
       "ceo": "Misa Astrae",
       "revenue": 11659996790,
       "operatingIncome": 4457686707,
-      "marketCap": 20523613840000,
+      "marketCap": 20518537330000,
       "revenueUsd": 11878921727.028612,
       "operatingIncomeUsd": 4541383023.491289,
-      "marketCapUsd": 181261078053.22433,
+      "marketCapUsd": 181216243177.5284,
       "marginPct": 38.23,
-      "sharePrice": 20523613.84,
+      "sharePrice": 20518537.33,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3721,11 +3721,6 @@
           "pct": 0
         },
         {
-          "name": "Victor Castiglione",
-          "shares": 81,
-          "pct": 0
-        },
-        {
           "name": "Jimmy Jibbson",
           "shares": 73,
           "pct": 0
@@ -3759,6 +3754,11 @@
           "name": "Index Fund",
           "shares": 25,
           "pct": 0
+        },
+        {
+          "name": "Index Fund",
+          "shares": 8,
+          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
@@ -3773,12 +3773,12 @@
       "workers": 3129328,
       "divRate": 0,
       "growth": {
-        "pct": -16.37,
+        "pct": -18.2,
         "fromTurn": 423,
-        "toTurn": 451,
+        "toTurn": 452,
         "fromPrice": 212412.492,
-        "toPrice": 177632.2085,
-        "trades": 12,
+        "toPrice": 173749.1493,
+        "trades": 13,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -4842,6 +4842,10 @@
         [
           451,
           177632.2085
+        ],
+        [
+          452,
+          173749.1493
         ]
       ],
       "checks": {
@@ -4870,12 +4874,12 @@
       "ceo": null,
       "revenue": 3171698339,
       "operatingIncome": 670092927,
-      "marketCap": 23511580000,
+      "marketCap": 23511520000,
       "revenueUsd": 3231249286.709937,
       "operatingIncomeUsd": 682674410.0388811,
-      "marketCapUsd": 23511580000,
+      "marketCapUsd": 23511520000,
       "marginPct": 21.13,
-      "sharePrice": 23511.58,
+      "sharePrice": 23511.52,
       "totalShares": 1000000,
       "holders": [
         {
