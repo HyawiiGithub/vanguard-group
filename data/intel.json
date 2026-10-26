@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T20:46:35.649Z",
+  "updatedAt": "2026-10-26T21:01:38.975Z",
   "game": {
     "currentTurn": 454,
     "gameDateLabel": "May, Week 3, 1999",
@@ -39,7 +39,7 @@
     "corporations": 3,
     "workers": 2931869,
     "sectorCount": 56,
-    "revenueUsd": 8772526738.937296,
+    "revenueUsd": 8771669244.254793,
     "marketCapUsd": 48601256514,
     "cashUsd": 116883107.24704653,
     "debtUsd": 1774931000,
@@ -77,13 +77,13 @@
       "note": "Parent group. Automated nuclear, pharmaceutical and bio-engineering, laboratory-grade chemical manufacturing. Holds 100% of #978.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 7162450916,
-        "operatingIncome": 1558129163,
-        "operatingCosts": 5604321754,
+        "totalRevenue": 7156589202,
+        "operatingIncome": 1556801899,
+        "operatingCosts": 5599787303,
         "dividendRate": 0,
-        "revenueUsd": 7268789489.556933,
-        "operatingIncomeUsd": 1581262198.6820664,
-        "operatingCostsUsd": 5687527291.889713,
+        "revenueUsd": 7267931994.92686,
+        "operatingIncomeUsd": 1581022748.7058988,
+        "operatingCostsUsd": 5686909246.220962,
         "marginPct": 21.75
       },
       "balanceSheet": {
@@ -96,8 +96,8 @@
       },
       "shareStructure": {
         "totalShares": 1004388,
-        "publicFloat": 0,
-        "publicFloatPct": 0,
+        "publicFloat": 702,
+        "publicFloatPct": 0.1,
         "sharePrice": 42597.2,
         "shareholders": [
           {
@@ -131,11 +131,6 @@
             "pct": null
           },
           {
-            "name": "Ranco Hashimoto",
-            "shares": 702,
-            "pct": null
-          },
-          {
             "name": "Joe Bedard",
             "shares": 446,
             "pct": null
@@ -158,6 +153,11 @@
           {
             "name": "National Public Party",
             "shares": 2,
+            "pct": null
+          },
+          {
+            "name": "National Public Party",
+            "shares": 1,
             "pct": null
           },
           {
@@ -1334,13 +1334,13 @@
       "note": "Wholly-owned research subsidiary. Defence and frontier research programmes.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 1109338227,
-        "operatingIncome": 76958250,
-        "operatingCosts": 1032379978,
+        "totalRevenue": 1108561127,
+        "operatingIncome": 76904340,
+        "operatingCosts": 1031656787,
         "dividendRate": 0,
-        "revenueUsd": 1125808209.975777,
-        "operatingIncomeUsd": 78100824.0468471,
-        "operatingCostsUsd": 1047707386.9437764,
+        "revenueUsd": 1125808210.565427,
+        "operatingIncomeUsd": 78100823.93419087,
+        "operatingCostsUsd": 1047707386.6312363,
         "marginPct": 6.94
       },
       "balanceSheet": {
@@ -1657,13 +1657,13 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 372400136,
-        "operatingIncome": 118564608,
-        "operatingCosts": 253835528,
+        "totalRevenue": 372139266,
+        "operatingIncome": 118481552,
+        "operatingCosts": 253657714,
         "dividendRate": 6,
-        "revenueUsd": 377929039.40458536,
-        "operatingIncomeUsd": 120324898.07904156,
-        "operatingCostsUsd": 257604141.3255438,
+        "revenueUsd": 377929038.7625071,
+        "operatingIncomeUsd": 120324897.55716881,
+        "operatingCostsUsd": 257604141.20533824,
         "marginPct": 31.84
       },
       "balanceSheet": {
