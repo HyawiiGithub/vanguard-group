@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T11:31:36.602Z",
+  "updatedAt": "2026-10-27T11:46:33.388Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -182,12 +182,12 @@
       "ceo": "Braden E Peters",
       "revenue": 577414763,
       "operatingIncome": 106413699,
-      "marketCap": 3621024232,
+      "marketCap": 3621072261,
       "revenueUsd": 587351597.241574,
       "operatingIncomeUsd": 108244991.43613702,
-      "marketCapUsd": 3621024232,
+      "marketCapUsd": 3621072261,
       "marginPct": 18.43,
-      "sharePrice": 753.92,
+      "sharePrice": 753.93,
       "totalShares": 4802929,
       "holders": [
         {
@@ -2461,12 +2461,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 2485252910,
       "operatingIncome": 919713345,
-      "marketCap": 1757218982428,
+      "marketCap": 1530037318033,
       "revenueUsd": 2528022073.1692133,
       "operatingIncomeUsd": 935540856.945739,
-      "marketCapUsd": 15500912953.204842,
+      "marketCapUsd": 13496880877.768633,
       "marginPct": 37.01,
-      "sharePrice": 158149.71,
+      "sharePrice": 137703.36,
       "totalShares": 11111111,
       "holders": [
         {
@@ -2476,8 +2476,8 @@
         },
         {
           "name": "Larry Fink",
-          "shares": 1290719,
-          "pct": 11.6
+          "shares": 721722,
+          "pct": 6.5
         },
         {
           "name": "NERV",
@@ -2582,12 +2582,12 @@
       "workers": 577004,
       "divRate": 8,
       "growth": {
-        "pct": -60.21,
+        "pct": -57.55,
         "fromTurn": 439,
-        "toTurn": 468,
+        "toTurn": 469,
         "fromPrice": 3154.1507,
-        "toPrice": 1254.9159,
-        "trades": 13,
+        "toPrice": 1339.0814,
+        "trades": 14,
         "splitAdjusted": false,
         "window": "30T"
       },
@@ -3179,6 +3179,10 @@
         [
           468,
           1254.9159
+        ],
+        [
+          469,
+          1339.0814
         ]
       ],
       "checks": {
@@ -3206,12 +3210,12 @@
       "ceo": "Napoleon Arasaka",
       "revenue": 22053068628,
       "operatingIncome": 6091767714,
-      "marketCap": 19110450110000,
+      "marketCap": 19110425010000,
       "revenueUsd": 22432583842.22131,
       "operatingIncomeUsd": 6196602037.420633,
-      "marketCapUsd": 168578547474.12598,
+      "marketCapUsd": 168578326060.10812,
       "marginPct": 27.62,
-      "sharePrice": 19110450.11,
+      "sharePrice": 19110425.01,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3746,12 +3750,12 @@
       "ceo": "Misa Astrae",
       "revenue": 12114160968,
       "operatingIncome": 4567420277,
-      "marketCap": 16848346360000,
+      "marketCap": 16848346200000,
       "revenueUsd": 12322635737.31372,
       "operatingIncomeUsd": 4646021831.917558,
-      "marketCapUsd": 148623906834.27902,
+      "marketCapUsd": 148623905422.87494,
       "marginPct": 37.7,
-      "sharePrice": 16848346.36,
+      "sharePrice": 16848346.2,
       "totalShares": 1000000,
       "holders": [
         {
@@ -5407,12 +5411,12 @@
       "ceo": "Larry Fink",
       "revenue": 2719344618,
       "operatingIncome": 1141628801,
-      "marketCap": 6835012987000,
+      "marketCap": 7435209837000,
       "revenueUsd": 2766142307.36698,
       "operatingIncomeUsd": 1161275295.8384838,
-      "marketCapUsd": 60293533364.3613,
+      "marketCapUsd": 65588035199.17684,
       "marginPct": 41.98,
-      "sharePrice": 6213648.17,
+      "sharePrice": 6759281.67,
       "totalShares": 1100000,
       "holders": [
         {
@@ -5427,8 +5431,8 @@
         },
         {
           "name": "Larry Fink",
-          "shares": 73403,
-          "pct": 6.7
+          "shares": 87852,
+          "pct": 8
         },
         {
           "name": "National Public Party",
@@ -5448,12 +5452,12 @@
       "workers": 880124,
       "divRate": 20,
       "growth": {
-        "pct": -3.65,
-        "fromTurn": 425,
-        "toTurn": 454,
-        "fromPrice": 53641.2128,
-        "toPrice": 51680.8278,
-        "trades": 2,
+        "pct": 3.86,
+        "fromTurn": 454,
+        "toTurn": 469,
+        "fromPrice": 51680.8278,
+        "toPrice": 53675.8944,
+        "trades": 3,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -5833,6 +5837,14 @@
         [
           454,
           51680.8278
+        ],
+        [
+          469,
+          53675.8944
+        ],
+        [
+          469,
+          53689.5045
         ]
       ],
       "checks": {
@@ -6046,7 +6058,7 @@
       "a": "BlackRock Incorporated",
       "aPct": 60.3,
       "b": "The Organization",
-      "bPct": 11.6
+      "bPct": 6.5
     },
     {
       "type": "backer",
@@ -6132,7 +6144,7 @@
       "a": "BlackRock Incorporated",
       "aPct": 60.3,
       "b": "Tinky Winky",
-      "bPct": 6.7
+      "bPct": 8
     },
     {
       "type": "backer",
@@ -6620,7 +6632,7 @@
       "a": "Pfizer",
       "aPct": 4.6,
       "b": "The Organization",
-      "bPct": 11.6
+      "bPct": 6.5
     },
     {
       "type": "backer",
@@ -6820,7 +6832,7 @@
       "a": "Pfizer",
       "aPct": 4.6,
       "b": "Tinky Winky",
-      "bPct": 6.7
+      "bPct": 8
     },
     {
       "type": "backer",
@@ -7050,7 +7062,7 @@
       "type": "backer",
       "who": "Larry Fink",
       "a": "The Organization",
-      "aPct": 11.6,
+      "aPct": 6.5,
       "b": "Arasaka Corporation",
       "bPct": 0
     },
@@ -7194,9 +7206,9 @@
       "type": "backer",
       "who": "Larry Fink",
       "a": "The Organization",
-      "aPct": 11.6,
+      "aPct": 6.5,
       "b": "Tinky Winky",
-      "bPct": 6.7
+      "bPct": 8
     },
     {
       "type": "backer",
@@ -7220,7 +7232,7 @@
       "a": "Arasaka Corporation",
       "aPct": 0,
       "b": "Tinky Winky",
-      "bPct": 6.7
+      "bPct": 8
     },
     {
       "type": "backer",
