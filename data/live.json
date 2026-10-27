@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T17:31:35.374Z",
+  "updatedAt": "2026-10-27T17:46:33.644Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -2465,12 +2465,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 2473662321,
       "operatingIncome": 908885524,
-      "marketCap": 3573667186486,
+      "marketCap": 3266725633999,
       "revenueUsd": 2565566218.5656257,
       "operatingIncomeUsd": 942653318.9764817,
-      "marketCapUsd": 31624118423.33182,
+      "marketCapUsd": 28907929282.497223,
       "marginPct": 36.74,
-      "sharePrice": 321630.05,
+      "sharePrice": 294005.31,
       "totalShares": 11111111,
       "holders": [
         {
@@ -2482,11 +2482,6 @@
           "name": "Larry Fink",
           "shares": 721722,
           "pct": 6.5
-        },
-        {
-          "name": "NERV",
-          "shares": 446207,
-          "pct": 4
         },
         {
           "name": null,
@@ -2572,6 +2567,11 @@
           "name": "National Public Party",
           "shares": 84,
           "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 64,
+          "pct": 0
         }
       ],
       "blackrockStakePct": 0,
@@ -2586,12 +2586,12 @@
       "workers": 565574,
       "divRate": 8,
       "growth": {
-        "pct": -57.55,
-        "fromTurn": 439,
-        "toTurn": 469,
-        "fromPrice": 3154.1507,
-        "toPrice": 1339.0814,
-        "trades": 14,
+        "pct": -14.82,
+        "fromTurn": 446,
+        "toTurn": 475,
+        "fromPrice": 3147.1403,
+        "toPrice": 2680.8768,
+        "trades": 12,
         "splitAdjusted": false,
         "window": "30T"
       },
@@ -3187,6 +3187,10 @@
         [
           469,
           1339.0814
+        ],
+        [
+          475,
+          2680.8768
         ]
       ],
       "checks": {
@@ -3214,12 +3218,12 @@
       "ceo": "Napoleon Arasaka",
       "revenue": 22801495315,
       "operatingIncome": 6105622788,
-      "marketCap": 19990977600000,
+      "marketCap": 20704858720000,
       "revenueUsd": 23648638545.49789,
       "operatingIncomeUsd": 6332464797.323188,
-      "marketCapUsd": 176904286278.04468,
+      "marketCapUsd": 183221567631.05722,
       "marginPct": 26.78,
-      "sharePrice": 19990977.6,
+      "sharePrice": 20704858.72,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3229,13 +3233,13 @@
         },
         {
           "name": "NERV",
-          "shares": 118738,
-          "pct": 11.9
+          "shares": 130175,
+          "pct": 13
         },
         {
           "name": "Misa Astrae",
-          "shares": 5196,
-          "pct": 0.5
+          "shares": 6528,
+          "pct": 0.7
         },
         {
           "name": "Diagne",
@@ -3275,12 +3279,12 @@
       "workers": 6853959,
       "divRate": 0,
       "growth": {
-        "pct": 35.6,
+        "pct": 36.1,
         "fromTurn": 446,
-        "toTurn": 471,
+        "toTurn": 475,
         "fromPrice": 124891.0738,
-        "toPrice": 169348.4454,
-        "trades": 10,
+        "toPrice": 169971.6093,
+        "trades": 13,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -3728,6 +3732,18 @@
         [
           471,
           169348.4454
+        ],
+        [
+          475,
+          169971.6093
+        ],
+        [
+          475,
+          169997.9038
+        ],
+        [
+          475,
+          169984.6265
         ]
       ],
       "checks": {
@@ -3756,12 +3772,12 @@
       "ceo": "Misa Astrae",
       "revenue": 12185540763,
       "operatingIncome": 4689146712,
-      "marketCap": 17586013970000,
+      "marketCap": 17587078980000,
       "revenueUsd": 12638269771.546234,
       "operatingIncomeUsd": 4863362430.706352,
-      "marketCapUsd": 155622266808.9315,
+      "marketCapUsd": 155631691302.20532,
       "marginPct": 38.48,
-      "sharePrice": 17586013.97,
+      "sharePrice": 17587078.98,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3863,7 +3879,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 92,
-      "cashOnHand": 87651895164.03748,
+      "cashOnHand": 1095769.4122924805,
       "totalDebt": 1787754774000,
       "defaultedBonds": 0,
       "distress": [],
@@ -4981,12 +4997,12 @@
       "ceo": null,
       "revenue": 2945080954,
       "operatingIncome": 552904676,
-      "marketCap": 20572680000,
+      "marketCap": 20572650000,
       "revenueUsd": 3054499453.049406,
       "operatingIncomeUsd": 573446725.8486298,
-      "marketCapUsd": 20572680000,
+      "marketCapUsd": 20572650000,
       "marginPct": 18.77,
-      "sharePrice": 20572.68,
+      "sharePrice": 20572.65,
       "totalShares": 1000000,
       "holders": [
         {
@@ -5417,12 +5433,12 @@
       "ceo": "Larry Fink",
       "revenue": 3094331087,
       "operatingIncome": 1269019387,
-      "marketCap": 7117779889000,
+      "marketCap": 7117042372000,
       "revenueUsd": 3209294671.495565,
       "operatingIncomeUsd": 1316167223.9385896,
-      "marketCapUsd": 62986703118.899254,
+      "marketCapUsd": 62980176678.76643,
       "marginPct": 41.01,
-      "sharePrice": 6470708.99,
+      "sharePrice": 6470038.52,
       "totalShares": 1100000,
       "holders": [
         {
@@ -5901,14 +5917,8 @@
     {
       "type": "owns",
       "from": "NERV",
-      "to": "The Organization",
-      "pct": 4
-    },
-    {
-      "type": "owns",
-      "from": "NERV",
       "to": "Arasaka Corporation",
-      "pct": 11.9
+      "pct": 13
     },
     {
       "type": "owns",
@@ -6426,6 +6436,14 @@
     },
     {
       "type": "backer",
+      "who": "National Public Party",
+      "a": "Exxon Mobil",
+      "aPct": 0,
+      "b": "The Organization",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
       "who": "Greenbaum Group",
       "a": "Exxon Mobil",
       "aPct": 0,
@@ -6706,6 +6724,14 @@
     },
     {
       "type": "backer",
+      "who": "National Public Party",
+      "a": "Pfizer",
+      "aPct": 0,
+      "b": "The Organization",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
       "who": "Napoleon Arasaka",
       "a": "Pfizer",
       "aPct": 0,
@@ -6954,6 +6980,14 @@
     },
     {
       "type": "backer",
+      "who": "National Public Party",
+      "a": "簡素",
+      "aPct": 0,
+      "b": "The Organization",
+      "bPct": 0
+    },
+    {
+      "type": "backer",
       "who": "Greenbaum Group",
       "a": "簡素",
       "aPct": 0.1,
@@ -7062,7 +7096,7 @@
       "a": "The Organization",
       "aPct": 0.2,
       "b": "Arasaka Corporation",
-      "bPct": 0.5
+      "bPct": 0.7
     },
     {
       "type": "backer",
@@ -7228,7 +7262,7 @@
       "type": "backer",
       "who": "Misa Astrae",
       "a": "Arasaka Corporation",
-      "aPct": 0.5,
+      "aPct": 0.7,
       "b": "NERV",
       "bPct": 64.2
     },
