@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T22:31:34.162Z",
+  "updatedAt": "2026-10-27T22:46:35.844Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -216,11 +216,6 @@
           "pct": 0.7
         },
         {
-          "name": "The Organization",
-          "shares": 29079,
-          "pct": 0.6
-        },
-        {
           "name": "Leo Abbruzzi",
           "shares": 17647,
           "pct": 0.4
@@ -288,6 +283,11 @@
         {
           "name": "National Public Party",
           "shares": 115,
+          "pct": 0
+        },
+        {
+          "name": "National Public Party",
+          "shares": 79,
           "pct": 0
         }
       ],
@@ -2465,12 +2465,12 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 2419166757,
       "operatingIncome": 876140926,
-      "marketCap": 3066240747115,
+      "marketCap": 3397542966025,
       "revenueUsd": 2559094276.912545,
       "operatingIncomeUsd": 926817972.7617917,
-      "marketCapUsd": 27450265902.184086,
+      "marketCapUsd": 30416221530.951942,
       "marginPct": 36.22,
-      "sharePrice": 275961.67,
+      "sharePrice": 305778.87,
       "totalShares": 11111111,
       "holders": [
         {
@@ -2510,7 +2510,7 @@
         },
         {
           "name": "Misa Astrae",
-          "shares": 16753,
+          "shares": 16734,
           "pct": 0.2
         },
         {
@@ -2577,7 +2577,7 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 88,
-      "cashOnHand": 12325272729.604313,
+      "cashOnHand": 418649110512.77606,
       "totalDebt": 4000845000,
       "defaultedBonds": 0,
       "distress": [],
@@ -2586,12 +2586,12 @@
       "workers": 551248,
       "divRate": 8,
       "growth": {
-        "pct": -21.43,
+        "pct": -16.5,
         "fromTurn": 454,
-        "toTurn": 479,
+        "toTurn": 480,
         "fromPrice": 3024.2513,
-        "toPrice": 2376.1991,
-        "trades": 12,
+        "toPrice": 2525.2721,
+        "trades": 13,
         "splitAdjusted": false,
         "window": "30T"
       },
@@ -3195,6 +3195,10 @@
         [
           479,
           2376.1991
+        ],
+        [
+          480,
+          2525.2721
         ]
       ],
       "checks": {
@@ -3220,14 +3224,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac56dd29c01603665694296-1792466396628.webp",
       "brandColor": "#c5003c",
       "ceo": "Napoleon Arasaka",
-      "revenue": 23111832279,
-      "operatingIncome": 6608414088,
-      "marketCap": 21135530380000,
-      "revenueUsd": 24448648503.87473,
-      "operatingIncomeUsd": 6990652720.8736105,
-      "marketCapUsd": 189214082247.31616,
-      "marginPct": 28.59,
-      "sharePrice": 21135530.38,
+      "revenue": 23074242551,
+      "operatingIncome": 6601183227,
+      "marketCap": 21142108150000,
+      "revenueUsd": 24408884540.71793,
+      "operatingIncomeUsd": 6983003618.161403,
+      "marketCapUsd": 189272969187.52573,
+      "marginPct": 28.61,
+      "sharePrice": 21142108.15,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3274,13 +3278,13 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 93,
-      "cashOnHand": 105520075404.98456,
+      "cashOnHand": 115212692544.98456,
       "totalDebt": 800886032000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
-      "sectorCount": 61,
-      "workers": 6870522,
+      "sectorCount": 60,
+      "workers": 6859231,
       "divRate": 0,
       "growth": {
         "pct": 18.93,
@@ -3778,14 +3782,14 @@
       "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ac5701a9c0160366569479b-1792479647850.webp",
       "brandColor": "#4576c4",
       "ceo": "Misa Astrae",
-      "revenue": 12259252369,
-      "operatingIncome": 4539960846,
-      "marketCap": 18416844370000,
-      "revenueUsd": 12968342296.3531,
-      "operatingIncomeUsd": 4802557651.219261,
-      "marketCapUsd": 164875271294.76285,
-      "marginPct": 37.03,
-      "sharePrice": 18416844.37,
+      "revenue": 12296890097,
+      "operatingIncome": 4547208507,
+      "marketCap": 18327259320000,
+      "revenueUsd": 13008157035.887732,
+      "operatingIncomeUsd": 4810224525.66371,
+      "marketCapUsd": 164073268566.93585,
+      "marginPct": 36.98,
+      "sharePrice": 18327259.32,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3887,13 +3891,13 @@
       "blackrockStakePct": 0,
       "creditRating": "AAA",
       "creditScore": 89,
-      "cashOnHand": 112333097006.67065,
+      "cashOnHand": 12911212538.88919,
       "totalDebt": 1833110032000,
       "defaultedBonds": 0,
       "distress": [],
       "distressed": false,
-      "sectorCount": 35,
-      "workers": 3257321,
+      "sectorCount": 38,
+      "workers": 3269612,
       "divRate": 0,
       "growth": {
         "pct": -14.4,
@@ -5009,12 +5013,12 @@
       "ceo": null,
       "revenue": 2949620722,
       "operatingIncome": 538389171,
-      "marketCap": 19513350000,
+      "marketCap": 19513370000,
       "revenueUsd": 3120230338.35565,
       "operatingIncomeUsd": 569530249.3187284,
-      "marketCapUsd": 19513350000,
+      "marketCapUsd": 19513370000,
       "marginPct": 18.25,
-      "sharePrice": 19513.35,
+      "sharePrice": 19513.37,
       "totalShares": 1000000,
       "holders": [
         {
@@ -5445,18 +5449,18 @@
       "ceo": "Larry Fink",
       "revenue": 3665469287,
       "operatingIncome": 1457815602,
-      "marketCap": 8126554744000,
+      "marketCap": 6414906696000,
       "revenueUsd": 3877484446.831959,
       "operatingIncomeUsd": 1542137412.8414485,
-      "marketCapUsd": 72752307137.44377,
+      "marketCapUsd": 57428919992.203354,
       "marginPct": 39.77,
-      "sharePrice": 7387777.04,
+      "sharePrice": 5831733.36,
       "totalShares": 1100000,
       "holders": [
         {
           "name": "The Organization",
-          "shares": 502842,
-          "pct": 45.7
+          "shares": 446550,
+          "pct": 40.6
         },
         {
           "name": "Arasaka Corporation",
@@ -5486,12 +5490,12 @@
       "workers": 1144148,
       "divRate": 20,
       "growth": {
-        "pct": 9.3,
+        "pct": 18.2,
         "fromTurn": 454,
-        "toTurn": 479,
+        "toTurn": 480,
         "fromPrice": 51680.8278,
-        "toPrice": 56486.6098,
-        "trades": 4,
+        "toPrice": 61086.5289,
+        "trades": 5,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -5883,6 +5887,10 @@
         [
           479,
           56486.6098
+        ],
+        [
+          480,
+          61086.5289
         ]
       ],
       "checks": {
@@ -5927,12 +5935,6 @@
     },
     {
       "type": "owns",
-      "from": "The Organization",
-      "to": "Exxon Mobil",
-      "pct": 0.6
-    },
-    {
-      "type": "owns",
       "from": "Arasaka Corporation",
       "to": "Pfizer",
       "pct": 14.4
@@ -5947,7 +5949,7 @@
       "type": "owns",
       "from": "The Organization",
       "to": "Militech",
-      "pct": 45.7
+      "pct": 40.6
     },
     {
       "type": "owns",
