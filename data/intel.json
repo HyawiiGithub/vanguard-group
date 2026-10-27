@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T16:46:55.162Z",
+  "updatedAt": "2026-10-27T17:01:39.633Z",
   "game": {
     "currentTurn": 474,
     "gameDateLabel": "October, Week 3, 1999",
@@ -37,9 +37,9 @@
   },
   "totals": {
     "corporations": 3,
-    "workers": 2936546,
+    "workers": 2935335,
     "sectorCount": 56,
-    "revenueUsd": 9059929322.810791,
+    "revenueUsd": 9054777708.185402,
     "marketCapUsd": 53601856952,
     "cashUsd": 361596061.6401262,
     "debtUsd": 2418690000,
@@ -77,13 +77,13 @@
       "note": "Parent group. Automated nuclear, pharmaceutical and bio-engineering, laboratory-grade chemical manufacturing. Holds 100% of #978.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 7341115306,
-        "operatingIncome": 2019354514,
-        "operatingCosts": 5321760792,
+        "totalRevenue": 7351015196,
+        "operatingIncome": 2021923876,
+        "operatingCosts": 5329091320,
         "dividendRate": 0,
-        "revenueUsd": 7593839081.093645,
-        "operatingIncomeUsd": 2088872410.7715392,
-        "operatingCostsUsd": 5504966670.322106,
+        "revenueUsd": 7590667881.721782,
+        "operatingIncomeUsd": 2087841232.2138824,
+        "operatingCostsUsd": 5502826649.507899,
         "marginPct": 27.51
       },
       "balanceSheet": {
@@ -1357,13 +1357,13 @@
       "note": "Wholly-owned research subsidiary. Defence and frontier research programmes.",
       "source": "roster",
       "financials": {
-        "totalRevenue": 1076057477,
-        "operatingIncome": 57638231,
-        "operatingCosts": 1018419246,
+        "totalRevenue": 1077958756,
+        "operatingIncome": 57740072,
+        "operatingCosts": 1020218684,
         "dividendRate": 0,
-        "revenueUsd": 1113101617.633906,
-        "operatingIncomeUsd": 59622473.27394087,
-        "operatingCostsUsd": 1053479144.3599651,
+        "revenueUsd": 1113101617.7795923,
+        "operatingIncomeUsd": 59622473.67645126,
+        "operatingCostsUsd": 1053479144.1031411,
         "marginPct": 5.36
       },
       "balanceSheet": {
@@ -1680,14 +1680,14 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 341241125,
-        "operatingIncome": 96970687,
-        "operatingCosts": 244270438,
+        "totalRevenue": 339926172,
+        "operatingIncome": 95987071,
+        "operatingCosts": 243939101,
         "dividendRate": 6,
-        "revenueUsd": 352988624.08324116,
-        "operatingIncomeUsd": 100308980.57945578,
-        "operatingCostsUsd": 252679643.50378537,
-        "marginPct": 28.42
+        "revenueUsd": 351008208.6840287,
+        "operatingIncomeUsd": 99116374.74191508,
+        "operatingCostsUsd": 251891833.9421136,
+        "marginPct": 28.24
       },
       "balanceSheet": {
         "cashOnHand": 7443065.092764643,
@@ -1728,77 +1728,77 @@
           "stateId": "PA",
           "stateName": "Pennsylvania",
           "sectorType": "media",
-          "revenue": 121401.81102645521,
+          "revenue": 121864.58449245195,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 36,
+          "workers": 34,
           "mediaDiscriminator": "entertainment"
         },
         {
           "stateId": "VA",
           "stateName": "Virginia",
           "sectorType": "manufacturing",
-          "revenue": 21088966.32265181,
+          "revenue": 21169355.683872253,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 9730,
+          "workers": 9742,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NC",
           "stateName": "North Carolina",
           "sectorType": "manufacturing",
-          "revenue": 16953578.443149716,
+          "revenue": 17018204.054504674,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 4751,
+          "workers": 4748,
           "mediaDiscriminator": null
         },
         {
           "stateId": "GA",
           "stateName": "Georgia",
           "sectorType": "manufacturing",
-          "revenue": 28714954.12723739,
+          "revenue": 28824413.110880584,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 11658,
+          "workers": 11289,
           "mediaDiscriminator": null
         },
         {
           "stateId": "PA",
           "stateName": "Pennsylvania",
           "sectorType": "manufacturing",
-          "revenue": 71174169.6058668,
+          "revenue": 71973907.06042635,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 21078,
+          "workers": 20420,
           "mediaDiscriminator": null
         },
         {
           "stateId": "MA",
           "stateName": "Massachusetts",
           "sectorType": "manufacturing",
-          "revenue": 232681612.2332121,
+          "revenue": 233568574.91734707,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 56690,
+          "workers": 56441,
           "mediaDiscriminator": null
         },
         {
           "stateId": "NY",
           "stateName": "New York",
           "sectorType": "manufacturing",
-          "revenue": 27976781.7865049,
+          "revenue": 28083426.91943421,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 5312,
+          "workers": 5271,
           "mediaDiscriminator": null
         },
         {
           "stateId": "PA",
           "stateName": "Pennsylvania",
           "sectorType": "real_estate",
-          "revenue": 7671605.952557282,
+          "revenue": 7700849.467513187,
           "profitMargin": 35,
           "currentGrowthRate": 0,
           "workers": 1,
@@ -1808,38 +1808,38 @@
           "stateId": "IL",
           "stateName": "Illinois",
           "sectorType": "manufacturing",
-          "revenue": 16345569.673077034,
+          "revenue": 16820138.227305036,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 3795,
+          "workers": 3882,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IN",
           "stateName": "Indiana",
           "sectorType": "media",
-          "revenue": 1724339.985104028,
+          "revenue": 1730913.0237161904,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 595,
+          "workers": 608,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IL",
           "stateName": "Illinois",
           "sectorType": "media",
-          "revenue": 2000801.1124139016,
+          "revenue": 2008427.9975298091,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 464,
+          "workers": 463,
           "mediaDiscriminator": null
         }
       ],
       "sectorsByType": {
         "media": {
           "sectorCount": 3,
-          "workers": 1095,
-          "revenue": 3846542.908544385,
+          "workers": 1105,
+          "revenue": 3861205.6057384517,
           "states": [
             "Pennsylvania",
             "Indiana",
@@ -1850,8 +1850,8 @@
         },
         "manufacturing": {
           "sectorCount": 7,
-          "workers": 113014,
-          "revenue": 414935632.1916998,
+          "workers": 111793,
+          "revenue": 417458019.9737702,
           "states": [
             "Virginia",
             "North Carolina",
@@ -1867,7 +1867,7 @@
         "real_estate": {
           "sectorCount": 1,
           "workers": 1,
-          "revenue": 7671605.952557282,
+          "revenue": 7700849.467513187,
           "states": [
             "Pennsylvania"
           ],
@@ -1876,7 +1876,7 @@
         }
       },
       "sectorCount": 11,
-      "workers": 114110,
+      "workers": 112899,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
