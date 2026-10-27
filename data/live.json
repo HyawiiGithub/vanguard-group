@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-27T21:31:34.167Z",
+  "updatedAt": "2026-10-27T21:46:40.971Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
@@ -2465,23 +2465,18 @@
       "ceo": "Nariyoshi Miyagi",
       "revenue": 2444031413,
       "operatingIncome": 888068687,
-      "marketCap": 3200840745769,
+      "marketCap": 2912718859762,
       "revenueUsd": 2575599367.6670723,
       "operatingIncomeUsd": 935875511.4667289,
-      "marketCapUsd": 28478057096.088554,
+      "marketCapUsd": 25914620745.44038,
       "marginPct": 36.34,
-      "sharePrice": 288075.67,
+      "sharePrice": 262144.7,
       "totalShares": 11111111,
       "holders": [
         {
           "name": "Nariyoshi Miyagi",
           "shares": 6142445,
           "pct": 55.3
-        },
-        {
-          "name": "Larry Fink",
-          "shares": 721722,
-          "pct": 6.5
         },
         {
           "name": null,
@@ -2492,6 +2487,11 @@
           "name": "Greenbaum Group",
           "shares": 187947,
           "pct": 1.7
+        },
+        {
+          "name": "Larry Fink",
+          "shares": 153097,
+          "pct": 1.4
         },
         {
           "name": "Leo Abbruzzi",
@@ -2586,11 +2586,11 @@
       "workers": 557300,
       "divRate": 8,
       "growth": {
-        "pct": -14.82,
-        "fromTurn": 446,
-        "toTurn": 475,
-        "fromPrice": 3147.1403,
-        "toPrice": 2680.8768,
+        "pct": -21.43,
+        "fromTurn": 454,
+        "toTurn": 479,
+        "fromPrice": 3024.2513,
+        "toPrice": 2376.1991,
         "trades": 12,
         "splitAdjusted": false,
         "window": "30T"
@@ -3191,6 +3191,10 @@
         [
           475,
           2680.8768
+        ],
+        [
+          479,
+          2376.1991
         ]
       ],
       "checks": {
@@ -3218,12 +3222,12 @@
       "ceo": "Napoleon Arasaka",
       "revenue": 23110854793,
       "operatingIncome": 6148472467,
-      "marketCap": 20418856250000,
+      "marketCap": 20413742600000,
       "revenueUsd": 24354966419.204666,
       "operatingIncomeUsd": 6479459189.391198,
-      "marketCapUsd": 181667693056.25735,
+      "marketCapUsd": 181622196629.4633,
       "marginPct": 26.6,
-      "sharePrice": 20418856.25,
+      "sharePrice": 20413742.6,
       "totalShares": 1000000,
       "holders": [
         {
@@ -3776,12 +3780,12 @@
       "ceo": "Misa Astrae",
       "revenue": 12470808159,
       "operatingIncome": 4779400326,
-      "marketCap": 18419214810000,
+      "marketCap": 18419210930000,
       "revenueUsd": 13142141069.77919,
       "operatingIncomeUsd": 5036686677.591979,
-      "marketCapUsd": 163876772600.34335,
+      "marketCapUsd": 163876738079.76883,
       "marginPct": 38.32,
-      "sharePrice": 18419214.81,
+      "sharePrice": 18419210.93,
       "totalShares": 1000000,
       "holders": [
         {
@@ -5005,12 +5009,12 @@
       "ceo": null,
       "revenue": 2940259347,
       "operatingIncome": 537333500,
-      "marketCap": 19472830000,
+      "marketCap": 19472820000,
       "revenueUsd": 3098540417.5369325,
       "operatingIncomeUsd": 566259425.0896131,
-      "marketCapUsd": 19472830000,
+      "marketCapUsd": 19472820000,
       "marginPct": 18.28,
-      "sharePrice": 19472.83,
+      "sharePrice": 19472.82,
       "totalShares": 1000000,
       "holders": [
         {
@@ -5441,12 +5445,12 @@
       "ceo": "Larry Fink",
       "revenue": 3543344952,
       "operatingIncome": 1408618569,
-      "marketCap": 7385268748000,
+      "marketCap": 8492935143000,
       "revenueUsd": 3734091537.9623694,
       "operatingIncomeUsd": 1484447816.9563103,
-      "marketCapUsd": 65707144397.45537,
+      "marketCapUsd": 75562113558.89366,
       "marginPct": 39.75,
-      "sharePrice": 6713880.68,
+      "sharePrice": 7720850.13,
       "totalShares": 1100000,
       "holders": [
         {
@@ -5461,8 +5465,8 @@
         },
         {
           "name": "Larry Fink",
-          "shares": 87852,
-          "pct": 8
+          "shares": 111810,
+          "pct": 10.2
         },
         {
           "name": "National Public Party",
@@ -5482,12 +5486,12 @@
       "workers": 1132450,
       "divRate": 20,
       "growth": {
-        "pct": 3.86,
+        "pct": 9.3,
         "fromTurn": 454,
-        "toTurn": 469,
+        "toTurn": 479,
         "fromPrice": 51680.8278,
-        "toPrice": 53675.8944,
-        "trades": 3,
+        "toPrice": 56486.6098,
+        "trades": 4,
         "splitAdjusted": true,
         "window": "30T"
       },
@@ -5875,6 +5879,10 @@
         [
           469,
           53689.5045
+        ],
+        [
+          479,
+          56486.6098
         ]
       ],
       "checks": {
@@ -6085,19 +6093,19 @@
     },
     {
       "type": "backer",
-      "who": "Larry Fink",
-      "a": "BlackRock Incorporated",
-      "aPct": 60.3,
-      "b": "The Organization",
-      "bPct": 6.5
-    },
-    {
-      "type": "backer",
       "who": "Greenbaum Group",
       "a": "BlackRock Incorporated",
       "aPct": 0.1,
       "b": "The Organization",
       "bPct": 1.7
+    },
+    {
+      "type": "backer",
+      "who": "Larry Fink",
+      "a": "BlackRock Incorporated",
+      "aPct": 60.3,
+      "b": "The Organization",
+      "bPct": 1.4
     },
     {
       "type": "backer",
@@ -6175,7 +6183,7 @@
       "a": "BlackRock Incorporated",
       "aPct": 60.3,
       "b": "Militech",
-      "bPct": 8
+      "bPct": 10.2
     },
     {
       "type": "backer",
@@ -6667,14 +6675,6 @@
     },
     {
       "type": "backer",
-      "who": "Larry Fink",
-      "a": "Pfizer",
-      "aPct": 4.4,
-      "b": "The Organization",
-      "bPct": 6.5
-    },
-    {
-      "type": "backer",
       "who": null,
       "a": "Pfizer",
       "aPct": 1.7,
@@ -6688,6 +6688,14 @@
       "aPct": 0,
       "b": "The Organization",
       "bPct": 1.7
+    },
+    {
+      "type": "backer",
+      "who": "Larry Fink",
+      "a": "Pfizer",
+      "aPct": 4.4,
+      "b": "The Organization",
+      "bPct": 1.4
     },
     {
       "type": "backer",
@@ -6879,7 +6887,7 @@
       "a": "Pfizer",
       "aPct": 4.4,
       "b": "Militech",
-      "bPct": 8
+      "bPct": 10.2
     },
     {
       "type": "backer",
@@ -7117,7 +7125,7 @@
       "type": "backer",
       "who": "Larry Fink",
       "a": "The Organization",
-      "aPct": 6.5,
+      "aPct": 1.4,
       "b": "Arasaka Corporation",
       "bPct": 0
     },
@@ -7261,9 +7269,9 @@
       "type": "backer",
       "who": "Larry Fink",
       "a": "The Organization",
-      "aPct": 6.5,
+      "aPct": 1.4,
       "b": "Militech",
-      "bPct": 8
+      "bPct": 10.2
     },
     {
       "type": "backer",
@@ -7287,7 +7295,7 @@
       "a": "Arasaka Corporation",
       "aPct": 0,
       "b": "Militech",
-      "bPct": 8
+      "bPct": 10.2
     },
     {
       "type": "backer",
