@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T19:31:58.485Z",
+  "updatedAt": "2026-10-28T19:46:40.905Z",
   "game": {
     "currentTurn": 501,
     "gameDateLabel": "May, Week 2, 2000",
@@ -41,9 +41,9 @@
     "sectorCount": 56,
     "revenueUsd": 10326918903.749044,
     "marketCapUsd": 83466900022,
-    "cashUsd": 313180049.06543297,
-    "debtUsd": 2418690000,
-    "bonds": 20,
+    "cashUsd": 201567099.54210928,
+    "debtUsd": 2819642000,
+    "bonds": 21,
     "defaultedBonds": 0,
     "biochemicalSectors": 15,
     "militarySectors": 3
@@ -1383,12 +1383,12 @@
         "marginPct": 16.37
       },
       "balanceSheet": {
-        "cashOnHand": 120529773.29021631,
+        "cashOnHand": 8916823.766892612,
         "marketCapitalization": 3676480000,
-        "totalDebt": 269332000,
-        "cashOnHandUsd": 120529773.29021631,
+        "totalDebt": 670284000,
+        "cashOnHandUsd": 8916823.766892612,
         "marketCapitalizationUsd": 3676480000,
-        "totalDebtUsd": 269332000
+        "totalDebtUsd": 670284000
       },
       "shareStructure": {
         "totalShares": 1000000,
@@ -1415,6 +1415,17 @@
         }
       },
       "bonds": [
+        {
+          "id": "6ae24ed09e28f7f5ba54e06a",
+          "couponRate": 3.75,
+          "maturityLabel": null,
+          "totalIssued": 400952000,
+          "marketPrice": 1,
+          "turnsRemaining": 0,
+          "yieldToMaturity": null,
+          "holders": 0,
+          "defaulted": false
+        },
         {
           "id": "6acd42c46afc66655b07980d",
           "couponRate": 9,
