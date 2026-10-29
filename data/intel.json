@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T21:01:32.254Z",
+  "updatedAt": "2026-10-29T21:16:29.010Z",
   "game": {
     "currentTurn": 526,
     "gameDateLabel": "November, Week 3, 2000",
@@ -37,15 +37,15 @@
   },
   "totals": {
     "corporations": 1,
-    "workers": 500,
-    "sectorCount": 1,
-    "revenueUsd": 23088.974134869877,
+    "workers": 1000,
+    "sectorCount": 2,
+    "revenueUsd": 47874.26880888433,
     "marketCapUsd": 5500000,
-    "cashUsd": 567399.8820088208,
+    "cashUsd": 623731.4251099434,
     "debtUsd": 9516000,
     "bonds": 1,
     "defaultedBonds": 0,
-    "biochemicalSectors": 0,
+    "biochemicalSectors": 1,
     "militarySectors": 0
   },
   "corporations": [
@@ -99,20 +99,20 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 23071,
-        "operatingIncome": 8075,
-        "operatingCosts": 14996,
+        "totalRevenue": 47837,
+        "operatingIncome": 16743,
+        "operatingCosts": 31094,
         "dividendRate": 0,
-        "revenueUsd": 23088.974134869877,
-        "operatingIncomeUsd": 8081.291064066328,
-        "operatingCostsUsd": 15007.683070803549,
+        "revenueUsd": 47874.26880888433,
+        "operatingIncomeUsd": 16756.04412206347,
+        "operatingCostsUsd": 31118.224686820853,
         "marginPct": 35
       },
       "balanceSheet": {
-        "cashOnHand": 567399.8820088208,
+        "cashOnHand": 623731.4251099434,
         "marketCapitalization": 5500000,
         "totalDebt": 9516000,
-        "cashOnHandUsd": 567399.8820088208,
+        "cashOnHandUsd": 623731.4251099434,
         "marketCapitalizationUsd": 5500000,
         "totalDebtUsd": 9516000
       },
@@ -159,6 +159,16 @@
           "currentGrowthRate": 0,
           "workers": 500,
           "mediaDiscriminator": null
+        },
+        {
+          "stateId": "PA",
+          "stateName": "Pennsylvania",
+          "sectorType": "chemical_industries",
+          "revenue": 24785,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 500,
+          "mediaDiscriminator": null
         }
       ],
       "sectorsByType": {
@@ -171,21 +181,40 @@
           ],
           "avgProfitMargin": 35,
           "avgGrowth": 0
+        },
+        "chemical_industries": {
+          "sectorCount": 1,
+          "workers": 500,
+          "revenue": 24785,
+          "states": [
+            "Pennsylvania"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
         }
       },
-      "sectorCount": 1,
-      "workers": 500,
+      "sectorCount": 2,
+      "workers": 1000,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
             "chemical_industries",
             "healthcare"
           ],
-          "sectorCount": 0,
-          "workers": 0,
-          "revenue": 0,
-          "states": [],
-          "sectorDetail": []
+          "sectorCount": 1,
+          "workers": 500,
+          "revenue": 24785,
+          "states": [
+            "Pennsylvania"
+          ],
+          "sectorDetail": [
+            {
+              "sectorType": "chemical_industries",
+              "stateName": "Pennsylvania",
+              "revenue": 24785,
+              "workers": 500
+            }
+          ]
         },
         "military": {
           "sectorTypes": [
