@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-29T23:01:34.556Z",
+  "updatedAt": "2026-10-29T23:16:33.729Z",
   "game": {
-    "currentTurn": 527,
-    "gameDateLabel": "November, Week 4, 2000",
+    "currentTurn": 528,
+    "gameDateLabel": "December, Week 1, 2000",
     "status": "active",
-    "nextTurnAt": "2026-10-29T23:00:00.000Z"
+    "nextTurnAt": "2026-10-30T00:00:00.000Z"
   },
   "roster": {
     "threats": [
@@ -39,7 +39,7 @@
     "corporations": 1,
     "workers": 1000,
     "sectorCount": 2,
-    "revenueUsd": 47873.548916947584,
+    "revenueUsd": 47874.26749268427,
     "marketCapUsd": 5500000,
     "cashUsd": 1606880.1751099434,
     "debtUsd": 9516000,
@@ -99,13 +99,13 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 47763,
-        "operatingIncome": 16717,
-        "operatingCosts": 31046,
+        "totalRevenue": 47742,
+        "operatingIncome": 16710,
+        "operatingCosts": 31032,
         "dividendRate": 0,
-        "revenueUsd": 47873.548916947584,
-        "operatingIncomeUsd": 16755.692005205136,
-        "operatingCostsUsd": 31117.856911742452,
+        "revenueUsd": 47874.26749268427,
+        "operatingIncomeUsd": 16756.294453578696,
+        "operatingCostsUsd": 31117.97303910557,
         "marginPct": 35
       },
       "balanceSheet": {
@@ -141,7 +141,7 @@
           "couponRate": 4.25,
           "maturityLabel": null,
           "totalIssued": 9516000,
-          "marketPrice": 0.8622,
+          "marketPrice": 0.8627,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
