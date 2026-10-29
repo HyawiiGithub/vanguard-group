@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T15:46:30.468Z",
+  "updatedAt": "2026-10-29T16:01:28.480Z",
   "game": {
     "currentTurn": 520,
     "gameDateLabel": "October, Week 1, 2000",
@@ -37,11 +37,11 @@
   },
   "totals": {
     "corporations": 1,
-    "workers": 0,
-    "sectorCount": 0,
-    "revenueUsd": 0,
+    "workers": 500,
+    "sectorCount": 1,
+    "revenueUsd": 23088.974134869877,
     "marketCapUsd": 5500000,
-    "cashUsd": 9999304.181181006,
+    "cashUsd": 175555.28149084002,
     "debtUsd": 0,
     "bonds": 0,
     "defaultedBonds": 0,
@@ -99,20 +99,20 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 0,
-        "operatingIncome": 0,
-        "operatingCosts": 0,
+        "totalRevenue": 23071,
+        "operatingIncome": 8075,
+        "operatingCosts": 14996,
         "dividendRate": 0,
-        "revenueUsd": 0,
-        "operatingIncomeUsd": 0,
-        "operatingCostsUsd": 0,
-        "marginPct": null
+        "revenueUsd": 23088.974134869877,
+        "operatingIncomeUsd": 8081.291064066328,
+        "operatingCostsUsd": 15007.683070803549,
+        "marginPct": 35
       },
       "balanceSheet": {
-        "cashOnHand": 9999304.181181006,
+        "cashOnHand": 175555.28149084002,
         "marketCapitalization": 5500000,
         "totalDebt": 0,
-        "cashOnHandUsd": 9999304.181181006,
+        "cashOnHandUsd": 175555.28149084002,
         "marketCapitalizationUsd": 5500000,
         "totalDebtUsd": 0
       },
@@ -137,10 +137,32 @@
       },
       "bonds": [],
       "defaultedBonds": 0,
-      "sectors": [],
-      "sectorsByType": {},
-      "sectorCount": 0,
-      "workers": 0,
+      "sectors": [
+        {
+          "stateId": "NY",
+          "stateName": "New York",
+          "sectorType": "energy",
+          "revenue": 23089,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 500,
+          "mediaDiscriminator": null
+        }
+      ],
+      "sectorsByType": {
+        "energy": {
+          "sectorCount": 1,
+          "workers": 500,
+          "revenue": 23089,
+          "states": [
+            "New York"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
+        }
+      },
+      "sectorCount": 1,
+      "workers": 500,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
