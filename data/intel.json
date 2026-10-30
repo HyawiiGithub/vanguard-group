@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T20:46:46.236Z",
+  "updatedAt": "2026-10-30T21:01:45.939Z",
   "game": {
     "currentTurn": 551,
     "gameDateLabel": "May, Week 4, 2001",
@@ -37,15 +37,15 @@
   },
   "totals": {
     "corporations": 1,
-    "workers": 1898,
-    "sectorCount": 3,
-    "revenueUsd": 7149561.336909571,
-    "marketCapUsd": 105900000,
-    "cashUsd": 1609567.330142154,
+    "workers": 1278,
+    "sectorCount": 4,
+    "revenueUsd": 1666665.8994954363,
+    "marketCapUsd": 68881117,
+    "cashUsd": 356855.9096837068,
     "debtUsd": 9516000,
     "bonds": 1,
     "defaultedBonds": 0,
-    "biochemicalSectors": 1,
+    "biochemicalSectors": 2,
     "militarySectors": 0
   },
   "corporations": [
@@ -99,28 +99,28 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 6832419,
-        "operatingIncome": 4105762,
-        "operatingCosts": 2726657,
+        "totalRevenue": 1594534,
+        "operatingIncome": 489746,
+        "operatingCosts": 1104788,
         "dividendRate": 0,
-        "revenueUsd": 7149561.336909571,
-        "operatingIncomeUsd": 4296340.323061644,
-        "operatingCostsUsd": 2853221.013847927,
-        "marginPct": 60.09
+        "revenueUsd": 1666665.8994954363,
+        "operatingIncomeUsd": 511900.62903286604,
+        "operatingCostsUsd": 1154765.2704625705,
+        "marginPct": 30.71
       },
       "balanceSheet": {
-        "cashOnHand": 1609567.330142154,
-        "marketCapitalization": 105900000,
+        "cashOnHand": 356855.9096837068,
+        "marketCapitalization": 68881117,
         "totalDebt": 9516000,
-        "cashOnHandUsd": 1609567.330142154,
-        "marketCapitalizationUsd": 105900000,
+        "cashOnHandUsd": 356855.9096837068,
+        "marketCapitalizationUsd": 68881117,
         "totalDebtUsd": 9516000
       },
       "shareStructure": {
         "totalShares": 10000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 10.59,
+        "sharePrice": 6.888111685091021,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -130,14 +130,14 @@
         ]
       },
       "creditRating": {
-        "rating": "AAA",
-        "compositeScore": 94,
-        "snapshotTurn": 551,
+        "rating": "A",
+        "compositeScore": 69,
+        "snapshotTurn": 552,
         "components": {
-          "debtToEquity": 95,
-          "interestCoverage": 100,
-          "profitability": 80,
-          "liquidity": 100
+          "debtToEquity": 87,
+          "interestCoverage": 42,
+          "profitability": 52,
+          "liquidity": 55
         }
       },
       "bonds": [
@@ -159,38 +159,48 @@
           "stateId": "NY",
           "stateName": "New York",
           "sectorType": "energy",
-          "revenue": 24194009.301789943,
+          "revenue": 19441407.791000456,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 992,
+          "workers": 204,
           "mediaDiscriminator": null
         },
         {
           "stateId": "PA",
           "stateName": "Pennsylvania",
           "sectorType": "chemical_industries",
-          "revenue": 2783270.1616439098,
+          "revenue": 2795665.7333061234,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 906,
+          "workers": 888,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IL",
           "stateName": "Illinois",
           "sectorType": "technology",
-          "revenue": 743287.5361533008,
+          "revenue": 746597.8414362693,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 0,
+          "workers": 185,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "ME",
+          "stateName": "Maine",
+          "sectorType": "chemical_industries",
+          "revenue": 0,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 1,
           "mediaDiscriminator": null
         }
       ],
       "sectorsByType": {
         "energy": {
           "sectorCount": 1,
-          "workers": 992,
-          "revenue": 24194009.301789943,
+          "workers": 204,
+          "revenue": 19441407.791000456,
           "states": [
             "New York"
           ],
@@ -198,19 +208,20 @@
           "avgGrowth": 0
         },
         "chemical_industries": {
-          "sectorCount": 1,
-          "workers": 906,
-          "revenue": 2783270.1616439098,
+          "sectorCount": 2,
+          "workers": 889,
+          "revenue": 2795665.7333061234,
           "states": [
-            "Pennsylvania"
+            "Pennsylvania",
+            "Maine"
           ],
           "avgProfitMargin": 35,
           "avgGrowth": 0
         },
         "technology": {
           "sectorCount": 1,
-          "workers": 0,
-          "revenue": 743287.5361533008,
+          "workers": 185,
+          "revenue": 746597.8414362693,
           "states": [
             "Illinois"
           ],
@@ -218,26 +229,33 @@
           "avgGrowth": 0
         }
       },
-      "sectorCount": 3,
-      "workers": 1898,
+      "sectorCount": 4,
+      "workers": 1278,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
             "chemical_industries",
             "healthcare"
           ],
-          "sectorCount": 1,
-          "workers": 906,
-          "revenue": 2783270.1616439098,
+          "sectorCount": 2,
+          "workers": 889,
+          "revenue": 2795665.7333061234,
           "states": [
-            "Pennsylvania"
+            "Pennsylvania",
+            "Maine"
           ],
           "sectorDetail": [
             {
               "sectorType": "chemical_industries",
               "stateName": "Pennsylvania",
-              "revenue": 2783270.1616439098,
-              "workers": 906
+              "revenue": 2795665.7333061234,
+              "workers": 888
+            },
+            {
+              "sectorType": "chemical_industries",
+              "stateName": "Maine",
+              "revenue": 0,
+              "workers": 1
             }
           ]
         },
