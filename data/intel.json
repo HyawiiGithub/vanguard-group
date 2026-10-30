@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T18:46:30.390Z",
+  "updatedAt": "2026-10-30T19:01:27.904Z",
   "game": {
     "currentTurn": 547,
     "gameDateLabel": "April, Week 4, 2001",
@@ -37,11 +37,11 @@
   },
   "totals": {
     "corporations": 1,
-    "workers": 8551,
+    "workers": 1031,
     "sectorCount": 3,
-    "revenueUsd": 2859861.5127246026,
-    "marketCapUsd": 223000000,
-    "cashUsd": 1181369.6893356435,
+    "revenueUsd": 2565698.4319291096,
+    "marketCapUsd": 144962787,
+    "cashUsd": 1223816.7344168858,
     "debtUsd": 9516000,
     "bonds": 1,
     "defaultedBonds": 0,
@@ -99,28 +99,28 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 2755790,
-        "operatingIncome": -1311883,
-        "operatingCosts": 4067673,
+        "totalRevenue": 2477862,
+        "operatingIncome": 1213499,
+        "operatingCosts": 1264363,
         "dividendRate": 0,
-        "revenueUsd": 2859861.5127246026,
-        "operatingIncomeUsd": -1361425.8346600032,
-        "operatingCostsUsd": 4221287.347384606,
-        "marginPct": -47.6
+        "revenueUsd": 2565698.4319291096,
+        "operatingIncomeUsd": 1256515.6903199384,
+        "operatingCostsUsd": 1309182.7416091715,
+        "marginPct": 48.97
       },
       "balanceSheet": {
-        "cashOnHand": 1181369.6893356435,
-        "marketCapitalization": 223000000,
+        "cashOnHand": 1223816.7344168858,
+        "marketCapitalization": 144962787,
         "totalDebt": 9516000,
-        "cashOnHandUsd": 1181369.6893356435,
-        "marketCapitalizationUsd": 223000000,
+        "cashOnHandUsd": 1223816.7344168858,
+        "marketCapitalizationUsd": 144962787,
         "totalDebtUsd": 9516000
       },
       "shareStructure": {
         "totalShares": 10000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 22.3,
+        "sharePrice": 14.496278665643016,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -130,13 +130,13 @@
         ]
       },
       "creditRating": {
-        "rating": "A",
-        "compositeScore": 58,
-        "snapshotTurn": 547,
+        "rating": "AA",
+        "compositeScore": 78,
+        "snapshotTurn": 548,
         "components": {
-          "debtToEquity": 99,
-          "interestCoverage": 0,
-          "profitability": 35,
+          "debtToEquity": 51,
+          "interestCoverage": 100,
+          "profitability": 100,
           "liquidity": 100
         }
       },
@@ -159,38 +159,38 @@
           "stateId": "NY",
           "stateName": "New York",
           "sectorType": "energy",
-          "revenue": 23168776.494783342,
+          "revenue": 23474329.21154241,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 7608,
+          "workers": 552,
           "mediaDiscriminator": null
         },
         {
           "stateId": "PA",
           "stateName": "Pennsylvania",
           "sectorType": "chemical_industries",
-          "revenue": 2793605.941643018,
+          "revenue": 2792697.329344236,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 787,
+          "workers": 291,
           "mediaDiscriminator": null
         },
         {
           "stateId": "IL",
           "stateName": "Illinois",
           "sectorType": "technology",
-          "revenue": 482602.462603794,
+          "revenue": 622900.3852957274,
           "profitMargin": 35,
           "currentGrowthRate": 0,
-          "workers": 156,
+          "workers": 188,
           "mediaDiscriminator": null
         }
       ],
       "sectorsByType": {
         "energy": {
           "sectorCount": 1,
-          "workers": 7608,
-          "revenue": 23168776.494783342,
+          "workers": 552,
+          "revenue": 23474329.21154241,
           "states": [
             "New York"
           ],
@@ -199,8 +199,8 @@
         },
         "chemical_industries": {
           "sectorCount": 1,
-          "workers": 787,
-          "revenue": 2793605.941643018,
+          "workers": 291,
+          "revenue": 2792697.329344236,
           "states": [
             "Pennsylvania"
           ],
@@ -209,8 +209,8 @@
         },
         "technology": {
           "sectorCount": 1,
-          "workers": 156,
-          "revenue": 482602.462603794,
+          "workers": 188,
+          "revenue": 622900.3852957274,
           "states": [
             "Illinois"
           ],
@@ -219,7 +219,7 @@
         }
       },
       "sectorCount": 3,
-      "workers": 8551,
+      "workers": 1031,
       "threatAxes": {
         "biochemical": {
           "sectorTypes": [
@@ -227,8 +227,8 @@
             "healthcare"
           ],
           "sectorCount": 1,
-          "workers": 787,
-          "revenue": 2793605.941643018,
+          "workers": 291,
+          "revenue": 2792697.329344236,
           "states": [
             "Pennsylvania"
           ],
@@ -236,8 +236,8 @@
             {
               "sectorType": "chemical_industries",
               "stateName": "Pennsylvania",
-              "revenue": 2793605.941643018,
-              "workers": 787
+              "revenue": 2792697.329344236,
+              "workers": 291
             }
           ]
         },
