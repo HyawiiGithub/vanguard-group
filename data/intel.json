@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-30T23:01:29.596Z",
+  "updatedAt": "2026-10-30T23:16:29.552Z",
   "game": {
-    "currentTurn": 553,
-    "gameDateLabel": "June, Week 2, 2001",
+    "currentTurn": 554,
+    "gameDateLabel": "June, Week 3, 2001",
     "status": "active",
-    "nextTurnAt": "2026-10-30T23:00:00.000Z"
+    "nextTurnAt": "2026-10-31T00:00:00.000Z"
   },
   "roster": {
     "threats": [
@@ -39,9 +39,9 @@
     "corporations": 1,
     "workers": 791,
     "sectorCount": 4,
-    "revenueUsd": 871309.4171041796,
-    "marketCapUsd": 34096446,
-    "cashUsd": 643550.9719436828,
+    "revenueUsd": 871310.2894796676,
+    "marketCapUsd": 33900000,
+    "cashUsd": 625721.1977840189,
     "debtUsd": 9516000,
     "bonds": 1,
     "defaultedBonds": 0,
@@ -99,28 +99,28 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 827958,
-        "operatingIncome": 149276,
-        "operatingCosts": 678683,
+        "totalRevenue": 825413,
+        "operatingIncome": 148817,
+        "operatingCosts": 676596,
         "dividendRate": 0,
-        "revenueUsd": 871309.4171041796,
-        "operatingIncomeUsd": 157092.00774392363,
-        "operatingCostsUsd": 714218.4617196958,
+        "revenueUsd": 871310.2894796676,
+        "operatingIncomeUsd": 157092.0052743241,
+        "operatingCostsUsd": 714218.2842053435,
         "marginPct": 18.03
       },
       "balanceSheet": {
-        "cashOnHand": 643550.9719436828,
-        "marketCapitalization": 34096446,
+        "cashOnHand": 625721.1977840189,
+        "marketCapitalization": 33900000,
         "totalDebt": 9516000,
-        "cashOnHandUsd": 643550.9719436828,
-        "marketCapitalizationUsd": 34096446,
+        "cashOnHandUsd": 625721.1977840189,
+        "marketCapitalizationUsd": 33900000,
         "totalDebtUsd": 9516000
       },
       "shareStructure": {
         "totalShares": 10000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 3.4096445851329924,
+        "sharePrice": 3.39,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -146,7 +146,7 @@
           "couponRate": 4.25,
           "maturityLabel": null,
           "totalIssued": 9516000,
-          "marketPrice": 0.9714,
+          "marketPrice": 0.8757,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
