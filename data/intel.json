@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-30T16:01:32.559Z",
+  "updatedAt": "2026-10-30T16:16:29.267Z",
   "game": {
-    "currentTurn": 544,
-    "gameDateLabel": "April, Week 1, 2001",
+    "currentTurn": 545,
+    "gameDateLabel": "April, Week 2, 2001",
     "status": "active",
-    "nextTurnAt": "2026-10-30T16:00:00.000Z"
+    "nextTurnAt": "2026-10-30T17:00:00.000Z"
   },
   "roster": {
     "threats": [
@@ -40,8 +40,8 @@
     "workers": 507,
     "sectorCount": 3,
     "revenueUsd": 0,
-    "marketCapUsd": 252755555,
-    "cashUsd": -8425.625,
+    "marketCapUsd": 253300000,
+    "cashUsd": -16851.25,
     "debtUsd": 9516000,
     "bonds": 1,
     "defaultedBonds": 0,
@@ -109,18 +109,18 @@
         "marginPct": null
       },
       "balanceSheet": {
-        "cashOnHand": -8425.625,
-        "marketCapitalization": 252755555,
+        "cashOnHand": -16851.25,
+        "marketCapitalization": 253300000,
         "totalDebt": 9516000,
-        "cashOnHandUsd": -8425.625,
-        "marketCapitalizationUsd": 252755555,
+        "cashOnHandUsd": -16851.25,
+        "marketCapitalizationUsd": 253300000,
         "totalDebtUsd": 9516000
       },
       "shareStructure": {
         "totalShares": 10000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 25.275555484980643,
+        "sharePrice": 25.33,
         "shareholders": [
           {
             "name": "William E. Spencer",
@@ -146,7 +146,7 @@
           "couponRate": 4.25,
           "maturityLabel": null,
           "totalIssued": 9516000,
-          "marketPrice": 0.9703,
+          "marketPrice": 0.9704,
           "turnsRemaining": 0,
           "yieldToMaturity": null,
           "holders": 1,
