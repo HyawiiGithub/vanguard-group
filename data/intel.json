@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T19:16:33.064Z",
+  "updatedAt": "2026-10-30T19:31:35.576Z",
   "game": {
     "currentTurn": 548,
     "gameDateLabel": "May, Week 1, 2001",
@@ -36,16 +36,16 @@
     "note": "Threat labels are set in data/roster.json. The axis breakdown under each dossier is derived from real sector data, not asserted."
   },
   "totals": {
-    "corporations": 0,
-    "workers": 0,
-    "sectorCount": 0,
-    "revenueUsd": 0,
-    "marketCapUsd": 0,
-    "cashUsd": 0,
-    "debtUsd": 0,
-    "bonds": 0,
+    "corporations": 1,
+    "workers": 1031,
+    "sectorCount": 3,
+    "revenueUsd": 2565697.961010134,
+    "marketCapUsd": 144900000,
+    "cashUsd": 1205932.8636185664,
+    "debtUsd": 9516000,
+    "bonds": 1,
     "defaultedBonds": 0,
-    "biochemicalSectors": 0,
+    "biochemicalSectors": 1,
     "militarySectors": 0
   },
   "corporations": [
@@ -73,14 +73,189 @@
     },
     {
       "id": 2881,
-      "displayName": "Unknown #2881",
-      "name": null,
+      "mongoId": "6ae333795a095b0d9e2bb581",
+      "name": "Umbrella Technologies",
+      "displayName": "Umbrella Technologies",
+      "alias": null,
+      "description": "Umbrella Technologies is a multinational industrial and scientific conglomerate specializing in energy production, advanced chemicals, and pharmaceuticals. Under the visionary leadership of renowned virologist and biomedical engineer William E. Spencer, the corporation stands at the forefront of technological innovation, industrial expansion, and biomedical research.\n\nUmbrella Technologies - Our Business is Life Itself.",
+      "type": "energy",
+      "typeLabel": "energy",
+      "industryModel": null,
+      "mediaDiscriminator": null,
+      "countryId": "US",
+      "headquartersState": "NY",
+      "currency": "USD",
+      "ticker": "UMB",
+      "corpUrl": "https://www.ahousedividedgame.com/corporations/2881",
+      "logoUrl": "https://cdn.ahousedividedgame.com/corporation-logos/6ae333795a095b0d9e2bb581-1793284598145.webp",
+      "brandColor": "#a90206",
+      "bannerUrl": null,
+      "ceo": {
+        "name": "William E. Spencer",
+        "profileUrl": "https://www.ahousedividedgame.com/character/6acabd89991874547f66cb78"
+      },
       "threat": null,
       "member": false,
       "note": null,
       "source": "autoMatch",
-      "alive": false,
-      "error": "/api/public/v1/corporation?id=2881 -> 502"
+      "financials": {
+        "totalRevenue": 2476256,
+        "operatingIncome": 1212712,
+        "operatingCosts": 1263544,
+        "dividendRate": 0,
+        "revenueUsd": 2565697.961010134,
+        "operatingIncomeUsd": 1256514.9587492251,
+        "operatingCostsUsd": 1309183.0022609085,
+        "marginPct": 48.97
+      },
+      "balanceSheet": {
+        "cashOnHand": 1205932.8636185664,
+        "marketCapitalization": 144900000,
+        "totalDebt": 9516000,
+        "cashOnHandUsd": 1205932.8636185664,
+        "marketCapitalizationUsd": 144900000,
+        "totalDebtUsd": 9516000
+      },
+      "shareStructure": {
+        "totalShares": 10000000,
+        "publicFloat": 0,
+        "publicFloatPct": 0,
+        "sharePrice": 14.49,
+        "shareholders": [
+          {
+            "name": "William E. Spencer",
+            "shares": 10000000,
+            "pct": null
+          }
+        ]
+      },
+      "creditRating": {
+        "rating": "AA",
+        "compositeScore": 78,
+        "snapshotTurn": 548,
+        "components": {
+          "debtToEquity": 51,
+          "interestCoverage": 100,
+          "profitability": 100,
+          "liquidity": 100
+        }
+      },
+      "bonds": [
+        {
+          "id": "6ae36e75ad95ffa8bd281c3a",
+          "couponRate": 4.25,
+          "maturityLabel": null,
+          "totalIssued": 9516000,
+          "marketPrice": 0.9708,
+          "turnsRemaining": 0,
+          "yieldToMaturity": null,
+          "holders": 1,
+          "defaulted": false
+        }
+      ],
+      "defaultedBonds": 0,
+      "sectors": [
+        {
+          "stateId": "NY",
+          "stateName": "New York",
+          "sectorType": "energy",
+          "revenue": 23474329.21154241,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 552,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "PA",
+          "stateName": "Pennsylvania",
+          "sectorType": "chemical_industries",
+          "revenue": 2792697.329344236,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 291,
+          "mediaDiscriminator": null
+        },
+        {
+          "stateId": "IL",
+          "stateName": "Illinois",
+          "sectorType": "technology",
+          "revenue": 622900.3852957274,
+          "profitMargin": 35,
+          "currentGrowthRate": 0,
+          "workers": 188,
+          "mediaDiscriminator": null
+        }
+      ],
+      "sectorsByType": {
+        "energy": {
+          "sectorCount": 1,
+          "workers": 552,
+          "revenue": 23474329.21154241,
+          "states": [
+            "New York"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
+        },
+        "chemical_industries": {
+          "sectorCount": 1,
+          "workers": 291,
+          "revenue": 2792697.329344236,
+          "states": [
+            "Pennsylvania"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
+        },
+        "technology": {
+          "sectorCount": 1,
+          "workers": 188,
+          "revenue": 622900.3852957274,
+          "states": [
+            "Illinois"
+          ],
+          "avgProfitMargin": 35,
+          "avgGrowth": 0
+        }
+      },
+      "sectorCount": 3,
+      "workers": 1031,
+      "threatAxes": {
+        "biochemical": {
+          "sectorTypes": [
+            "chemical_industries",
+            "healthcare"
+          ],
+          "sectorCount": 1,
+          "workers": 291,
+          "revenue": 2792697.329344236,
+          "states": [
+            "Pennsylvania"
+          ],
+          "sectorDetail": [
+            {
+              "sectorType": "chemical_industries",
+              "stateName": "Pennsylvania",
+              "revenue": 2792697.329344236,
+              "workers": 291
+            }
+          ]
+        },
+        "military": {
+          "sectorTypes": [
+            "defense"
+          ],
+          "sectorCount": 0,
+          "workers": 0,
+          "revenue": 0,
+          "states": [],
+          "sectorDetail": []
+        }
+      },
+      "growth": null,
+      "tape": [],
+      "tapeTradeCount": 0,
+      "tapeSplitCount": 0
     }
   ]
 }
