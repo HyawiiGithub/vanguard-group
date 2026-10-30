@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-30T01:16:28.812Z",
+  "updatedAt": "2026-10-30T15:00:18.942Z",
   "source": "ahousedividedgame.com /api/public/v1",
   "displayCurrency": "USD",
   "game": {
-    "currentTurn": 530,
-    "gameDateLabel": "December, Week 3, 2000",
+    "currentTurn": 543,
+    "gameDateLabel": "March, Week 4, 2001",
     "status": "active",
-    "nextTurnAt": "2026-10-30T02:00:00.000Z"
+    "nextTurnAt": "2026-10-30T15:00:00.000Z"
   },
   "thresholds": {
     "marketCapFloorUsd": 350000000,
@@ -158,7 +158,7 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 530,
+      "checkedTurn": 543,
       "dissolved": true,
       "memberName": "BlackRock Incorporated"
     },
@@ -318,7 +318,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 504,
-      "checkedTurn": 530
+      "checkedTurn": 543
     },
     {
       "id": 964,
@@ -360,7 +360,7 @@
       },
       "alive": false,
       "lastSeenTurn": 187,
-      "checkedTurn": 530,
+      "checkedTurn": 543,
       "dissolved": true,
       "memberName": "Vermont Logistics"
     },
@@ -520,7 +520,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 504,
-      "checkedTurn": 530
+      "checkedTurn": 543
     },
     {
       "id": 645,
@@ -678,7 +678,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 366,
-      "checkedTurn": 530
+      "checkedTurn": 543
     },
     {
       "id": 767,
@@ -732,7 +732,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 314,
-      "checkedTurn": 530
+      "checkedTurn": 543
     },
     {
       "id": 521,
@@ -845,7 +845,7 @@
       "dissolved": true,
       "memberName": "簡素",
       "lastSeenTurn": 216,
-      "checkedTurn": 530
+      "checkedTurn": 543
     },
     {
       "id": 1084,
@@ -1003,7 +1003,7 @@
         "marginPass": false
       },
       "lastSeenTurn": 504,
-      "checkedTurn": 530
+      "checkedTurn": 543
     },
     {
       "id": 561,
@@ -1107,7 +1107,7 @@
       },
       "renamedFrom": "Arasaka Corporation",
       "lastSeenTurn": 504,
-      "checkedTurn": 530
+      "checkedTurn": 543
     },
     {
       "id": 565,
@@ -1261,7 +1261,7 @@
       },
       "renamedFrom": "NERV",
       "lastSeenTurn": 504,
-      "checkedTurn": 530
+      "checkedTurn": 543
     },
     {
       "id": 1341,
@@ -1410,7 +1410,7 @@
         "marginPass": true
       },
       "lastSeenTurn": 504,
-      "checkedTurn": 530
+      "checkedTurn": 543
     },
     {
       "id": 1530,
@@ -1489,7 +1489,7 @@
       },
       "renamedFrom": "Militech",
       "lastSeenTurn": 504,
-      "checkedTurn": 530
+      "checkedTurn": 543
     }
   ],
   "renames": [],
@@ -2899,54 +2899,54 @@
   ],
   "forex": {
     "rates": {
-      "ATS": 11.68452111149508,
-      "BGL": 28.288427262935787,
-      "BRL": 5.008589355910042,
-      "CNY": 5.392023662600084,
-      "CSK": 27.552531626375742,
-      "ESP": 107.16564582626093,
-      "EUR": 0.8519839127587403,
-      "FIM": 4.129970383345309,
-      "FRF": 5.745533074012038,
-      "GBP": 0.5742404788377256,
-      "GRD": 190.00335358692107,
-      "HUF": 74.12615517808723,
-      "IEP": 0.6265071464023617,
-      "ITL": 1289.1954516651622,
-      "JPY": 131.8203062485496,
-      "NGN": 9.966790852354476,
-      "PLZ": 9427.241195026028,
-      "ROL": 34.55672183149585,
-      "SEK": 6.098918978297647,
-      "SUR": 2.23551872033284,
-      "TRL": 4280.421561435507,
-      "USD": 1.0059992087234075,
-      "YUD": 14.007484881867619
+      "ATS": 11.789652170403967,
+      "BGL": 28.48837657319053,
+      "BRL": 5.133869550598604,
+      "CNY": 5.577842048426989,
+      "CSK": 27.820314017122158,
+      "ESP": 115.96637358254736,
+      "EUR": 0.8654023008174409,
+      "FIM": 4.152633176634654,
+      "FRF": 6.016903487751303,
+      "GBP": 0.6008931426450932,
+      "GRD": 205.81101500090233,
+      "HUF": 73.90048844000049,
+      "IEP": 0.6519002907044306,
+      "ITL": 1401.061450114242,
+      "JPY": 133.67406140027273,
+      "NGN": 10.61567133183057,
+      "PLZ": 9459.442132125794,
+      "ROL": 34.43506761008338,
+      "SEK": 6.224863193066569,
+      "SUR": 2.225382829171024,
+      "TRL": 4668.658387346274,
+      "USD": 1.0288527713486317,
+      "YUD": 15.043668807475475
     },
     "perUsd": {
-      "ATS": 11.6148,
-      "BGL": 28.1197,
-      "BRL": 4.9787,
-      "CNY": 5.3599,
-      "CSK": 27.3882,
-      "ESP": 106.5266,
-      "EUR": 0.8469,
-      "FIM": 4.1053,
-      "FRF": 5.7113,
-      "GBP": 0.5708,
-      "GRD": 188.8703,
-      "HUF": 73.6841,
-      "IEP": 0.6228,
-      "ITL": 1281.5074,
-      "JPY": 131.0342,
-      "NGN": 9.9074,
-      "PLZ": 9371.0225,
-      "ROL": 34.3506,
-      "SEK": 6.0625,
-      "SUR": 2.2222,
-      "TRL": 4254.8956,
+      "ATS": 11.459,
+      "BGL": 27.6895,
+      "BRL": 4.9899,
+      "CNY": 5.4214,
+      "CSK": 27.0401,
+      "ESP": 112.7143,
+      "EUR": 0.8411,
+      "FIM": 4.0362,
+      "FRF": 5.8482,
+      "GBP": 0.584,
+      "GRD": 200.0393,
+      "HUF": 71.8281,
+      "IEP": 0.6336,
+      "ITL": 1361.7706,
+      "JPY": 129.9254,
+      "NGN": 10.318,
+      "PLZ": 9194.165,
+      "ROL": 33.4694,
+      "SEK": 6.0503,
+      "SUR": 2.163,
+      "TRL": 4537.7322,
       "USD": 1,
-      "YUD": 13.924
+      "YUD": 14.6218
     },
     "countryCcy": {
       "AT": "ATS",
