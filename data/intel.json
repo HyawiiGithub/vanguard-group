@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-30T01:01:41.734Z",
+  "updatedAt": "2026-10-30T01:16:31.405Z",
   "game": {
-    "currentTurn": 529,
-    "gameDateLabel": "December, Week 2, 2000",
+    "currentTurn": 530,
+    "gameDateLabel": "December, Week 3, 2000",
     "status": "active",
-    "nextTurnAt": "2026-10-30T01:00:00.000Z"
+    "nextTurnAt": "2026-10-30T02:00:00.000Z"
   },
   "roster": {
     "threats": [
@@ -39,9 +39,9 @@
     "corporations": 1,
     "workers": 7779,
     "sectorCount": 2,
-    "revenueUsd": 15894644.754952015,
-    "marketCapUsd": 341610049,
-    "cashUsd": 2207212.099698389,
+    "revenueUsd": 15894644.6459422,
+    "marketCapUsd": 334000000,
+    "cashUsd": 2198786.474698389,
     "debtUsd": 9516000,
     "bonds": 1,
     "defaultedBonds": 0,
@@ -99,28 +99,28 @@
       "note": null,
       "source": "autoMatch",
       "financials": {
-        "totalRevenue": 15833690,
-        "operatingIncome": 5711213,
-        "operatingCosts": 10122477,
+        "totalRevenue": 15799858,
+        "operatingIncome": 5699010,
+        "operatingCosts": 10100848,
         "dividendRate": 0,
-        "revenueUsd": 15894644.754952015,
-        "operatingIncomeUsd": 5733199.384026323,
-        "operatingCostsUsd": 10161445.370925691,
+        "revenueUsd": 15894644.6459422,
+        "operatingIncomeUsd": 5733199.550506786,
+        "operatingCostsUsd": 10161445.095435414,
         "marginPct": 36.07
       },
       "balanceSheet": {
-        "cashOnHand": 2207212.099698389,
-        "marketCapitalization": 341610049,
+        "cashOnHand": 2198786.474698389,
+        "marketCapitalization": 334000000,
         "totalDebt": 9516000,
-        "cashOnHandUsd": 2207212.099698389,
-        "marketCapitalizationUsd": 341610049,
+        "cashOnHandUsd": 2198786.474698389,
+        "marketCapitalizationUsd": 334000000,
         "totalDebtUsd": 9516000
       },
       "shareStructure": {
         "totalShares": 10000000,
         "publicFloat": 0,
         "publicFloatPct": 0,
-        "sharePrice": 34.16100485806007,
+        "sharePrice": 33.4,
         "shareholders": [
           {
             "name": "William E. Spencer",
